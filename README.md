@@ -1,0 +1,9 @@
+# Improving Probability-based Prompt Selection Through Unified Evaluation and Analysis
+
+Sohee Yang, Jonghyeon Kim, Joel Jang, Seonghyeon Ye, Hyunji Lee, Minjoon Seo
+
+Abstract: Large Language Models (LLMs) have demonstrated great capabilities in solving a wide range of tasks in a resource-efficient manner through prompting, which does not require task-specific training, but suffers from performance fluctuation when there are multiple prompt candidates. Previous works have introduced gradient-free probability-based prompt selection methods that aim to choose the optimal prompt among the candidates for a given task but fail to provide a comprehensive and fair comparison between each other. In this paper, we propose a unified framework to interpret and evaluate the existing probability-based prompt selection methods by performing extensive experiments on 13 common NLP tasks. We find that all existing methods can be unified into some variant of the method that maximizes the mutual information between the input and the corresponding model output (denoted as MI). Using the finding, we develop several variants of MI and increases the effectiveness of the best prompt selection method from 87.79% to 94.98%, measured as the ratio of the performance of the selected prompt to that of the optimal oracle prompt. Furthermore, we propose a novel calibration method called Calibration by Marginalization (CBM) that is orthogonal to existing methods and helps increase the prompt selection effectiveness of the best method by 99.44%.
+
+Paper Link: https://soheeyang.github.io/publication/yang2023improving
+
+Please stay tuned for the code and datasets!
