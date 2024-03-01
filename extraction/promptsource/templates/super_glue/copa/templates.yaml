@@ -1,0 +1,1766 @@
+dataset: super_glue
+subset: copa
+templates:
+  123-f299-4819-a5ac-633c11177228: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 123-f299-4819-a5ac-633c11177228
+    jinja: 'Complete the sentence with the appropriate ending.
+      {{ premise }} {% if question == "cause" %} because... {% else %} so... {% endif
+      %} ||| {% if label != -1 %}{{ answer_choices[label] }}{%endif%}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: generate
+    reference: ''
+  1234-f299-4819-a5ac-633c11177228: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 1234-f299-4819-a5ac-633c11177228
+    jinja: 'Complete the sentence with an inappropriate ending.
+      {{ premise }} {% if question == "cause" %} because... {% else %} so... {% endif
+      %} ||| {% if label != -1 %}{{ answer_choices[1-label] }}{%endif%}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: generate_negation
+    reference: ''
+  0edd8660-f299-4819-a5ac-633c11177228: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 0edd8660-f299-4819-a5ac-633c11177228
+    jinja: 'Exercise: choose the most plausible alternative.
+
+
+      {{ premise }} {% if question == "cause" %} because... {% else %} so... {% endif
+      %}
+
+      - {{choice1}}
+
+      - {{choice2}} ||| {% if label != -1 %}{{ answer_choices[label] }}{%endif%}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: exercise
+    reference: ''
+  150789fe-e309-47a1-82c9-0a4dc2c6b12b: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 150789fe-e309-47a1-82c9-0a4dc2c6b12b
+    jinja: "{% if question == \"effect\" %} \n{{ premise }} What could happen next,\
+      \ \"{{ answer_choices[0] }}\" or \"{{ answer_choices[1] }}\"? ||| {% if label\
+      \ != -1 %}{{ answer_choices[label] }}{%endif%}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: What could happen next_ C1 or C2?
+    reference: ''
+  4d879cbe-2fd7-424a-9d78-3f5200313fba: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 4d879cbe-2fd7-424a-9d78-3f5200313fba
+    jinja: "{{ premise }} \n\nI am hesitating between two options. Help me choose\
+      \ the more likely {% if question == \"cause\" %} cause: {% else %} effect: {%\
+      \ endif %}\n- {{choice1}}\n- {{choice2}} ||| {% if label != -1 %}{{ answer_choices[label]\
+      \ }}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: i_am_hesitating
+    reference: ''
+  66ea075e-4d03-4a78-b1fa-9a5228cf0c9d: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 66ea075e-4d03-4a78-b1fa-9a5228cf0c9d
+    jinja: '{{ premise }} {% if question == "cause" %} This happened because... {%
+      else %} As a consequence... {% endif %}
+
+      Help me pick the more plausible option:
+
+      - {{choice1}}
+
+      - {{choice2}} ||| {% if label != -1 %}{{ answer_choices[label] }}{%endif%}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: plausible_alternatives
+    reference: ''
+  744047dc-1298-45a2-8d68-d67e3f834ded: !Template
+    answer_choices: '{{choice1 }} ||| {{choice2}}'
+    id: 744047dc-1298-45a2-8d68-d67e3f834ded
+    jinja: '"{{ answer_choices[0] }}" or "{{ answer_choices[1] }}"? {{ premise }}
+      {% if question == "cause" %} because {% else %} so {% endif %} ||| {% if label
+      != -1 %}{{ answer_choices[label] }}{% endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: C1 or C2? premise_ so_because
+    reference: "Adapted from Perez et al. 2021 and Schick & Sch\xFCtz 2021."
+  84da62c2-9440-4cfc-bdd4-d70c65e33a82: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 84da62c2-9440-4cfc-bdd4-d70c65e33a82
+    jinja: "{% if question == \"effect\" %} \n{{ premise }} As a result, \"{{ answer_choices[0]\
+      \ }}\" or \"{{ answer_choices[1] }}\"? ||| {% if label != -1 %}{{ answer_choices[label]\
+      \ }}{%endif%}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: As a result_ C1 or C2?
+    reference: ''
+  8ce80f8a-239e-4393-892c-f63dbb0d9929: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 8ce80f8a-239e-4393-892c-f63dbb0d9929
+    jinja: "{{ premise }} \n\nWhat's the best option?\n- {{choice1}}\n- {{choice2}}\n\
+      \nWe are looking for {% if question == \"cause\" %} a cause {% else %} an effect\
+      \ {% endif %}\n||| {% if label != -1 %}{{answer_choices[label]}}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: best_option
+    reference: ''
+  8cf2ba73-aee5-4651-b5d4-b1b88afe4abb: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 8cf2ba73-aee5-4651-b5d4-b1b88afe4abb
+    jinja: "{% if question == \"cause\" %} \n{{ premise }} Which may be caused by\
+      \ \"{{ answer_choices[0] }}\" or \"{{ answer_choices[1] }}\"? ||| {% if label\
+      \ != -1 %}{{ answer_choices[label] }}{%endif%}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: which may be caused by
+    reference: ''
+  a1f9951e-2b6b-4530-9636-9cdf4c1658c5: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: a1f9951e-2b6b-4530-9636-9cdf4c1658c5
+    jinja: 'Pick the more likely continuation to the following sentence:
+
+      {{ premise }} {% if question == "cause" %} as a result of: {% else %} as a consequence:
+      {% endif %}
+
+      - {{choice1}}
+
+      - {{choice2}} ||| {% if label != -1 %}{{ answer_choices[label] }}{%endif%}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: more likely
+    reference: ''
+  a61d8c21-da25-47bf-b5fe-14a8edd650af: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: a61d8c21-da25-47bf-b5fe-14a8edd650af
+    jinja: '{{ premise }}
+
+
+      Select the most plausible {% if question == "cause" %} cause: {% else %} effect:
+      {% endif %}
+
+      - {{choice1}}
+
+      - {{choice2}} ||| {% if label != -1 %}{{ answer_choices[label] }}{%endif%}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: cause_effect
+    reference: ''
+  a8bf11c3-bea2-45ba-a533-957d8bee5e2e: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: a8bf11c3-bea2-45ba-a533-957d8bee5e2e
+    jinja: "{% if question == \"cause\" %} \n{{ premise }} Why? \"{{ answer_choices[0]\
+      \ }}\" or \"{{ answer_choices[1] }}\"? ||| {% if label != -1 %}{{ answer_choices[label]\
+      \ }}{%endif%}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: why? C1 or C2
+    reference: ''
+  f32348cd-d3cb-4619-87b9-e24f99c78567: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: f32348cd-d3cb-4619-87b9-e24f99c78567
+    jinja: '{{ premise }} {% if question == "cause" %} because... {% else %} so...
+      {% endif %}
+
+      Choose between:
+
+      - {{choice1}}
+
+      - {{choice2}} ||| {% if label != -1 %}{{ answer_choices[label] }}{%endif%}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: choose
+    reference: ''
+  ad5d683a-8c47-469d-9835-5e6ebdba72c6: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: ad5d683a-8c47-469d-9835-5e6ebdba72c6
+    jinja: '{{premise}} {% if question == ''cause'' %}because {% else %} therefore
+      {% endif %} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: fewshot
+    reference: jonghyeonkim
+  f11e90ba-7609-405d-a512-79a77dc4062d: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: f11e90ba-7609-405d-a512-79a77dc4062d
+    jinja: 'What could be the reason for this event: {{ premise }}? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_00
+    reference: jonghyeonkim
+  dccf86d0-f685-4b5a-b6d2-5cfd69b0baf8: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: dccf86d0-f685-4b5a-b6d2-5cfd69b0baf8
+    jinja: What sentence explains the event "{{ premise }}" better? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_01
+    reference: jonghyeonkim
+  3043f289-ce25-4bf9-aa66-41f317a990e5: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 3043f289-ce25-4bf9-aa66-41f317a990e5
+    jinja: 'What is the most likely outcome of the scenario: "{{ premise }}"? ||| {{
+      answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_02
+    reference: jonghyeonkim
+  4951af80-258e-430f-9b76-99fea894a298: !Template
+    answer_choices: 'A. {{choice1}} ||| B. {{choice2}}'
+    id: 4951af80-258e-430f-9b76-99fea894a298
+    jinja: 'What might have caused {{premise}}?
+
+
+      A. {{choice1}}
+
+      B. {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_03
+    reference: jonghyeonkim
+  8442467b-a061-404c-bb57-32b58bc5384a: !Template
+    answer_choices: '1. {{choice1}} ||| 2. {{choice2}}'
+    id: 8442467b-a061-404c-bb57-32b58bc5384a
+    jinja: 'What happened after {{ premise }}?
+
+      1. {{ choice1 }}
+
+      2. {{ choice2 }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_04
+    reference: jonghyeonkim
+  c7a450f6-50dc-4fe4-9270-8379d351f5dc: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: c7a450f6-50dc-4fe4-9270-8379d351f5dc
+    jinja: Given the premise "{{ premise }}", create the answer that best fits the effect.
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_05
+    reference: jonghyeonkim
+  6a80da05-6cc7-4f5b-8789-cfb493a7e6a1: !Template
+    answer_choices: 'A. {{choice1}} ||| B. {{choice2}}'
+    id: 6a80da05-6cc7-4f5b-8789-cfb493a7e6a1
+    jinja: 'What would be the most likely effect of {{premise}}?
+
+
+      A. {{choice1}}
+
+      B. {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_06
+    reference: jonghyeonkim
+  51a388b8-946c-4284-84be-082087d0e7dc: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 51a388b8-946c-4284-84be-082087d0e7dc
+    jinja: '{{ premise }}
+
+
+      Help me choose the more plausible option:
+
+      - {{choice1}}
+
+      - {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_07
+    reference: jonghyeonkim
+  b2dba06a-9e72-4ef0-a871-9436d847d0b2: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: b2dba06a-9e72-4ef0-a871-9436d847d0b2
+    jinja: 'Help me choose the more plausible option:
+
+
+      {{ premise }}
+
+
+      - {{choice1}}
+
+      - {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_08
+    reference: jonghyeonkim
+  3fde5077-2fcc-457c-ab89-7b3621e1864c: !Template
+    answer_choices: 'A. {{choice1}} ||| B. {{choice2}}'
+    id: 3fde5077-2fcc-457c-ab89-7b3621e1864c
+    jinja: 'What is the best option that could follow from {{premise}}?
+
+
+      A. {{choice1}}
+
+      B. {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_09
+    reference: jonghyeonkim
+  23ed7d8f-ac61-4ec1-b74f-29cefe263c44: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 23ed7d8f-ac61-4ec1-b74f-29cefe263c44
+    jinja: 'What could have led to {{premise}}? Choose the most plausible option:
+
+      - {{choice1}}
+
+      - {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_10
+    reference: jonghyeonkim
+  6265be5c-3dfc-4588-b88a-6e5d7d3cd07d: !Template
+    answer_choices: 'A. {{choice1}} ||| B. {{choice2}}'
+    id: 6265be5c-3dfc-4588-b88a-6e5d7d3cd07d
+    jinja: '{{premise}}
+
+
+      Which of the following could be a result of the above?
+
+
+      A. {{choice1}}
+
+      B. {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_11
+    reference: jonghyeonkim
+  c37d7cad-4abf-491b-b737-f8face66b236: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: c37d7cad-4abf-491b-b737-f8face66b236
+    jinja: '{{ premise }}
+
+
+      Choose the most plausible explanation of what happened:
+
+      - {{choice1}}
+
+      - {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_12
+    reference: jonghyeonkim
+  a89e19ec-fbcf-4830-abe4-c8d0637abc4e: !Template
+    answer_choices: 'A. {{choice1}} ||| B. {{choice2}}'
+    id: a89e19ec-fbcf-4830-abe4-c8d0637abc4e
+    jinja: 'Please choose the most plausible cause of the following:
+
+      {{ premise }}
+
+      A. {{choice1}}
+
+      B. {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_13
+    reference: jonghyeonkim
+  1e028a67-b788-4ad2-9a4d-45099f2d79c6: !Template
+    answer_choices: '1. {{choice1}} ||| 2. {{choice2}}'
+    id: 1e028a67-b788-4ad2-9a4d-45099f2d79c6
+    jinja: 'What can we infer about the situation in the statement?
+
+      {{ premise }}
+
+      1. {{ choice1 }}
+
+      2. {{ choice2 }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_14
+    reference: jonghyeonkim
+  d0edb269-d027-4c6e-8451-9444996a430d: !Template
+    answer_choices: 'A. {{choice1}} ||| B. {{choice2}}'
+    id: d0edb269-d027-4c6e-8451-9444996a430d
+    jinja: 'Given that {{premise}}, which of the following is more likely to be true?
+
+
+      A. {{choice1}}
+
+      B. {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_15
+    reference: jonghyeonkim
+  5accbfcd-8c6e-498c-8fd8-761c6d6b3893: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 5accbfcd-8c6e-498c-8fd8-761c6d6b3893
+    jinja: 'Make the correct answer: {{ premise }} {% if question == "cause" %} because...
+      {% else %} so... {% endif %} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_16
+    reference: jonghyeonkim
+  80a97373-ee32-4b48-a916-cb7fd2a99ff8: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 80a97373-ee32-4b48-a916-cb7fd2a99ff8
+    jinja: 'What is the best way to finish the statement: "{{ premise }}", if the question
+      is about the cause or effect? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_17
+    reference: jonghyeonkim
+  09bac945-2bc6-4bbf-81c3-77f9b5570448: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 09bac945-2bc6-4bbf-81c3-77f9b5570448
+    jinja: What could be the most likely {% if question == 'cause' %} cause {% else
+      %} effect {% endif %} of {{ premise }}? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_18
+    reference: jonghyeonkim
+  72f40343-54c0-40d9-9d9b-120017c2811e: !Template
+    answer_choices: 'A. {{choice1}} ||| B. {{choice2}}'
+    id: 72f40343-54c0-40d9-9d9b-120017c2811e
+    jinja: 'What is the most probable option that relates to the given statement: {{premise}}?
+
+
+      A. {{choice1}}
+
+      B. {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_19
+    reference: jonghyeonkim
+  e82756a6-c680-4e13-87d2-4ccde4276b4d: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: e82756a6-c680-4e13-87d2-4ccde4276b4d
+    jinja: '{{ premise }}{% if question == "cause" %} caused by {% else %} resulted
+      from {% endif %}{{choice1}} or {{choice2}}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_20
+    reference: jonghyeonkim
+  7b1e013c-db3b-4b76-997b-2986dd30d1bb: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 7b1e013c-db3b-4b76-997b-2986dd30d1bb
+    jinja: 'Complete the following statement:
+
+      {{ premise }} {% if question == "cause" %} because... {% else %} so... {% endif
+      %} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_21
+    reference: jonghyeonkim
+  195f09e1-ee1e-42a9-89e5-5d075387e4fe: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 195f09e1-ee1e-42a9-89e5-5d075387e4fe
+    jinja: 'Tell the most probable {% if question == "cause" %}cause{% else %}effect{%
+      endif %} of the given event: {{ premise }}. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_22
+    reference: jonghyeonkim
+  f1455c10-d9b4-4653-abd7-d90aaf073968: !Template
+    answer_choices: '1. {{choice1}} ||| 2. {{choice2}}'
+    id: f1455c10-d9b4-4653-abd7-d90aaf073968
+    jinja: 'Help me decide which of the following is a more plausible explanation for
+      {{ premise }}.
+
+
+      1. {{choice1}}
+
+      2. {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_23
+    reference: jonghyeonkim
+  4f757b72-e690-42cc-9e06-06479319a1c0: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 4f757b72-e690-42cc-9e06-06479319a1c0
+    jinja: 'Generate the correct {% if question == "cause" %}cause{% else %}effect{%
+      endif %} of the given scenario: {{ premise }}. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_24
+    reference: jonghyeonkim
+  f841c0a1-847c-4562-a65e-474423846e87: !Template
+    answer_choices: 'A) {{choice1}} ||| B) {{choice2}}'
+    id: f841c0a1-847c-4562-a65e-474423846e87
+    jinja: 'Select the alternative that provides the most plausible explanation for
+      why {{ premise }}
+
+
+      A) {{choice1}}
+
+      B) {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_25
+    reference: jonghyeonkim
+  2b6d4777-1486-4f13-9aaa-84490b41aed7: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 2b6d4777-1486-4f13-9aaa-84490b41aed7
+    jinja: Which statement of the following {% if question == 'cause' %} caused {% else
+      %} resulted from {% endif %} {{ premise }}? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_26
+    reference: jonghyeonkim
+  a7440078-4371-438a-b9b1-df5ba0e978aa: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: a7440078-4371-438a-b9b1-df5ba0e978aa
+    jinja: 'Can you tell me what could be the {% if question == ''cause'' %} cause {%
+      else %} effect {% endif %} of this?
+
+      {{ premise }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_27
+    reference: jonghyeonkim
+  4d73e91f-7382-4252-a796-8bab823ef268: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 4d73e91f-7382-4252-a796-8bab823ef268
+    jinja: 'What is the most likely {% if question == ''cause'' %} cause {% else %}
+      effect {% endif %} of the given sentence?
+
+      {{ premise }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_28
+    reference: jonghyeonkim
+  4d5ec436-b1b4-437c-be4e-47c5307b9c96: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 4d5ec436-b1b4-437c-be4e-47c5307b9c96
+    jinja: 'Which option best completes the given sentence?
+
+      {{ premise }} {% if question == ''cause'' %} because... {% else %} so... {% endif
+      %} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_29
+    reference: jonghyeonkim
+  f24f4477-d70a-45d8-8184-3206d9ad77cb: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: f24f4477-d70a-45d8-8184-3206d9ad77cb
+    jinja: 'Which option best completes the sentence and provides a {% if question ==
+      ''cause'' %} cause {% else %} effect {% endif %}?
+
+      {{ premise }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_30
+    reference: jonghyeonkim
+  57cd83e2-d74a-4ee0-9240-d83cdbfd73b6: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 57cd83e2-d74a-4ee0-9240-d83cdbfd73b6
+    jinja: 'Choose the correct ending that fits the given sentence.
+
+      {{ premise }} {% if question == ''cause'' %} because... {% else %} so... {% endif
+      %} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_31
+    reference: jonghyeonkim
+  562cda82-7a23-4219-a402-1d6a0b0d6ebd: !Template
+    answer_choices: 'A. {{choice1}} ||| B. {{choice2}}'
+    id: 562cda82-7a23-4219-a402-1d6a0b0d6ebd
+    jinja: 'Which of the following is a more likely {{ ''cause'' if question == ''cause''
+      else ''effect'' }} for {{premise}}?
+
+
+      A. {{choice1}}
+
+      B. {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_32
+    reference: jonghyeonkim
+  962eb433-3ae8-45d3-ac4f-485345d317d6: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 962eb433-3ae8-45d3-ac4f-485345d317d6
+    jinja: 'Select the option that best explains the given sentence.
+
+      {{ premise }} {% if question == ''cause'' %} because... {% else %} so... {% endif
+      %} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_33
+    reference: jonghyeonkim
+  96fcbca0-6601-410a-a55c-0126ac659783: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 96fcbca0-6601-410a-a55c-0126ac659783
+    jinja: 'Choose the best option that completes the given sentence.
+
+      {{ premise }} {% if question == ''cause'' %} because... {% else %} so... {% endif
+      %} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_34
+    reference: jonghyeonkim
+  d65938eb-24e0-4c1d-9533-9ea142e72736: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: d65938eb-24e0-4c1d-9533-9ea142e72736
+    jinja: 'Which one of the following {% if question == ''cause'' %} caused {% else
+      %} resulted from {% endif %} {{ premise }}
+
+      - {{choice2}}
+
+      - {{choice1}}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_35
+    reference: jonghyeonkim
+  5e713133-13d3-4a02-9327-67a347dcecdc: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 5e713133-13d3-4a02-9327-67a347dcecdc
+    jinja: 'Please choose the more plausible {% if question == ''cause'' %} cause {%
+      else %} effect {% endif %} of {{ premise }}.
+
+      - {{choice1}}
+
+      - {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_36
+    reference: jonghyeonkim
+  4c6f0804-4184-4081-899c-cecb39ae39e4: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 4c6f0804-4184-4081-899c-cecb39ae39e4
+    jinja: 'Generate the correct option that explains the given sentence.
+
+      {{ premise }} {% if question == ''cause'' %} because... {% else %} so... {% endif
+      %} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_37
+    reference: jonghyeonkim
+  ee4456fb-0fa0-40e0-837e-19f839fcbaa4: !Template
+    answer_choices: 'A. {{choice1}} ||| B. {{choice2}}'
+    id: ee4456fb-0fa0-40e0-837e-19f839fcbaa4
+    jinja: '{{ premise }}
+
+      What could be the {% if question == "cause" %} cause {% else %} effect {% endif
+      %} of this scenario?
+
+      A. {{choice1}}
+
+      B. {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_38
+    reference: jonghyeonkim
+  0503d5a6-c26e-4d91-b899-f0c701db1643: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 0503d5a6-c26e-4d91-b899-f0c701db1643
+    jinja: 'Choose the option that provides a possible {% if question == ''cause'' %}
+      cause {% else %} effect {% endif %} of the given sentence.
+
+      {{ premise }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_39
+    reference: jonghyeonkim
+  ce4554ce-5949-4444-8512-903b30ec41e1: !Template
+    answer_choices: '1: {{ choice1 }} ||| 2: {{ choice2 }}'
+    id: ce4554ce-5949-4444-8512-903b30ec41e1
+    jinja: 'What could have {% if question == "cause" %}caused{% else %}resulted in{%
+      endif %} {{ premise }}?
+
+      Option 1: {{ choice1 }}
+
+      Option 2: {{ choice2 }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_40
+    reference: jonghyeonkim
+  38f5f2ef-764d-438f-abe2-a5f1dc97b438: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 38f5f2ef-764d-438f-abe2-a5f1dc97b438
+    jinja: 'Choose the best option that completes the sentence and provides a {% if
+      question == ''cause'' %} cause {% else %} effect {% endif %}.
+
+      {{ premise }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_41
+    reference: jonghyeonkim
+  2436ae99-64f8-4658-9e0d-e5637000961f: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 2436ae99-64f8-4658-9e0d-e5637000961f
+    jinja: 'Select the statement that is the most likely {% if question == "cause" %}
+      cause {% else %} effect {% endif %} of the given premise: {{ premise }} ||| {{
+      answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_42
+    reference: jonghyeonkim
+  270ec928-bd01-4829-a56c-99b8166f71c4: !Template
+    answer_choices: '1: {{choice1}} ||| 2: {{choice2}}'
+    id: 270ec928-bd01-4829-a56c-99b8166f71c4
+    jinja: 'Help me choose the {% if question == ''cause'' %} cause {% else %} effect
+      {% endif %} of {{ premise }}.
+
+      Option 1: {{choice1}}
+
+      Option 2: {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_43
+    reference: jonghyeonkim
+  8af34c56-4489-46ba-98ef-4ff2c8fcc9eb: !Template
+    answer_choices: '1. {{choice1}} ||| 2. {{choice2}}'
+    id: 8af34c56-4489-46ba-98ef-4ff2c8fcc9eb
+    jinja: 'Please choose the more plausible {% if question == ''cause'' %} cause {%
+      else %} effect {% endif %}:
+
+      {{ premise }}
+
+      1. {{ choice1 }}
+
+      2. {{ choice2 }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_44
+    reference: jonghyeonkim
+  16f1dfd6-4677-41d1-b922-9641a8884ba1: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 16f1dfd6-4677-41d1-b922-9641a8884ba1
+    jinja: 'Read the following statement and decide which option fits best.
+
+
+      {{ premise }} {% if question == ''cause'' %} because... {% else %} so... {% endif
+      %} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_45
+    reference: jonghyeonkim
+  3c4c286e-44f2-42b6-b877-fe93ee9421e7: !Template
+    answer_choices: 'A) {{ choice1 }} ||| B) {{ choice2 }}'
+    id: 3c4c286e-44f2-42b6-b877-fe93ee9421e7
+    jinja: 'Choose the {% if question == "cause" %}cause{% else %}effect{% endif %}
+      that is more likely based on {{ premise }}.
+
+      A) {{ choice1 }}
+
+      B) {{ choice2 }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_46
+    reference: jonghyeonkim
+  4ab9731e-544e-43af-9bc9-642a7f56bd2b: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 4ab9731e-544e-43af-9bc9-642a7f56bd2b
+    jinja: 'Fill in the blank with the most plausible {% if question == ''cause'' %}
+      cause {% else %} effect {% endif %} of the following:
+
+
+      {{ premise }}
+
+
+      [ blank ] ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_47
+    reference: jonghyeonkim
+  5ea00e5c-31c2-40c2-b297-331c48cb98bd: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 5ea00e5c-31c2-40c2-b297-331c48cb98bd
+    jinja: 'Please fill in the blank with the appropriate phrase: {{ premise }} {% if
+      question == "cause" %} because __________ {% else %} so __________ {% endif %}
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_48
+    reference: jonghyeonkim
+  24d4f8f0-8710-4c1e-910d-db7a9f155fe4: !Template
+    answer_choices: '1. {{choice1}} ||| 2. {{choice2}}'
+    id: 24d4f8f0-8710-4c1e-910d-db7a9f155fe4
+    jinja: 'Which of the following is the more likely {% if question == ''cause'' %}
+      cause {% else %} effect {% endif %}?
+
+      {{ premise }}
+
+      1. {{ choice1 }}
+
+      2. {{ choice2 }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_49
+    reference: jonghyeonkim
+  1a8ce811-a494-4442-926c-c22efd8ed7e6: !Template
+    answer_choices: 'A) {{ choice1 }} ||| B) {{ choice2 }}'
+    id: 1a8ce811-a494-4442-926c-c22efd8ed7e6
+    jinja: '{{ premise }} - {% if question == "cause" %}What could have caused this?{%
+      else %}What happened because of this?{% endif %}
+
+      A) {{ choice1 }}
+
+      B) {{ choice2 }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_50
+    reference: jonghyeonkim
+  40b31bed-d53a-49ec-a63a-3c0dc6499097: !Template
+    answer_choices: 'A) {{ choice1 }} ||| B) {{ choice2 }}'
+    id: 40b31bed-d53a-49ec-a63a-3c0dc6499097
+    jinja: '{{ premise }} - {% if question == "cause" %}What caused this?{% else %}What
+      could have happened because of this?{% endif %}
+
+      A) {{ choice1 }}
+
+      B) {{ choice2 }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_51
+    reference: jonghyeonkim
+  0bae9149-79ac-4887-8760-cfbafa637354: !Template
+    answer_choices: 'A) {{choice1}} ||| B) {{choice2}}'
+    id: 0bae9149-79ac-4887-8760-cfbafa637354
+    jinja: 'What could be the most likely {% if question == ''cause'' %} cause {% else
+      %} effect {% endif %} of the situation described above?
+
+      A) {{choice1}}
+
+      B) {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_52
+    reference: jonghyeonkim
+  4a5b1c05-32cc-4261-90f0-01dd07d92025: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 4a5b1c05-32cc-4261-90f0-01dd07d92025
+    jinja: 'What would be the most appropriate conclusion to draw from the following?
+
+      {{ premise }}{% if question == "cause" %} Due to...{% else %} Therefore...{% endif
+      %} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_53
+    reference: jonghyeonkim
+  1e3e1430-8acf-464a-a432-812d2985d43f: !Template
+    answer_choices: 'A) {{ choice1 }} ||| B) {{ choice2 }}'
+    id: 1e3e1430-8acf-464a-a432-812d2985d43f
+    jinja: 'What is the most likely {% if question == "cause" %}cause{% else %}effect{%
+      endif %} of the following statement?
+
+      {{ premise }}
+
+      A) {{ choice1 }}
+
+      B) {{ choice2 }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_54
+    reference: jonghyeonkim
+  19a21d7f-8507-4a97-a41f-659b72837c0a: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 19a21d7f-8507-4a97-a41f-659b72837c0a
+    jinja: 'Which of the following options provides the most plausible {% if question
+      == ''cause'' %} cause {% else %} effect {% endif %} of the given sentence?
+
+      {{ premise }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_55
+    reference: jonghyeonkim
+  c40fb502-9069-4ab4-b8b6-e6655aca6b93: !Template
+    answer_choices: '{{ choice1 }} ||| {{ choice2 }}'
+    id: c40fb502-9069-4ab4-b8b6-e6655aca6b93
+    jinja: 'What could have happened {% if question == "cause" %}because of{% else %}as
+      a result of{% endif %} {{ premise }}?
+
+      Option 1: {{ choice1 }}
+
+      Option 2: {{ choice2 }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_56
+    reference: jonghyeonkim
+  4b6dd37a-7052-4303-bc4d-99499987dd7e: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 4b6dd37a-7052-4303-bc4d-99499987dd7e
+    jinja: "Help me choose the {% if question == 'cause' %} cause {% else %} effect\
+      \ {% endif %} of the situation in the statement:\n{{ premise }}\n\n{{ choice1\
+      \ }}\n\n {{ choice2 }} ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_57
+    reference: jonghyeonkim
+  ef88be51-6132-4840-bbac-4e0f6a6ed384: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: ef88be51-6132-4840-bbac-4e0f6a6ed384
+    jinja: '{{ premise }}
+
+
+      Choose the option that more likely {% if question == "cause" %} explains {% else
+      %} follows from {% endif %} the situation:
+
+      - {{choice1}}
+
+      - {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_58
+    reference: jonghyeonkim
+  51f33a50-3912-44e6-baaa-ffb04887b500: !Template
+    answer_choices: 'A) {{ choice1 }} ||| B) {{ choice2 }}'
+    id: 51f33a50-3912-44e6-baaa-ffb04887b500
+    jinja: 'I''m trying to figure out the {% if question == "cause" %}cause{% else %}effect{%
+      endif %} of {{ premise }}. Which is more plausible?
+
+      A) {{ choice1 }}
+
+      B) {{ choice2 }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_59
+    reference: jonghyeonkim
+  bd78c743-f64c-4d50-a877-bc77d95ad57c: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: bd78c743-f64c-4d50-a877-bc77d95ad57c
+    jinja: 'What is the more plausible {% if question == "cause" %} cause {% else %}
+      effect {% endif %} based on the given information?
+
+
+      {{ premise }}
+
+
+      - {{choice1}}
+
+      - {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_60
+    reference: jonghyeonkim
+  608ac74c-3aef-4708-aee6-d0351d63fc14: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 608ac74c-3aef-4708-aee6-d0351d63fc14
+    jinja: '{{ premise }}
+
+
+      Choose the option that more plausibly {% if question == "cause" %} caused {% else
+      %} resulted from {% endif %} the situation:
+
+      - {{choice1}}
+
+      - {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_61
+    reference: jonghyeonkim
+  ffc62182-6f78-4fc3-ac2b-fc063536e62d: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: ffc62182-6f78-4fc3-ac2b-fc063536e62d
+    jinja: '{{ premise }}
+
+
+      Which of the following {% if question == "cause" %} caused {% else %} resulted
+      from {% endif %} the situation more plausibly:
+
+      - {{choice1}}
+
+      - {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_62
+    reference: jonghyeonkim
+  da761a43-1961-46e5-b2d8-e849dc5c2474: !Template
+    answer_choices: 'A. {{choice1}} ||| B. {{choice2}}'
+    id: da761a43-1961-46e5-b2d8-e849dc5c2474
+    jinja: 'Please generate the most likely {{ ''cause'' if question == ''cause'' else
+      ''effect'' }} that follows from the following statement: {{premise}}
+
+
+      A. {{choice1}}
+
+      B. {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_63
+    reference: jonghyeonkim
+  f1507282-585d-4488-9acc-4bae478483b9: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: f1507282-585d-4488-9acc-4bae478483b9
+    jinja: 'What would be the best explanation of what is happening in the following
+      scenario?
+
+      {{ premise }}{% if question == "cause" %} Due to...{% else %} Therefore...{% endif
+      %} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_64
+    reference: jonghyeonkim
+  f9f16109-1908-4388-981d-ae6228eff709: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: f9f16109-1908-4388-981d-ae6228eff709
+    jinja: 'Based on the information provided, select the most plausible {% if question
+      == ''cause'' %} cause {% else %} effect {% endif %}.
+
+
+      {{ premise }}
+
+      - {{choice1}}
+
+      - {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_65
+    reference: jonghyeonkim
+  84e9328b-c2f3-444a-a0e1-2c7cee9b7db5: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 84e9328b-c2f3-444a-a0e1-2c7cee9b7db5
+    jinja: 'What can be inferred from the following statement? Generate an answer that
+      best fits.
+
+
+      {{ premise }} {% if question == ''cause'' %} because... {% else %} so... {% endif
+      %} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_66
+    reference: jonghyeonkim
+  d6b21552-a23b-4318-9a4c-56baee194e5a: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: d6b21552-a23b-4318-9a4c-56baee194e5a
+    jinja: '{{ premise }}{% if question == "cause" %} What could be the cause?{% else
+      %} What could be the effect?{% endif %}
+
+      Choose one of the following:
+
+      - {{choice1}}
+
+      - {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_67
+    reference: jonghyeonkim
+  8ea9c6f5-b3e6-4da2-bcab-30cc60dfe12a: !Template
+    answer_choices: 'A) {{choice1}} ||| B) {{choice2}}'
+    id: 8ea9c6f5-b3e6-4da2-bcab-30cc60dfe12a
+    jinja: 'Fill in the blank with the most plausible {% if question == ''cause'' %}
+      cause {% else %} effect {% endif %} of the following:
+
+
+      {{ premise }}
+
+
+      A) {{choice1}}
+
+      B) {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_68
+    reference: jonghyeonkim
+  270bcd41-9b10-4ea6-96e3-cb8309945158: !Template
+    answer_choices: '{{ choice1 }} ||| {{ choice2 }}'
+    id: 270bcd41-9b10-4ea6-96e3-cb8309945158
+    jinja: 'What is the most likely {% if question == "cause" %}cause{% else %}effect{%
+      endif %} of the given statement?
+
+      {{ premise }}
+
+      Option 1: {{ choice1 }}
+
+      Option 2: {{ choice2 }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_69
+    reference: jonghyeonkim
+  c638e7c4-ac8b-4a3a-b5c1-8e778f5b114d: !Template
+    answer_choices: 'A) {{choice1}} ||| B) {{choice2}}'
+    id: c638e7c4-ac8b-4a3a-b5c1-8e778f5b114d
+    jinja: 'I''m not sure, which of the following is more plausible as a {% if question
+      == ''cause'' %} cause {% else %} effect {% endif %} of {{ premise }}?
+
+      A) {{choice1}}
+
+      B) {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_70
+    reference: jonghyeonkim
+  e5761b5a-277c-476b-aa6c-b85e7b88dcc6: !Template
+    answer_choices: 'A. {{choice1}} ||| B. {{choice2}}'
+    id: e5761b5a-277c-476b-aa6c-b85e7b88dcc6
+    jinja: 'Which one of the following {% if question == "cause" %} caused {% else %}
+      was caused by {% endif %} the situation described below?
+
+      {{ premise }}
+
+      A. {{choice1}}
+
+      B. {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_71
+    reference: jonghyeonkim
+  0bce12b7-08ac-40e3-bc8a-b4d841f4b164: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 0bce12b7-08ac-40e3-bc8a-b4d841f4b164
+    jinja: Which option makes more sense based on the given information? {{ premise
+      }} {% if question == "cause" %}due to {% else %}which resulted in {% endif %}{{choice1}}
+      or {{choice2}}? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_72
+    reference: jonghyeonkim
+  2260319e-3a22-4256-b412-e297b815e471: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 2260319e-3a22-4256-b412-e297b815e471
+    jinja: 'From the given options, which one most plausibly {% if question == ''cause''
+      %} caused {% else %} resulted from {% endif %} the situation in the following
+      sentence:
+
+
+      {{ premise }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_73
+    reference: jonghyeonkim
+  8ef310cc-59fc-4882-a8f2-d2d55a6f5719: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 8ef310cc-59fc-4882-a8f2-d2d55a6f5719
+    jinja: '{{ premise }}
+
+      What is the more plausible {% if question == ''cause'' %} cause {% else %} effect
+      {% endif %} of the described situation?
+
+      Option 1: {{choice1}}
+
+      Option 2: {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_74
+    reference: jonghyeonkim
+  0a13deb5-751f-491c-b915-18c32c219df1: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 0a13deb5-751f-491c-b915-18c32c219df1
+    jinja: 'Which of the following options is the most likely {% if question == "cause"
+      %} cause {% else %} effect {% endif %} of the given premise? {{ premise }}
+
+      - {{choice1}}
+
+      - {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_75
+    reference: jonghyeonkim
+  916b5287-b2ed-4ffe-82db-cdbecb0a7bc1: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 916b5287-b2ed-4ffe-82db-cdbecb0a7bc1
+    jinja: 'Based on the situation in the statement, what is the most likely {% if question
+      == ''cause'' %} cause {% else %} effect {% endif %}?
+
+      {{ premise }}
+
+      1. {{ choice1 }}
+
+      2. {{ choice2 }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_76
+    reference: jonghyeonkim
+  db49e8ad-43a1-4793-9d5a-a1ac9e9d9032: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: db49e8ad-43a1-4793-9d5a-a1ac9e9d9032
+    jinja: 'Which of the following is more plausible {% if question == ''cause'' %}
+      as the cause {% else %} as the effect {% endif %} of {{ premise }}?
+
+      Option 1: {{choice1}}
+
+      Option 2: {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_77
+    reference: jonghyeonkim
+  e6ac7b2e-5811-4080-98e5-40d7371a06b3: !Template
+    answer_choices: 'A. {{choice1}} ||| B. {{choice2}}'
+    id: e6ac7b2e-5811-4080-98e5-40d7371a06b3
+    jinja: 'Please select the option that provides the most likely {% if question ==
+      "cause" %} cause {% else %} effect {% endif %} of the following:
+
+      {{ premise }}
+
+      A. {{choice1}}
+
+      B. {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_78
+    reference: jonghyeonkim
+  3670e28d-7a58-4a29-9939-4946fa42855e: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 3670e28d-7a58-4a29-9939-4946fa42855e
+    jinja: 'Choose the more plausible option based on the given information.
+
+      {{ premise }}{% if question == "cause" %} due to {% else %} which resulted in
+      {% endif %}{{choice1}} or {{choice2}}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_79
+    reference: jonghyeonkim
+  d9b438bf-e4e3-4e50-a717-18b0ea9246c8: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: d9b438bf-e4e3-4e50-a717-18b0ea9246c8
+    jinja: 'What is the most plausible {% if question == "cause" %}cause{% else %}effect{%
+      endif %} of the following options based on the given information?
+
+
+      {{choice1}}
+
+      {{choice2}}
+
+
+      {{ premise }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_80
+    reference: jonghyeonkim
+  6438171c-11ab-475c-924f-defd0ba9a15d: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 6438171c-11ab-475c-924f-defd0ba9a15d
+    jinja: 'Fill in the blank to complete the sentence based on the given premise: {{
+      premise }}. {% if question == "cause" %} The reason for this is {% else %} As
+      a result, {% endif %} __________ ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_81
+    reference: jonghyeonkim
+  08590efc-b773-4e3f-a166-adb3cd153387: !Template
+    answer_choices: 'A. {{choice1}} ||| B. {{choice2}}'
+    id: 08590efc-b773-4e3f-a166-adb3cd153387
+    jinja: 'Please choose the option that describes the most plausible {% if question
+      == "cause" %} cause {% else %} effect {% endif %} of the following:
+
+      {{ premise }}
+
+      A. {{choice1}}
+
+      B. {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_82
+    reference: jonghyeonkim
+  147a4103-42c7-49c2-aa21-99e7265a2cb7: !Template
+    answer_choices: 'A) {{choice1}} ||| B) {{choice2}}'
+    id: 147a4103-42c7-49c2-aa21-99e7265a2cb7
+    jinja: '{{ premise }}
+
+      Please select the option that more plausibly {% if question == ''cause'' %} caused
+      {% else %} resulted from {% endif %} the situation described.
+
+      A) {{choice1}}
+
+      B) {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_83
+    reference: jonghyeonkim
+  a22a702c-e163-4be7-8884-3f49ea8e0f32: !Template
+    answer_choices: 'A) {{ choice1 }} ||| B) {{ choice2 }}'
+    id: a22a702c-e163-4be7-8884-3f49ea8e0f32
+    jinja: 'Based on the given statement, what is the {% if question == "cause" %}cause{%
+      else %}effect{% endif %} that is more likely to have occurred?
+
+      {{ premise }}
+
+      A) {{ choice1 }}
+
+      B) {{ choice2 }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_84
+    reference: jonghyeonkim
+  05e3f5dc-0335-4313-9264-8ca9bc37319f: !Template
+    answer_choices: 'A. {{choice1}} ||| B. {{choice2}}'
+    id: 05e3f5dc-0335-4313-9264-8ca9bc37319f
+    jinja: '{{ premise }}
+
+      Which one of the following statements {% if question == "cause" %} could be the
+      cause {% else %} could be the effect {% endif %} of this situation?
+
+      A. {{choice1}}
+
+      B. {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_85
+    reference: jonghyeonkim
+  ab52dfcb-d54e-4f25-88d7-4bfbfd7e5c52: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: ab52dfcb-d54e-4f25-88d7-4bfbfd7e5c52
+    jinja: 'Which of the following is more plausible {% if question == ''cause'' %}
+      as the cause {% else %} as the effect {% endif %} of the situation described above?
+
+      Option 1: {{choice1}}
+
+      Option 2: {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_86
+    reference: jonghyeonkim
+  5bd76fb5-dd61-4765-b606-73fd20dbaf60: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 5bd76fb5-dd61-4765-b606-73fd20dbaf60
+    jinja: 'Generate the next likely{% if question == "cause" %} cause {% else %} effect
+      {% endif %} of the following information.{{ "\n" if choices_in_prompt else ""
+      }}{{ premise }}
+
+
+      - {{choice1}}
+
+      - {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_87
+    reference: jonghyeonkim
+  757d7fdf-cc35-49c7-8e9e-87de2bbe8513: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 757d7fdf-cc35-49c7-8e9e-87de2bbe8513
+    jinja: 'Fill in the blank with the correct {% if question == ''cause'' %} cause
+      {% else %} effect {% endif %}.
+
+      {{ premise }} {% if question == ''cause'' %} caused by {% else %} resulting in
+      {% endif %} ________. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_88
+    reference: jonghyeonkim
+  c38fb672-2b75-48bd-9630-ce3b51f030b7: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: c38fb672-2b75-48bd-9630-ce3b51f030b7
+    jinja: 'Based on the given information, which of the following options is a more
+      likely{% if question == "cause" %} cause {% else %} effect {% endif %} of the
+      premise?
+
+
+      {{ premise }}
+
+
+      - {{choice1}}
+
+      - {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_89
+    reference: jonghyeonkim
+  8510b6a3-f286-49ff-92be-7993d803e8e6: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 8510b6a3-f286-49ff-92be-7993d803e8e6
+    jinja: 'What can be inferred about the given premise? Choose the option that seems
+      to be the most likely{% if question == "cause" %} cause {% else %} effect {% endif
+      %}.
+
+
+      {{ premise }}
+
+
+      - {{choice1}}
+
+      - {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_90
+    reference: jonghyeonkim
+  6fa9d130-fdb9-49aa-81f2-7e3976bae1b6: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 6fa9d130-fdb9-49aa-81f2-7e3976bae1b6
+    jinja: 'Choose the option that is more likely to{% if question == "cause" %} cause
+      {% else %} result in {% endif %}the given premise.{{ "\n" if choices_in_prompt
+      else "" }}{{ premise }}
+
+
+      - {{choice1}}
+
+      - {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_91
+    reference: jonghyeonkim
+  879aa962-2461-4a4a-8062-9b5cdbc3966d: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 879aa962-2461-4a4a-8062-9b5cdbc3966d
+    jinja: 'Choose the option that {% if question == ''cause'' %} best explains why
+      {% else %} is most likely to happen as a result of {% endif %} the situation in
+      the statement:
+
+      {{ premise }}
+
+      1. {{ choice1 }}
+
+      2. {{ choice2 }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_92
+    reference: jonghyeonkim
+  ee0c8503-6ddd-4163-9d72-d0bf660e96fd: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: ee0c8503-6ddd-4163-9d72-d0bf660e96fd
+    jinja: 'Which of the following options is more likely to have caused {{premise}}?
+      {% if question == ''cause'' %} Choose between the following: {% else %} Consider
+      the following two options: {% endif %}
+
+      - {{choice1}}
+
+      - {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_93
+    reference: jonghyeonkim
+  2f79ef0b-ba7c-4429-b4c8-d8b42b615884: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 2f79ef0b-ba7c-4429-b4c8-d8b42b615884
+    jinja: 'Based on {{premise}}, which option seems more likely to be the effect? {%
+      if question == ''effect'' %} Choose one of the following: {% else %} Which option
+      would you expect to be the effect? {% endif %}
+
+      - {{choice1}}
+
+      - {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_94
+    reference: jonghyeonkim
+  b626fee6-1f81-4c50-b9b7-6651338eccd0: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: b626fee6-1f81-4c50-b9b7-6651338eccd0
+    jinja: 'Which of the following statements is more likely to be true based on {{premise}}?
+      {% if question == ''cause'' %} What is the cause of this event? {% else %} What
+      is the effect of this event? {% endif %}
+
+      - {{choice1}}
+
+      - {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_95
+    reference: jonghyeonkim
+  c5ee49fe-3a70-4fc9-a68a-8c86f48d69d1: !Template
+    answer_choices: 'A) {{choice1}} ||| B) {{choice2}}'
+    id: c5ee49fe-3a70-4fc9-a68a-8c86f48d69d1
+    jinja: 'Consider the following statement and select the more likely {% if question
+      == ''cause'' %} cause {% else %} effect {% endif %}.
+
+
+      {{ premise }} {% if question == ''cause'' %} because... {% else %} so... {% endif
+      %}
+
+      A) {{choice1}}
+
+      B) {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_96
+    reference: jonghyeonkim
+  78b33f51-c20b-40a1-9b1c-1814cd96eac3: !Template
+    answer_choices: 'A) {{choice1}} ||| B) {{choice2}}'
+    id: 78b33f51-c20b-40a1-9b1c-1814cd96eac3
+    jinja: 'Consider the following statement and select the more plausible {% if question
+      == ''cause'' %} cause {% else %} effect {% endif %}.
+
+
+      {{ premise }} {% if question == ''cause'' %} because... {% else %} so... {% endif
+      %}
+
+      A) {{choice1}}
+
+      B) {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_97
+    reference: jonghyeonkim
+  f69d6173-b54a-44e2-beaa-850c00e42d7a: !Template
+    answer_choices: A) {{choice1}} ||| B) {{choice2}}
+    id: f69d6173-b54a-44e2-beaa-850c00e42d7a
+    jinja: 'Consider the following statement and select the more likely {% if question
+      == ''cause'' %} cause {% else %} effect {% endif %}.
+
+
+      {{ premise }} {% if question == ''cause'' %} because... {% else %} so... {% endif
+      %}
+
+      Choose A) or B):
+
+      A) {{choice1}}
+
+      B) {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_98
+    reference: jonghyeonkim
+  ffeed130-f596-40af-be34-6a58b458c1f5: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: ffeed130-f596-40af-be34-6a58b458c1f5
+    jinja: 'Consider the following premise: {{premise}}. {% if question == ''cause''
+      %} Which of the following options seems to be the most likely cause of this event?
+      {% else %} Which of the following options seems to be the most likely effect of
+      this event? {% endif %}
+
+      - {{choice1}}
+
+      - {{choice2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_99
+    reference: jonghyeonkim

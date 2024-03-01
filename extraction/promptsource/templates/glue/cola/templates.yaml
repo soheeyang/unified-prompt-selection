@@ -1,0 +1,2432 @@
+dataset: glue
+subset: cola
+templates:
+  1d3f5f15-8128-4445-8de5-92365b7e54a8: !Template
+    answer_choices: no ||| yes
+    id: 1d3f5f15-8128-4445-8de5-92365b7e54a8
+    jinja: 'Does the following sentence make sense and use correct English? Please
+      answer {{"yes"}} or {{"no"}}.
+
+      {{sentence}}
+
+      |||
+
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Make sense yes no
+    reference: ''
+  39a701ff-bb4b-48ac-8c0a-8c61bf0d4b8d: !Template
+    answer_choices: No ||| Yes
+    id: 39a701ff-bb4b-48ac-8c0a-8c61bf0d4b8d
+    jinja: '{{sentence}}
+
+      Is this example grammatically correct and sensible?
+
+      |||
+
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: is_this_correct
+    reference: A sample glue template
+  6f49b860-9145-4fcb-b632-9faea39e254e: !Template
+    answer_choices: no ||| yes
+    id: 6f49b860-9145-4fcb-b632-9faea39e254e
+    jinja: 'I''m copy-editing a story for publication. It has the following sentence
+      in it:
+
+      {{sentence}}
+
+      Does this sentence make sense and is it grammatically correct? Please answer
+      {{"yes or no"}}.
+
+      |||
+
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: editing
+    reference: ''
+  79b4c04c-c0e2-4add-a600-d5572da192e7: !Template
+    answer_choices: unacceptable ||| acceptable
+    id: 79b4c04c-c0e2-4add-a600-d5572da192e7
+    jinja: 'The following sentence is either "{{"acceptable"}}", meaning it is grammatically
+      correct and makes sense, or "{{"unacceptable"}}". Which is it?
+
+      {{sentence}}
+
+      |||
+
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Following sentence acceptable
+    reference: ''
+  dd33f089-57a1-452b-8bd5-8f1fffd10b60: !Template
+    answer_choices: no ||| yes
+    id: dd33f089-57a1-452b-8bd5-8f1fffd10b60
+    jinja: '{{sentence}}
+
+      I''m worried that sentence didn''t make any sense, or was grammatically incorrect.
+      Was it correct?
+
+      |||
+
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Previous sentence acceptable
+    reference: ''
+  efe5473a-ce7d-4f85-93d3-8bed9c34fc12: !Template
+     answer_choices: no ||| yes
+     id: efe5473a-ce7d-4f85-93d3-8bed9c34fc12
+     jinja: '{{sentence}} Is this an example of the proper use of the English language? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_00
+     reference: 'sohee'
+  e04d9816-a067-4d9a-9734-33075c458d4c: !Template
+     answer_choices: no ||| yes
+     id: e04d9816-a067-4d9a-9734-33075c458d4c
+     jinja: '{{sentence}} Does the sentence make sense and does it follow the rules of grammar? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_01
+     reference: 'sohee'
+  9c11d0b8-a557-46ea-b12f-22f99d9a43b2: !Template
+     answer_choices: no ||| yes
+     id: 9c11d0b8-a557-46ea-b12f-22f99d9a43b2
+     jinja: '{{sentence}} Is this sentence an example of the correct use of the English language? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_02
+     reference: 'sohee'
+  e9042621-07b0-4ef8-adae-9cc1f0d79e27: !Template
+     answer_choices: no ||| yes
+     id: e9042621-07b0-4ef8-adae-9cc1f0d79e27
+     jinja: '{{sentence}} Does this sentence make sense and is it grammatically correct? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_03
+     reference: 'sohee'
+  d9a65908-d2fa-4e6c-a907-087032528621: !Template
+     answer_choices: no ||| yes
+     id: d9a65908-d2fa-4e6c-a907-087032528621
+     jinja: '{{sentence}} Is this sentence grammatically correct and does it make sense? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_04
+     reference: 'sohee'
+  a4c63e6e-09ff-4bfa-955e-86dcfeca6ecd: !Template
+     answer_choices: no ||| yes
+     id: a4c63e6e-09ff-4bfa-955e-86dcfeca6ecd
+     jinja: '{{sentence}} Do you understand what I am saying?
+
+Do you comprehend what I am saying? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_05
+     reference: 'sohee'
+  6c48c0ce-e73b-4446-9074-e81ebc6ced6f: !Template
+     answer_choices: no ||| yes
+     id: 6c48c0ce-e73b-4446-9074-e81ebc6ced6f
+     jinja: '{{sentence}} Do you understand what I''m saying? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_06
+     reference: 'sohee'
+  a90df44c-ca0f-471c-850b-bb449d0697fa: !Template
+     answer_choices: no ||| yes
+     id: a90df44c-ca0f-471c-850b-bb449d0697fa
+     jinja: '{{sentence}} Do you use this word correctly in English? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_07
+     reference: 'sohee'
+  9230c8b8-8449-4d2e-af65-8e2531e8f6f0: !Template
+     answer_choices: no ||| yes
+     id: 9230c8b8-8449-4d2e-af65-8e2531e8f6f0
+     jinja: '{{sentence}} Does the this sentence make sense and use correct English? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_08
+     reference: 'sohee'
+  198b8098-f6c8-4d2a-adde-85c8d9c4210a: !Template
+     answer_choices: no ||| yes
+     id: 198b8098-f6c8-4d2a-adde-85c8d9c4210a
+     jinja: '{{sentence}} Does this example use correct English? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_09
+     reference: 'sohee'
+  69c17442-08bd-4690-848b-1db0bb3cf887: !Template
+     answer_choices: no ||| yes
+     id: 69c17442-08bd-4690-848b-1db0bb3cf887
+     jinja: '{{sentence}} Does this phrase and usage correct English? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_10
+     reference: 'sohee'
+  8a690095-a061-4667-a514-91e226c187c3: !Template
+     answer_choices: no ||| yes
+     id: 8a690095-a061-4667-a514-91e226c187c3
+     jinja: '{{sentence}} Does this phrase correct English? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_11
+     reference: 'sohee'
+  9db54305-10c5-4689-88a2-34c4b3a6f28e: !Template
+     answer_choices: no ||| yes
+     id: 9db54305-10c5-4689-88a2-34c4b3a6f28e
+     jinja: '{{sentence}} Does this sentence make sense and use correct English? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_12
+     reference: 'sohee'
+  62717de6-1254-4fa5-9608-d0978fde15e8: !Template
+     answer_choices: no ||| yes
+     id: 62717de6-1254-4fa5-9608-d0978fde15e8
+     jinja: '{{sentence}} Does this sentence mean and use correct English? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_13
+     reference: 'sohee'
+  868d1228-b380-49b1-8fff-9787397aaa01: !Template
+     answer_choices: no ||| yes
+     id: 868d1228-b380-49b1-8fff-9787397aaa01
+     jinja: '{{sentence}} Is that an example of correct English? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_14
+     reference: 'sohee'
+  8cf84431-532c-4660-987b-4ef955d79c46: !Template
+     answer_choices: no ||| yes
+     id: 8cf84431-532c-4660-987b-4ef955d79c46
+     jinja: '{{sentence}} Is that an example of proper English? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_15
+     reference: 'sohee'
+  91476154-ed1f-4bb2-bf01-ed11f596123a: !Template
+     answer_choices: no ||| yes
+     id: 91476154-ed1f-4bb2-bf01-ed11f596123a
+     jinja: '{{sentence}} Is the meaning of this sentence clear and does it use proper grammar? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_16
+     reference: 'sohee'
+  f2bd5242-c0b3-4832-a99e-bcb98c1daf03: !Template
+     answer_choices: no ||| yes
+     id: f2bd5242-c0b3-4832-a99e-bcb98c1daf03
+     jinja: '{{sentence}} Is the meaning of this sentence clear, and is it used correctly? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_17
+     reference: 'sohee'
+  fb99c280-230a-4d63-a132-38263531a653: !Template
+     answer_choices: no ||| yes
+     id: fb99c280-230a-4d63-a132-38263531a653
+     jinja: '{{sentence}} Is the sentence grammatically correct? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_18
+     reference: 'sohee'
+  d00f411b-82ab-45b2-9383-0ad0039ebbe9: !Template
+     answer_choices: no ||| yes
+     id: d00f411b-82ab-45b2-9383-0ad0039ebbe9
+     jinja: '{{sentence}} Is this an example of correct English? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_19
+     reference: 'sohee'
+  328f2459-1448-48a0-bf81-ac2e09e4938b: !Template
+     answer_choices: no ||| yes
+     id: 328f2459-1448-48a0-bf81-ac2e09e4938b
+     jinja: '{{sentence}} Is this an example of proper English? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_20
+     reference: 'sohee'
+  3106a68a-2472-4c7a-afd5-46a0e8e0398c: !Template
+     answer_choices: no ||| yes
+     id: 3106a68a-2472-4c7a-afd5-46a0e8e0398c
+     jinja: '{{sentence}} Is this example both grammatically correct and sensible? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_21
+     reference: 'sohee'
+  b305d737-972c-44e4-b8aa-c080e5c217cb: !Template
+     answer_choices: no ||| yes
+     id: b305d737-972c-44e4-b8aa-c080e5c217cb
+     jinja: '{{sentence}} Is this example grammatically correct and meaningful? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_22
+     reference: 'sohee'
+  3b7f3d0e-9076-4aeb-8b60-a97b8b32fd9d: !Template
+     answer_choices: no ||| yes
+     id: 3b7f3d0e-9076-4aeb-8b60-a97b8b32fd9d
+     jinja: '{{sentence}} Is this example grammatically correct and sensible? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_23
+     reference: 'sohee'
+  18b8a836-1474-4ced-b1e8-4572edbd0ddf: !Template
+     answer_choices: no ||| yes
+     id: 18b8a836-1474-4ced-b1e8-4572edbd0ddf
+     jinja: '{{sentence}} Is this example grammatically correct and significant? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_24
+     reference: 'sohee'
+  ed4fafbc-f0ee-4f3f-bfdc-4d31218409a4: !Template
+     answer_choices: no ||| yes
+     id: ed4fafbc-f0ee-4f3f-bfdc-4d31218409a4
+     jinja: '{{sentence}} Is this example using correct English? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_25
+     reference: 'sohee'
+  54869059-9cd6-4637-821b-fb7d991d317a: !Template
+     answer_choices: no ||| yes
+     id: 54869059-9cd6-4637-821b-fb7d991d317a
+     jinja: '{{sentence}} Is this example using the correct form of English? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_26
+     reference: 'sohee'
+  1db66ea4-99a9-44dd-a420-6bf7e1e27f42: !Template
+     answer_choices: no ||| yes
+     id: 1db66ea4-99a9-44dd-a420-6bf7e1e27f42
+     jinja: '{{sentence}} Is this example written in correct English? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_27
+     reference: 'sohee'
+  aaca4531-0f02-4954-8029-6c5d0e040705: !Template
+     answer_choices: no ||| yes
+     id: aaca4531-0f02-4954-8029-6c5d0e040705
+     jinja: '{{sentence}} Is this example written in proper English? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_28
+     reference: 'sohee'
+  2de9f70b-42e7-4c45-8176-cb497883d2dd: !Template
+     answer_choices: no ||| yes
+     id: 2de9f70b-42e7-4c45-8176-cb497883d2dd
+     jinja: '{{sentence}} Is this meaning correct from the grammatical point of ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_29
+     reference: 'sohee'
+  94fded6f-61bb-4c3f-a950-a7fcd6f9002e: !Template
+     answer_choices: no ||| yes
+     id: 94fded6f-61bb-4c3f-a950-a7fcd6f9002e
+     jinja: '{{sentence}} Is this meaning correct in English? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_30
+     reference: 'sohee'
+  629a7fd4-b0bb-4307-845f-50a4489414af: !Template
+     answer_choices: no ||| yes
+     id: 629a7fd4-b0bb-4307-845f-50a4489414af
+     jinja: '{{sentence}} Is this meaning grammatically correct? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_31
+     reference: 'sohee'
+  71fa3da1-6a82-45ee-ab19-3907590c4e78: !Template
+     answer_choices: no ||| yes
+     id: 71fa3da1-6a82-45ee-ab19-3907590c4e78
+     jinja: '{{sentence}} Is this meaning logically and grammatically correct? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_32
+     reference: 'sohee'
+  8a03df17-594c-4b32-aed2-a90418144768: !Template
+     answer_choices: no ||| yes
+     id: 8a03df17-594c-4b32-aed2-a90418144768
+     jinja: '{{sentence}} Is this phrase used in the English language correct? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_33
+     reference: 'sohee'
+  67d196ed-cd6d-4241-bea9-19edc46ff906: !Template
+     answer_choices: no ||| yes
+     id: 67d196ed-cd6d-4241-bea9-19edc46ff906
+     jinja: '{{sentence}} Is this phrase well formulated and meaningful? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_34
+     reference: 'sohee'
+  b244ab48-65ed-4494-8251-559e949b5fb2: !Template
+     answer_choices: no ||| yes
+     id: b244ab48-65ed-4494-8251-559e949b5fb2
+     jinja: '{{sentence}} Is this phrase well-formulated and meaningful? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_35
+     reference: 'sohee'
+  d7d8e0a8-7f0d-4731-b6de-e8ddbacf98ce: !Template
+     answer_choices: no ||| yes
+     id: d7d8e0a8-7f0d-4731-b6de-e8ddbacf98ce
+     jinja: '{{sentence}} Is this sentence an example of correct English? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_36
+     reference: 'sohee'
+  4f89a959-9ed7-435d-b00f-021d8fe15d94: !Template
+     answer_choices: no ||| yes
+     id: 4f89a959-9ed7-435d-b00f-021d8fe15d94
+     jinja: '{{sentence}} Is this sentence an example of proper English? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_37
+     reference: 'sohee'
+  8e402720-65af-4650-8507-381d210c1235: !Template
+     answer_choices: no ||| yes
+     id: 8e402720-65af-4650-8507-381d210c1235
+     jinja: '{{sentence}} Is this sentence correct in English? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_38
+     reference: 'sohee'
+  095ed448-3f5d-4d4a-a5f5-e6c7f93c6985: !Template
+     answer_choices: no ||| yes
+     id: 095ed448-3f5d-4d4a-a5f5-e6c7f93c6985
+     jinja: '{{sentence}} Is this sentence grammatically correct and gives the meaning? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_39
+     reference: 'sohee'
+  43042b49-fb65-4a92-a924-c43405bb9a57: !Template
+     answer_choices: no ||| yes
+     id: 43042b49-fb65-4a92-a924-c43405bb9a57
+     jinja: '{{sentence}} Is this sentence grammatically correct and logical? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_40
+     reference: 'sohee'
+  4e1e52d3-4c83-44c5-a152-4d38e92aee36: !Template
+     answer_choices: no ||| yes
+     id: 4e1e52d3-4c83-44c5-a152-4d38e92aee36
+     jinja: '{{sentence}} Is this sentence grammatically correct and sensible? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_41
+     reference: 'sohee'
+  87d0dae7-db9e-4497-883d-52957252eb2d: !Template
+     answer_choices: no ||| yes
+     id: 87d0dae7-db9e-4497-883d-52957252eb2d
+     jinja: '{{sentence}} Is this sentence grammatically correct? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_42
+     reference: 'sohee'
+  bed890eb-7fae-405e-a81e-34c5c3b55a8f: !Template
+     answer_choices: no ||| yes
+     id: bed890eb-7fae-405e-a81e-34c5c3b55a8f
+     jinja: '{{sentence}} Is this sentence logical and grammatically correct? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_43
+     reference: 'sohee'
+  0ba8a40b-937b-440e-a25f-43962ddcccc1: !Template
+     answer_choices: no ||| yes
+     id: 0ba8a40b-937b-440e-a25f-43962ddcccc1
+     jinja: '{{sentence}} Is this sentence logically and grammatically correct? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_44
+     reference: 'sohee'
+  a38d63d6-f6b1-41ad-a8bf-e8a317b8b33d: !Template
+     answer_choices: no ||| yes
+     id: a38d63d6-f6b1-41ad-a8bf-e8a317b8b33d
+     jinja: '{{sentence}} Is this sentence reasonable and uses the correct English? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_45
+     reference: 'sohee'
+  ef20fd64-6523-46a2-ad15-a4f9c8f99d3a: !Template
+     answer_choices: no ||| yes
+     id: ef20fd64-6523-46a2-ad15-a4f9c8f99d3a
+     jinja: '{{sentence}} Is this sentence well formulated and meaningful? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_46
+     reference: 'sohee'
+  697543e5-1bd9-4b63-9c01-14294268984d: !Template
+     answer_choices: no ||| yes
+     id: 697543e5-1bd9-4b63-9c01-14294268984d
+     jinja: '{{sentence}} Is this sentence well-formed and meaningful? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_47
+     reference: 'sohee'
+  d358bd28-380b-4a2a-b8b9-611e59d4a45c: !Template
+     answer_choices: no ||| yes
+     id: d358bd28-380b-4a2a-b8b9-611e59d4a45c
+     jinja: '{{sentence}} Is this word used in English correctly? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_48
+     reference: 'sohee'
+  e876682f-9a81-454d-8826-dff35aad0833: !Template
+     answer_choices: no ||| yes
+     id: e876682f-9a81-454d-8826-dff35aad0833
+     jinja: '{{sentence}} That''s an example of English, right? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_49
+     reference: 'sohee'
+  51dd175e-63e1-4030-a413-ccf78ae7b8c9: !Template
+     answer_choices: no ||| yes
+     id: 51dd175e-63e1-4030-a413-ccf78ae7b8c9
+     jinja: '{{sentence}} The meaning of this phrase is clear and is used correctly. ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_50
+     reference: 'sohee'
+  48bd66d7-6fd5-48e0-ac78-15b4b2e99b9a: !Template
+     answer_choices: no ||| yes
+     id: 48bd66d7-6fd5-48e0-ac78-15b4b2e99b9a
+     jinja: '{{sentence}} The meaning of this phrase is clear and it is used correctly. ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_51
+     reference: 'sohee'
+  bf63fae6-5b43-41a6-8aa8-62b5b3b00397: !Template
+     answer_choices: no ||| yes
+     id: bf63fae6-5b43-41a6-8aa8-62b5b3b00397
+     jinja: '{{sentence}} The sentence is grammatically correct and has a new meaning? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_52
+     reference: 'sohee'
+  738985e6-134d-47b6-b384-5114aa05f418: !Template
+     answer_choices: no ||| yes
+     id: 738985e6-134d-47b6-b384-5114aa05f418
+     jinja: '{{sentence}} This example is grammatically correct and significant? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_53
+     reference: 'sohee'
+  d88779e6-af89-4b57-99a3-e4317180b1e2: !Template
+     answer_choices: no ||| yes
+     id: d88779e6-af89-4b57-99a3-e4317180b1e2
+     jinja: '{{sentence}} This example uses correct English ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_54
+     reference: 'sohee'
+  5aeba488-413a-48c3-9e48-5960780d3bae: !Template
+     answer_choices: no ||| yes
+     id: 5aeba488-413a-48c3-9e48-5960780d3bae
+     jinja: '{{sentence}} This is an example of English, isn''t it? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_55
+     reference: 'sohee'
+  21f81670-0538-4591-ade7-2b27ab5ad4fc: !Template
+     answer_choices: no ||| yes
+     id: 21f81670-0538-4591-ade7-2b27ab5ad4fc
+     jinja: '{{sentence}} This is an example of English, no? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_56
+     reference: 'sohee'
+  5ac997e3-745a-4ce7-827f-79d7573515e2: !Template
+     answer_choices: no ||| yes
+     id: 5ac997e3-745a-4ce7-827f-79d7573515e2
+     jinja: '{{sentence}} This is an example of the correct use of English ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_57
+     reference: 'sohee'
+  b219dcf2-5857-4ef8-9125-5a79d5ebca4a: !Template
+     answer_choices: no ||| yes
+     id: b219dcf2-5857-4ef8-9125-5a79d5ebca4a
+     jinja: '{{sentence}} This is an example of the correct use of the English language. ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_58
+     reference: 'sohee'
+  74c42bdf-0e78-4db1-a918-43a91faf8dbe: !Template
+     answer_choices: no ||| yes
+     id: 74c42bdf-0e78-4db1-a918-43a91faf8dbe
+     jinja: '{{sentence}} This is an example of using the correct English ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_59
+     reference: 'sohee'
+  a2974def-ad3a-458d-9dc0-5c0c7b183d7e: !Template
+     answer_choices: no ||| yes
+     id: a2974def-ad3a-458d-9dc0-5c0c7b183d7e
+     jinja: '{{sentence}} This opinion is complete and grammatically correct. ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_60
+     reference: 'sohee'
+  3f2946af-ca0e-4244-99f2-bab8a75a720d: !Template
+     answer_choices: no ||| yes
+     id: 3f2946af-ca0e-4244-99f2-bab8a75a720d
+     jinja: '{{sentence}} This phrase gives a complete meaning and is grammatically correct. ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_61
+     reference: 'sohee'
+  be2d3a48-c62f-4034-981c-2c1c71a93ee3: !Template
+     answer_choices: no ||| yes
+     id: be2d3a48-c62f-4034-981c-2c1c71a93ee3
+     jinja: '{{sentence}} This phrase gives a complete sense and is grammatically correct. ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_62
+     reference: 'sohee'
+  c88554f7-5d0a-4c95-af73-bb858e809f78: !Template
+     answer_choices: no ||| yes
+     id: c88554f7-5d0a-4c95-af73-bb858e809f78
+     jinja: '{{sentence}} This phrase is grammatically correct and logical? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_63
+     reference: 'sohee'
+  11dcde57-1472-4cc6-b09d-b0933dbb4e19: !Template
+     answer_choices: no ||| yes
+     id: 11dcde57-1472-4cc6-b09d-b0933dbb4e19
+     jinja: '{{sentence}} This phrase is logically and grammatically correct? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_64
+     reference: 'sohee'
+  800edba0-31db-4638-994e-15d848b438b8: !Template
+     answer_choices: no ||| yes
+     id: 800edba0-31db-4638-994e-15d848b438b8
+     jinja: '{{sentence}} This phrase is reasonable and uses the correct English? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_65
+     reference: 'sohee'
+  2a5a36d0-8995-4f63-ba5b-91cc07cc4d8d: !Template
+     answer_choices: no ||| yes
+     id: 2a5a36d0-8995-4f63-ba5b-91cc07cc4d8d
+     jinja: '{{sentence}} This phrase is well formulated and significant? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_66
+     reference: 'sohee'
+  8bbfb113-b996-4084-b244-dc6cc1f5198d: !Template
+     answer_choices: no ||| yes
+     id: 8bbfb113-b996-4084-b244-dc6cc1f5198d
+     jinja: '{{sentence}} This sentence gives a full meaning and is grammatically correct. ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_67
+     reference: 'sohee'
+  8b98acd5-740e-4e28-9f7a-bd0c369322de: !Template
+     answer_choices: no ||| yes
+     id: 8b98acd5-740e-4e28-9f7a-bd0c369322de
+     jinja: '{{sentence}} This sentence gives full meaning and is grammatically correct. ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_68
+     reference: 'sohee'
+  4b506a07-d9c4-494c-9094-d74e83018bd0: !Template
+     answer_choices: no ||| yes
+     id: 4b506a07-d9c4-494c-9094-d74e83018bd0
+     jinja: '{{sentence}} This sentence has a complete meaning and is grammatically correct. ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_69
+     reference: 'sohee'
+  659ae05c-f82a-4529-b5a8-0d0b6c61468c: !Template
+     answer_choices: no ||| yes
+     id: 659ae05c-f82a-4529-b5a8-0d0b6c61468c
+     jinja: '{{sentence}} This sentence makes perfect sense and is grammatically correct ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_70
+     reference: 'sohee'
+  227dadf1-612c-48ec-98f6-66d8be5c0cbc: !Template
+     answer_choices: no ||| yes
+     id: 227dadf1-612c-48ec-98f6-66d8be5c0cbc
+     jinja: '{{sentence}} You know what I did? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_71
+     reference: 'sohee'
+  ae4c21bb-1aa1-4640-bcc1-132c66f792cd: !Template
+     answer_choices: no ||| yes
+     id: ae4c21bb-1aa1-4640-bcc1-132c66f792cd
+     jinja: '{{sentence}} You know what I''ve been doing? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_72
+     reference: 'sohee'
+  1f39620b-97c8-4b6e-a910-bd4372641912: !Template
+     answer_choices: no ||| yes
+     id: 1f39620b-97c8-4b6e-a910-bd4372641912
+     jinja: '{{sentence}} You know what you''re doing? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_73
+     reference: 'sohee'
+  b621248f-c6f2-42fc-a11e-02e370d5fa27: !Template
+     answer_choices: no ||| yes
+     id: b621248f-c6f2-42fc-a11e-02e370d5fa27
+     jinja: '{{sentence}} this example uses correct English ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_74
+     reference: 'sohee'
+  2cd3ba0e-cf10-44c2-a83f-6100d5c198d3: !Template
+    answer_choices: no ||| yes
+    id: 2cd3ba0e-cf10-44c2-a83f-6100d5c198d3
+    jinja: "{{sentence}} Is the sentence correct and meaningful?\n\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_00
+    reference: jonghyeonkim
+  508d80ce-2a92-41d3-ae84-c528f690bc5f: !Template
+    answer_choices: No ||| Yes
+    id: 508d80ce-2a92-41d3-ae84-c528f690bc5f
+    jinja: 'Is the given sentence correct and sensible?
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_01
+    reference: jonghyeonkim
+  0bd0e579-b6c6-48a2-a862-ce010d36185d: !Template
+    answer_choices: No ||| Yes
+    id: 0bd0e579-b6c6-48a2-a862-ce010d36185d
+    jinja: Is the given sentence "{{sentence}}" grammatically correct? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_02
+    reference: jonghyeonkim
+  bf1832a8-9c5e-4132-8f95-0e3b04c86809: !Template
+    answer_choices: Incorrect ||| Correct
+    id: bf1832a8-9c5e-4132-8f95-0e3b04c86809
+    jinja: 'Is the sentence below {{ "correct" }} or {{ "incorrect" }}?
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_03
+    reference: jonghyeonkim
+  fade3e0d-c9cb-4643-8242-1ee6e55d37fb: !Template
+    answer_choices: No ||| Yes
+    id: fade3e0d-c9cb-4643-8242-1ee6e55d37fb
+    jinja: Is the given sentence {{sentence}} grammatically correct and makes sense?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_04
+    reference: jonghyeonkim
+  d0956e75-c190-4a1a-923a-bb7dbdaf8f0d: !Template
+    answer_choices: No ||| Yes
+    id: d0956e75-c190-4a1a-923a-bb7dbdaf8f0d
+    jinja: '{{sentence}} Is this an example of the proper use of the English language?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_05
+    reference: jonghyeonkim
+  a138114e-6d49-44ff-9d96-326010f384c5: !Template
+    answer_choices: No ||| Yes
+    id: a138114e-6d49-44ff-9d96-326010f384c5
+    jinja: 'Is the following sentence coherent and grammatically correct?
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_06
+    reference: jonghyeonkim
+  e7877bdb-4eca-45b1-b20b-f4716a1e25fb: !Template
+    answer_choices: No ||| Yes
+    id: e7877bdb-4eca-45b1-b20b-f4716a1e25fb
+    jinja: 'Is the following sentence grammatically correct and sensible?
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_07
+    reference: jonghyeonkim
+  54756c97-77b4-4e64-b573-239447845f85: !Template
+    answer_choices: No ||| Yes
+    id: 54756c97-77b4-4e64-b573-239447845f85
+    jinja: 'Is the following sentence grammatically correct and appropriate?
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_08
+    reference: jonghyeonkim
+  3124c554-2568-4e8a-aa6b-bbc5300cae4d: !Template
+    answer_choices: no ||| yes
+    id: 3124c554-2568-4e8a-aa6b-bbc5300cae4d
+    jinja: "Is the following sentence grammatically correct and makes sense?\n\n{{sentence}}\n\
+      \ ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_09
+    reference: jonghyeonkim
+  d746d438-4e1b-4add-99c7-d8cae55a8411: !Template
+    answer_choices: No ||| Yes
+    id: d746d438-4e1b-4add-99c7-d8cae55a8411
+    jinja: 'Does the following sentence make sense and is it written correctly?
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_10
+    reference: jonghyeonkim
+  91fab452-97f1-4a59-82d3-c2827348c3d8: !Template
+    answer_choices: No ||| Yes
+    id: 91fab452-97f1-4a59-82d3-c2827348c3d8
+    jinja: 'Does the following sentence make sense and is it grammatically correct?
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_11
+    reference: jonghyeonkim
+  156ce15c-cef9-422a-853b-3379befd0040: !Template
+    answer_choices: no ||| yes
+    id: 156ce15c-cef9-422a-853b-3379befd0040
+    jinja: "Does the following sentence make sense and is it grammatically correct?\n\
+      \n{{sentence}}\n ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_12
+    reference: jonghyeonkim
+  f948c121-2109-46c7-83f5-37309f7a2a74: !Template
+    answer_choices: Invalid ||| Valid
+    id: f948c121-2109-46c7-83f5-37309f7a2a74
+    jinja: 'Indicate whether the following sentence is {{"valid"}} or {{"invalid"}}.
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_13
+    reference: jonghyeonkim
+  8206a76f-d17b-424a-890c-3ad713ef29d2: !Template
+    answer_choices: Invalid ||| Valid
+    id: 8206a76f-d17b-424a-890c-3ad713ef29d2
+    jinja: 'The sentence below is either "{{"valid"}}" or "{{"invalid"}}". Which is
+      it?
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_14
+    reference: jonghyeonkim
+  19887a9e-16a8-4e94-9706-e741acc310a0: !Template
+    answer_choices: Incoherent ||| Coherent
+    id: 19887a9e-16a8-4e94-9706-e741acc310a0
+    jinja: 'Choose whether the given sentence is {{ "coherent" }} or {{ "incoherent"
+      }}.
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_15
+    reference: jonghyeonkim
+  ee11f5a7-8a0c-448c-9f84-f36345f72570: !Template
+    answer_choices: Unacceptable ||| Acceptable
+    id: ee11f5a7-8a0c-448c-9f84-f36345f72570
+    jinja: 'Select whether the following sentence is {{acceptable}} or {{unacceptable}}.
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_16
+    reference: jonghyeonkim
+  dd238eee-318e-40bc-8694-96a9ed9e2075: !Template
+    answer_choices: No ||| Yes
+    id: dd238eee-318e-40bc-8694-96a9ed9e2075
+    jinja: 'Is the given sentence grammatically acceptable and semantically plausible?
+
+
+      {{ sentence }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_17
+    reference: jonghyeonkim
+  5c1196cc-8a31-499a-9ba7-7b859faa5b0c: !Template
+    answer_choices: Incorrect ||| Correct
+    id: 5c1196cc-8a31-499a-9ba7-7b859faa5b0c
+    jinja: 'Is the following sentence grammatically {{ "correct" }} or {{ "incorrect"
+      }}?
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_18
+    reference: jonghyeonkim
+  68c7d722-318d-40db-853e-666dd5b76d06: !Template
+    answer_choices: Not fluent ||| Fluent
+    id: 68c7d722-318d-40db-853e-666dd5b76d06
+    jinja: 'Choose whether the following sentence is {{ "fluent" }} or {{ "not fluent"
+      }}.
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_19
+    reference: jonghyeonkim
+  f3d44719-5ddc-4d97-8913-49b56a1b09d5: !Template
+    answer_choices: No ||| Yes
+    id: f3d44719-5ddc-4d97-8913-49b56a1b09d5
+    jinja: 'Is the following sentence syntactically correct and semantically meaningful?
+
+
+      {{ sentence }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_20
+    reference: jonghyeonkim
+  7348e8f9-be47-4782-ab7a-63bc75235e3e: !Template
+    answer_choices: Incorrect ||| Correct
+    id: 7348e8f9-be47-4782-ab7a-63bc75235e3e
+    jinja: 'The sentence below is either "{{"correct"}}" or "{{"incorrect"}}". Which
+      is it?
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_21
+    reference: jonghyeonkim
+  5cca66df-158b-4895-a073-144862fd8e9b: !Template
+    answer_choices: No ||| Yes
+    id: 5cca66df-158b-4895-a073-144862fd8e9b
+    jinja: 'Please indicate whether the given sentence is grammatically correct and
+      sensible: {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_22
+    reference: jonghyeonkim
+  69281e43-7b65-44fa-9569-691486bab85f: !Template
+    answer_choices: No ||| Yes
+    id: 69281e43-7b65-44fa-9569-691486bab85f
+    jinja: 'Please choose whether the given sentence is grammatically correct and makes
+      sense: {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_23
+    reference: jonghyeonkim
+  8af7ed6e-3dbb-4c75-92ce-f29974e39f86: !Template
+    answer_choices: Incorrect ||| Correct
+    id: 8af7ed6e-3dbb-4c75-92ce-f29974e39f86
+    jinja: 'Decide if the following sentence is grammatically correct and makes sense
+      or not.
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_24
+    reference: jonghyeonkim
+  9cdb6264-3d7a-4fcd-8111-1d753274a564: !Template
+    answer_choices: No ||| Yes
+    id: 9cdb6264-3d7a-4fcd-8111-1d753274a564
+    jinja: 'Indicate whether the following sentence is grammatically correct and makes
+      sense:
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_25
+    reference: jonghyeonkim
+  b5ecee3a-d7d9-483b-8a8a-d31d64ac11a2: !Template
+    answer_choices: False ||| True
+    id: b5ecee3a-d7d9-483b-8a8a-d31d64ac11a2
+    jinja: '{{sentence}} This sentence is grammatically correct and makes sense. {{"true"}}
+      or {{"false"}}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_26
+    reference: jonghyeonkim
+  8497f33c-7708-493f-871a-1c6603ef387f: !Template
+    answer_choices: Unacceptable ||| Acceptable
+    id: 8497f33c-7708-493f-871a-1c6603ef387f
+    jinja: 'Choose whether the given sentence is {{ "acceptable" }} or {{ "unacceptable"
+      }}.
+
+
+      {{ sentence }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_27
+    reference: jonghyeonkim
+  d86d3245-eda3-4a0a-bc9f-21c90c102a38: !Template
+    answer_choices: Unacceptable ||| Acceptable
+    id: d86d3245-eda3-4a0a-bc9f-21c90c102a38
+    jinja: 'Determine whether the following sentence is {{"acceptable"}} or {{"unacceptable"}}:
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_28
+    reference: jonghyeonkim
+  90ab980c-f034-4026-b2d4-6fb016d68f8e: !Template
+    answer_choices: Incorrect ||| Correct
+    id: 90ab980c-f034-4026-b2d4-6fb016d68f8e
+    jinja: 'Please select whether the given sentence is {{ "correct" }} or {{ "incorrect"
+      }}.
+
+
+      {{ sentence }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_29
+    reference: jonghyeonkim
+  185863a0-0464-49fe-90ad-4aab8492b51e: !Template
+    answer_choices: No ||| Yes
+    id: 185863a0-0464-49fe-90ad-4aab8492b51e
+    jinja: 'Please determine whether the following sentence is written correctly and
+      makes sense: {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_30
+    reference: jonghyeonkim
+  3cc1bd6f-591e-419e-b2f1-81e3dee52e4a: !Template
+    answer_choices: Yes ||| No
+    id: 3cc1bd6f-591e-419e-b2f1-81e3dee52e4a
+    jinja: 'Does the following sentence contain any grammatical errors or nonsensical
+      elements?
+
+
+      {{ sentence }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_31
+    reference: jonghyeonkim
+  4ecfe99b-0b7a-4c9e-ba90-eb3a167fea55: !Template
+    answer_choices: Unacceptable ||| Acceptable
+    id: 4ecfe99b-0b7a-4c9e-ba90-eb3a167fea55
+    jinja: 'The sentence below is either "{{"acceptable"}}" or "{{"unacceptable"}}".
+      Which is it?
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_32
+    reference: jonghyeonkim
+  dbab0330-4063-4c44-ba7b-864c5497b0b4: !Template
+    answer_choices: no ||| yes
+    id: dbab0330-4063-4c44-ba7b-864c5497b0b4
+    jinja: "Please indicate if the following sentence is grammatically correct and makes\
+      \ sense: \n\n{{sentence}}\n ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_33
+    reference: jonghyeonkim
+  73cb189a-4d57-488e-93e0-6596be63b15d: !Template
+    answer_choices: Incorrect ||| Correct
+    id: 73cb189a-4d57-488e-93e0-6596be63b15d
+    jinja: 'Determine if the sentence given below is grammatically correct and makes
+      sense or not.
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_34
+    reference: jonghyeonkim
+  1b360f00-1c4d-47cf-a543-8785231507a7: !Template
+    answer_choices: Yes ||| No
+    id: 1b360f00-1c4d-47cf-a543-8785231507a7
+    jinja: 'Is the following sentence grammatically correct?
+
+
+      {{sentence}}
+
+
+      Please answer {{"Yes"}} or {{"No"}}. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_35
+    reference: jonghyeonkim
+  18788dbf-0be0-4db3-a869-c363c0cda141: !Template
+    answer_choices: No ||| Yes
+    id: 18788dbf-0be0-4db3-a869-c363c0cda141
+    jinja: 'Please determine whether the following sentence is grammatically correct
+      and acceptable: {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_36
+    reference: jonghyeonkim
+  94b7e06c-e33a-446c-866d-81b36a2f5366: !Template
+    answer_choices: Inappropriate ||| Appropriate
+    id: 94b7e06c-e33a-446c-866d-81b36a2f5366
+    jinja: 'The sentence below is either "{{"appropriate"}}" or "{{"inappropriate"}}".
+      Which is it?
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_37
+    reference: jonghyeonkim
+  7922ff95-9fca-4965-b134-8acc746d5de0: !Template
+    answer_choices: No ||| Yes
+    id: 7922ff95-9fca-4965-b134-8acc746d5de0
+    jinja: 'Please determine whether the following sentence is grammatically correct
+      and makes sense: {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_38
+    reference: jonghyeonkim
+  65168113-270c-4456-9a55-ce8bea713202: !Template
+    answer_choices: Incorrect ||| Correct
+    id: 65168113-270c-4456-9a55-ce8bea713202
+    jinja: 'Please choose whether the given sentence is grammatically correct and makes
+      sense or not.
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_39
+    reference: jonghyeonkim
+  918fdd68-21ed-434c-9656-044348b49e5f: !Template
+    answer_choices: Ill-formed ||| Well-formed
+    id: 918fdd68-21ed-434c-9656-044348b49e5f
+    jinja: 'Please determine whether the given sentence is {{ "well-formed" }} or {{
+      "ill-formed" }}.
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_40
+    reference: jonghyeonkim
+  92ab6066-7703-449e-96a6-e5bf9f556e9a: !Template
+    answer_choices: Incorrect ||| Correct
+    id: 92ab6066-7703-449e-96a6-e5bf9f556e9a
+    jinja: 'Please indicate whether the following sentence is {{ "correct" }} or {{
+      "incorrect" }}.
+
+
+      {{ sentence }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_41
+    reference: jonghyeonkim
+  02cdac9e-fef4-4bb4-89d9-aec8ce087b3e: !Template
+    answer_choices: Unacceptable ||| Acceptable
+    id: 02cdac9e-fef4-4bb4-89d9-aec8ce087b3e
+    jinja: 'Please determine whether the following sentence is {{"acceptable"}} or {{"unacceptable"}}:
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_42
+    reference: jonghyeonkim
+  7d55c863-ca7f-4057-a523-4d6ac23219a2: !Template
+    answer_choices: No ||| Yes
+    id: 7d55c863-ca7f-4057-a523-4d6ac23219a2
+    jinja: 'Determine whether the following sentence is grammatically correct and makes
+      sense or not:
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_43
+    reference: jonghyeonkim
+  633eff63-1535-4e16-b354-49e4938cd337: !Template
+    answer_choices: No ||| Yes
+    id: 633eff63-1535-4e16-b354-49e4938cd337
+    jinja: 'Please indicate whether the following sentence is grammatically correct
+      and makes sense: "{{sentence}}". ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_44
+    reference: jonghyeonkim
+  24ef0f35-2561-426c-979d-850f9b3531d2: !Template
+    answer_choices: no ||| yes
+    id: 24ef0f35-2561-426c-979d-850f9b3531d2
+    jinja: "Please indicate whether the given sentence is grammatically correct and\
+      \ sensible or not: \n\n{{sentence}}\n ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_45
+    reference: jonghyeonkim
+  d5c89c74-ca26-46a9-81ad-0ec58de90e48: !Template
+    answer_choices: Incorrect ||| Correct
+    id: d5c89c74-ca26-46a9-81ad-0ec58de90e48
+    jinja: 'Consider the following sentence and decide if it is grammatically correct
+      and makes sense:
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_46
+    reference: jonghyeonkim
+  72baa7e7-500c-4e6e-86b6-b7f28cf04e49: !Template
+    answer_choices: Incorrect ||| Correct
+    id: 72baa7e7-500c-4e6e-86b6-b7f28cf04e49
+    jinja: 'Identify whether the sentence given below is grammatically correct and makes
+      sense or not.
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_47
+    reference: jonghyeonkim
+  36d54a27-1da8-47b2-ac9f-fe34f3aa98a4: !Template
+    answer_choices: No ||| Yes
+    id: 36d54a27-1da8-47b2-ac9f-fe34f3aa98a4
+    jinja: Choose whether the given sentence is grammatically correct and makes sense.
+      Answer {{"yes"}} or {{"no"}}. ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_48
+    reference: jonghyeonkim
+  ce8df7cd-2f54-4ed0-acc2-8f791f07fea7: !Template
+    answer_choices: No ||| Yes
+    id: ce8df7cd-2f54-4ed0-acc2-8f791f07fea7
+    jinja: 'Does the following sentence adhere to the rules of grammar and convey a
+      sensible meaning?
+
+
+      {{ sentence }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_49
+    reference: jonghyeonkim
+  e68e3bec-d86a-4b29-8eb3-e2f2c32452f6: !Template
+    answer_choices: Unacceptable ||| Acceptable
+    id: e68e3bec-d86a-4b29-8eb3-e2f2c32452f6
+    jinja: 'The following sentence is either {{ "acceptable" }} or {{ "unacceptable"
+      }}. Which is it?
+
+
+      {{ sentence }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_50
+    reference: jonghyeonkim
+  beb1a5f2-5bea-45ec-b93c-49dc6e2f7494: !Template
+    answer_choices: no ||| yes
+    id: beb1a5f2-5bea-45ec-b93c-49dc6e2f7494
+    jinja: "Please choose whether the following sentence is grammatically correct and\
+      \ sensible or not: \n\n{{sentence}}\n ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_51
+    reference: jonghyeonkim
+  1439e8ac-24d4-436c-b9ef-76ca48120a51: !Template
+    answer_choices: Incorrect ||| Correct
+    id: 1439e8ac-24d4-436c-b9ef-76ca48120a51
+    jinja: 'The following sentence is either grammatically {{"correct"}}" or {{incorrect}}".
+      Which is it?
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_52
+    reference: jonghyeonkim
+  42169b94-4b3b-4735-be7e-aecc99c230d2: !Template
+    answer_choices: Malformed ||| Constructed
+    id: 42169b94-4b3b-4735-be7e-aecc99c230d2
+    jinja: 'Indicate whether the following sentence is properly {{ "constructed" }}
+      or {{ "malformed" }}.
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_53
+    reference: jonghyeonkim
+  f3864109-0aca-4b1d-9822-2a424e5863bb: !Template
+    answer_choices: No ||| Yes
+    id: f3864109-0aca-4b1d-9822-2a424e5863bb
+    jinja: 'Please indicate whether the following sentence is grammatically correct
+      and makes sense or not:
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_54
+    reference: jonghyeonkim
+  f68c309e-8250-48d9-bcc1-8fd0e534ccfb: !Template
+    answer_choices: No ||| Yes
+    id: f68c309e-8250-48d9-bcc1-8fd0e534ccfb
+    jinja: 'Which of the following best describes the grammaticality and sensibility
+      of the following sentence: {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_55
+    reference: jonghyeonkim
+  f4d57b85-087b-40ec-b8b6-b455f5a467ff: !Template
+    answer_choices: Nonsensical ||| Sensible
+    id: f4d57b85-087b-40ec-b8b6-b455f5a467ff
+    jinja: 'Select the option that best describes the grammaticality and sensibility
+      of the following sentence: {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_56
+    reference: jonghyeonkim
+  6670e4fc-1fce-4a4b-ad06-97e542e5f416: !Template
+    answer_choices: Bad ||| Good
+    id: 6670e4fc-1fce-4a4b-ad06-97e542e5f416
+    jinja: 'Does the following sentence have {{"good"}} grammar and meaning or {{"bad"}}
+      grammar or no meaning?
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_57
+    reference: jonghyeonkim
+  be6f04f9-1863-451e-b6b1-b5cf94f3ea14: !Template
+    answer_choices: No ||| Yes
+    id: be6f04f9-1863-451e-b6b1-b5cf94f3ea14
+    jinja: 'Does the following sentence make sense and is it grammatically correct?
+      Answer {{"yes"}} or {{"no"}}.
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_58
+    reference: jonghyeonkim
+  e4e8f90b-c34c-4487-a309-09502f1687a0: !Template
+    answer_choices: Poorly-constructed ||| Well-constructed
+    id: e4e8f90b-c34c-4487-a309-09502f1687a0
+    jinja: 'Please indicate whether the given sentence is {{ "well-constructed" }} or
+      {{ "poorly-constructed" }}.
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_59
+    reference: jonghyeonkim
+  d11d524e-2349-4c19-918c-8eda92c378ca: !Template
+    answer_choices: Incorrect ||| Correct
+    id: d11d524e-2349-4c19-918c-8eda92c378ca
+    jinja: 'Please indicate whether the following sentence is grammatically {{ "correct"
+      }} or {{ "incorrect" }}.
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_60
+    reference: jonghyeonkim
+  545cb9b6-c0aa-4356-a072-bbc5f868a121: !Template
+    answer_choices: No ||| Yes
+    id: 545cb9b6-c0aa-4356-a072-bbc5f868a121
+    jinja: 'Choose whether the given sentence is grammatically correct and makes sense.
+      Answer {{"yes"}} or {{"no"}}.
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_61
+    reference: jonghyeonkim
+  e43a82c4-aecb-4a43-9d11-13041e80af2e: !Template
+    answer_choices: Yes ||| No
+    id: e43a82c4-aecb-4a43-9d11-13041e80af2e
+    jinja: 'Choose whether the given sentence is grammatically correct and makes sense.
+      Answer {{"Yes"}} or {{"No"}}.
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_62
+    reference: jonghyeonkim
+  f8cb79ad-8f19-4a9d-98be-6e86c5c144f2: !Template
+    answer_choices: Incorrect ||| Correct
+    id: f8cb79ad-8f19-4a9d-98be-6e86c5c144f2
+    jinja: 'Please read the following sentence and decide whether it is grammatically
+      correct and makes sense or not:
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_63
+    reference: jonghyeonkim
+  c64cf76f-088f-4957-9d1a-43e52b77f92a: !Template
+    answer_choices: No ||| Yes
+    id: c64cf76f-088f-4957-9d1a-43e52b77f92a
+    jinja: 'Is the following sentence grammatically correct and semantically meaningful?
+      Answer {{"yes"}} or {{"no"}}.
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_64
+    reference: jonghyeonkim
+  bacd0d10-2e60-4a74-843a-3a5f0f109514: !Template
+    answer_choices: Yes ||| No
+    id: bacd0d10-2e60-4a74-843a-3a5f0f109514
+    jinja: 'I am analyzing a sentence. Is it grammatically correct and sensible?
+
+
+      {{sentence}}
+
+
+      Please answer {{"Yes"}} or {{"No"}}. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_65
+    reference: jonghyeonkim
+  9fa37cae-97e9-4031-9502-412d420679cd: !Template
+    answer_choices: Invalid ||| Valid
+    id: 9fa37cae-97e9-4031-9502-412d420679cd
+    jinja: 'The following sentence is either {{ "valid" }} or {{ "invalid" }}. Please
+      select the appropriate option.
+
+
+      {{ sentence }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_66
+    reference: jonghyeonkim
+  1e2ca03d-2485-4f2a-8706-536d4ef1f84e: !Template
+    answer_choices: No ||| Yes
+    id: 1e2ca03d-2485-4f2a-8706-536d4ef1f84e
+    jinja: 'Is the following statement correct in terms of its grammar and sense? Please
+      answer {{"yes"}} or {{"no"}}.
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_67
+    reference: jonghyeonkim
+  070d40dd-ee04-4414-a1dd-bbb1078a2e58: !Template
+    answer_choices: Unacceptable ||| Acceptable
+    id: 070d40dd-ee04-4414-a1dd-bbb1078a2e58
+    jinja: 'Is the following sentence {{ "acceptable" }} or {{ "unacceptable" }} in
+      terms of proper grammar and syntax?
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_68
+    reference: jonghyeonkim
+  62b8d6b4-1f41-421c-a269-c4bc92d12c98: !Template
+    answer_choices: no ||| yes
+    id: 62b8d6b4-1f41-421c-a269-c4bc92d12c98
+    jinja: "Please select the option that best describes the grammaticality and sensibility\
+      \ of the following sentence:\n\n{{sentence}}\n ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_69
+    reference: jonghyeonkim
+  5040fa0b-5cb4-44d4-8f54-09f4aa0db18e: !Template
+    answer_choices: No ||| Yes
+    id: 5040fa0b-5cb4-44d4-8f54-09f4aa0db18e
+    jinja: 'Decide whether the following sentence is grammatically correct and makes
+      sense. Answer {{"yes"}} or {{"no"}}.
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_70
+    reference: jonghyeonkim
+  e774184b-7d58-4f6e-bbf8-f3b255a39429: !Template
+    answer_choices: No ||| Yes
+    id: e774184b-7d58-4f6e-bbf8-f3b255a39429
+    jinja: 'Please determine if the following sentence is grammatically correct:
+
+
+      {{sentence}}
+
+
+      Your options are {{"no"}} or {{"yes"}}. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_71
+    reference: jonghyeonkim
+  3c885df3-7c38-42a4-b0ea-18ed8323dcea: !Template
+    answer_choices: Nonsensical ||| Sensible
+    id: 3c885df3-7c38-42a4-b0ea-18ed8323dcea
+    jinja: 'The given sentence is either {{"sensible"}} or {{"nonsensical"}}. Is it
+      grammatically correct and makes sense?
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_72
+    reference: jonghyeonkim
+  c3fecf88-ee3c-4529-adcd-bb1b7b35658e: !Template
+    answer_choices: No ||| Yes
+    id: c3fecf88-ee3c-4529-adcd-bb1b7b35658e
+    jinja: 'Please select the answer that indicates whether the following sentence is
+      grammatically correct and makes sense:
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_73
+    reference: jonghyeonkim
+  90cf58c9-940c-47b4-a322-95ec106ad65f: !Template
+    answer_choices: No ||| Yes
+    id: 90cf58c9-940c-47b4-a322-95ec106ad65f
+    jinja: 'Please choose the best answer to indicate whether the following sentence
+      is grammatically correct and makes sense:
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_74
+    reference: jonghyeonkim
+  ccfd26fe-ed27-4b97-8d33-66c50a8171a7: !Template
+    answer_choices: Yes ||| No
+    id: ccfd26fe-ed27-4b97-8d33-66c50a8171a7
+    jinja: 'Determine if the following sentence is grammatically correct and makes sense:
+
+
+      {{sentence}}
+
+
+      Please answer {{"Yes"}} or {{"No"}}. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_75
+    reference: jonghyeonkim
+  653e550c-b007-47ad-a6a0-c9dbbd057ab4: !Template
+    answer_choices: No ||| Yes
+    id: 653e550c-b007-47ad-a6a0-c9dbbd057ab4
+    jinja: 'Choose the correct option: Is the following sentence grammatically correct
+      and makes sense?
+
+
+      {{sentence}}
+
+
+      a. {{"Yes"}}
+
+      b. {{"No"}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_76
+    reference: jonghyeonkim
+  60959886-1c62-4918-9d84-f929a50f87b9: !Template
+    answer_choices: No ||| Yes
+    id: 60959886-1c62-4918-9d84-f929a50f87b9
+    jinja: 'Choose whether the following sentence is properly constructed and semantically
+      coherent. Answer {{"yes"}} or {{"no"}}.
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_77
+    reference: jonghyeonkim
+  b24b3abf-2928-4040-b882-3b9ec17eadb5: !Template
+    answer_choices: No ||| Yes
+    id: b24b3abf-2928-4040-b882-3b9ec17eadb5
+    jinja: 'Determine whether the given sentence is grammatically correct and semantically
+      meaningful. Answer {{"yes"}} or {{"no"}}.
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_78
+    reference: jonghyeonkim
+  63797113-49c1-4aea-9c3b-d580defdf8f7: !Template
+    answer_choices: Nonsensical ||| Sensible
+    id: 63797113-49c1-4aea-9c3b-d580defdf8f7
+    jinja: 'The given sentence is either grammatically correct and {{"sensible"}}, or
+      ungrammatical and {{"nonsensical"}}. Which is it?
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_79
+    reference: jonghyeonkim
+  110ef103-cd13-42cf-af0d-bafbcf6a1ee9: !Template
+    answer_choices: No ||| Yes
+    id: 110ef103-cd13-42cf-af0d-bafbcf6a1ee9
+    jinja: 'Determine whether the following sentence is grammatically correct and semantically
+      meaningful. Answer {{"yes"}} or {{"no"}}.
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_80
+    reference: jonghyeonkim
+  e7656cd5-09fb-44ce-872c-9810a76618fd: !Template
+    answer_choices: Incorrect ||| Correct
+    id: e7656cd5-09fb-44ce-872c-9810a76618fd
+    jinja: 'The following sentence is either grammatically {{"correct"}} and makes sense
+      or grammatically {{"incorrect"}} or nonsensical.
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_81
+    reference: jonghyeonkim
+  350617aa-d947-4455-a4cf-4be1eef502ba: !Template
+    answer_choices: No ||| Yes
+    id: 350617aa-d947-4455-a4cf-4be1eef502ba
+    jinja: 'Please determine if the following sentence is grammatically correct and
+      makes sense:
+
+
+      {{sentence}}
+
+
+      Your options are {{"no"}} or {{"yes"}}. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_82
+    reference: jonghyeonkim
+  de9ae57c-706b-4eed-80ab-621631be1b44: !Template
+    answer_choices: Nonsensical ||| Sensible
+    id: de9ae57c-706b-4eed-80ab-621631be1b44
+    jinja: 'The following sentence is either grammatically correct and {{"sensible"}},
+      or ungrammatical or {{"nonsensical"}}. Which is it?
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_83
+    reference: jonghyeonkim
+  f4b96a98-fa49-463b-ac43-ea2ef854c6cc: !Template
+    answer_choices: Sensible ||| Nonsensical
+    id: f4b96a98-fa49-463b-ac43-ea2ef854c6cc
+    jinja: 'The following sentence is either grammatically correct and {{"sensible"}}
+      or ungrammatical and {{"nonsensical"}}. Which is it?
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_84
+    reference: jonghyeonkim
+  59a608f9-5c79-43d5-aba7-4f82c4bf47e4: !Template
+    answer_choices: Yes ||| No
+    id: 59a608f9-5c79-43d5-aba7-4f82c4bf47e4
+    jinja: 'Please determine whether the following sentence is grammatically correct
+      and makes sense.
+
+
+      {{sentence}}
+
+
+      Please answer {{"Yes"}} or {{"No"}}. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_85
+    reference: jonghyeonkim
+  a9916bc8-2e44-4893-b828-b57fa9ac3df3: !Template
+    answer_choices: Nonsensical ||| Sensible
+    id: a9916bc8-2e44-4893-b828-b57fa9ac3df3
+    jinja: 'The following sentence is either grammatically correct and {{"sensible"}},
+      or ungrammatical and {{"nonsensical"}}. Which is it?
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_86
+    reference: jonghyeonkim
+  24437640-9b91-4d17-967c-fa4565666e7d: !Template
+    answer_choices: Incorrect ||| Correct
+    id: 24437640-9b91-4d17-967c-fa4565666e7d
+    jinja: 'The following sentence is either grammatically {{"correct"}} and makes sense"
+      or grammatically {{"incorrect"}} and nonsensical".
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_87
+    reference: jonghyeonkim
+  7f91384f-04b9-47a5-aab1-7884a0d581d1: !Template
+    answer_choices: Nonsensical ||| Sensible
+    id: 7f91384f-04b9-47a5-aab1-7884a0d581d1
+    jinja: 'Please determine whether the given sentence is grammatically {{"correct"}}
+      and sensible or ungrammatical and {{"nonsensical"}}.
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_88
+    reference: jonghyeonkim
+  a013ce1a-ba8a-4c29-a692-f45d81e78e5d: !Template
+    answer_choices: Incorrect ||| Correct
+    id: a013ce1a-ba8a-4c29-a692-f45d81e78e5d
+    jinja: 'The following sentence is either grammatically {{"correct"}} and makes sense"
+      or grammatically {{"incorrect"}} and nonsensical".
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_89
+    reference: jonghyeonkim
+  d4528557-972f-4fac-aeb6-93b0a6a7e7bb: !Template
+    answer_choices: Meaningless ||| Meaningful
+    id: d4528557-972f-4fac-aeb6-93b0a6a7e7bb
+    jinja: 'Decide whether the given sentence is well-formed and {{"meaningful"}}, or
+      ill-formed and {{"meaningless"}}. Here is the sentence:
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_90
+    reference: jonghyeonkim
+  49554be3-1957-495b-a71d-67bd583e628d: !Template
+    answer_choices: Incorrect ||| Correct
+    id: 49554be3-1957-495b-a71d-67bd583e628d
+    jinja: 'The following sentence is either {{"correct"}}, meaning it is grammatically
+      sound and makes sense, or {{"incorrect"}}. Which is it?
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_91
+    reference: jonghyeonkim
+  93779efa-7c73-498b-98b0-1d027f7a70e6: !Template
+    answer_choices: Unacceptable ||| Acceptable
+    id: 93779efa-7c73-498b-98b0-1d027f7a70e6
+    jinja: 'The following sentence is either {{"acceptable"}}, meaning it is grammatically
+      correct and makes sense, or {{"unacceptable"}}. Which is it?
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_92
+    reference: jonghyeonkim
+  075d8249-9d4b-4b27-9ebd-d93561f1ddcd: !Template
+    answer_choices: Incorrect ||| Correct
+    id: 075d8249-9d4b-4b27-9ebd-d93561f1ddcd
+    jinja: 'The given sentence is either grammatically {{ "correct" }} and semantically
+      sensible or grammatically {{ "incorrect" }} and semantically nonsensical. Please
+      choose one.
+
+
+      {{ sentence }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_93
+    reference: jonghyeonkim
+  e4c931b0-ebe0-491c-b497-8003265dcb37: !Template
+    answer_choices: Acceptable ||| Unacceptable
+    id: e4c931b0-ebe0-491c-b497-8003265dcb37
+    jinja: 'Choose whether the following sentence is acceptable, meaning it is grammatically
+      correct and makes sense, or unacceptable.
+
+
+      {{sentence}}
+
+
+      Please answer {{"Acceptable"}} or {{"Unacceptable"}}. ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_94
+    reference: jonghyeonkim
+  880d1fff-5fea-44cc-91da-62e4491f949a: !Template
+    answer_choices: No ||| Yes
+    id: 880d1fff-5fea-44cc-91da-62e4491f949a
+    jinja: 'Im copy-editing a story for publication. It has the following sentence in
+      it:
+
+
+      {{sentence}}
+
+
+      Does this sentence make sense and is it grammatically correct? Please answer {{"yes"}}
+      or {{"no"}}. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_95
+    reference: jonghyeonkim
+  594d114e-12d0-4335-b450-02db95e0c95c: !Template
+    answer_choices: Incorrect ||| Correct
+    id: 594d114e-12d0-4335-b450-02db95e0c95c
+    jinja: 'The following sentence is grammatically {{"correct"}} and semantically coherent,
+      or grammatically {{"incorrect"}} and semantically incoherent. Please select one
+      of the following options:
+
+
+      {{sentence}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_96
+    reference: jonghyeonkim
+  8a34d5c4-cb27-4625-894c-92c34f50c66b: !Template
+    answer_choices: Unsound ||| Sound
+    id: 8a34d5c4-cb27-4625-894c-92c34f50c66b
+    jinja: 'The sentence "{{sentence}}" is either grammatically {{"sound"}}, meaning
+      it follows the rules of English grammar, or grammatically {{"unsound"}}, meaning
+      it does not. Please select one of the following options: ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_97
+    reference: jonghyeonkim
+  74f026d7-8b30-447f-8e52-6056f0eb3a99: !Template
+    answer_choices: Incorrect ||| Correct
+    id: 74f026d7-8b30-447f-8e52-6056f0eb3a99
+    jinja: 'The sentence "{{sentence}}" is either grammatically {{"correct"}}, meaning
+      it follows the rules of English grammar, or grammatically {{"incorrect"}}, meaning
+      it does not. Please select one of the following options: ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_98
+    reference: jonghyeonkim
+  6e185444-8737-46a5-8a3d-611f3f954e63: !Template
+    answer_choices: Unsound ||| Sound
+    id: 6e185444-8737-46a5-8a3d-611f3f954e63
+    jinja: Please indicate if the sentence "{{sentence}}" is syntactically and semantically
+      "{{"sound"}}", meaning it is grammatically correct and makes sense, or syntactically
+      or semantically "{{"unsound"}}", meaning it is not. ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_99
+    reference: jonghyeonkim

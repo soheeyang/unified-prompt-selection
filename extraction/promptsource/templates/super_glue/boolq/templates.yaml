@@ -1,0 +1,2190 @@
+dataset: super_glue
+subset: boolq
+templates:
+  3e386463-1715-4578-9cba-07d11a0d3b61: !Template
+    answer_choices: False ||| True
+    id: 3e386463-1715-4578-9cba-07d11a0d3b61
+    jinja: 'Passage: {{passage}}
+
+
+      After reading this passage, I have a question: {{question}}? True or False?
+      |||
+
+      {% if label != -1 %}
+
+      {{answer_choices[label]}}
+
+      {% endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: after_reading
+    reference: ''
+  492f0f88-4370-46cd-839b-1de37a55aeda: !Template
+    answer_choices: No ||| Yes
+    id: 492f0f88-4370-46cd-839b-1de37a55aeda
+    jinja: "{{ passage }} \nQuestion: {{ question }}\nAnswer: ||| \n{% if label !=\
+      \ -1 %}\n{{ answer_choices[label] }}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: GPT-3 Style
+    reference: Same as Figure G29, p. 58 of the GPT-3 paper
+  6cb6a026-c070-470a-b75d-bb8fdf424e35: !Template
+    answer_choices: No ||| Yes
+    id: 6cb6a026-c070-470a-b75d-bb8fdf424e35
+    jinja: "{{ passage }} \n\nHaving read that, I wonder {{ question }}? |||\n{% if\
+      \ label != -1 %}\n{{ answer_choices[label] }} \n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: I wonder
+    reference: ''
+  7cf7acdf-e3a2-459f-a3e8-2e2d27dd6aa5: !Template
+    answer_choices: No ||| Yes
+    id: 7cf7acdf-e3a2-459f-a3e8-2e2d27dd6aa5
+    jinja: 'Text: {{passage}}
+
+
+      Answer the following yes/no question: {{question}}? Yes or no? |||
+
+      {% if label != -1 %}
+
+      {{answer_choices[label]}}
+
+      {% endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: yes_no_question
+    reference: ''
+  7d21d974-0624-4d4f-9e8c-644e2d009cb5: !Template
+    answer_choices: No ||| Yes
+    id: 7d21d974-0624-4d4f-9e8c-644e2d009cb5
+    jinja: "{{ passage }} \n\nHaving read that, could you tell me {{ question }}?\
+      \ ||| {% if label != -1 %}{{ answer_choices[label] }}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: could you tell me
+    reference: ''
+  922d3e87-ac58-4731-84d1-f0a40e47afb5: !Template
+    answer_choices: No ||| Yes
+    id: 922d3e87-ac58-4731-84d1-f0a40e47afb5
+    jinja: "EXAM\n1. Answer by yes or no.\n\nDocument: {{passage}}\nQuestion: {{question}}?\
+      \ ||| \n{% if label != -1 %}\n{{answer_choices[label]}}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: exam
+    reference: ''
+  9a1bf459-8047-437c-9def-f21e960429cc: !Template
+    answer_choices: No ||| Yes
+    id: 9a1bf459-8047-437c-9def-f21e960429cc
+    jinja: 'Based on the following passage, {{ question }}? {{ passage }}
+
+
+      |||
+
+      {% if label != -1 %}
+
+      {{ answer_choices[label] }}
+
+      {% endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: based on the following passage
+    reference: "Adapted from Perez et al. 2021 and Schick & Sch\xFCtz 2021."
+  9f4c6b0a-437b-40c0-b467-db4b7218d38d: !Template
+    answer_choices: False ||| True
+    id: 9f4c6b0a-437b-40c0-b467-db4b7218d38d
+    jinja: 'Exercise: read the text and answer the question by True or False.
+
+
+      Text: {{passage}}
+
+      Question: {{question}}? |||
+
+      {% if label != -1 %}
+
+      {{answer_choices[label]}}
+
+      {% endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: exercise
+    reference: ''
+  b2b3cb60-d6e3-491c-a09a-8201e13e417e: !Template
+    answer_choices: No ||| Yes
+    id: b2b3cb60-d6e3-491c-a09a-8201e13e417e
+    jinja: '{{ passage }}
+
+      Based on the previous passage, {{ question }}? ||| {% if label != -1 %}{{ answer_choices[label]
+      }}
+
+      {% endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: based on the previous passage
+    reference: "Adapted from Perez et al. 2021 and Schick & Sch\xFCtz 2021."
+  eb78772c-e81e-4b8a-a77b-b75efd1c212a: !Template
+    answer_choices: False ||| True
+    id: eb78772c-e81e-4b8a-a77b-b75efd1c212a
+    jinja: '{{passage}}
+
+
+      Q: {{question}}? True or False? |||
+
+      {% if label != -1 %}
+
+      {{answer_choices[label]}}
+
+      {% endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: valid_binary
+    reference: ''
+  1ac0f92a-5eca-4a2f-90d1-e338e180c659: !Template
+     answer_choices: No ||| Yes
+     id: 1ac0f92a-5eca-4a2f-90d1-e338e180c659
+     jinja: "{{ passage }} \n\nAccording to the passage before this, {{ question }}? |||\n{% if label != -1 %}\n{{ answer_choices[label] }} \n{% endif %}"
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_00
+     reference: jonghyeon
+  f78635b1-df60-4dad-ac16-bc37fa2fc335: !Template
+     answer_choices: No ||| Yes
+     id: f78635b1-df60-4dad-ac16-bc37fa2fc335
+     jinja: "{{ passage }} \n\nAccording to the previous passage, {{ question }}? |||\n{% if label != -1 %}\n{{ answer_choices[label] }} \n{% endif %}"
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_01
+     reference: jonghyeon
+  017f0cdb-b495-4c63-a9ac-582338989854: !Template
+     answer_choices: No ||| Yes
+     id: 017f0cdb-b495-4c63-a9ac-582338989854
+     jinja: "{{ passage }} \n\nAfter I read that, I began to wonder. {{ question }}? |||\n{% if label != -1 %}\n{{ answer_choices[label] }} \n{% endif %}"
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_02
+     reference: jonghyeon
+  9c755f69-cd36-43bc-9abb-7223036f9f8f: !Template
+     answer_choices: No ||| Yes
+     id: 9c755f69-cd36-43bc-9abb-7223036f9f8f
+     jinja: "{{ passage }} \n\nAfter reading this passage, I have a question. {{ question }}? |||\n{% if label != -1 %}\n{{ answer_choices[label] }} \n{% endif %}"
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_03
+     reference: jonghyeon
+  8015fac0-fa9f-4a33-8739-6fff3c0b9f7f: !Template
+     answer_choices: No ||| Yes
+     id: 8015fac0-fa9f-4a33-8739-6fff3c0b9f7f
+     jinja: "{{ passage }} \n\nAfter you read that, can you tell me? {{ question }}? |||\n{% if label != -1 %}\n{{ answer_choices[label] }} \n{% endif %}"
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_04
+     reference: jonghyeon
+  0f8433ec-532a-4822-9bae-e21d1fd89cb0: !Template
+     answer_choices: No ||| Yes
+     id: 0f8433ec-532a-4822-9bae-e21d1fd89cb0
+     jinja: "{{ passage }} \n\nAfter you read that, could you tell me your opinion? {{ question }}? |||\n{% if label != -1 %}\n{{ answer_choices[label] }} \n{% endif %}"
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_05
+     reference: jonghyeon
+  c152c5c0-dbaa-4f26-bb16-0ac2fe44d679: !Template
+     answer_choices: No ||| Yes
+     id: c152c5c0-dbaa-4f26-bb16-0ac2fe44d679
+     jinja: "{{ passage }} \n\nAnswer the following yes/no question: {{ question }}? |||\n{% if label != -1 %}\n{{ answer_choices[label] }} \n{% endif %}"
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_06
+     reference: jonghyeon
+  068f2e41-4114-4cdf-88bf-031436f0dfe1: !Template
+     answer_choices: No ||| Yes
+     id: 068f2e41-4114-4cdf-88bf-031436f0dfe1
+     jinja: "{{ passage }} \n\nBased on the previous passage, {{ question }}? |||\n{% if label != -1 %}\n{{ answer_choices[label] }} \n{% endif %}"
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_07
+     reference: jonghyeon
+  607ccc33-dace-419d-9a2e-123e1f114343: !Template
+     answer_choices: No ||| Yes
+     id: 607ccc33-dace-419d-9a2e-123e1f114343
+     jinja: "{{ passage }} \n\nBased on what was said before, {{ question }}? |||\n{% if label != -1 %}\n{{ answer_choices[label] }} \n{% endif %}"
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_08
+     reference: jonghyeon
+  c1724d53-9c26-4581-adf5-41e709d15003: !Template
+     answer_choices: No ||| Yes
+     id: c1724d53-9c26-4581-adf5-41e709d15003
+     jinja: "{{ passage }} \n\nCan I ask a question about the passage I just read? {{ question }}? |||\n{% if label != -1 %}\n{{ answer_choices[label] }} \n{% endif %}"
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_09
+     reference: jonghyeon
+  bf183640-bcd9-4a3d-bb43-2263481db8fb: !Template
+     answer_choices: No ||| Yes
+     id: bf183640-bcd9-4a3d-bb43-2263481db8fb
+     jinja: "{{ passage }} \n\nHaving read that, I wonder {{ question }}? |||\n{% if label != -1 %}\n{{ answer_choices[label] }} \n{% endif %}"
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_10
+     reference: jonghyeon
+  700f303e-61b4-4388-93b9-7c8274546c09: !Template
+     answer_choices: No ||| Yes
+     id: 700f303e-61b4-4388-93b9-7c8274546c09
+     jinja: "{{ passage }} \n\nHaving read that, could you tell me {{ question }}? |||\n{% if label != -1 %}\n{{ answer_choices[label] }} \n{% endif %}"
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_11
+     reference: jonghyeon
+  d113ba99-342a-44fc-a9a8-75e4685e3f57: !Template
+     answer_choices: No ||| Yes
+     id: d113ba99-342a-44fc-a9a8-75e4685e3f57
+     jinja: "{{ passage }} \n\nI have a question after reading this passage. {{ question }}? |||\n{% if label != -1 %}\n{{ answer_choices[label] }} \n{% endif %}"
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_12
+     reference: jonghyeon
+  d96ef2bd-c39d-437f-9a69-f3e941446e8f: !Template
+     answer_choices: No ||| Yes
+     id: d96ef2bd-c39d-437f-9a69-f3e941446e8f
+     jinja: "{{ passage }} \n\nI read that and now I am wondering {{ question }}? |||\n{% if label != -1 %}\n{{ answer_choices[label] }} \n{% endif %}"
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_13
+     reference: jonghyeon
+  b5f7cdcd-3c4b-463b-8d83-c70e3641c450: !Template
+     answer_choices: No ||| Yes
+     id: b5f7cdcd-3c4b-463b-8d83-c70e3641c450
+     jinja: "{{ passage }} \n\nI read that and now I''m wondering {{ question }}? |||\n{% if label != -1 %}\n{{ answer_choices[label] }} \n{% endif %}"
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_14
+     reference: jonghyeon
+  55f28a30-800c-45d9-a192-8d60d0cef821: !Template
+     answer_choices: No ||| Yes
+     id: 55f28a30-800c-45d9-a192-8d60d0cef821
+     jinja: "{{ passage }} \n\nI wonder if that is true {{ question }}? |||\n{% if label != -1 %}\n{{ answer_choices[label] }} \n{% endif %}"
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_15
+     reference: jonghyeon
+  e769aa67-8b62-4d5c-baf3-fd985c173a5d: !Template
+     answer_choices: No ||| Yes
+     id: e769aa67-8b62-4d5c-baf3-fd985c173a5d
+     jinja: "{{ passage }} \n\nI wonder if that is true. {{ question }}? |||\n{% if label != -1 %}\n{{ answer_choices[label] }} \n{% endif %}"
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_16
+     reference: jonghyeon
+  21cad9c3-fbe4-4a3f-8976-92cb4c5a3ff2: !Template
+     answer_choices: No ||| Yes
+     id: 21cad9c3-fbe4-4a3f-8976-92cb4c5a3ff2
+     jinja: "{{ passage }} \n\nI wonder if that''s true {{ question }}? |||\n{% if label != -1 %}\n{{ answer_choices[label] }} \n{% endif %}"
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_17
+     reference: jonghyeon
+  6dc30167-844e-4c57-a236-38936aa2a570: !Template
+     answer_choices: No ||| Yes
+     id: 6dc30167-844e-4c57-a236-38936aa2a570
+     jinja: "{{ passage }} \n\nI wonder if that''s true. {{ question }}? |||\n{% if label != -1 %}\n{{ answer_choices[label] }} \n{% endif %}"
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_18
+     reference: jonghyeon
+  32f9e584-4098-4bc8-9542-ba0b2399254b: !Template
+     answer_choices: No ||| Yes
+     id: 32f9e584-4098-4bc8-9542-ba0b2399254b
+     jinja: "{{ passage }} \n\nIt''s obvious. {{ question }}? |||\n{% if label != -1 %}\n{{ answer_choices[label] }} \n{% endif %}"
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_19
+     reference: jonghyeon
+  f4d6a37a-ba37-411d-92a5-776f647f4436: !Template
+     answer_choices: No ||| Yes
+     id: f4d6a37a-ba37-411d-92a5-776f647f4436
+     jinja: "{{ passage }} \n\nThe authors discuss how {{ question }}? |||\n{% if label != -1 %}\n{{ answer_choices[label] }} \n{% endif %}"
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_20
+     reference: jonghyeon
+  a21f7521-2938-409a-b36d-a20d751fe3f3: !Template
+     answer_choices: No ||| Yes
+     id: a21f7521-2938-409a-b36d-a20d751fe3f3
+     jinja: "{{ passage }} \n\nWhat do you think {{ question }}? |||\n{% if label != -1 %}\n{{ answer_choices[label] }} \n{% endif %}"
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_21
+     reference: jonghyeon
+  7678601c-74d0-46a7-b263-398e658d3a53: !Template
+     answer_choices: No ||| Yes
+     id: 7678601c-74d0-46a7-b263-398e658d3a53
+     jinja: "{{ passage }} \n\nWhat do you think the author''s main point is? {{ question }}? |||\n{% if label != -1 %}\n{{ answer_choices[label] }} \n{% endif %}"
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_22
+     reference: jonghyeon
+  3cf4bd1a-fff2-4c2b-b9de-0edbd7460bd6: !Template
+     answer_choices: No ||| Yes
+     id: 3cf4bd1a-fff2-4c2b-b9de-0edbd7460bd6
+     jinja: "{{ passage }} \n\nWhat do you think? {{ question }}? |||\n{% if label != -1 %}\n{{ answer_choices[label] }} \n{% endif %}"
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_23
+     reference: jonghyeon
+  4fe66c71-0910-4b06-8e02-ce7aa58667b0: !Template
+     answer_choices: No ||| Yes
+     id: 4fe66c71-0910-4b06-8e02-ce7aa58667b0
+     jinja: "{{ passage }} \n\nWould you please answer the following yes/no question? {{ question }}? |||\n{% if label != -1 %}\n{{ answer_choices[label] }} \n{% endif %}"
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_24
+     reference: jonghyeon
+  8e145d26-8da3-4f08-af64-140f5b650785: !Template
+     answer_choices: No ||| Yes
+     id: 8e145d26-8da3-4f08-af64-140f5b650785
+     jinja: "{{ passage }} \n\ndiscuss how the author’s {{ question }}? |||\n{% if label != -1 %}\n{{ answer_choices[label] }} \n{% endif %}"
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_25
+     reference: jonghyeon
+  b77ece4b-3127-4f4d-b359-638c285a5d57: !Template
+     answer_choices: No ||| Yes
+     id: b77ece4b-3127-4f4d-b359-638c285a5d57
+     jinja: "{{ passage }} \n\nit can be concluded that {{ question }}? |||\n{% if label != -1 %}\n{{ answer_choices[label] }} \n{% endif %}"
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_26
+     reference: jonghyeon
+  34b0223f-f8ab-42a8-943d-19df1a3a95fc: !Template
+     answer_choices: No ||| Yes
+     id: 34b0223f-f8ab-42a8-943d-19df1a3a95fc
+     jinja: "{{ passage }} \n\nit can be inferred that {{ question }}? |||\n{% if label != -1 %}\n{{ answer_choices[label] }} \n{% endif %}"
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_27
+     reference: jonghyeon
+  7954e272-1f55-443c-ab69-e0d1cebc3e5c: !Template
+     answer_choices: No ||| Yes
+     id: 7954e272-1f55-443c-ab69-e0d1cebc3e5c
+     jinja: "{{ passage }} \n\nit is evident {{ question }}? |||\n{% if label != -1 %}\n{{ answer_choices[label] }} \n{% endif %}"
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_28
+     reference: jonghyeon
+  70611fdc-430a-4580-b57f-1ddb63abd229: !Template
+     answer_choices: No ||| Yes
+     id: 70611fdc-430a-4580-b57f-1ddb63abd229
+     jinja: "{{ passage }} \n\nwhat do you think is the author''s main point? {{ question }}? |||\n{% if label != -1 %}\n{{ answer_choices[label] }} \n{% endif %}"
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_29
+     reference: jonghyeon
+  89a96e39-b670-4663-b73a-24bb0017e169: !Template
+     answer_choices: No ||| Yes
+     id: 89a96e39-b670-4663-b73a-24bb0017e169
+     jinja: "{{ passage }} \n\nwhat you think {{ question }}? |||\n{% if label != -1 %}\n{{ answer_choices[label] }} \n{% endif %}"
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_30
+     reference: jonghyeon
+  d2a2593d-597f-4ba2-b66c-3fb7389690e4: !Template
+     answer_choices: No ||| Yes
+     id: d2a2593d-597f-4ba2-b66c-3fb7389690e4
+     jinja: "{{ passage }} \n\nwhat you think? {{ question }}? |||\n{% if label != -1 %}\n{{ answer_choices[label] }} \n{% endif %}"
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_31
+     reference: jonghyeon
+  32a6b0a7-034b-46ae-883b-572845591eea: !Template
+    answer_choices: No ||| Yes
+    id: 32a6b0a7-034b-46ae-883b-572845591eea
+    jinja: '{{question}}? Yes or No
+
+
+      {{passage}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_00
+    reference: jonghyeonkim
+  9e63d12c-b0bb-4884-a9cd-177514737b0f: !Template
+    answer_choices: False ||| True
+    id: 9e63d12c-b0bb-4884-a9cd-177514737b0f
+    jinja: '{{question}}? True or False
+
+
+      {{passage}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_01
+    reference: jonghyeonkim
+  473c7c86-299c-4d18-829d-51239ce85f9d: !Template
+    answer_choices: False ||| True
+    id: 473c7c86-299c-4d18-829d-51239ce85f9d
+    jinja: '{{passage}}
+
+
+      Q: {{question}}? True or False? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_02
+    reference: jonghyeonkim
+  17db3c98-34e8-412b-8cab-da96cde9d9a6: !Template
+    answer_choices: False ||| True
+    id: 17db3c98-34e8-412b-8cab-da96cde9d9a6
+    jinja: '{{ passage }}
+
+
+      True or False: {{ question }}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_03
+    reference: jonghyeonkim
+  45368cf1-277c-4c63-9d8e-98ba606895a0: !Template
+    answer_choices: No ||| Yes
+    id: 45368cf1-277c-4c63-9d8e-98ba606895a0
+    jinja: "{{ passage }} \nQuestion: {{ question }}\nAnswer: ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_04
+    reference: jonghyeonkim
+  e3c044da-13c3-41e1-a3f9-6ef13c558313: !Template
+    answer_choices: False ||| True
+    id: e3c044da-13c3-41e1-a3f9-6ef13c558313
+    jinja: '{{ passage }}
+
+
+      Select True or False: {{ question }}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_05
+    reference: jonghyeonkim
+  e3b88a62-62b7-4f4e-8fc5-1a0582a0f4bb: !Template
+    answer_choices: No ||| Yes
+    id: e3b88a62-62b7-4f4e-8fc5-1a0582a0f4bb
+    jinja: '{{passage}}
+
+
+      Can you tell if {{question}}? Yes or no? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_06
+    reference: jonghyeonkim
+  bc5053b7-213e-4659-995e-2e7e3865268f: !Template
+    answer_choices: No ||| Yes
+    id: bc5053b7-213e-4659-995e-2e7e3865268f
+    jinja: "{{ passage }} \n\nHaving read that, I wonder {{ question }}? ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_07
+    reference: jonghyeonkim
+  a2014e7a-98b2-4435-9fca-27a2d50cb4b3: !Template
+    answer_choices: False ||| True
+    id: a2014e7a-98b2-4435-9fca-27a2d50cb4b3
+    jinja: 'Question: {{question}}?
+
+
+      Passage:
+
+      {{passage}}
+
+
+      True or False? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_08
+    reference: jonghyeonkim
+  a9577bd4-981c-4c5c-9faf-14c674ea23a3: !Template
+    answer_choices: No ||| Yes
+    id: a9577bd4-981c-4c5c-9faf-14c674ea23a3
+    jinja: '{{ passage }}
+
+
+      Based on the previous passage, {{ question }}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_09
+    reference: jonghyeonkim
+  2fc8171a-9255-41e8-986e-de0bd84a2d0a: !Template
+    answer_choices: no ||| yes
+    id: 2fc8171a-9255-41e8-986e-de0bd84a2d0a
+    jinja: "Based on the following passage, {{ question }}? {{ passage }}\n\n ||| {{\
+      \ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_10
+    reference: jonghyeonkim
+  d2adeedb-02fb-4724-8252-cd19eea6e2d5: !Template
+    answer_choices: No ||| Yes
+    id: d2adeedb-02fb-4724-8252-cd19eea6e2d5
+    jinja: 'Passage:
+
+      {{passage}}
+
+      Question: {{question}}?
+
+
+      Answer: Yes or No? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_11
+    reference: jonghyeonkim
+  4b7aabcb-f7d2-4120-9240-7576cc7ea3cd: !Template
+    answer_choices: No ||| Yes
+    id: 4b7aabcb-f7d2-4120-9240-7576cc7ea3cd
+    jinja: 'Choose the correct answer: Yes or No.
+
+
+      {{passage}}
+
+
+      {{question}}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_12
+    reference: jonghyeonkim
+  92c5656e-85cf-4f5d-865e-7e544f663a6d: !Template
+    answer_choices: No ||| Yes
+    id: 92c5656e-85cf-4f5d-865e-7e544f663a6d
+    jinja: '{{passage}}
+
+
+      Is the following statement true or false? {{question}} ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_13
+    reference: jonghyeonkim
+  e50153a5-f5b7-4b45-82b5-8946d93843b6: !Template
+    answer_choices: No ||| Yes
+    id: e50153a5-f5b7-4b45-82b5-8946d93843b6
+    jinja: "{{ passage }} \n\nHaving read that, could you tell me {{ question }}? |||\
+      \ {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_14
+    reference: jonghyeonkim
+  30eefad3-71d6-474a-b130-0cc6c9ff6ccb: !Template
+    answer_choices: False ||| True
+    id: 30eefad3-71d6-474a-b130-0cc6c9ff6ccb
+    jinja: '{{ passage }}
+
+
+      Answer True or False to the question: {{ question }}? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_15
+    reference: jonghyeonkim
+  1b954151-7329-42bf-af1d-d5eced87a833: !Template
+    answer_choices: No ||| Yes
+    id: 1b954151-7329-42bf-af1d-d5eced87a833
+    jinja: '{{ passage }}
+
+
+      Choose Yes or No to answer the question: {{ question }}? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_16
+    reference: jonghyeonkim
+  4ffe3cd0-bf3f-4c92-8408-193ec9b28a98: !Template
+    answer_choices: False ||| True
+    id: 4ffe3cd0-bf3f-4c92-8408-193ec9b28a98
+    jinja: 'Passage:
+
+      {{passage}}
+
+
+      Question: {{question}}
+
+
+      Answer with True or False: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_17
+    reference: jonghyeonkim
+  6eaf1528-4355-48db-80c7-1d4c9bbbb6d2: !Template
+    answer_choices: No ||| Yes
+    id: 6eaf1528-4355-48db-80c7-1d4c9bbbb6d2
+    jinja: '{{passage}}
+
+
+      Based on the given information, is {{question}}? Yes or no? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_18
+    reference: jonghyeonkim
+  c4d1ef98-9bc1-4c70-aac5-9d93db515f50: !Template
+    answer_choices: No ||| Yes
+    id: c4d1ef98-9bc1-4c70-aac5-9d93db515f50
+    jinja: 'EXAM
+
+      1. Answer by yes or no.
+
+
+      Document: {{passage}}
+
+      Question: {{question}}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_19
+    reference: jonghyeonkim
+  2d2fa22e-8557-4f5f-b11f-194283fc6f57: !Template
+    answer_choices: No ||| Yes
+    id: 2d2fa22e-8557-4f5f-b11f-194283fc6f57
+    jinja: '{{passage}}
+
+
+      Please answer the following question: {{question}}. Yes or No? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_20
+    reference: jonghyeonkim
+  2454780e-7926-44bb-87fb-1c2d36fb5251: !Template
+    answer_choices: No ||| Yes
+    id: 2454780e-7926-44bb-87fb-1c2d36fb5251
+    jinja: '{{passage}}
+
+
+      Please choose Yes or No for the following question: {{question}}? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_21
+    reference: jonghyeonkim
+  e32983e5-9aa3-4a61-a503-31fce2cf7e34: !Template
+    answer_choices: B ||| A
+    id: e32983e5-9aa3-4a61-a503-31fce2cf7e34
+    jinja: '{{ passage }}
+
+
+      Answer the following question: {{ question }}.
+
+
+      A. True
+
+      B. False ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_22
+    reference: jonghyeonkim
+  b49be833-84a5-4a0b-8272-174a055e5a0d: !Template
+    answer_choices: False ||| True
+    id: b49be833-84a5-4a0b-8272-174a055e5a0d
+    jinja: '{{passage}}
+
+
+      Please answer the following question: {{question}}. True or False? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_23
+    reference: jonghyeonkim
+  7dacd940-abf5-4357-96db-f8ed890d7846: !Template
+    answer_choices: False ||| True
+    id: 7dacd940-abf5-4357-96db-f8ed890d7846
+    jinja: '{{passage}}
+
+
+      Answer the question below with either True or False.
+
+
+      {{question}}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_24
+    reference: jonghyeonkim
+  4924513a-89c3-4956-87d5-b5c02441efd7: !Template
+    answer_choices: No ||| Yes
+    id: 4924513a-89c3-4956-87d5-b5c02441efd7
+    jinja: Based on the passage below, is the following statement {{question}}? {{passage}}
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_25
+    reference: jonghyeonkim
+  a1b4f51e-04aa-432d-a02e-8b7012a08f28: !Template
+    answer_choices: No ||| Yes
+    id: a1b4f51e-04aa-432d-a02e-8b7012a08f28
+    jinja: 'Text: {{passage}}
+
+
+      Answer the following yes/no question: {{question}}? Yes or no? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_26
+    reference: jonghyeonkim
+  73e7ba7d-e540-4cad-b70c-c89e6fd01872: !Template
+    answer_choices: False ||| True
+    id: 73e7ba7d-e540-4cad-b70c-c89e6fd01872
+    jinja: 'Read the following and answer True or False.
+
+
+      {{passage}}
+
+
+      Question: {{question}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_27
+    reference: jonghyeonkim
+  d2af65f7-bc85-4c79-a580-b6b1191f77c4: !Template
+    answer_choices: B ||| A
+    id: d2af65f7-bc85-4c79-a580-b6b1191f77c4
+    jinja: '{{ passage }}
+
+
+      Can you answer the following question: {{ question }}?
+
+
+      A. Yes
+
+      B. No ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_28
+    reference: jonghyeonkim
+  68dccd28-7b18-4712-a807-92c2a2fae4e6: !Template
+    answer_choices: False ||| True
+    id: 68dccd28-7b18-4712-a807-92c2a2fae4e6
+    jinja: '{{passage}}
+
+
+      Answer the following question by selecting True or False:
+
+
+      {{question}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_29
+    reference: jonghyeonkim
+  032ab69c-7a8a-44e0-9819-103ef0a1fbf8: !Template
+    answer_choices: false ||| true
+    id: 032ab69c-7a8a-44e0-9819-103ef0a1fbf8
+    jinja: '{{passage}}
+
+
+      True or False: {{question}}?
+
+      Choose one of the following: False or True ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_30
+    reference: jonghyeonkim
+  8d5652c6-a4c1-41e9-9308-97aa935f0c06: !Template
+    answer_choices: False ||| True
+    id: 8d5652c6-a4c1-41e9-9308-97aa935f0c06
+    jinja: '{{passage}}
+
+
+      Determine whether the following statement is true or false.
+
+
+      {{question}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_31
+    reference: jonghyeonkim
+  471f81dc-ca8c-4479-91d4-99ed251ce43b: !Template
+    answer_choices: No ||| Yes
+    id: 471f81dc-ca8c-4479-91d4-99ed251ce43b
+    jinja: '{{passage}}
+
+
+      Please indicate whether the following statement is true or false: {{question}}
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_32
+    reference: jonghyeonkim
+  53572208-2886-4cb7-9ef7-e15e7efce9dc: !Template
+    answer_choices: False ||| True
+    id: 53572208-2886-4cb7-9ef7-e15e7efce9dc
+    jinja: 'Answer the following question by selecting either True or False:
+
+
+      {{question}}
+
+
+      {{passage}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_33
+    reference: jonghyeonkim
+  1952d2a0-0e20-4a85-bb58-bee0c85f49c5: !Template
+    answer_choices: No ||| Yes
+    id: 1952d2a0-0e20-4a85-bb58-bee0c85f49c5
+    jinja: 'Please answer the following question by selecting either Yes or No:
+
+
+      {{question}}
+
+
+      {{passage}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_34
+    reference: jonghyeonkim
+  fedb081e-8053-40a9-8b51-84edc0bd47b9: !Template
+    answer_choices: False ||| True
+    id: fedb081e-8053-40a9-8b51-84edc0bd47b9
+    jinja: 'Evaluate the following statement based on the passage.
+
+
+      {{passage}}
+
+
+      {{question}}
+
+      True or False? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_35
+    reference: jonghyeonkim
+  0c4a5fb5-68e8-4e48-b63b-db620f6458de: !Template
+    answer_choices: False ||| True
+    id: 0c4a5fb5-68e8-4e48-b63b-db620f6458de
+    jinja: 'Passage: {{passage}}
+
+
+      After reading this passage, I have a question: {{question}}? True or False? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_36
+    reference: jonghyeonkim
+  123fab47-8e19-46dc-a799-4fcf5acada5d: !Template
+    answer_choices: No ||| Yes
+    id: 123fab47-8e19-46dc-a799-4fcf5acada5d
+    jinja: 'Read the passage below and answer the question with either Yes or No.
+
+
+      {{passage}}
+
+
+      {{question}}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_37
+    reference: jonghyeonkim
+  8dfb1f9a-fe8b-4105-93bb-d0663c1e00da: !Template
+    answer_choices: False ||| True
+    id: 8dfb1f9a-fe8b-4105-93bb-d0663c1e00da
+    jinja: 'Please answer the following question based on the text:
+
+
+      {{passage}}
+
+
+      {{question}}. True or False? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_38
+    reference: jonghyeonkim
+  e765fd76-ff26-4afb-ac24-018856b8c9b7: !Template
+    answer_choices: False ||| True
+    id: e765fd76-ff26-4afb-ac24-018856b8c9b7
+    jinja: 'Instruction: {{passage}}
+
+
+      Please answer the following question with a True or False.
+
+
+      {{question}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_39
+    reference: jonghyeonkim
+  6281d383-6743-49e2-bc1b-5ab45f828051: !Template
+    answer_choices: No ||| Yes
+    id: 6281d383-6743-49e2-bc1b-5ab45f828051
+    jinja: 'Read the passage and answer the question below with Yes or No.
+
+
+      {{passage}}
+
+
+      Question: {{question}}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_40
+    reference: jonghyeonkim
+  fb943360-cdf1-4ffd-b079-4d9e06785713: !Template
+    answer_choices: B ||| A
+    id: fb943360-cdf1-4ffd-b079-4d9e06785713
+    jinja: 'Please read the passage and answer the question that follows.
+
+
+      {{passage}}
+
+
+      {{question}}
+
+
+      A. Yes
+
+      B. No ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_41
+    reference: jonghyeonkim
+  37aecc83-a854-437c-b2ef-224705b6f7a8: !Template
+    answer_choices: False ||| True
+    id: 37aecc83-a854-437c-b2ef-224705b6f7a8
+    jinja: 'Consider the following text and answer the question: {{passage}}
+
+      Question: {{question}}?
+
+      True or False? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_42
+    reference: jonghyeonkim
+  9d128891-4c3f-42cf-839b-39904de4bbba: !Template
+    answer_choices: False ||| True
+    id: 9d128891-4c3f-42cf-839b-39904de4bbba
+    jinja: 'After reading the following passage, answer the question with True or False.
+
+
+      {{passage}}
+
+
+      {{question}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_43
+    reference: jonghyeonkim
+  8c446edd-22c8-40df-9b18-b87971009fe3: !Template
+    answer_choices: No ||| Yes
+    id: 8c446edd-22c8-40df-9b18-b87971009fe3
+    jinja: 'Read the following passage and answer the question with Yes or No.
+
+
+      {{passage}}
+
+
+      Question: {{question}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_44
+    reference: jonghyeonkim
+  0ef72ef1-5cf4-47aa-aece-f6dd2495051f: !Template
+    answer_choices: B ||| A
+    id: 0ef72ef1-5cf4-47aa-aece-f6dd2495051f
+    jinja: '{{ passage }}
+
+
+      Choose whether the following statement is True or False: {{ question }}.
+
+
+      A. True
+
+      B. False ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_45
+    reference: jonghyeonkim
+  24b4ecfc-803e-469c-88d0-5f297881edc5: !Template
+    answer_choices: No ||| Yes
+    id: 24b4ecfc-803e-469c-88d0-5f297881edc5
+    jinja: 'Read the following passage and answer the question with a Yes or No.
+
+
+      {{passage}}
+
+
+      Question: {{question}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_46
+    reference: jonghyeonkim
+  f44f8121-138d-4556-a06c-ac52de6a03b0: !Template
+    answer_choices: No ||| Yes
+    id: f44f8121-138d-4556-a06c-ac52de6a03b0
+    jinja: '{{passage}}
+
+
+      After reading the above information, answer the following question: {{question}}?
+
+      No or Yes? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_47
+    reference: jonghyeonkim
+  00b6e200-280d-44c2-8d50-65ef36a3b779: !Template
+    answer_choices: B ||| A
+    id: 00b6e200-280d-44c2-8d50-65ef36a3b779
+    jinja: '{{ passage }}
+
+
+      Indicate whether the following statement is True or False: {{ question }}
+
+
+      A. True
+
+      B. False ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_48
+    reference: jonghyeonkim
+  17bd1011-1723-4106-8b44-a44afb117319: !Template
+    answer_choices: False ||| True
+    id: 17bd1011-1723-4106-8b44-a44afb117319
+    jinja: '{{passage}}
+
+
+      Do you think the statement "{{question}}" is true or false? Answer by selecting
+      True or False. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_49
+    reference: jonghyeonkim
+  54c10649-c099-4824-b91b-63aab53748bf: !Template
+    answer_choices: False ||| True
+    id: 54c10649-c099-4824-b91b-63aab53748bf
+    jinja: 'Exercise: read the text and answer the question by True or False.
+
+
+      Text: {{passage}}
+
+      Question: {{question}}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_50
+    reference: jonghyeonkim
+  beabbe8a-fba9-4c78-9443-2e40983fc230: !Template
+    answer_choices: No ||| Yes
+    id: beabbe8a-fba9-4c78-9443-2e40983fc230
+    jinja: 'After reading the following passage, answer the question with Yes or No.
+
+
+      {{passage}}
+
+
+      Question: {{question}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_51
+    reference: jonghyeonkim
+  54044159-5c8c-4440-bd2f-9bffe33c2200: !Template
+    answer_choices: False ||| True
+    id: 54044159-5c8c-4440-bd2f-9bffe33c2200
+    jinja: 'Given the passage below, answer the question by selecting True or False:
+
+
+      {{passage}}
+
+
+      Question: {{question}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_52
+    reference: jonghyeonkim
+  126967ab-8c54-4fdf-a1fe-abc15db60d51: !Template
+    answer_choices: False ||| True
+    id: 126967ab-8c54-4fdf-a1fe-abc15db60d51
+    jinja: 'True or False: {{ question }}
+
+
+      After reading the following passage, choose the correct answer.
+
+
+      {{ passage }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_53
+    reference: jonghyeonkim
+  e84edf07-336d-4eef-b77f-4c77ed2e690f: !Template
+    answer_choices: False ||| True
+    id: e84edf07-336d-4eef-b77f-4c77ed2e690f
+    jinja: 'Read the following passage and answer the question with a True or False.
+
+
+      {{passage}}
+
+
+      Question: {{question}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_54
+    reference: jonghyeonkim
+  d4b9a7a7-5dd2-483b-b930-11dc07532695: !Template
+    answer_choices: False ||| True
+    id: d4b9a7a7-5dd2-483b-b930-11dc07532695
+    jinja: 'Read the following passage and answer the question with True or False.
+
+
+      {{ passage }}
+
+      Question: {{ question }}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_55
+    reference: jonghyeonkim
+  37018031-e742-4f54-bc1d-5e596e5ca2d3: !Template
+    answer_choices: No ||| Yes
+    id: 37018031-e742-4f54-bc1d-5e596e5ca2d3
+    jinja: 'Read the following passage and answer the question by selecting Yes or No.
+
+
+      {{passage}}
+
+
+      Question: {{question}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_56
+    reference: jonghyeonkim
+  0521b7d3-8057-4431-b084-b9a488b96085: !Template
+    answer_choices: B ||| A
+    id: 0521b7d3-8057-4431-b084-b9a488b96085
+    jinja: 'Choose the correct answer based on the following passage:
+
+
+      {{ passage }}
+
+
+      Question: {{ question }}
+
+
+      A. Yes
+
+      B. No ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_57
+    reference: jonghyeonkim
+  1d7d26dd-70a4-40b9-9af1-873f51d14185: !Template
+    answer_choices: False ||| True
+    id: 1d7d26dd-70a4-40b9-9af1-873f51d14185
+    jinja: '{{passage}}
+
+
+      After reading the passage, answer the following question with a True or False
+      response: {{question}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_58
+    reference: jonghyeonkim
+  ee637580-69d3-44de-91c5-28acb25fde4d: !Template
+    answer_choices: B ||| A
+    id: ee637580-69d3-44de-91c5-28acb25fde4d
+    jinja: 'Based on the following passage, is the statement "{{ question }}" True or
+      False?
+
+
+      {{ passage }}
+
+
+      A. True
+
+      B. False ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_59
+    reference: jonghyeonkim
+  3e2c87c4-e979-4179-b615-73607dac8640: !Template
+    answer_choices: B ||| A
+    id: 3e2c87c4-e979-4179-b615-73607dac8640
+    jinja: 'Please read the passage below and answer the question that follows.
+
+
+      {{passage}}
+
+
+      {{question}}?
+
+
+      A. True
+
+      B. False ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_60
+    reference: jonghyeonkim
+  8e43745a-0eb3-4813-a39b-cdd8f6d06c82: !Template
+    answer_choices: No ||| Yes
+    id: 8e43745a-0eb3-4813-a39b-cdd8f6d06c82
+    jinja: 'After reading the following text, please answer the question with a simple
+      Yes or No:
+
+
+      {{passage}}
+
+
+      {{question}}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_61
+    reference: jonghyeonkim
+  609043be-8cbd-459a-9d91-7497343b791d: !Template
+    answer_choices: False ||| True
+    id: 609043be-8cbd-459a-9d91-7497343b791d
+    jinja: 'Read the following passage and answer the question with either True or False:
+
+
+      {{passage}}
+
+
+      Question: {{question}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_62
+    reference: jonghyeonkim
+  56f171f2-06cc-4206-9b38-095c63d35a21: !Template
+    answer_choices: No ||| Yes
+    id: 56f171f2-06cc-4206-9b38-095c63d35a21
+    jinja: 'After reading the following passage, answer the question with a Yes or No.
+
+
+      {{ passage }}
+
+      Question: {{ question }}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_63
+    reference: jonghyeonkim
+  289038ef-a2c9-46b6-8cd0-bb96e0e3ad0e: !Template
+    answer_choices: No ||| Yes
+    id: 289038ef-a2c9-46b6-8cd0-bb96e0e3ad0e
+    jinja: 'Read the passage below and answer the following question with a Yes or No.
+
+
+      {{ passage }}
+
+      Question: {{ question }}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_64
+    reference: jonghyeonkim
+  103ca534-14d4-4185-9d0b-61bbf1d9e32f: !Template
+    answer_choices: No ||| Yes
+    id: 103ca534-14d4-4185-9d0b-61bbf1d9e32f
+    jinja: 'Answer the following question based on the given passage with a Yes or No.
+
+
+      {{ passage }}
+
+      Question: {{ question }}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_65
+    reference: jonghyeonkim
+  4a5bcf80-4b01-4594-9bc5-066dfc68ee0f: !Template
+    answer_choices: No ||| Yes
+    id: 4a5bcf80-4b01-4594-9bc5-066dfc68ee0f
+    jinja: 'Please read the following passage and select Yes or No to answer the question.
+
+
+      {{passage}}
+
+
+      Question: {{question}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_66
+    reference: jonghyeonkim
+  9c5ddbbc-ba55-4d0e-a4e7-a542bf1c9917: !Template
+    answer_choices: False ||| True
+    id: 9c5ddbbc-ba55-4d0e-a4e7-a542bf1c9917
+    jinja: 'Answer the following question based on the given passage with True or False.
+
+
+      {{ passage }}
+
+      Question: {{ question }}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_67
+    reference: jonghyeonkim
+  3d800fd8-10de-4533-96da-053abcc1d02e: !Template
+    answer_choices: No ||| Yes
+    id: 3d800fd8-10de-4533-96da-053abcc1d02e
+    jinja: 'After reading the following passage, answer the question by selecting Yes
+      or No.
+
+
+      {{passage}}
+
+
+      Question: {{question}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_68
+    reference: jonghyeonkim
+  050ea10b-3f89-4fae-842d-2467b155562c: !Template
+    answer_choices: False ||| True
+    id: 050ea10b-3f89-4fae-842d-2467b155562c
+    jinja: "Read the following text and answer the question by selecting True or False:\
+      \ \n\n{{ passage }}\n\nQuestion: {{ question }} ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_69
+    reference: jonghyeonkim
+  2f0dba07-57ad-4155-9ebb-01f025ddc46d: !Template
+    answer_choices: False ||| True
+    id: 2f0dba07-57ad-4155-9ebb-01f025ddc46d
+    jinja: 'After reading the following passage, answer the question with True or False.
+
+
+      {{ passage }}
+
+      Question: {{ question }}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_70
+    reference: jonghyeonkim
+  7923b194-6218-4411-a211-48408e1b0104: !Template
+    answer_choices: False ||| True
+    id: 7923b194-6218-4411-a211-48408e1b0104
+    jinja: 'Please read the passage and answer the following question with True or False.
+
+
+      {{ passage }}
+
+      Question: {{ question }}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_71
+    reference: jonghyeonkim
+  46af1c61-f35b-4531-be63-d8e23ceb8619: !Template
+    answer_choices: False ||| True
+    id: 46af1c61-f35b-4531-be63-d8e23ceb8619
+    jinja: 'Please read the following passage and select True or False to answer the
+      question.
+
+
+      {{passage}}
+
+
+      Question: {{question}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_72
+    reference: jonghyeonkim
+  fb6cb305-54db-4a69-9f80-8049997c0b87: !Template
+    answer_choices: False ||| True
+    id: fb6cb305-54db-4a69-9f80-8049997c0b87
+    jinja: 'Please read the following text and indicate if the statement is true or
+      false:
+
+
+      {{passage}}
+
+
+      {{question}} True or False? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_73
+    reference: jonghyeonkim
+  e191959d-70f2-40f8-b410-93e310ec1150: !Template
+    answer_choices: False ||| True
+    id: e191959d-70f2-40f8-b410-93e310ec1150
+    jinja: 'After reading the following passage, answer the question by selecting True
+      or False.
+
+
+      {{passage}}
+
+
+      Question: {{question}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_74
+    reference: jonghyeonkim
+  56edf876-b8c7-427a-924d-7b42df4f3fa8: !Template
+    answer_choices: False ||| True
+    id: 56edf876-b8c7-427a-924d-7b42df4f3fa8
+    jinja: 'Please read the passage and answer the following question by selecting True
+      or False.
+
+
+      {{passage}}
+
+
+      Question: {{question}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_75
+    reference: jonghyeonkim
+  f5c1036d-8731-4dad-b622-e41c8a4e8bec: !Template
+    answer_choices: False ||| True
+    id: f5c1036d-8731-4dad-b622-e41c8a4e8bec
+    jinja: 'Please read the following passage and answer the question by selecting True
+      or False.
+
+
+      {{passage}}
+
+
+      Question: {{question}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_76
+    reference: jonghyeonkim
+  2d9a27f6-0102-40f9-9255-089626fe0b17: !Template
+    answer_choices: False ||| True
+    id: 2d9a27f6-0102-40f9-9255-089626fe0b17
+    jinja: 'Read the following text and answer the question below by writing True or
+      False.
+
+
+      Text: {{passage}}
+
+      Question: {{question}}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_77
+    reference: jonghyeonkim
+  af46323b-63d0-4bd2-a91c-312b9dc2efee: !Template
+    answer_choices: No ||| Yes
+    id: af46323b-63d0-4bd2-a91c-312b9dc2efee
+    jinja: 'Please read the following text carefully and answer the question with a
+      Yes or No.
+
+
+      {{ passage }}
+
+      Question: {{ question }}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_78
+    reference: jonghyeonkim
+  accbf605-6976-49fe-8140-67be7157a90b: !Template
+    answer_choices: False ||| True
+    id: accbf605-6976-49fe-8140-67be7157a90b
+    jinja: 'Please read the following passage and indicate if the statement is true
+      or false.
+
+
+      {{passage}}
+
+
+      {{question}}
+
+      True or False? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_79
+    reference: jonghyeonkim
+  2e6bedc3-3cc4-48f6-954b-c987539d8339: !Template
+    answer_choices: False ||| True
+    id: 2e6bedc3-3cc4-48f6-954b-c987539d8339
+    jinja: 'Read the following passage and determine whether the statement below is
+      True or False:
+
+
+      {{passage}}
+
+
+      Statement: {{question}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_80
+    reference: jonghyeonkim
+  62cfc395-3e44-4395-ba85-70a3d09ce883: !Template
+    answer_choices: No ||| Yes
+    id: 62cfc395-3e44-4395-ba85-70a3d09ce883
+    jinja: 'Please read the following passage and answer the following question with
+      Yes or No.
+
+
+      {{ passage }}
+
+      Question: {{ question }}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_81
+    reference: jonghyeonkim
+  00e80a4f-8ea7-4afa-ab66-f14e425fc529: !Template
+    answer_choices: No ||| Yes
+    id: 00e80a4f-8ea7-4afa-ab66-f14e425fc529
+    jinja: 'Please read the passage carefully and answer the following question with
+      Yes or No.
+
+
+      {{ passage }}
+
+      Question: {{ question }}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_82
+    reference: jonghyeonkim
+  d65461fb-6dc2-44c5-9b7f-c806ce92d8ad: !Template
+    answer_choices: False ||| True
+    id: d65461fb-6dc2-44c5-9b7f-c806ce92d8ad
+    jinja: 'Please evaluate the following statement based on the passage provided.
+
+
+      {{passage}}
+
+
+      Statement: {{question}}.
+
+
+      True or False? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_83
+    reference: jonghyeonkim
+  8ccaecbe-f260-4be5-95ff-2e3854ad39bd: !Template
+    answer_choices: False ||| True
+    id: 8ccaecbe-f260-4be5-95ff-2e3854ad39bd
+    jinja: 'Based on the following text, indicate whether the following statement is
+      True or False:
+
+
+      {{passage}}
+
+
+      Statement: {{question}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_84
+    reference: jonghyeonkim
+  21771961-7898-4447-9625-5a4d1ce97c73: !Template
+    answer_choices: False ||| True
+    id: 21771961-7898-4447-9625-5a4d1ce97c73
+    jinja: 'Read the passage below and determine whether the following statement is
+      True or False:
+
+
+      {{passage}}
+
+
+      {{question}} is True or False? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_85
+    reference: jonghyeonkim
+  5e88a7ae-6937-4a7a-8835-e323ab6d10e8: !Template
+    answer_choices: False ||| True
+    id: 5e88a7ae-6937-4a7a-8835-e323ab6d10e8
+    jinja: 'Please indicate if the following is true or false based on the passage provided.
+
+
+      {{passage}}
+
+      Question: {{question}}? True or False? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_86
+    reference: jonghyeonkim
+  2096b031-14e8-404c-b60f-8244e133f986: !Template
+    answer_choices: False ||| True
+    id: 2096b031-14e8-404c-b60f-8244e133f986
+    jinja: 'Please read the following passage and indicate whether the following statement
+      is True or False:
+
+
+      {{passage}}
+
+
+      Statement: {{question}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_87
+    reference: jonghyeonkim
+  c41e3b12-0212-46d2-a7e3-23512d5053f8: !Template
+    answer_choices: No ||| Yes
+    id: c41e3b12-0212-46d2-a7e3-23512d5053f8
+    jinja: 'Please read the following passage carefully and answer the following question
+      with Yes or No.
+
+
+      {{ passage }}
+
+      Question: {{ question }}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_88
+    reference: jonghyeonkim
+  2520ed82-9403-483c-bf0c-6105c4006471: !Template
+    answer_choices: False ||| True
+    id: 2520ed82-9403-483c-bf0c-6105c4006471
+    jinja: 'Please read the following text carefully and answer the following question
+      with True or False.
+
+
+      {{ passage }}
+
+      Question: {{ question }}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_89
+    reference: jonghyeonkim
+  c29ffa52-c91f-4721-b167-b4d6c13fb84f: !Template
+    answer_choices: False ||| True
+    id: c29ffa52-c91f-4721-b167-b4d6c13fb84f
+    jinja: 'After reading the following text, indicate whether the following statement
+      is True or False:
+
+
+      {{ passage }}
+
+
+      {{ question }}
+
+
+      True or False? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_90
+    reference: jonghyeonkim
+  60d77518-d3dd-49fd-bd9d-e61100819182: !Template
+    answer_choices: False ||| True
+    id: 60d77518-d3dd-49fd-bd9d-e61100819182
+    jinja: 'Please read the following passage carefully and answer the following question.
+
+
+      Passage: {{passage}}
+
+      Question: {{question}}
+
+
+      True or False? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_91
+    reference: jonghyeonkim
+  e29d01a5-8395-471d-ae21-552644a6dee4: !Template
+    answer_choices: False ||| True
+    id: e29d01a5-8395-471d-ae21-552644a6dee4
+    jinja: '{{ passage }}
+
+
+      After reading the passage, can you determine whether the following statement is
+      True or False: {{ question }}?
+
+
+      True or False? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_92
+    reference: jonghyeonkim
+  e4ac894c-d3b3-4f13-a3d9-1a04096306e6: !Template
+    answer_choices: False ||| True
+    id: e4ac894c-d3b3-4f13-a3d9-1a04096306e6
+    jinja: 'Please read the following passage and determine whether the following statement
+      is True or False:
+
+
+      {{passage}}
+
+
+      {{question}} is True or False? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_93
+    reference: jonghyeonkim
+  82e1cac7-55b5-409f-b0c2-21296da0c78f: !Template
+    answer_choices: False ||| True
+    id: 82e1cac7-55b5-409f-b0c2-21296da0c78f
+    jinja: 'Please read the passage and decide whether the statement in the following
+      question is true or false.
+
+
+      {{passage}}
+
+
+      {{question}}. True or False? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_94
+    reference: jonghyeonkim
+  7ca3faa6-3994-4e6a-a592-c7d7a8d2d2ad: !Template
+    answer_choices: False ||| True
+    id: 7ca3faa6-3994-4e6a-a592-c7d7a8d2d2ad
+    jinja: 'Determine if the following statement is true or false based on the information
+      in the passage.
+
+
+      Passage: {{passage}}
+
+
+      {{question}}? True or False? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_95
+    reference: jonghyeonkim
+  8d3d85fa-9c4b-4ddc-bc90-cbbccf3e5110: !Template
+    answer_choices: False ||| True
+    id: 8d3d85fa-9c4b-4ddc-bc90-cbbccf3e5110
+    jinja: 'Read the following passage and decide if the statement below is true or
+      false.
+
+
+      {{passage}}
+
+
+      Is the following statement true or false? {{question}} ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_96
+    reference: jonghyeonkim
+  87e793ec-ca5c-4f14-bf5d-ca74bec8030f: !Template
+    answer_choices: False ||| True
+    id: 87e793ec-ca5c-4f14-bf5d-ca74bec8030f
+    jinja: 'Instructions:
+
+
+      Read the following passage and decide if the statement below is true or false.
+
+
+      {{passage}}
+
+
+      Statement: {{question}}.
+
+
+      True or False? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_97
+    reference: jonghyeonkim
+  1e58d7b8-27b6-4c60-be75-fface0b16336: !Template
+    answer_choices: False ||| True
+    id: 1e58d7b8-27b6-4c60-be75-fface0b16336
+    jinja: 'Read the following passage and determine if the statement is true or false
+      based on the information presented.
+
+
+      {{passage}}
+
+
+      {{question}}? True or False? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_98
+    reference: jonghyeonkim
+  0572735a-7c6f-4edd-b5c1-dd656a4c3884: !Template
+    answer_choices: False ||| True
+    id: 0572735a-7c6f-4edd-b5c1-dd656a4c3884
+    jinja: 'Read the following passage and determine if the following statement is true
+      or false.
+
+
+      {{passage}}
+
+
+      Is the following statement true or false: {{question}}? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_99
+    reference: jonghyeonkim

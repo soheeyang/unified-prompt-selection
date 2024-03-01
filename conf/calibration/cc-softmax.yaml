@@ -1,0 +1,5 @@
+# Pass the calibration type to use as an argument, 'cbm', 'cc', 'pmi' are acceptable.
+cali_type: 'cc'
+
+# Pass in the criteria to apply to the calibrated prob normalization. 'mean' and 'softmax' are possible.
+cali_norm_type: 'softmax'

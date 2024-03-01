@@ -1,0 +1,682 @@
+dataset: tweet_eval
+subset: offensive
+templates:
+  10850707-80f3-4a75-b9f4-1e2d12be04c0: !Template
+    answer_choices: no ||| yes
+    id: 10850707-80f3-4a75-b9f4-1e2d12be04c0
+    jinja: "Is this tweet {{\"offensive\"}}? \n\n{{text}} |||\n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: offensive_question
+    reference: ''
+  22ecf073-2932-4b0a-b305-1f92b696d0b4: !Template
+    answer_choices: no ||| yes
+    id: 22ecf073-2932-4b0a-b305-1f92b696d0b4
+    jinja: "Can the tweet be removed for being offensive? Answer with a yes or a no.\
+      \ \n\n{{text}}\n|||\n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: offensive_tweet_removed
+    reference: ''
+  90a80d37-922d-40c0-b036-87eac64ce4c5: !Template
+    answer_choices: no ||| yes
+    id: 90a80d37-922d-40c0-b036-87eac64ce4c5
+    jinja: 'Is the author''s tweet offensive? Answer with either yes or no.
+
+
+      {{text}}
+
+      |||
+
+      {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: offensive_author
+    reference: ''
+  a12bd98b-facc-4b17-bb16-80c98a20aa64: !Template
+    answer_choices: no ||| yes
+    id: a12bd98b-facc-4b17-bb16-80c98a20aa64
+    jinja: 'Task: Identify if the tweet or text is offensive.
+
+
+      Tweet: {{text}}
+
+
+      Possible answers: yes, no
+
+      |||
+
+      {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: offensive_task
+    reference: ''
+  bf2cea43-0666-4eb5-814d-00956afd1900: !Template
+    answer_choices: no ||| yes
+    id: bf2cea43-0666-4eb5-814d-00956afd1900
+    jinja: "In this test, you need to answer with either yes or no.\n\nQ: Is this\
+      \ an offensive tweet?\n\n{{text}}\n\nA: \n|||\n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: offensive_exam
+    reference: ''
+  1e774c74-35d3-43f1-9741-ac05dd877940: !Template
+     answer_choices: inoffensive ||| offensive
+     id: 1e774c74-35d3-43f1-9741-ac05dd877940
+     jinja: '{{text}} How do you feel about this message? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: inoffensive-offensive_00
+     reference: 'sohee'
+  dced5b5e-d50e-4d39-8df0-b0423632b4f6: !Template
+     answer_choices: inoffensive ||| offensive
+     id: dced5b5e-d50e-4d39-8df0-b0423632b4f6
+     jinja: '{{text}} How does this message make you feel? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: inoffensive-offensive_01
+     reference: 'sohee'
+  2a878ef8-bbad-438d-8d50-69b38f37737c: !Template
+     answer_choices: inoffensive ||| offensive
+     id: 2a878ef8-bbad-438d-8d50-69b38f37737c
+     jinja: '{{text}} Is the author''s tweet inoffensive?
+
+Is the author''s tweet offensive?
+
+Is the author''s tweet offensive or inoffensive? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: inoffensive-offensive_02
+     reference: 'sohee'
+  20ce492d-d7cf-4629-9895-ccde059ccdcf: !Template
+     answer_choices: inoffensive ||| offensive
+     id: 20ce492d-d7cf-4629-9895-ccde059ccdcf
+     jinja: '{{text}} Is the author''s tweet offensive or inoffensive? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: inoffensive-offensive_03
+     reference: 'sohee'
+  0a09b7f2-0697-4328-8a88-274790598866: !Template
+     answer_choices: inoffensive ||| offensive
+     id: 0a09b7f2-0697-4328-8a88-274790598866
+     jinja: '{{text}} Task: Identify if the tweet or text is offensive ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: inoffensive-offensive_04
+     reference: 'sohee'
+  b729d017-3315-45bf-ae61-94a6553bb8b8: !Template
+     answer_choices: neutral ||| hatred
+     id: b729d017-3315-45bf-ae61-94a6553bb8b8
+     jinja: '{{text}} What is the emotion expressed in this message? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: neutral-hatred_00
+     reference: 'sohee'
+  d13c6bc3-ca83-4c8a-9ede-9b0dc10df07e: !Template
+     answer_choices: neutral ||| hatred
+     id: d13c6bc3-ca83-4c8a-9ede-9b0dc10df07e
+     jinja: '{{text}} What is the writer''s emotional reaction to this news? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: neutral-hatred_01
+     reference: 'sohee'
+  58d410d8-c0b2-47a7-a967-e6735d412003: !Template
+     answer_choices: no ||| yes
+     id: 58d410d8-c0b2-47a7-a967-e6735d412003
+     jinja: '{{text}} Can the tweet be deleted because it is offensive? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_00
+     reference: 'sohee'
+  1d82c3e7-f89d-40f6-b2bc-e77bc97352f4: !Template
+     answer_choices: no ||| yes
+     id: 1d82c3e7-f89d-40f6-b2bc-e77bc97352f4
+     jinja: '{{text}} Can the tweet be removed because it is offensive? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_01
+     reference: 'sohee'
+  97a0b41e-6aaf-4228-adf1-4b6ec8478482: !Template
+     answer_choices: no ||| yes
+     id: 97a0b41e-6aaf-4228-adf1-4b6ec8478482
+     jinja: '{{text}} Can the tweet be removed for being offensive? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_02
+     reference: 'sohee'
+  6bb20f3a-cd5e-4632-9c03-a4ee1559f74b: !Template
+     answer_choices: no ||| yes
+     id: 6bb20f3a-cd5e-4632-9c03-a4ee1559f74b
+     jinja: '{{text}} His tweet is offensive? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_03
+     reference: 'sohee'
+  0c137dc8-213c-45e1-9138-728938388626: !Template
+     answer_choices: no ||| yes
+     id: 0c137dc8-213c-45e1-9138-728938388626
+     jinja: '{{text}} If someone said this to you, would you be offended? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_04
+     reference: 'sohee'
+  3494eebf-61ad-4139-b164-e9ab819229bd: !Template
+     answer_choices: no ||| yes
+     id: 3494eebf-61ad-4139-b164-e9ab819229bd
+     jinja: '{{text}} Is his tweet offensive? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_05
+     reference: 'sohee'
+  28054b47-eb8f-4a5e-ba6d-84c211ab65f3: !Template
+     answer_choices: no ||| yes
+     id: 28054b47-eb8f-4a5e-ba6d-84c211ab65f3
+     jinja: '{{text}} Is the author''s tweet offensive to anyone? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_06
+     reference: 'sohee'
+  8af3acfe-a21e-43b8-91cb-f155dec47351: !Template
+     answer_choices: no ||| yes
+     id: 8af3acfe-a21e-43b8-91cb-f155dec47351
+     jinja: '{{text}} Is the author''s tweet offensive to you? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_07
+     reference: 'sohee'
+  e1b1f206-bd11-420e-8266-a7cda7edab34: !Template
+     answer_choices: no ||| yes
+     id: e1b1f206-bd11-420e-8266-a7cda7edab34
+     jinja: '{{text}} Is the author''s tweet offensive? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_08
+     reference: 'sohee'
+  3e7b2c5f-2028-47a8-8f3b-54491b9d96da: !Template
+     answer_choices: no ||| yes
+     id: 3e7b2c5f-2028-47a8-8f3b-54491b9d96da
+     jinja: '{{text}} Is this an offensive tweet? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_09
+     reference: 'sohee'
+  43acb1a8-40e9-407a-97c7-180f6917b2a9: !Template
+     answer_choices: no ||| yes
+     id: 43acb1a8-40e9-407a-97c7-180f6917b2a9
+     jinja: '{{text}} Is this tweet inappropriate? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_10
+     reference: 'sohee'
+  8784b26b-b629-4e43-bf10-ab7b8e480e07: !Template
+     answer_choices: no ||| yes
+     id: 8784b26b-b629-4e43-bf10-ab7b8e480e07
+     jinja: '{{text}} Is this tweet inappropriate?
+
+Is this tweet inappropriate? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_11
+     reference: 'sohee'
+  92b39b58-06b4-4a71-b739-94061ceb17bf: !Template
+     answer_choices: no ||| yes
+     id: 92b39b58-06b4-4a71-b739-94061ceb17bf
+     jinja: '{{text}} Is this tweet offensive to anyone? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_12
+     reference: 'sohee'
+  36343150-0216-4d61-83af-dde4165c1725: !Template
+     answer_choices: no ||| yes
+     id: 36343150-0216-4d61-83af-dde4165c1725
+     jinja: '{{text}} Is this tweet offensive? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_13
+     reference: 'sohee'
+  be8ecebb-6e9d-4c70-8140-9862956f9b01: !Template
+     answer_choices: no ||| yes
+     id: be8ecebb-6e9d-4c70-8140-9862956f9b01
+     jinja: '{{text}} That''s a good tweet. ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_14
+     reference: 'sohee'
+  9384faf7-1946-4dcc-a9c2-aaf48d37d2d3: !Template
+     answer_choices: no ||| yes
+     id: 9384faf7-1946-4dcc-a9c2-aaf48d37d2d3
+     jinja: '{{text}} The author''s tweet is potentially offensive ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_15
+     reference: 'sohee'
+  87558114-1a92-4dde-903d-374976cc2fca: !Template
+     answer_choices: no ||| yes
+     id: 87558114-1a92-4dde-903d-374976cc2fca
+     jinja: '{{text}} The tweet of the authors is harmful? The tweet of the authors is painful? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_16
+     reference: 'sohee'
+  abb3406a-2bd0-40d3-a431-992357c27484: !Template
+     answer_choices: no ||| yes
+     id: abb3406a-2bd0-40d3-a431-992357c27484
+     jinja: '{{text}} The tweet or text is likely to be offensive because it contains language that is derogatory or insulting ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_17
+     reference: 'sohee'
+  b0e8e054-8c2e-4a9d-960f-47d3b6cd153c: !Template
+     answer_choices: no ||| yes
+     id: b0e8e054-8c2e-4a9d-960f-47d3b6cd153c
+     jinja: '{{text}} The tweet or text is likely to be offensive if it contains language that is derogatory or insulting ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_18
+     reference: 'sohee'
+  7c2bd2e7-43d6-4551-a115-3439a0383329: !Template
+     answer_choices: no ||| yes
+     id: 7c2bd2e7-43d6-4551-a115-3439a0383329
+     jinja: '{{text}} The tweet or text is offensive because it is intended to hurt or offend someone ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_19
+     reference: 'sohee'
+  1b8fb1d6-0592-4b5b-89a5-0ae8514f8443: !Template
+     answer_choices: no ||| yes
+     id: 1b8fb1d6-0592-4b5b-89a5-0ae8514f8443
+     jinja: '{{text}} The tweet or text is offensive if it is intended to hurt or offend someone ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_20
+     reference: 'sohee'
+  21266e49-943f-4628-acfe-7d9c5755b909: !Template
+     answer_choices: no ||| yes
+     id: 21266e49-943f-4628-acfe-7d9c5755b909
+     jinja: '{{text}} This is an offensive tweet
+
+This tweet is offensive ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_21
+     reference: 'sohee'
+  e07b752a-8829-43d9-9675-3350eb716607: !Template
+     answer_choices: no ||| yes
+     id: e07b752a-8829-43d9-9675-3350eb716607
+     jinja: '{{text}} This tweet is inappropriate. ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_22
+     reference: 'sohee'
+  d3b6d02d-90c3-4e96-931e-f909a1ecda6e: !Template
+     answer_choices: no ||| yes
+     id: d3b6d02d-90c3-4e96-931e-f909a1ecda6e
+     jinja: '{{text}} This tweet is offensive
+
+This tweet is not appropriate ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_23
+     reference: 'sohee'
+  2fc55a13-370c-426b-8695-4d8ef7a32878: !Template
+     answer_choices: yes ||| no
+     id: 2fc55a13-370c-426b-8695-4d8ef7a32878
+     jinja: '{{text}} His tweet is harmless? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_24
+     reference: 'sohee'
+  30cc9491-168d-4122-916d-1e1da65c0b44: !Template
+     answer_choices: yes ||| no
+     id: 30cc9491-168d-4122-916d-1e1da65c0b44
+     jinja: '{{text}} Is her tweet harmless? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_25
+     reference: 'sohee'
+  71d99d62-0818-4ca4-be48-e305d310cd0c: !Template
+     answer_choices: yes ||| no
+     id: 71d99d62-0818-4ca4-be48-e305d310cd0c
+     jinja: '{{text}} Is his tweet harmless? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_26
+     reference: 'sohee'
+  9b2e0113-d7d3-480b-804b-bde79c1f5965: !Template
+     answer_choices: yes ||| no
+     id: 9b2e0113-d7d3-480b-804b-bde79c1f5965
+     jinja: '{{text}} Is the author''s tweet harmless? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_27
+     reference: 'sohee'
+  ee89aec6-8346-454f-a12b-437e995ae920: !Template
+     answer_choices: yes ||| no
+     id: ee89aec6-8346-454f-a12b-437e995ae920
+     jinja: '{{text}} Is the author''s tweet inoffensive? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_28
+     reference: 'sohee'
+  ea3548cc-962d-49b4-8142-af354ba4d5bc: !Template
+     answer_choices: yes ||| no
+     id: ea3548cc-962d-49b4-8142-af354ba4d5bc
+     jinja: '{{text}} Is the tweet of the author harmless? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_29
+     reference: 'sohee'
+  ee556800-2940-4766-92d7-2718e41dabd9: !Template
+     answer_choices: yes ||| no
+     id: ee556800-2940-4766-92d7-2718e41dabd9
+     jinja: '{{text}} Is this tweet inoffensive? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_30
+     reference: 'sohee'
+  da1b7158-0b16-4c06-ad4f-6579703a1e0a: !Template
+     answer_choices: yes ||| no
+     id: da1b7158-0b16-4c06-ad4f-6579703a1e0a
+     jinja: '{{text}} It''s a good tweet. ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_31
+     reference: 'sohee'
+  8ab9ea0d-0936-4138-aca4-ae7836084905: !Template
+     answer_choices: yes ||| no
+     id: 8ab9ea0d-0936-4138-aca4-ae7836084905
+     jinja: '{{text}} It''s a great tweet. ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_32
+     reference: 'sohee'
+  0c0b8113-49e9-4623-be89-7b043faab9b5: !Template
+     answer_choices: yes ||| no
+     id: 0c0b8113-49e9-4623-be89-7b043faab9b5
+     jinja: '{{text}} It''s an amazing tweet. ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_33
+     reference: 'sohee'
+  684fcf44-c10c-4721-b909-f3309188039d: !Template
+     answer_choices: yes ||| no
+     id: 684fcf44-c10c-4721-b909-f3309188039d
+     jinja: '{{text}} The author''s tweet is harmless? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_34
+     reference: 'sohee'
+  7e9f0e5d-6848-4a49-a4a8-1f54809e9dc2: !Template
+     answer_choices: yes ||| no
+     id: 7e9f0e5d-6848-4a49-a4a8-1f54809e9dc2
+     jinja: '{{text}} The tweet is not offensive ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_35
+     reference: 'sohee'
+  38fbb7ec-3b13-4b39-81fd-d4b6dffd3302: !Template
+     answer_choices: yes ||| no
+     id: 38fbb7ec-3b13-4b39-81fd-d4b6dffd3302
+     jinja: '{{text}} The tweet or text is not offensive ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_36
+     reference: 'sohee'
+  efa1ddd0-bb0d-4661-a058-f9c43515e56d: !Template
+     answer_choices: yes ||| no
+     id: efa1ddd0-bb0d-4661-a058-f9c43515e56d
+     jinja: '{{text}} This tweet is not offensive ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: no-yes_37
+     reference: 'sohee'

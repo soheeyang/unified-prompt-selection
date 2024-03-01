@@ -1,0 +1,1 @@
+from extraction.model import data_collator, decoder

@@ -1,0 +1,2157 @@
+dataset: piqa
+templates:
+  16e97a16-c958-4956-bfba-279f88dafd5b: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 16e97a16-c958-4956-bfba-279f88dafd5b
+    jinja: 'Goal: {{goal}}
+
+
+      Which is the correct ending?
+
+      - {{sol1}}
+
+      - {{sol2}}
+
+
+      Answer:
+
+      |||
+
+      {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: what_is_the_correct_ending
+    reference: ''
+  3f336295-c1f7-410a-8fc6-d2ed79487aa4: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 3f336295-c1f7-410a-8fc6-d2ed79487aa4
+    jinja: '{{"Solution 1"}}: {{sol1}}
+
+      {{"Solution 2"}}: {{sol2}}
+
+
+      Goal: {{goal}}
+
+
+      Given the goal, what is the correct solution?
+
+
+      Answer by copying the correct solution
+
+      |||
+
+      {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: pick_correct_choice_with_choice_given_before_goal
+    reference: ''
+  44778818-7b73-4262-a294-c00fc32b6c2c: !Template
+    answer_choices: 1 ||| 2
+    id: 44778818-7b73-4262-a294-c00fc32b6c2c
+    jinja: 'Sentence: {{goal}}
+
+
+      Choice {{answer_choices[0]}}: {{sol1}}
+
+
+      Choice {{answer_choices[1]}}: {{sol2}}
+
+
+      What is the index of the correct choice for ending for the sentence?
+
+
+      Answer:
+
+
+      |||
+
+      {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: pick_correct_choice_index
+    reference: ''
+  5f4b4645-9438-4375-9062-083130e6d04e: !Template
+    answer_choices: null
+    id: 5f4b4645-9438-4375-9062-083130e6d04e
+    jinja: "Given a goal and a wrong solution, rewrite it to give a correct solution.\n\
+      Goal: {{goal}} \nSolution: {{[sol1, sol2][1 - label]}}\nCorrected solution:\n\
+      |||\n{{[sol1, sol2][label]}}\n"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: Correct the solution
+    reference: ''
+  94c39589-7bfb-4c09-9337-672369459545: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 94c39589-7bfb-4c09-9337-672369459545
+    jinja: 'Finish the following sentence with the best choice: {{goal}}
+
+
+      Choices:
+
+      - {{sol1}}
+
+      - {{sol2}}
+
+
+      Answer:
+
+
+      |||
+
+      {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: finish_sentence_with_correct_choice
+    reference: ''
+  99565244-4eaf-4004-a28b-4362ba5bcac3: !Template
+    answer_choices: No ||| Yes
+    id: 99565244-4eaf-4004-a28b-4362ba5bcac3
+    jinja: '{{goal}} {{sol2}}
+
+      Does this phrase make sense?
+
+      |||
+
+      {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: false
+    name: Does this solution make sense? sol2
+    reference: ''
+  adfef248-f856-44fa-affd-e3223718854e: !Template
+    answer_choices: Solution 1 ||| Solution 2
+    id: adfef248-f856-44fa-affd-e3223718854e
+    jinja: 'Given a goal and 2 solutions, choose the most appropriate solution.
+
+      Goal: {{goal}}
+
+      - {{"Solution 1"}}: {{sol1}}
+
+      - {{"Solution 2"}}: {{sol2}}
+
+
+      Answer by returning either {{"Solution 1"}} or {{"Solution 2"}}
+
+      |||
+
+      {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: choose the most appropriate solution
+    reference: ''
+  b5c69473-eedb-4c4f-a5fa-d4e266e43535: !Template
+    answer_choices: null
+    id: b5c69473-eedb-4c4f-a5fa-d4e266e43535
+    jinja: 'Given a sentence, correct it if it doesn''t make sense. If it makes sense,
+      just return it as the answer.
+
+      Input: {{goal}} {{sol2[0].lower() + sol2[1:]}}
+
+      Output:
+
+      |||
+
+      {{goal}} {{[sol1[0].lower() + sol1[1:], sol2[0].lower() + sol2[1:]][label]}}
+
+      '
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: 'Correct the solution if false: from sol 2'
+    reference: ''
+  c8c45ef1-2ffc-43d7-8710-b98c2fc4f699: !Template
+    answer_choices: null
+    id: c8c45ef1-2ffc-43d7-8710-b98c2fc4f699
+    jinja: '{{goal}}
+
+      |||
+
+      {{[sol1[0].lower() + sol1[1:], sol2[0].lower() + sol2[1:]][label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: no prompt needed
+    reference: ''
+  f044def7-01c2-42de-b6ad-4e8c63ab2bf1: !Template
+    answer_choices: Yes ||| No
+    id: f044def7-01c2-42de-b6ad-4e8c63ab2bf1
+    jinja: 'Does this phrase make sense?
+
+      {{goal}} {{sol1[0].lower() + sol1[1:]}}
+
+      Answer with {{answer_choices[0]}} or {{answer_choices[1]}}
+
+      |||
+
+      {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: false
+    name: Does this solution make sense? sol1
+    reference: ''
+  f42cd457-a14b-465a-a139-d7d2407a3bac: !Template
+    answer_choices: null
+    id: f42cd457-a14b-465a-a139-d7d2407a3bac
+    jinja: 'Sentence: {{goal}} {{sol1[0].lower() + sol1[1:]}}
+
+      If the sentence does not make sense, correct it so that it does make sense.
+      Otherwise, just copy it.
+
+      Answer:
+
+      |||
+
+      {{goal}} {{[sol1[0].lower() + sol1[1:], sol2[0].lower() + sol2[1:]][label]}}
+
+      '
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: 'Correct the solution if false: from sol 1'
+    reference: ''
+  3ea6b64f-4f80-4fde-86ee-3456212d389b: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 3ea6b64f-4f80-4fde-86ee-3456212d389b
+    jinja: 'Question: {{goal}}
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: fewshot
+    reference: jonghyeonkim
+  a758e716-d334-478c-8026-9630d3574af2: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: a758e716-d334-478c-8026-9630d3574af2
+    jinja: I need to achieve {{goal}}. The correct solution is ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_00
+    reference: jonghyeonkim
+  31ef5527-d236-4ea9-a31c-6889177d8f60: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 31ef5527-d236-4ea9-a31c-6889177d8f60
+    jinja: "I want to achieve {{goal}}\n\nWhat do I need to do?\n\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_01
+    reference: jonghyeonkim
+  8bd413b4-258a-4d0a-99a2-7c12c4888353: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 8bd413b4-258a-4d0a-99a2-7c12c4888353
+    jinja: 'The objective is to {{goal}}
+
+
+      The correct solution is ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_02
+    reference: jonghyeonkim
+  b7474d1a-f1f7-4d5e-8077-39ed100c6daf: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: b7474d1a-f1f7-4d5e-8077-39ed100c6daf
+    jinja: "For the following goal: {{goal}}\n\nWhat should I do?\n\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_03
+    reference: jonghyeonkim
+  6eaa595f-09b0-4543-9891-4d6bf62de319: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 6eaa595f-09b0-4543-9891-4d6bf62de319
+    jinja: "Describe how to accomplish the following goal: {{goal}}\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_04
+    reference: jonghyeonkim
+  4c23bf4e-b8b8-4baa-8c83-d64b90ea050d: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 4c23bf4e-b8b8-4baa-8c83-d64b90ea050d
+    jinja: "Based on the goal \"{{goal}}\", select the correct solution.\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_05
+    reference: jonghyeonkim
+  10381a85-6434-4c75-b706-a3427ae62e90: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 10381a85-6434-4c75-b706-a3427ae62e90
+    jinja: "Provide a solution to achieve the following goal: {{goal}}\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_06
+    reference: jonghyeonkim
+  9b76db2f-ebe6-434c-948b-a41056e1bfc7: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 9b76db2f-ebe6-434c-948b-a41056e1bfc7
+    jinja: What is the correct solution to achieve the goal "{{goal}}"? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_07
+    reference: jonghyeonkim
+  5bb5b234-b639-43ef-86ce-f233ef5d39ad: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 5bb5b234-b639-43ef-86ce-f233ef5d39ad
+    jinja: "What is the best way to achieve the following goal: {{goal}}?\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_08
+    reference: jonghyeonkim
+  0419fbe1-c427-4a12-910f-169ffe82616c: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 0419fbe1-c427-4a12-910f-169ffe82616c
+    jinja: "Given the goal \"{{goal}}\", write down the appropriate solution.\n |||\
+      \ {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_09
+    reference: jonghyeonkim
+  969ea1eb-35fe-4460-8ccf-060755fa3289: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 969ea1eb-35fe-4460-8ccf-060755fa3289
+    jinja: "Write the best solution to achieve the following goal: {{goal}}\n ||| {{\
+      \ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_10
+    reference: jonghyeonkim
+  bfac2b14-510e-4288-808c-7003b52141f4: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: bfac2b14-510e-4288-808c-7003b52141f4
+    jinja: "Tell the correct solution to achieve the following goal: {{goal}}\n |||\
+      \ {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_11
+    reference: jonghyeonkim
+  10309573-eaf8-43f4-9181-f4f36348f97f: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 10309573-eaf8-43f4-9181-f4f36348f97f
+    jinja: In order to achieve the goal "{{goal}}", what is the best solution ? |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_12
+    reference: jonghyeonkim
+  f5a01f04-4471-4b8c-af8f-5b6a2a2695d1: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: f5a01f04-4471-4b8c-af8f-5b6a2a2695d1
+    jinja: "What solution should be implemented to achieve the goal \"{{goal}}\"?\n\
+      \ ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_13
+    reference: jonghyeonkim
+  5b60fb9a-f358-4cc0-98df-15a5d25aa7ed: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 5b60fb9a-f358-4cc0-98df-15a5d25aa7ed
+    jinja: Provide the solution that can be used to achieve the goal "{{goal}}". |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_14
+    reference: jonghyeonkim
+  53b1aa27-a90e-448f-b49f-2db01d1c639f: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 53b1aa27-a90e-448f-b49f-2db01d1c639f
+    jinja: "I need to solve the problem: {{goal}}\n\nWhat is the correct solution?\n\
+      \n ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_15
+    reference: jonghyeonkim
+  2ddc31b4-aa63-4559-8fd0-ab21b8cc33fc: !Template
+    answer_choices: A) {{sol1}} ||| B) {{sol2}}
+    id: 2ddc31b4-aa63-4559-8fd0-ab21b8cc33fc
+    jinja: 'What is the correct way to {{goal}}?
+
+
+      A) {{sol1}}
+
+      B) {{sol2}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_16
+    reference: jonghyeonkim
+  dbfe1157-4e5f-42a1-b323-259f10112d00: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: dbfe1157-4e5f-42a1-b323-259f10112d00
+    jinja: 'Goal: {{goal}}
+
+      What is the best course of action to achieve this goal? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_17
+    reference: jonghyeonkim
+  e477ecf8-57ac-4fb3-9c50-3b9ae8f810f1: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: e477ecf8-57ac-4fb3-9c50-3b9ae8f810f1
+    jinja: '{{goal}}. What is the correct solution?
+
+      - {{sol1}}
+
+      - {{sol2}}
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_18
+    reference: jonghyeonkim
+  d8af449e-ba0c-419b-883b-8f2615e233af: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: d8af449e-ba0c-419b-883b-8f2615e233af
+    jinja: 'Please write down the solution to achieve the following goal: "{{goal}}"
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_19
+    reference: jonghyeonkim
+  104bf274-4723-494e-8b2b-4490b5b1e466: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 104bf274-4723-494e-8b2b-4490b5b1e466
+    jinja: 'Finish the following statement: In order to achieve "{{goal}}", I need to
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_20
+    reference: jonghyeonkim
+  dee115a3-7dc9-4f4d-8c96-dc77c2994311: !Template
+    answer_choices: A) {{sol1}} ||| B) {{sol2}}
+    id: dee115a3-7dc9-4f4d-8c96-dc77c2994311
+    jinja: 'What should I do to accomplish {{goal}}?
+
+
+      A) {{sol1}}
+
+
+      B) {{sol2}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_21
+    reference: jonghyeonkim
+  ad242275-0a0b-481e-8358-d499f83b00d9: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: ad242275-0a0b-481e-8358-d499f83b00d9
+    jinja: '- {{sol1}}
+
+
+      - {{sol2}}
+
+
+
+      Which option satisfies the goal "{{goal}}"?
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_22
+    reference: jonghyeonkim
+  272c8c46-2ecf-43c5-8743-b4000be3e5b1: !Template
+    answer_choices: A) {{sol1}} ||| B) {{sol2}}
+    id: 272c8c46-2ecf-43c5-8743-b4000be3e5b1
+    jinja: 'What is the most appropriate way to {{goal}}?
+
+
+      A) {{sol1}}
+
+
+      B) {{sol2}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_23
+    reference: jonghyeonkim
+  dd1f4711-3e1f-4d14-88cd-dba3b64b1eb0: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: dd1f4711-3e1f-4d14-88cd-dba3b64b1eb0
+    jinja: 'Please generate the correct solution for the following goal: {{goal}}.
+
+
+      Solution: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_24
+    reference: jonghyeonkim
+  c4bd808b-aa51-4f46-bfa7-8d4a41b22cd9: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: c4bd808b-aa51-4f46-bfa7-8d4a41b22cd9
+    jinja: '{{goal}}. What is the correct way to accomplish it?
+
+
+      - {{sol1}}
+
+
+      - {{sol2}}
+
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_25
+    reference: jonghyeonkim
+  4506567f-07a7-43b9-b8bd-c20120ce9329: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 4506567f-07a7-43b9-b8bd-c20120ce9329
+    jinja: 'What is the desired outcome of the following task?
+
+
+      {{goal}}
+
+
+      Provide the answer below: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_26
+    reference: jonghyeonkim
+  b307f391-0a99-465a-9c21-16320142e1fc: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: b307f391-0a99-465a-9c21-16320142e1fc
+    jinja: 'What is the goal of this task?
+
+
+
+      - {{goal}}
+
+
+
+      Choices:
+
+
+      - {{sol1}}
+
+
+      - {{sol2}}
+
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_27
+    reference: jonghyeonkim
+  66fca54d-ab59-4c28-bb5b-e0b22dddab13: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 66fca54d-ab59-4c28-bb5b-e0b22dddab13
+    jinja: Consider the goal "{{goal}}", and write down the solution that can be used
+      to achieve it. ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_28
+    reference: jonghyeonkim
+  190607fb-e160-4803-84ce-401698d0f019: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 190607fb-e160-4803-84ce-401698d0f019
+    jinja: "State which of the following solutions is the correct one to achieve the\
+      \ goal \"{{goal}}\".\n ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_29
+    reference: jonghyeonkim
+  5a7837da-e521-4345-8ac2-323bee7afa39: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 5a7837da-e521-4345-8ac2-323bee7afa39
+    jinja: 'What is the best way to achieve: {{goal}}?
+
+
+
+      Choose one:
+
+
+      - {{sol1}}
+
+
+      - {{sol2}}
+
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_30
+    reference: jonghyeonkim
+  9682ea92-4fc4-47b5-8e40-bcf6bce9d9f5: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 9682ea92-4fc4-47b5-8e40-bcf6bce9d9f5
+    jinja: 'Choose the right option for the following task: {{goal}}
+
+
+
+      - {{sol1}}
+
+
+      - {{sol2}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_31
+    reference: jonghyeonkim
+  18f9e1ac-a787-4ee8-a856-5b1db843d17e: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 18f9e1ac-a787-4ee8-a856-5b1db843d17e
+    jinja: 'Please recommend the best solution to achieve "{{goal}}".
+
+
+      {{sol1}}
+
+
+      or
+
+
+      {{sol2}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_32
+    reference: jonghyeonkim
+  5978e3c6-8ef4-4b0d-b336-001c0ee7f111: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 5978e3c6-8ef4-4b0d-b336-001c0ee7f111
+    jinja: 'What is the correct ending to achieve the goal "{{goal}}"?
+
+
+      - {{sol1}}
+
+
+      - {{sol2}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_33
+    reference: jonghyeonkim
+  347a365e-30f7-4a09-a175-1750796ea369: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 347a365e-30f7-4a09-a175-1750796ea369
+    jinja: 'Choose the correct solution to achieve the goal: {{goal}}
+
+
+
+      A) {{sol1}}
+
+      B) {{sol2}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_34
+    reference: jonghyeonkim
+  abfcbfa7-991c-4b39-92c7-3d916c8b3142: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: abfcbfa7-991c-4b39-92c7-3d916c8b3142
+    jinja: 'To accomplish the goal "{{goal}}", which option is correct?
+
+
+      A) {{sol1}}
+
+      B) {{sol2}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_35
+    reference: jonghyeonkim
+  9e1cce3b-b86c-42f8-ae56-ed3e237559c8: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 9e1cce3b-b86c-42f8-ae56-ed3e237559c8
+    jinja: '- {{sol1}}
+
+
+      - {{sol2}}
+
+
+
+      What is the correct answer for the following task: {{goal}}?
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_36
+    reference: jonghyeonkim
+  58785770-ab93-4aa8-a58b-a23fb185da9d: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 58785770-ab93-4aa8-a58b-a23fb185da9d
+    jinja: '- {{sol1}}
+
+
+      - {{sol2}}
+
+
+
+      What is the correct solution to achieve the goal "{{goal}}"?
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_37
+    reference: jonghyeonkim
+  b07d0123-76d9-4b5b-aedb-5322249d079c: !Template
+    answer_choices: A) {{sol1}} ||| B) {{sol2}}
+    id: b07d0123-76d9-4b5b-aedb-5322249d079c
+    jinja: 'Select the option that correctly fulfills the task: {{goal}}
+
+
+      A) {{sol1}}
+
+
+      B) {{sol2}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_38
+    reference: jonghyeonkim
+  246b1439-45fc-4a65-a3b9-141e4c5b219b: !Template
+    answer_choices: A. {{sol1}} ||| B. {{sol2}}
+    id: 246b1439-45fc-4a65-a3b9-141e4c5b219b
+    jinja: 'What is the correct ending to achieve the goal "{{goal}}"?
+
+
+
+      A. {{sol1}}
+
+
+      B. {{sol2}}
+
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_39
+    reference: jonghyeonkim
+  44fd46dd-6824-451d-b5e1-f06a9ca38c6d: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 44fd46dd-6824-451d-b5e1-f06a9ca38c6d
+    jinja: 'Complete the following statement with the best solution to achieve the goal:
+      {{goal}}.
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_40
+    reference: jonghyeonkim
+  10df226d-7107-4e6a-b4ce-3deb27517b45: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 10df226d-7107-4e6a-b4ce-3deb27517b45
+    jinja: 'Complete the following sentence with the best option: {{goal}}
+
+
+
+      - {{sol1}}
+
+
+      - {{sol2}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_41
+    reference: jonghyeonkim
+  1c8e09b4-cb65-4a06-890c-c8e5a4ed213a: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 1c8e09b4-cb65-4a06-890c-c8e5a4ed213a
+    jinja: 'Select the best solution to reach the following goal:
+
+      {{goal}}
+
+
+
+      - {{sol1}}
+
+
+      - {{sol2}}
+
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_42
+    reference: jonghyeonkim
+  7d5f3b1a-acfb-4988-aba3-a56fdc852f58: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 7d5f3b1a-acfb-4988-aba3-a56fdc852f58
+    jinja: '- {{sol1}}
+
+
+      - {{sol2}}
+
+
+
+      What should be the final choice to achieve the goal "{{goal}}"?
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_43
+    reference: jonghyeonkim
+  140a53af-cd0c-4924-96d0-03df7ef78db8: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 140a53af-cd0c-4924-96d0-03df7ef78db8
+    jinja: 'Which option is correct to accomplish "{{goal}}"?
+
+
+      Option 1: {{sol1}}
+
+      Option 2: {{sol2}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_44
+    reference: jonghyeonkim
+  c5702c18-feb1-4a73-8126-02b6161b1e0e: !Template
+    answer_choices: A) {{sol1}} ||| B) {{sol2}}
+    id: c5702c18-feb1-4a73-8126-02b6161b1e0e
+    jinja: '{{goal}} is the task. Choose the correct option to complete it.
+
+
+      A) {{sol1}}
+
+
+      B) {{sol2}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_45
+    reference: jonghyeonkim
+  4272f381-5bdd-497f-88c7-de48f5561ae4: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 4272f381-5bdd-497f-88c7-de48f5561ae4
+    jinja: 'How would you achieve the following goal?
+
+
+      {{goal}}
+
+
+      Choose one:
+
+
+      - {{sol1}}
+
+
+      - {{sol2}}
+
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_46
+    reference: jonghyeonkim
+  03529cd0-f8c6-4567-a1f2-e750cf051b54: !Template
+    answer_choices: A) {{sol1}} ||| B) {{sol2}}
+    id: 03529cd0-f8c6-4567-a1f2-e750cf051b54
+    jinja: 'Task: {{goal}}. Which option can satisfy the task requirements?
+
+
+      A) {{sol1}}
+
+
+      B) {{sol2}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_47
+    reference: jonghyeonkim
+  594544e4-7f15-4d03-8191-dc831f892381: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 594544e4-7f15-4d03-8191-dc831f892381
+    jinja: '{{goal}}. What is the best option to accomplish it?
+
+
+      Option 1: {{sol1}}
+
+      Option 2: {{sol2}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_48
+    reference: jonghyeonkim
+  b4b63852-d5d6-4d81-9eb7-e9476868e17d: !Template
+    answer_choices: A) {{sol1}} ||| B) {{sol2}}
+    id: b4b63852-d5d6-4d81-9eb7-e9476868e17d
+    jinja: '{{goal}} is the purpose. Which solution is the most appropriate?
+
+
+      A) {{sol1}}
+
+
+      B) {{sol2}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_49
+    reference: jonghyeonkim
+  c41baff6-b7fe-44b6-92ec-8b1e7e92a449: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: c41baff6-b7fe-44b6-92ec-8b1e7e92a449
+    jinja: 'Can you find the correct solution to achieve the goal "{{goal}}"?
+
+
+
+      - {{sol1}}
+
+
+      - {{sol2}}
+
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_50
+    reference: jonghyeonkim
+  a60ef803-cf66-497c-aa46-a7240a72d0df: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: a60ef803-cf66-497c-aa46-a7240a72d0df
+    jinja: '{{sol1}} or {{sol2}}? Which one is the correct choice to reach the following
+      goal:
+
+      {{goal}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_51
+    reference: jonghyeonkim
+  5fed0fe4-cea4-4cea-8c47-a14f9e516f63: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 5fed0fe4-cea4-4cea-8c47-a14f9e516f63
+    jinja: 'What is the correct ending for the following task: {{goal}}
+
+
+
+      Choices:
+
+
+      - {{sol1}}
+
+
+      - {{sol2}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_52
+    reference: jonghyeonkim
+  ec015bd6-443e-4ae8-aad0-0b36aebd7231: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: ec015bd6-443e-4ae8-aad0-0b36aebd7231
+    jinja: 'Choose the correct solution to achieve the following goal:
+
+
+      "{{goal}}"
+
+
+      - {{sol1}}
+
+
+      - {{sol2}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_53
+    reference: jonghyeonkim
+  ffdbd40b-8685-40d4-80f1-ce27b290da52: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: ffdbd40b-8685-40d4-80f1-ce27b290da52
+    jinja: 'Please select the correct solution for the following goal:
+
+
+      "{{goal}}"
+
+
+      - {{sol1}}
+
+
+      - {{sol2}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_54
+    reference: jonghyeonkim
+  8d1b7d25-1f2f-43d1-879b-12ca3a0feafa: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 8d1b7d25-1f2f-43d1-879b-12ca3a0feafa
+    jinja: 'Please select the best option to achieve the following goal:
+
+
+      {{goal}}
+
+
+      - {{sol1}}
+
+
+      - {{sol2}}
+
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_55
+    reference: jonghyeonkim
+  8db253a4-7bc3-4c1e-9ce0-daf5a1b95a5b: !Template
+    answer_choices: A) {{sol1}} ||| B) {{sol2}}
+    id: 8db253a4-7bc3-4c1e-9ce0-daf5a1b95a5b
+    jinja: "Please select the correct solution to achieve the following goal:\n\n{{goal}}\n\
+      \nA) {{sol1}}\n\nB) {{sol2}}\n\n\n ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_56
+    reference: jonghyeonkim
+  f4dae4f3-08b0-45e3-86ea-8349836bace2: !Template
+    answer_choices: A. {{sol1}} ||| B. {{sol2}}
+    id: f4dae4f3-08b0-45e3-86ea-8349836bace2
+    jinja: 'What do you think is the best option to achieve the goal "{{goal}}"?
+
+
+
+      A. {{sol1}}
+
+
+      B. {{sol2}}
+
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_57
+    reference: jonghyeonkim
+  06a6fd51-aff9-48a9-b50f-68dc652cc9a1: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 06a6fd51-aff9-48a9-b50f-68dc652cc9a1
+    jinja: 'Select the correct solution for the following goal:
+
+
+      {{goal}}
+
+
+      Choices:
+
+
+      - {{sol1}}
+
+
+      - {{sol2}}
+
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_58
+    reference: jonghyeonkim
+  3fb8b453-cfde-4293-b68f-662a5ff12521: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 3fb8b453-cfde-4293-b68f-662a5ff12521
+    jinja: 'Please select the correct solution to achieve the following goal: {{goal}}
+
+
+      - {{sol1}}
+
+
+      - {{sol2}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_59
+    reference: jonghyeonkim
+  601eed6b-cfa2-4d26-8752-9e0cfffc31d1: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 601eed6b-cfa2-4d26-8752-9e0cfffc31d1
+    jinja: 'Choose the solution that is appropriate to achieve the following goal: {{goal}}
+
+
+      - {{sol1}}
+
+
+      - {{sol2}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_60
+    reference: jonghyeonkim
+  38bbedc2-6a65-440f-bfc0-58e371549cce: !Template
+    answer_choices: A) {{sol1}} ||| B) {{sol2}}
+    id: 38bbedc2-6a65-440f-bfc0-58e371549cce
+    jinja: 'You have the following goal: {{goal}}
+
+
+      What would be the appropriate solution?
+
+
+      A) {{sol1}}
+
+      B) {{sol2}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_61
+    reference: jonghyeonkim
+  dbff6ee7-2cb5-4e06-9918-9159d6839566: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: dbff6ee7-2cb5-4e06-9918-9159d6839566
+    jinja: 'What is the best solution to achieve the following goal?
+
+
+      {{goal}}
+
+
+      Choose one:
+
+
+      - {{sol1}}
+
+
+      - {{sol2}}
+
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_62
+    reference: jonghyeonkim
+  b72dbc17-e749-4f81-aa7d-aef938b1c46f: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: b72dbc17-e749-4f81-aa7d-aef938b1c46f
+    jinja: 'Select the best solution to achieve the following objective: {{goal}}.
+
+
+      Choices:
+
+
+      - {{sol1}}
+
+
+      - {{sol2}}
+
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_63
+    reference: jonghyeonkim
+  bf6a152c-9448-49ee-b85b-b3b5c0fa27d5: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: bf6a152c-9448-49ee-b85b-b3b5c0fa27d5
+    jinja: 'For the goal "{{goal}}", what is the correct solution?
+
+
+      Choose from the following:
+
+
+      - {{sol1}}
+
+
+      - {{sol2}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_64
+    reference: jonghyeonkim
+  37e01039-0965-4add-9f6b-f69cd9a2db66: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 37e01039-0965-4add-9f6b-f69cd9a2db66
+    jinja: 'What is the solution to achieve the goal "{{goal}}"?
+
+
+      Select one of the following:
+
+
+      - {{sol1}}
+
+
+      - {{sol2}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_65
+    reference: jonghyeonkim
+  acf2cc36-6f22-464d-ad58-bf401641d138: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: acf2cc36-6f22-464d-ad58-bf401641d138
+    jinja: 'Which of the following solutions will help achieve the following goal: {{goal}}?
+
+
+
+      - {{sol1}}
+
+
+      - {{sol2}}
+
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_66
+    reference: jonghyeonkim
+  4903e5d9-6b78-4fb6-8ba1-5ad1f173f00c: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 4903e5d9-6b78-4fb6-8ba1-5ad1f173f00c
+    jinja: 'Which one of the following options is the best way to achieve the goal "{{goal}}"?
+
+
+
+      - {{sol1}}
+
+
+      - {{sol2}}
+
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_67
+    reference: jonghyeonkim
+  a8abbb6c-8908-425f-99ee-5d454bfff6c1: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: a8abbb6c-8908-425f-99ee-5d454bfff6c1
+    jinja: 'Given the goal "{{goal}}", which option do you think is the correct one?
+
+
+
+      Choices:
+
+
+      - {{sol1}}
+
+
+      - {{sol2}}
+
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_68
+    reference: jonghyeonkim
+  7cf4adb4-921f-41b4-accb-3247cda80d1a: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 7cf4adb4-921f-41b4-accb-3247cda80d1a
+    jinja: '- {{sol1}}
+
+
+      - {{sol2}}
+
+
+
+      What is the best way to achieve this goal: {{goal}}?
+
+
+      Answer by copying the correct solution ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_69
+    reference: jonghyeonkim
+  39b07af4-ec58-45de-aab1-862b0346f445: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 39b07af4-ec58-45de-aab1-862b0346f445
+    jinja: 'What is the most effective way to achieve the following goal?
+
+
+      {{goal}}
+
+
+      Choose one:
+
+
+      - {{sol1}}
+
+
+      - {{sol2}}
+
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_70
+    reference: jonghyeonkim
+  fd4783c0-617e-47ad-ba96-a2f32f8a9118: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: fd4783c0-617e-47ad-ba96-a2f32f8a9118
+    jinja: 'Given the following goal, what is the best way to achieve it?
+
+
+      {{goal}}
+
+
+      Choose one:
+
+
+      - {{sol1}}
+
+
+      - {{sol2}}
+
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_71
+    reference: jonghyeonkim
+  60c268a7-0960-49f5-9aea-9dd692123209: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 60c268a7-0960-49f5-9aea-9dd692123209
+    jinja: 'You have a goal: {{goal}}.
+
+
+      Which of the following is the best solution to achieve it?
+
+
+      A. {{sol1}}
+
+      B. {{sol2}}
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_72
+    reference: jonghyeonkim
+  7782fe47-6714-4e7f-b85f-2db267f837f1: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 7782fe47-6714-4e7f-b85f-2db267f837f1
+    jinja: 'Please suggest a solution to achieve "{{goal}}".
+
+      Option 1: {{sol1}}
+
+      Option 2: {{sol2}}
+
+
+      Which one is the best?
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_73
+    reference: jonghyeonkim
+  284ec22d-a674-4d79-8c3f-77aba10cbb2d: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 284ec22d-a674-4d79-8c3f-77aba10cbb2d
+    jinja: 'Which of the following options will help achieve the goal: {{goal}}?
+
+
+      - {{sol1}}
+
+
+      - {{sol2}}
+
+
+      Choose the correct option: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_74
+    reference: jonghyeonkim
+  e871cfc0-fb5d-4e93-b9d0-acea0912b0fa: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: e871cfc0-fb5d-4e93-b9d0-acea0912b0fa
+    jinja: 'The goal is: {{goal}}.
+
+
+      Select the solution that is most likely to help you achieve it.
+
+
+      A. {{sol1}}
+
+      B. {{sol2}}
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_75
+    reference: jonghyeonkim
+  1bd7fb27-6d0f-4ae5-9cd3-b6c7fcd0d0ed: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 1bd7fb27-6d0f-4ae5-9cd3-b6c7fcd0d0ed
+    jinja: 'Given the following goal, which solution would be most appropriate?
+
+
+      {{goal}}
+
+
+      Pick one:
+
+
+      - {{sol1}}
+
+
+      - {{sol2}}
+
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_76
+    reference: jonghyeonkim
+  92332f08-1418-46d1-9798-af77acf1a22b: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 92332f08-1418-46d1-9798-af77acf1a22b
+    jinja: 'What should I do to achieve the following goal: "{{goal}}"?
+
+
+      Select one of the following:
+
+
+      - {{sol1}}
+
+
+      - {{sol2}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_77
+    reference: jonghyeonkim
+  cff82c18-4b13-4b6b-a523-b0f7844acf6f: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: cff82c18-4b13-4b6b-a523-b0f7844acf6f
+    jinja: 'Your task is to achieve: {{goal}}
+
+
+      Which of the following options is the most appropriate?
+
+
+      - {{sol1}}
+
+      - {{sol2}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_78
+    reference: jonghyeonkim
+  94b5c39a-1332-4e33-a373-0a653a4b7499: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 94b5c39a-1332-4e33-a373-0a653a4b7499
+    jinja: 'In order to achieve the goal below, which solution should you select?
+
+
+      {{goal}}
+
+
+      Choices:
+
+
+      - {{sol1}}
+
+
+      - {{sol2}}
+
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_79
+    reference: jonghyeonkim
+  89584e0b-89a8-4646-b2db-4a1fe3507370: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 89584e0b-89a8-4646-b2db-4a1fe3507370
+    jinja: 'What is the correct solution to achieve the goal "{{goal}}"?
+
+
+      Choose one of the following:
+
+
+      - {{sol1}}
+
+
+      - {{sol2}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_80
+    reference: jonghyeonkim
+  7597c3d9-9fe7-4085-8102-62c2a86a8324: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 7597c3d9-9fe7-4085-8102-62c2a86a8324
+    jinja: 'Given the goal "{{goal}}", which of the following solutions is the best
+      way to achieve it?
+
+
+      - {{sol1}}
+
+
+      - {{sol2}}
+
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_81
+    reference: jonghyeonkim
+  e129f010-729f-4705-8ed2-102f122d9fec: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: e129f010-729f-4705-8ed2-102f122d9fec
+    jinja: '"Choice 1": {{sol1}}
+
+
+      "Choice 2": {{sol2}}
+
+
+
+      What is the correct solution for the following task: {{goal}}?
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_82
+    reference: jonghyeonkim
+  49963ce2-e429-4792-adc8-2968d3eb0603: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 49963ce2-e429-4792-adc8-2968d3eb0603
+    jinja: "{{\"Solution 1\"}}: {{sol1}}\n{{\"Solution 2\"}}: {{sol2}}\n\nWhat is the\
+      \ goal you can achieve by selecting the correct solution?\n\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_83
+    reference: jonghyeonkim
+  59ec170d-737a-4fed-ae92-fc4923fda979: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 59ec170d-737a-4fed-ae92-fc4923fda979
+    jinja: '- {{sol1}}
+
+
+      - {{sol2}}
+
+
+
+      What should you do to achieve the following goal: {{goal}}?
+
+
+      Answer by copying the correct solution ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_84
+    reference: jonghyeonkim
+  93129b10-b914-4b3d-bcc3-f629081b917f: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 93129b10-b914-4b3d-bcc3-f629081b917f
+    jinja: 'Goal: {{goal}}
+
+
+      Which of the following is the most appropriate solution to achieve the goal?
+
+
+      A. {{sol1}}
+
+      B. {{sol2}}
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_85
+    reference: jonghyeonkim
+  1f20ee27-b7e1-4376-ac2c-bc9674114712: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 1f20ee27-b7e1-4376-ac2c-bc9674114712
+    jinja: 'What is the best way to achieve the following goal: "{{goal}}"?
+
+
+      Choose one of the following:
+
+
+      - {{sol1}}
+
+
+      - {{sol2}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_86
+    reference: jonghyeonkim
+  1da7bcea-7c35-43ea-9907-e6ca0a4df4ad: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 1da7bcea-7c35-43ea-9907-e6ca0a4df4ad
+    jinja: '{{"Solution 1"}}: {{sol1}}
+
+      {{"Solution 2"}}: {{sol2}}
+
+
+      Choose the correct solution for the following goal:
+
+
+      {{goal}}
+
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_87
+    reference: jonghyeonkim
+  80b11911-2b09-402d-ae25-9fd0cdcbf199: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 80b11911-2b09-402d-ae25-9fd0cdcbf199
+    jinja: 'You want to achieve the following goal: {{goal}}.
+
+
+      Which of the following solutions is the best?
+
+
+      A. {{sol1}}
+
+      B. {{sol2}}
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_88
+    reference: jonghyeonkim
+  4683cbb4-f619-4901-9101-64f4fa52c2ba: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 4683cbb4-f619-4901-9101-64f4fa52c2ba
+    jinja: '- {{sol1}}
+
+
+      - {{sol2}}
+
+
+
+      What do you have to do to achieve the following purpose: {{goal}}?
+
+
+      Answer by copying the correct solution ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_89
+    reference: jonghyeonkim
+  a37567c0-b6ca-45dd-8c3b-905bde98e723: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: a37567c0-b6ca-45dd-8c3b-905bde98e723
+    jinja: 'Your task is to achieve the following goal: {{goal}}
+
+
+      Select the best solution from the options below:
+
+
+      - {{sol1}}
+
+
+      - {{sol2}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_90
+    reference: jonghyeonkim
+  afa6d056-85a0-4a21-8620-62de52681697: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: afa6d056-85a0-4a21-8620-62de52681697
+    jinja: 'You have to achieve the following purpose: {{goal}}
+
+
+
+      Which one of the following solutions is correct?
+
+
+      - {{sol1}}
+
+
+      - {{sol2}}
+
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_91
+    reference: jonghyeonkim
+  6cc53e8f-ca25-4538-bd02-c54b0f9f071c: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 6cc53e8f-ca25-4538-bd02-c54b0f9f071c
+    jinja: 'I want to achieve "{{goal}}". Can you suggest a correct solution?
+
+
+      Option 1: {{sol1}}
+
+      Option 2: {{sol2}}
+
+
+      What is your suggestion?
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_92
+    reference: jonghyeonkim
+  3dbbdae0-9d7e-4353-8a58-33583958758d: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 3dbbdae0-9d7e-4353-8a58-33583958758d
+    jinja: '{{"First option"}}: {{sol1}}
+
+
+      {{"Second option"}}: {{sol2}}
+
+
+
+      What is the correct solution to achieve the following goal: {{goal}}?
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_93
+    reference: jonghyeonkim
+  17e4f412-5b1c-4120-83f2-8b3ddb5d6aa3: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 17e4f412-5b1c-4120-83f2-8b3ddb5d6aa3
+    jinja: 'What is the appropriate solution to achieve the following goal?
+
+
+      {{goal}}
+
+
+      Choose the correct answer below:
+
+
+      - {{sol1}}
+
+
+      - {{sol2}}
+
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_94
+    reference: jonghyeonkim
+  7d47267f-52c3-4684-92fa-835bcec4eec5: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 7d47267f-52c3-4684-92fa-835bcec4eec5
+    jinja: 'What should you do to achieve the following goal: {{goal}}?
+
+
+      Choose the correct solution from the options below:
+
+
+      - {{sol1}}
+
+
+      - {{sol2}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_95
+    reference: jonghyeonkim
+  a70b89d4-c08e-40a0-a2f9-d2214f728fbd: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: a70b89d4-c08e-40a0-a2f9-d2214f728fbd
+    jinja: 'What would be the best way to reach the goal: {{goal}}
+
+
+      Choose the most suitable solution from the following options:
+
+
+      - {{sol1}}
+
+
+      - {{sol2}}
+
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_96
+    reference: jonghyeonkim
+  c29fa73b-6457-4be2-810e-55a0c68d25e3: !Template
+    answer_choices: A) {{sol1}} ||| B) {{sol2}}
+    id: c29fa73b-6457-4be2-810e-55a0c68d25e3
+    jinja: 'Your objective is to achieve: {{goal}}
+
+
+      Which of the following solutions is the most suitable to achieve your objective?
+
+
+      A) {{sol1}}
+
+      B) {{sol2}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_97
+    reference: jonghyeonkim
+  2530b78b-3c9e-4ffe-899f-7d6759a64a32: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 2530b78b-3c9e-4ffe-899f-7d6759a64a32
+    jinja: 'Imagine you need to accomplish the following goal. Which of the following
+      solutions would you choose?
+
+
+      goal: {{goal}}
+
+
+      Select one:
+
+      - {{sol1}}
+
+      - {{sol2}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_98
+    reference: jonghyeonkim
+  9d4627f6-cb7a-4d0f-9b27-bc225d7ee5d6: !Template
+    answer_choices: '{{sol1}} ||| {{sol2}}'
+    id: 9d4627f6-cb7a-4d0f-9b27-bc225d7ee5d6
+    jinja: 'Given the objective below, which solution should you choose to achieve the
+      goal?
+
+
+      {{goal}}
+
+
+      Answer with the appropriate choice below:
+
+
+      - {{sol1}}
+
+
+      - {{sol2}}
+
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_99
+    reference: jonghyeonkim

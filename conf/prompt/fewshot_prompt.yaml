@@ -1,0 +1,3 @@
+prompt_config_name: fewshot_prompt
+template_names:
+  - fewshot

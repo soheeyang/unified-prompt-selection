@@ -1,0 +1,4144 @@
+dataset: imdb
+templates:
+  02ff2949-0f45-4d97-941e-6fa4c0afbc2d: !Template
+    answer_choices: negative ||| positive
+    id: 02ff2949-0f45-4d97-941e-6fa4c0afbc2d
+    jinja: 'The following movie review expresses what sentiment? {{text}} ||| {{ answer_choices
+      [label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Movie Expressed Sentiment 2
+    reference: ''
+  2351d12a-e630-4d19-8b41-e199266e38f7: !Template
+    answer_choices: bad ||| good
+    id: 2351d12a-e630-4d19-8b41-e199266e38f7
+    jinja: '{{text}} Did the reviewer find this movie {{"good or bad"}}? ||| {{ answer_choices
+      [label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Reviewer Opinion bad good choices
+    reference: ''
+  5f372fb1-795a-47b6-8ddf-c4fd1579e76a: !Template
+    answer_choices: negative ||| positive
+    id: 5f372fb1-795a-47b6-8ddf-c4fd1579e76a
+    jinja: "{{text}} \nIs this review {{\"positive or negative\"}}? ||| \n{{answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Sentiment with choices
+    reference: ''
+  866474a5-1498-46b7-bfee-ac0c5160707f: !Template
+    answer_choices: negative ||| positive
+    id: 866474a5-1498-46b7-bfee-ac0c5160707f
+    jinja: '{{text}} How does the viewer feel about the movie? ||| {{ answer_choices
+      [label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Reviewer Sentiment Feeling
+    reference: ''
+  96538f30-f2c1-430e-8fc6-936a16966d9c: !Template
+    answer_choices: negative ||| positive
+    id: 96538f30-f2c1-430e-8fc6-936a16966d9c
+    jinja: '{{text}} What sentiment does the writer express for the movie? ||| {{
+      answer_choices [label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Writer Expressed Sentiment
+    reference: ''
+  af51297c-38a3-4d6c-a8b5-04b1243d7443: !Template
+    answer_choices: negative ||| positive
+    id: af51297c-38a3-4d6c-a8b5-04b1243d7443
+    jinja: '{{text}} The sentiment expressed for the movie is ||| {{ answer_choices
+      [label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Movie Expressed Sentiment
+    reference: ''
+  b93b74ac-fe95-40b4-9610-318b46ab820f: !Template
+    answer_choices: negative ||| positive
+    id: b93b74ac-fe95-40b4-9610-318b46ab820f
+    jinja: '{{text}} What is the sentiment expressed in this text? ||| {{ answer_choices
+      [label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Text Expressed Sentiment
+    reference: ''
+  b9b5d79d-f0b3-4bec-a724-f585db3e93ff: !Template
+    answer_choices: negative ||| positive
+    id: b9b5d79d-f0b3-4bec-a724-f585db3e93ff
+    jinja: '{{text}} This is definitely not a ||| {{ answer_choices [1-label]}} review.'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: false
+    name: Negation template for positive and negative
+    reference: ''
+  bd82ba0f-01d4-4fa1-bf8d-07e392c00cd9: !Template
+    answer_choices: No ||| Yes
+    id: bd82ba0f-01d4-4fa1-bf8d-07e392c00cd9
+    jinja: '{{text}} Did the reviewer enjoy the movie? ||| {{ answer_choices [label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Reviewer Enjoyment Yes No
+    reference: ''
+  c70d1687-2421-49a2-9553-91b8bac4cfbe: !Template
+    answer_choices: negative ||| positive
+    id: c70d1687-2421-49a2-9553-91b8bac4cfbe
+    jinja: '{{text}} What is the sentiment expressed by the reviewer for the movie?
+      ||| {{ answer_choices [label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Reviewer Expressed Sentiment
+    reference: ''
+  e01970ab-42c0-4e6e-a08f-4940d889ef37: !Template
+    answer_choices: They didn't like it! ||| They loved it
+    id: e01970ab-42c0-4e6e-a08f-4940d889ef37
+    jinja: '{{text}} How does the reviewer feel about the movie? ||| {{ answer_choices
+      [label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Reviewer Enjoyment
+    reference: ''
+  e6f01e13-83e7-4900-93bb-a5932b1b5a1f: !Template
+     answer_choices: negative ||| positive
+     id: e6f01e13-83e7-4900-93bb-a5932b1b5a1f
+     jinja: '{{text}} Did the reviewer enjoy the movie? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_00
+     reference: 'sohee'
+  6708cf57-ecc0-4b5d-96f5-cc8077576ed3: !Template
+     answer_choices: negative ||| positive
+     id: 6708cf57-ecc0-4b5d-96f5-cc8077576ed3
+     jinja: '{{text}} Did the reviewer find this movie good or bad? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_01
+     reference: 'sohee'
+  6df11a32-a826-4a74-83b1-d5e1eb45e933: !Template
+     answer_choices: negative ||| positive
+     id: 6df11a32-a826-4a74-83b1-d5e1eb45e933
+     jinja: '{{text}} Did the reviewer like the movie? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_02
+     reference: 'sohee'
+  4d7fe5b3-61c6-4b84-b45a-911f80941aca: !Template
+     answer_choices: negative ||| positive
+     id: 4d7fe5b3-61c6-4b84-b45a-911f80941aca
+     jinja: '{{text}} How do you feel about the movie? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_03
+     reference: 'sohee'
+  d15a9dbb-5cf6-4e25-8725-65dcad3fcb25: !Template
+     answer_choices: negative ||| positive
+     id: d15a9dbb-5cf6-4e25-8725-65dcad3fcb25
+     jinja: '{{text}} How does the reviewer feel about the movie? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_04
+     reference: 'sohee'
+  b84ffefe-8463-4d3e-bc8d-09495a4512c4: !Template
+     answer_choices: negative ||| positive
+     id: b84ffefe-8463-4d3e-bc8d-09495a4512c4
+     jinja: '{{text}} How does the viewer feel about the movie? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_05
+     reference: 'sohee'
+  121c3ebe-2e33-4e4e-94d4-050757c8a798: !Template
+     answer_choices: negative ||| positive
+     id: 121c3ebe-2e33-4e4e-94d4-050757c8a798
+     jinja: '{{text}} How does the writer feel about the movie? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_06
+     reference: 'sohee'
+  8ef1826b-ac8f-461e-b604-8c9fa15b79c7: !Template
+     answer_choices: negative ||| positive
+     id: 8ef1826b-ac8f-461e-b604-8c9fa15b79c7
+     jinja: '{{text}} Is the reviewer''s opinion positive or negative? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_07
+     reference: 'sohee'
+  bb912a75-deb0-4131-92e1-f36c0fb21e07: !Template
+     answer_choices: negative ||| positive
+     id: bb912a75-deb0-4131-92e1-f36c0fb21e07
+     jinja: '{{text}} Is this review positive or negative? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_08
+     reference: 'sohee'
+  e7f5afd8-b67b-4d0e-bb10-01c1a17ec695: !Template
+     answer_choices: negative ||| positive
+     id: e7f5afd8-b67b-4d0e-bb10-01c1a17ec695
+     jinja: '{{text}} The reviewer''s opinion of the movie is? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_09
+     reference: 'sohee'
+  6fa5f17f-07c6-4aaa-b440-e605229e974c: !Template
+     answer_choices: negative ||| positive
+     id: 6fa5f17f-07c6-4aaa-b440-e605229e974c
+     jinja: '{{text}} The viewer''s opinion of the movie. ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_10
+     reference: 'sohee'
+  8e28c719-54b1-4ddb-9011-a78c54ca1f24: !Template
+     answer_choices: negative ||| positive
+     id: 8e28c719-54b1-4ddb-9011-a78c54ca1f24
+     jinja: '{{text}} The writer''s opinion of the movie. ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_11
+     reference: 'sohee'
+  fb1f7d5f-1cc1-4540-9fa9-421a97bf40d2: !Template
+     answer_choices: negative ||| positive
+     id: fb1f7d5f-1cc1-4540-9fa9-421a97bf40d2
+     jinja: '{{text}} The writer''s sentiment for the film is _____. ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_12
+     reference: 'sohee'
+  0da1500c-e7a7-4b89-b061-b0fdc574b1ce: !Template
+     answer_choices: negative ||| positive
+     id: 0da1500c-e7a7-4b89-b061-b0fdc574b1ce
+     jinja: '{{text}} The writer''s sentiment for the movie is _____. ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_13
+     reference: 'sohee'
+  f62fe3ed-9186-4e9b-b29f-58f482bbb05b: !Template
+     answer_choices: negative ||| positive
+     id: f62fe3ed-9186-4e9b-b29f-58f482bbb05b
+     jinja: '{{text}} This movie review expresses what sentiment? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_14
+     reference: 'sohee'
+  92e2299e-c80e-41b8-a9b8-635ac08a1a72: !Template
+     answer_choices: negative ||| positive
+     id: 92e2299e-c80e-41b8-a9b8-635ac08a1a72
+     jinja: '{{text}} What are the viewer''s thoughts and emotions about the film? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_15
+     reference: 'sohee'
+  1441f1ee-9f36-4ce2-84f6-1b315108462c: !Template
+     answer_choices: negative ||| positive
+     id: 1441f1ee-9f36-4ce2-84f6-1b315108462c
+     jinja: '{{text}} What are the viewer''s thoughts and emotions about the movie? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_16
+     reference: 'sohee'
+  4a86eba9-0589-4d39-ab40-a1fe37234287: !Template
+     answer_choices: negative ||| positive
+     id: 4a86eba9-0589-4d39-ab40-a1fe37234287
+     jinja: '{{text}} What did the reviewer think of the movie? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_17
+     reference: 'sohee'
+  d87bacfc-d8f1-4853-ae1c-4996790b6fd9: !Template
+     answer_choices: negative ||| positive
+     id: d87bacfc-d8f1-4853-ae1c-4996790b6fd9
+     jinja: '{{text}} What does the movie make you feel? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_18
+     reference: 'sohee'
+  edd41425-b487-43d5-88da-a1f862a38693: !Template
+     answer_choices: negative ||| positive
+     id: edd41425-b487-43d5-88da-a1f862a38693
+     jinja: '{{text}} What does the reviewer think about the movie? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_19
+     reference: 'sohee'
+  53817d9a-5771-4384-8b72-99095ce32433: !Template
+     answer_choices: negative ||| positive
+     id: 53817d9a-5771-4384-8b72-99095ce32433
+     jinja: '{{text}} What is the author''s opinion in this text? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_20
+     reference: 'sohee'
+  ea27d0fe-b862-4647-b2af-403b2e0b1c37: !Template
+     answer_choices: negative ||| positive
+     id: ea27d0fe-b862-4647-b2af-403b2e0b1c37
+     jinja: '{{text}} What is the general opinion of the film? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_21
+     reference: 'sohee'
+  fb7e6b92-50ae-4882-850a-188626eaa759: !Template
+     answer_choices: negative ||| positive
+     id: fb7e6b92-50ae-4882-850a-188626eaa759
+     jinja: '{{text}} What is the general opinion of the movie? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_22
+     reference: 'sohee'
+  a33c8d23-d61a-4f37-91bf-48f2f78ed345: !Template
+     answer_choices: negative ||| positive
+     id: a33c8d23-d61a-4f37-91bf-48f2f78ed345
+     jinja: '{{text}} What is the opinion of the movie? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_23
+     reference: 'sohee'
+  b68aabf6-a427-4e25-b557-5fe6ea84e772: !Template
+     answer_choices: negative ||| positive
+     id: b68aabf6-a427-4e25-b557-5fe6ea84e772
+     jinja: '{{text}} What is the opinion of the reviewer? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_24
+     reference: 'sohee'
+  4acb9980-0e5b-498a-bfa0-859acb6a6303: !Template
+     answer_choices: negative ||| positive
+     id: 4acb9980-0e5b-498a-bfa0-859acb6a6303
+     jinja: '{{text}} What is the opinion of this review? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_25
+     reference: 'sohee'
+  7bece1af-a826-474c-8f7f-05a2997e9487: !Template
+     answer_choices: negative ||| positive
+     id: 7bece1af-a826-474c-8f7f-05a2997e9487
+     jinja: '{{text}} What is the reviewer''s opinion of the film? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_26
+     reference: 'sohee'
+  fdd9fa50-94ed-48ea-a983-0c61b89bf071: !Template
+     answer_choices: negative ||| positive
+     id: fdd9fa50-94ed-48ea-a983-0c61b89bf071
+     jinja: '{{text}} What is the reviewer''s opinion of the movie? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_27
+     reference: 'sohee'
+  140a475a-15a4-44cf-bb61-b6140933c7fc: !Template
+     answer_choices: negative ||| positive
+     id: 140a475a-15a4-44cf-bb61-b6140933c7fc
+     jinja: '{{text}} What is the reviewer''s opinion on the film? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_28
+     reference: 'sohee'
+  d75b0d1a-f663-42c7-93e7-e71267fb7289: !Template
+     answer_choices: negative ||| positive
+     id: d75b0d1a-f663-42c7-93e7-e71267fb7289
+     jinja: '{{text}} What is the reviewer''s opinion on the movie? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_29
+     reference: 'sohee'
+  031e8433-b39c-4f50-853c-8c2f927f5766: !Template
+     answer_choices: negative ||| positive
+     id: 031e8433-b39c-4f50-853c-8c2f927f5766
+     jinja: '{{text}} What is the reviewer''s opinion? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_30
+     reference: 'sohee'
+  5b588692-5619-4500-a4ce-afa0baeb77c6: !Template
+     answer_choices: negative ||| positive
+     id: 5b588692-5619-4500-a4ce-afa0baeb77c6
+     jinja: '{{text}} What is the sentiment expressed by the reviewer for the film? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_31
+     reference: 'sohee'
+  e676cde3-46bf-488e-810e-ef26ad2b8838: !Template
+     answer_choices: negative ||| positive
+     id: e676cde3-46bf-488e-810e-ef26ad2b8838
+     jinja: '{{text}} What is the sentiment expressed by the reviewer for the movie? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_32
+     reference: 'sohee'
+  f43085c0-bb84-4cfb-9053-cb7cd6464e06: !Template
+     answer_choices: negative ||| positive
+     id: f43085c0-bb84-4cfb-9053-cb7cd6464e06
+     jinja: '{{text}} What is the sentiment expressed in this movie review? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_33
+     reference: 'sohee'
+  98afc5b5-e5cf-4fd0-aad6-37199c7e90ef: !Template
+     answer_choices: negative ||| positive
+     id: 98afc5b5-e5cf-4fd0-aad6-37199c7e90ef
+     jinja: '{{text}} What is the sentiment expressed in this text? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_34
+     reference: 'sohee'
+  8004eb0c-4742-4468-b9e5-cc0f571a916a: !Template
+     answer_choices: negative ||| positive
+     id: 8004eb0c-4742-4468-b9e5-cc0f571a916a
+     jinja: '{{text}} What is the sentiment of this review? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_35
+     reference: 'sohee'
+  119ff3fe-7d71-4ae7-8e3f-196d17692af5: !Template
+     answer_choices: negative ||| positive
+     id: 119ff3fe-7d71-4ae7-8e3f-196d17692af5
+     jinja: '{{text}} What is the viewer''s opinion of the film? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_36
+     reference: 'sohee'
+  d1b08383-30c4-4c4a-a26a-c80398f6b021: !Template
+     answer_choices: negative ||| positive
+     id: d1b08383-30c4-4c4a-a26a-c80398f6b021
+     jinja: '{{text}} What is the viewer''s opinion of the movie? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_37
+     reference: 'sohee'
+  6c790f7e-d2fb-46dd-b4e4-980d865acf77: !Template
+     answer_choices: negative ||| positive
+     id: 6c790f7e-d2fb-46dd-b4e4-980d865acf77
+     jinja: '{{text}} What is the writer''s opinion of the film? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_38
+     reference: 'sohee'
+  7c7861e0-d8dd-422b-b883-bf9673e7699f: !Template
+     answer_choices: negative ||| positive
+     id: 7c7861e0-d8dd-422b-b883-bf9673e7699f
+     jinja: '{{text}} What is the writer''s opinion of the movie? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_39
+     reference: 'sohee'
+  1c14aade-2f60-4cb7-a12e-59bddae06f93: !Template
+     answer_choices: negative ||| positive
+     id: 1c14aade-2f60-4cb7-a12e-59bddae06f93
+     jinja: '{{text}} What opinion or feeling is expressed about the movie? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_40
+     reference: 'sohee'
+  568aa71b-43f1-4e92-8a6b-584df3788579: !Template
+     answer_choices: negative ||| positive
+     id: 568aa71b-43f1-4e92-8a6b-584df3788579
+     jinja: '{{text}} What sentiment does the writer express for the film? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_41
+     reference: 'sohee'
+  ffd225e2-458a-4285-9ec7-07fb2aadaa57: !Template
+     answer_choices: negative ||| positive
+     id: ffd225e2-458a-4285-9ec7-07fb2aadaa57
+     jinja: '{{text}} What sentiment does the writer express for the movie? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_42
+     reference: 'sohee'
+  af636d0a-0bcd-4dea-aaf7-ee6120785fde: !Template
+     answer_choices: negative ||| positive
+     id: af636d0a-0bcd-4dea-aaf7-ee6120785fde
+     jinja: '{{text}} What sentiment does this movie review express? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_43
+     reference: 'sohee'
+  3ac2a0d4-7818-4dec-83e7-0d0b33b72027: !Template
+     answer_choices: negative ||| positive
+     id: 3ac2a0d4-7818-4dec-83e7-0d0b33b72027
+     jinja: '{{text}} What sentiment is expressed for the film? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_44
+     reference: 'sohee'
+  c8af6168-8503-4a23-926f-967986836041: !Template
+     answer_choices: negative ||| positive
+     id: c8af6168-8503-4a23-926f-967986836041
+     jinja: '{{text}} What sentiment is expressed for the movie? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_45
+     reference: 'sohee'
+  763a91d5-cc3a-4b06-879d-aab70253e94f: !Template
+     answer_choices: negative ||| positive
+     id: 763a91d5-cc3a-4b06-879d-aab70253e94f
+     jinja: '{{text}} What sentiment is expressed in this movie review? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_46
+     reference: 'sohee'
+  d5090ddc-c136-455d-925f-f8b067ff42a6: !Template
+     answer_choices: negative ||| positive
+     id: d5090ddc-c136-455d-925f-f8b067ff42a6
+     jinja: '{{text}} What sentiment is expressed in this text? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_47
+     reference: 'sohee'
+  9738ed91-5dd0-44c1-9ace-b9e25bc5822f: !Template
+     answer_choices: negative ||| positive
+     id: 9738ed91-5dd0-44c1-9ace-b9e25bc5822f
+     jinja: '{{text}} What sentiment is this movie review expressing? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_48
+     reference: 'sohee'
+  284d4a3a-67d6-4055-83f7-76c3cc387e81: !Template
+     answer_choices: negative ||| positive
+     id: 284d4a3a-67d6-4055-83f7-76c3cc387e81
+     jinja: '{{text}} What was the reviewer''s opinion of the movie? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_49
+     reference: 'sohee'
+  26e5d93c-6b60-4577-ab37-563e268f6086: !Template
+     answer_choices: negative ||| positive
+     id: 26e5d93c-6b60-4577-ab37-563e268f6086
+     jinja: '{{text}} What was the reviewer''s opinion on the movie? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_50
+     reference: 'sohee'
+  1a7948c1-cb83-4d1b-9e4d-ece73d394f4c: !Template
+     answer_choices: negative ||| positive
+     id: 1a7948c1-cb83-4d1b-9e4d-ece73d394f4c
+     jinja: '{{text}} What''s the opinion of the movie? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_51
+     reference: 'sohee'
+  3f24f7d7-d76a-4202-8f0e-f4bbf07db9a7: !Template
+     answer_choices: negative ||| positive
+     id: 3f24f7d7-d76a-4202-8f0e-f4bbf07db9a7
+     jinja: '{{text}} Which sentiment does this movie review express? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_52
+     reference: 'sohee'
+  5017a7a3-8b6b-4666-8fec-6470f664aeea: !Template
+    answer_choices: negative ||| positive
+    id: 5017a7a3-8b6b-4666-8fec-6470f664aeea
+    jinja: 'Question: {{text}} What is the overall sentiment of this review?
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: fewshot
+    reference: jonghyeonkim
+  dee13cbd-3209-4a40-8978-7201faf17322: !Template
+    answer_choices: negative ||| positive
+    id: dee13cbd-3209-4a40-8978-7201faf17322
+    jinja: '{{text}} Is this movie review... ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_00
+    reference: jonghyeonkim
+  1ea54a4a-1339-48fa-9f8f-ec839867cf93: !Template
+    answer_choices: negative ||| positive
+    id: 1ea54a4a-1339-48fa-9f8f-ec839867cf93
+    jinja: '{{text}} What is the tone of the review? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_01
+    reference: jonghyeonkim
+  11ec85dc-6cdf-4cd2-8bcf-9b999ee7f863: !Template
+    answer_choices: negative ||| positive
+    id: 11ec85dc-6cdf-4cd2-8bcf-9b999ee7f863
+    jinja: '{{text}} expresses a sentiment that is... ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_02
+    reference: jonghyeonkim
+  3d5e77aa-a26e-4210-82fe-11381add684a: !Template
+    answer_choices: negative ||| positive
+    id: 3d5e77aa-a26e-4210-82fe-11381add684a
+    jinja: '{{text}} Indicates a sentiment that is... ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_03
+    reference: jonghyeonkim
+  d8d7c0cb-b586-4906-b1a2-21ec7950971c: !Template
+    answer_choices: negative ||| positive
+    id: d8d7c0cb-b586-4906-b1a2-21ec7950971c
+    jinja: '{{text}} - positive or negative sentiment? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_04
+    reference: jonghyeonkim
+  0b254369-2bdc-4f7a-b9f9-97d8c2a79e8c: !Template
+    answer_choices: negative ||| positive
+    id: 0b254369-2bdc-4f7a-b9f9-97d8c2a79e8c
+    jinja: What was the reviewer's opinion of {{text}}? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_05
+    reference: jonghyeonkim
+  6f2eed61-cb7b-45cb-b8e1-dae870f7b5c2: !Template
+    answer_choices: negative ||| positive
+    id: 6f2eed61-cb7b-45cb-b8e1-dae870f7b5c2
+    jinja: '{{text}} - positive or negative? (choose one) ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_06
+    reference: jonghyeonkim
+  ff80da58-6a25-4b9f-bf9d-5757732217a0: !Template
+    answer_choices: negative ||| positive
+    id: ff80da58-6a25-4b9f-bf9d-5757732217a0
+    jinja: '{{text}} What is the sentiment of the review? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_07
+    reference: jonghyeonkim
+  04233707-49ca-4c66-be89-9a2fbe6f0f7e: !Template
+    answer_choices: negative ||| positive
+    id: 04233707-49ca-4c66-be89-9a2fbe6f0f7e
+    jinja: 'What is the sentiment of this review: {{text}} ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_08
+    reference: jonghyeonkim
+  4e59ee7a-39ee-4ea1-bddf-3b9c273a5d82: !Template
+    answer_choices: negative ||| positive
+    id: 4e59ee7a-39ee-4ea1-bddf-3b9c273a5d82
+    jinja: '{{text}} Is the movie review positive or negative? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_09
+    reference: jonghyeonkim
+  a9687cdb-fd67-497e-8dbf-a3804cb59822: !Template
+    answer_choices: negative ||| positive
+    id: a9687cdb-fd67-497e-8dbf-a3804cb59822
+    jinja: 'The sentiment in the following review: {{text}} is ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_10
+    reference: jonghyeonkim
+  b8acee57-84f6-4097-9b9e-1788738e6334: !Template
+    answer_choices: negative ||| positive
+    id: b8acee57-84f6-4097-9b9e-1788738e6334
+    jinja: '{{text}} - did the reviewer like the movie or not? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_11
+    reference: jonghyeonkim
+  cc1e82d6-e160-4147-bc96-79faf3848cfb: !Template
+    answer_choices: negative ||| positive
+    id: cc1e82d6-e160-4147-bc96-79faf3848cfb
+    jinja: Is the sentiment of {{text}} positive or negative? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_12
+    reference: jonghyeonkim
+  594ec8c9-25c9-431e-a843-2c8692305d8b: !Template
+    answer_choices: negative ||| positive
+    id: 594ec8c9-25c9-431e-a843-2c8692305d8b
+    jinja: '{{text}} What does the reviewer think of the movie? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_13
+    reference: jonghyeonkim
+  092ed8ee-de94-4d4c-9ee4-b123757fa2fe: !Template
+    answer_choices: negative ||| positive
+    id: 092ed8ee-de94-4d4c-9ee4-b123757fa2fe
+    jinja: '{{text}} How does the reviewer feel about the movie? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_14
+    reference: jonghyeonkim
+  6ffd5f28-253a-4206-aea9-64a3c2d6d912: !Template
+    answer_choices: negative ||| positive
+    id: 6ffd5f28-253a-4206-aea9-64a3c2d6d912
+    jinja: What is the overall sentiment expressed in {{text}}? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_15
+    reference: jonghyeonkim
+  c71d7326-00ba-46c0-b448-cc3fc56429d0: !Template
+    answer_choices: negative ||| positive
+    id: c71d7326-00ba-46c0-b448-cc3fc56429d0
+    jinja: '{{text}} What is the overall sentiment of the review? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_16
+    reference: jonghyeonkim
+  a2740718-1865-4531-8f6a-fdc0b75a4b37: !Template
+    answer_choices: negative ||| positive
+    id: a2740718-1865-4531-8f6a-fdc0b75a4b37
+    jinja: 'What sentiment is expressed in this review: {{text}}? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_17
+    reference: jonghyeonkim
+  7f2cde43-b22e-4400-a9fb-b684693d3242: !Template
+    answer_choices: negative ||| positive
+    id: 7f2cde43-b22e-4400-a9fb-b684693d3242
+    jinja: '{{text}} Is this a positive or negative movie review? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_18
+    reference: jonghyeonkim
+  995843fe-5b19-4dc8-988c-7d2424e1a42e: !Template
+    answer_choices: negative ||| positive
+    id: 995843fe-5b19-4dc8-988c-7d2424e1a42e
+    jinja: '{{text}} What sentiment does the movie review express? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_19
+    reference: jonghyeonkim
+  3cdabab5-1665-430a-9fe4-e3b1e160ace1: !Template
+    answer_choices: negative ||| positive
+    id: 3cdabab5-1665-430a-9fe4-e3b1e160ace1
+    jinja: '{{text}} What is the general tone of the movie review? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_20
+    reference: jonghyeonkim
+  71a650b9-164a-4c5f-a95c-b32763252cf7: !Template
+    answer_choices: negative ||| positive
+    id: 71a650b9-164a-4c5f-a95c-b32763252cf7
+    jinja: '{{text}} What is the overall sentiment of this review? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_21
+    reference: jonghyeonkim
+  feb4b411-53f2-4712-b35b-b5869264f2bb: !Template
+    answer_choices: negative ||| positive
+    id: feb4b411-53f2-4712-b35b-b5869264f2bb
+    jinja: '{{text}} - what is the overall sentiment of the review? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_22
+    reference: jonghyeonkim
+  bb26a33b-7310-4968-9bae-97fac0f7df74: !Template
+    answer_choices: negative ||| positive
+    id: bb26a33b-7310-4968-9bae-97fac0f7df74
+    jinja: The following review expresses what sentiment? {{text}} ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_23
+    reference: jonghyeonkim
+  199ce211-79a9-4b09-9194-fb7e861d8193: !Template
+    answer_choices: negative ||| positive
+    id: 199ce211-79a9-4b09-9194-fb7e861d8193
+    jinja: '{{text}} Is the reviewer''s opinion positive or negative? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_24
+    reference: jonghyeonkim
+  751f888f-442e-4c46-896a-44287429ccfc: !Template
+    answer_choices: negative ||| positive
+    id: 751f888f-442e-4c46-896a-44287429ccfc
+    jinja: 'What is the sentiment of the following review: {{text}}? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_25
+    reference: jonghyeonkim
+  044ab6bb-419c-499d-8926-109caad19077: !Template
+    answer_choices: negative ||| positive
+    id: 044ab6bb-419c-499d-8926-109caad19077
+    jinja: '{{text}} Based on the review, how was the movie received? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_26
+    reference: jonghyeonkim
+  a76f405a-ae5e-43e8-aac8-834bc69a77a7: !Template
+    answer_choices: negative ||| positive
+    id: a76f405a-ae5e-43e8-aac8-834bc69a77a7
+    jinja: '{{text}} Is this a positive or negative review of the movie? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_27
+    reference: jonghyeonkim
+  28147e57-9a4a-4622-ab74-ad23e084b65f: !Template
+    answer_choices: negative ||| positive
+    id: 28147e57-9a4a-4622-ab74-ad23e084b65f
+    jinja: Is the following review {{'positive or negative'}}? {{text}} ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_28
+    reference: jonghyeonkim
+  a891fce6-3a86-4ea1-95cf-2a319a7a2975: !Template
+    answer_choices: negative ||| positive
+    id: a891fce6-3a86-4ea1-95cf-2a319a7a2975
+    jinja: What is the sentiment of the following movie review? {{text}} ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_29
+    reference: jonghyeonkim
+  ebc8d052-d18a-4540-a80d-9eeeb1197781: !Template
+    answer_choices: negative ||| positive
+    id: ebc8d052-d18a-4540-a80d-9eeeb1197781
+    jinja: '{{text}} How would you describe the sentiment of this review? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_30
+    reference: jonghyeonkim
+  d19ad17b-6033-4d82-a30b-c68e5ad5a07f: !Template
+    answer_choices: negative ||| positive
+    id: d19ad17b-6033-4d82-a30b-c68e5ad5a07f
+    jinja: What sentiment is expressed in the following review? {{text}} ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_31
+    reference: jonghyeonkim
+  0f0e362a-2f1c-4e82-af7e-d8e175675219: !Template
+    answer_choices: negative ||| positive
+    id: 0f0e362a-2f1c-4e82-af7e-d8e175675219
+    jinja: '{{text}} Is the sentiment of this review positive or negative? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_32
+    reference: jonghyeonkim
+  2c898f48-906a-4e19-a725-007743e2f070: !Template
+    answer_choices: negative ||| positive
+    id: 2c898f48-906a-4e19-a725-007743e2f070
+    jinja: What is the sentiment expressed in this movie review? {{text}} ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_33
+    reference: jonghyeonkim
+  7e6d60d3-9611-4be7-95c5-12c729283be5: !Template
+    answer_choices: negative ||| positive
+    id: 7e6d60d3-9611-4be7-95c5-12c729283be5
+    jinja: 'Which sentiment is expressed in the following review: {{text}}? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_34
+    reference: jonghyeonkim
+  e3d313ea-fc66-4397-89aa-8d1bb76f34d5: !Template
+    answer_choices: negative ||| positive
+    id: e3d313ea-fc66-4397-89aa-8d1bb76f34d5
+    jinja: '{{text}} In general, how did the reviewer feel about the movie? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_35
+    reference: jonghyeonkim
+  12b1fe48-46d2-493a-82a3-10aaa771d46b: !Template
+    answer_choices: negative ||| positive
+    id: 12b1fe48-46d2-493a-82a3-10aaa771d46b
+    jinja: 'Classify the following review as positive or negative: {{text}} ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_36
+    reference: jonghyeonkim
+  62e49849-ff12-4f29-8436-8a00ac4e78d7: !Template
+    answer_choices: negative ||| positive
+    id: 62e49849-ff12-4f29-8436-8a00ac4e78d7
+    jinja: 'Determine if the sentiment of the following review: {{text}} is ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_37
+    reference: jonghyeonkim
+  fd7cfab3-3d01-4e04-9e8c-5a7f2c08b15b: !Template
+    answer_choices: negative ||| positive
+    id: fd7cfab3-3d01-4e04-9e8c-5a7f2c08b15b
+    jinja: What is the overall sentiment expressed in this review? {{text}} ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_38
+    reference: jonghyeonkim
+  e12c1309-79dd-499d-9e8f-57730511ef56: !Template
+    answer_choices: negative ||| positive
+    id: e12c1309-79dd-499d-9e8f-57730511ef56
+    jinja: '{{text}} What is the attitude of the reviewer towards the movie? ||| {{
+      answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_39
+    reference: jonghyeonkim
+  a0f717a1-5d20-4590-9fe6-beeaf983e3fd: !Template
+    answer_choices: negative ||| positive
+    id: a0f717a1-5d20-4590-9fe6-beeaf983e3fd
+    jinja: Is the following movie review {{'positive or negative'}}? {{text}} ||| {{
+      answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_40
+    reference: jonghyeonkim
+  031a4cc4-37a9-4c10-bde6-f275acad93ea: !Template
+    answer_choices: negative ||| positive
+    id: 031a4cc4-37a9-4c10-bde6-f275acad93ea
+    jinja: '{{text}} Does the review express a positive or negative sentiment? ||| {{
+      answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_41
+    reference: jonghyeonkim
+  614c6631-a3ba-4948-9df7-b9a5c795c777: !Template
+    answer_choices: negative ||| positive
+    id: 614c6631-a3ba-4948-9df7-b9a5c795c777
+    jinja: '{{text}} Was this movie review overall {{''positive or negative''}}? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_42
+    reference: jonghyeonkim
+  f658abea-fc79-4c7a-ab6f-ab2115498a50: !Template
+    answer_choices: negative ||| positive
+    id: f658abea-fc79-4c7a-ab6f-ab2115498a50
+    jinja: '{{text}} Is the sentiment of the review {{"positive or negative"}}? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_43
+    reference: jonghyeonkim
+  dee985f6-2f7c-48e5-b2d1-0811f5f3cc08: !Template
+    answer_choices: negative ||| positive
+    id: dee985f6-2f7c-48e5-b2d1-0811f5f3cc08
+    jinja: What sentiment is expressed in the following movie review? {{text}} ||| {{
+      answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_44
+    reference: jonghyeonkim
+  66fbc7f1-bbb9-4240-a8e6-d86002efed5a: !Template
+    answer_choices: negative ||| positive
+    id: 66fbc7f1-bbb9-4240-a8e6-d86002efed5a
+    jinja: Which of the following sentiments best describes the review? {{text}} |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_45
+    reference: jonghyeonkim
+  dbefe668-efe4-49f4-b5ec-b17f17f34131: !Template
+    answer_choices: negative ||| positive
+    id: dbefe668-efe4-49f4-b5ec-b17f17f34131
+    jinja: '{{text}} Would you consider this a positive or negative movie review? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_46
+    reference: jonghyeonkim
+  2e02730c-fb3f-43d6-91fc-042d5c680d9a: !Template
+    answer_choices: negative ||| positive
+    id: 2e02730c-fb3f-43d6-91fc-042d5c680d9a
+    jinja: 'What is the sentiment expressed in the review of the movie: {{text}}? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_47
+    reference: jonghyeonkim
+  03837be0-fe35-4090-a7b7-7b44f934b3ba: !Template
+    answer_choices: negative ||| positive
+    id: 03837be0-fe35-4090-a7b7-7b44f934b3ba
+    jinja: 'Which sentiment is expressed in the following movie review: {{text}}? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_48
+    reference: jonghyeonkim
+  50eaadbe-e55c-4010-99e9-6aa30cd93e79: !Template
+    answer_choices: negative ||| positive
+    id: 50eaadbe-e55c-4010-99e9-6aa30cd93e79
+    jinja: How would you describe the sentiment of the following review? {{text}} |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_49
+    reference: jonghyeonkim
+  fe6efa61-13e5-4f1f-bd87-1a817c3466cd: !Template
+    answer_choices: negative ||| positive
+    id: fe6efa61-13e5-4f1f-bd87-1a817c3466cd
+    jinja: What is the sentiment conveyed in the following movie review? {{text}} |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_50
+    reference: jonghyeonkim
+  44e720cb-14ec-4a32-b6dc-43ba48115601: !Template
+    answer_choices: negative ||| positive
+    id: 44e720cb-14ec-4a32-b6dc-43ba48115601
+    jinja: Is the sentiment of the following review positive or negative? {{text}} |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_51
+    reference: jonghyeonkim
+  35fcec3c-9523-498c-8ce3-44ec7062879a: !Template
+    answer_choices: negative ||| positive
+    id: 35fcec3c-9523-498c-8ce3-44ec7062879a
+    jinja: 'Categorize the following movie review as positive or negative: {{text}}
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_52
+    reference: jonghyeonkim
+  cfccfb7a-cbb3-46f6-b000-7a54f56ecb36: !Template
+    answer_choices: negative ||| positive
+    id: cfccfb7a-cbb3-46f6-b000-7a54f56ecb36
+    jinja: Does {{text}} express a positive or negative sentiment about the movie? |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_53
+    reference: jonghyeonkim
+  3dcb4d84-8298-4e1d-8911-87b0607290ac: !Template
+    answer_choices: negative ||| positive
+    id: 3dcb4d84-8298-4e1d-8911-87b0607290ac
+    jinja: Does {{text}} express a positive or negative sentiment towards the movie?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_54
+    reference: jonghyeonkim
+  b6a60e18-9e38-4a73-a031-1123888caa50: !Template
+    answer_choices: negative ||| positive
+    id: b6a60e18-9e38-4a73-a031-1123888caa50
+    jinja: 'Tell whether the following movie review is positive or negative: {{text}}
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_55
+    reference: jonghyeonkim
+  c294e6e4-2747-419f-b347-6b668472f28d: !Template
+    answer_choices: Negative ||| Positive
+    id: c294e6e4-2747-419f-b347-6b668472f28d
+    jinja: '{{text}} Is this movie review expressing a positive or negative sentiment?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_56
+    reference: jonghyeonkim
+  797fa643-9c0d-436c-9e9f-d367d6355b61: !Template
+    answer_choices: negative ||| positive
+    id: 797fa643-9c0d-436c-9e9f-d367d6355b61
+    jinja: '{{text}} Based on the review, is the sentiment {{"positive or negative"}}?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_57
+    reference: jonghyeonkim
+  437ad47c-6354-4958-87dd-8fe8a45f91c5: !Template
+    answer_choices: negative ||| positive
+    id: 437ad47c-6354-4958-87dd-8fe8a45f91c5
+    jinja: '{{text}} How would you describe the overall sentiment of this movie review?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_58
+    reference: jonghyeonkim
+  fa898031-c93b-4cbe-ba1a-51cf3846296c: !Template
+    answer_choices: negative ||| positive
+    id: fa898031-c93b-4cbe-ba1a-51cf3846296c
+    jinja: Can you determine if the following review is positive or negative? {{text}}
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_59
+    reference: jonghyeonkim
+  6a1183a3-1a42-47bd-a498-78fae4ecae47: !Template
+    answer_choices: negative ||| positive
+    id: 6a1183a3-1a42-47bd-a498-78fae4ecae47
+    jinja: '{{text}} Does the reviewer have a positive or negative opinion of the movie?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_60
+    reference: jonghyeonkim
+  6c4f777f-fe7a-43ce-9c23-85f0624c257f: !Template
+    answer_choices: negative ||| positive
+    id: 6c4f777f-fe7a-43ce-9c23-85f0624c257f
+    jinja: Is the sentiment of the following movie review positive or negative? {{text}}
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_61
+    reference: jonghyeonkim
+  51140b9b-cc48-46ac-8cad-dde5c454c17e: !Template
+    answer_choices: negative ||| positive
+    id: 51140b9b-cc48-46ac-8cad-dde5c454c17e
+    jinja: '{{text}} Please indicate whether this is a positive or negative movie review.
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_62
+    reference: jonghyeonkim
+  522e81e0-987d-47de-bb66-622d3bcd9ba6: !Template
+    answer_choices: negative ||| positive
+    id: 522e81e0-987d-47de-bb66-622d3bcd9ba6
+    jinja: 'Indicate whether the following movie review is positive or negative: {{text}}
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_63
+    reference: jonghyeonkim
+  58543e8e-446c-4c58-9a46-6996fa9bd935: !Template
+    answer_choices: negative ||| positive
+    id: 58543e8e-446c-4c58-9a46-6996fa9bd935
+    jinja: '{{text}} Would you say this movie review has a positive or negative sentiment?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_64
+    reference: jonghyeonkim
+  1f0b5ff2-8a64-4732-be1b-712194dba01b: !Template
+    answer_choices: negative ||| positive
+    id: 1f0b5ff2-8a64-4732-be1b-712194dba01b
+    jinja: '{{text}} Did the reviewer have a positive or negative opinion about the
+      movie? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_65
+    reference: jonghyeonkim
+  1726fc93-18fa-4eaa-8f65-18c751b69853: !Template
+    answer_choices: negative ||| positive
+    id: 1726fc93-18fa-4eaa-8f65-18c751b69853
+    jinja: '{{text}} Does the reviewer have a positive or negative opinion about the
+      movie? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_66
+    reference: jonghyeonkim
+  520217e8-25e3-4d78-9562-89f119248506: !Template
+    answer_choices: negative ||| positive
+    id: 520217e8-25e3-4d78-9562-89f119248506
+    jinja: '{{text}} Is the reviewer''s sentiment towards the movie {{"positive or negative"}}?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_67
+    reference: jonghyeonkim
+  72122fe0-a41b-415c-8326-2bb3a554d255: !Template
+    answer_choices: negative ||| positive
+    id: 72122fe0-a41b-415c-8326-2bb3a554d255
+    jinja: Does the following movie review express a positive or negative sentiment?
+      {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_68
+    reference: jonghyeonkim
+  86da7677-3c37-4161-8e9c-588cfb6ac543: !Template
+    answer_choices: negative ||| positive
+    id: 86da7677-3c37-4161-8e9c-588cfb6ac543
+    jinja: Does the following movie review contain a positive or negative sentiment?
+      {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_69
+    reference: jonghyeonkim
+  c03e3660-9a84-4992-8d92-fbdd848c4493: !Template
+    answer_choices: negative ||| positive
+    id: c03e3660-9a84-4992-8d92-fbdd848c4493
+    jinja: '{{text}} Would you say the sentiment of this movie review is positive or
+      negative? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_70
+    reference: jonghyeonkim
+  8cf461d6-9419-4365-944d-4a68b7a6c399: !Template
+    answer_choices: negative ||| positive
+    id: 8cf461d6-9419-4365-944d-4a68b7a6c399
+    jinja: Is the sentiment of the following movie review {{'positive or negative'}}?
+      {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_71
+    reference: jonghyeonkim
+  dab7adac-613c-4b64-b620-82c0e0d49693: !Template
+    answer_choices: negative ||| positive
+    id: dab7adac-613c-4b64-b620-82c0e0d49693
+    jinja: 'Label the sentiment of the following movie review as positive or negative:
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_72
+    reference: jonghyeonkim
+  96c808f4-3109-42af-b661-09b20b905d01: !Template
+    answer_choices: negative ||| positive
+    id: 96c808f4-3109-42af-b661-09b20b905d01
+    jinja: Is the sentiment expressed in the movie review below positive or negative?
+      {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_73
+    reference: jonghyeonkim
+  4ee4f915-21c7-473e-a2b9-eb60b5c9e334: !Template
+    answer_choices: negative ||| positive
+    id: 4ee4f915-21c7-473e-a2b9-eb60b5c9e334
+    jinja: 'Judge the sentiment of the following movie review as positive or negative:
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_74
+    reference: jonghyeonkim
+  7a669015-eed6-45b9-9a43-806968c06bcf: !Template
+    answer_choices: negative ||| positive
+    id: 7a669015-eed6-45b9-9a43-806968c06bcf
+    jinja: 'Analyze the following movie review and classify it as positive or negative:
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_75
+    reference: jonghyeonkim
+  b68790cd-0689-425d-a081-a3dfe1a245d3: !Template
+    answer_choices: negative ||| positive
+    id: b68790cd-0689-425d-a081-a3dfe1a245d3
+    jinja: Based on the following review, is the sentiment {{"positive or negative"}}?
+      {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_76
+    reference: jonghyeonkim
+  e2d11175-31e1-4d05-9d84-597fded7e88f: !Template
+    answer_choices: negative ||| positive
+    id: e2d11175-31e1-4d05-9d84-597fded7e88f
+    jinja: 'Which of the following sentiments is expressed in the review of the movie:
+      {{text}}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_77
+    reference: jonghyeonkim
+  a2aa9411-638c-4b9e-ba37-ab66afe33082: !Template
+    answer_choices: negative ||| positive
+    id: a2aa9411-638c-4b9e-ba37-ab66afe33082
+    jinja: 'Assess the sentiment of the following review and choose the correct option:
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_78
+    reference: jonghyeonkim
+  2fa7fc3a-f1c0-488b-9faa-143e5784ca14: !Template
+    answer_choices: negative ||| positive
+    id: 2fa7fc3a-f1c0-488b-9faa-143e5784ca14
+    jinja: Did the reviewer have a {{'positive or negative'}} opinion about the movie?
+      {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_79
+    reference: jonghyeonkim
+  e078f87c-f595-44d8-9969-c839e91306f5: !Template
+    answer_choices: negative ||| positive
+    id: e078f87c-f595-44d8-9969-c839e91306f5
+    jinja: 'Deduce the sentiment of the following movie review as positive or negative:
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_80
+    reference: jonghyeonkim
+  33473275-2e14-4cec-ad8b-d8a98bf61356: !Template
+    answer_choices: negative ||| positive
+    id: 33473275-2e14-4cec-ad8b-d8a98bf61356
+    jinja: Does the following movie review have a {{"positive or negative"}} sentiment?
+      {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_81
+    reference: jonghyeonkim
+  a394baa0-5c09-4de9-80ff-17bf5fa723f3: !Template
+    answer_choices: negative ||| positive
+    id: a394baa0-5c09-4de9-80ff-17bf5fa723f3
+    jinja: '{{text}} Please indicate whether the review expresses a positive or negative
+      sentiment. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_82
+    reference: jonghyeonkim
+  350be08c-baf4-4990-88ec-affac7f5835f: !Template
+    answer_choices: negative ||| positive
+    id: 350be08c-baf4-4990-88ec-affac7f5835f
+    jinja: Is the sentiment expressed in the following movie review positive or negative?
+      {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_83
+    reference: jonghyeonkim
+  69de7bc8-c2a4-4228-9e2c-afb3070b29cf: !Template
+    answer_choices: negative ||| positive
+    id: 69de7bc8-c2a4-4228-9e2c-afb3070b29cf
+    jinja: '{{text}} Would you describe the sentiment of this movie review as positive
+      or negative? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_84
+    reference: jonghyeonkim
+  fd30b3c8-6abd-4c19-a466-1263431cfb24: !Template
+    answer_choices: negative ||| positive
+    id: fd30b3c8-6abd-4c19-a466-1263431cfb24
+    jinja: 'Identify whether the following review expresses positive or negative sentiment:
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_85
+    reference: jonghyeonkim
+  85f708a1-ae82-4407-9b50-1840b99beeee: !Template
+    answer_choices: negative ||| positive
+    id: 85f708a1-ae82-4407-9b50-1840b99beeee
+    jinja: Can you tell whether the following review has a positive or negative sentiment?
+      {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_86
+    reference: jonghyeonkim
+  c6f62c9c-e43d-4f5a-a5d8-76c65438f16a: !Template
+    answer_choices: negative ||| positive
+    id: c6f62c9c-e43d-4f5a-a5d8-76c65438f16a
+    jinja: '{{text}} Does the reviewer have a {{"positive or negative"}} sentiment towards
+      the movie? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_87
+    reference: jonghyeonkim
+  8f97bfe9-bd49-4da7-a875-fb5c5663a737: !Template
+    answer_choices: negative ||| positive
+    id: 8f97bfe9-bd49-4da7-a875-fb5c5663a737
+    jinja: From the following review, can you tell if the sentiment is positive or negative?
+      {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_88
+    reference: jonghyeonkim
+  3e9aa8e0-0bb7-4413-ae8d-56aac40182ac: !Template
+    answer_choices: negative ||| positive
+    id: 3e9aa8e0-0bb7-4413-ae8d-56aac40182ac
+    jinja: 'The sentiment of the following review can be described as positive or negative:
+      {{text}} is ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_89
+    reference: jonghyeonkim
+  fadd95b4-8165-4ee8-8e31-7f288d326f9a: !Template
+    answer_choices: negative ||| positive
+    id: fadd95b4-8165-4ee8-8e31-7f288d326f9a
+    jinja: 'Specify if the following movie review is expressing a positive or negative
+      sentiment: {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_90
+    reference: jonghyeonkim
+  11d49dd1-165c-477c-9547-a21898480aa3: !Template
+    answer_choices: negative ||| positive
+    id: 11d49dd1-165c-477c-9547-a21898480aa3
+    jinja: Does the following review express a positive or negative sentiment towards
+      the movie? {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_91
+    reference: jonghyeonkim
+  91973c65-6a50-4fa4-9ce1-90a6670351ef: !Template
+    answer_choices: negative ||| positive
+    id: 91973c65-6a50-4fa4-9ce1-90a6670351ef
+    jinja: 'Choose the correct option to indicate the sentiment expressed in the following
+      review: {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_92
+    reference: jonghyeonkim
+  98e3663e-ba88-4b68-8ea9-5010074f4166: !Template
+    answer_choices: negative ||| positive
+    id: 98e3663e-ba88-4b68-8ea9-5010074f4166
+    jinja: Did the author of the following review express a {{"positive or negative"}}
+      sentiment? {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_93
+    reference: jonghyeonkim
+  72c26943-644c-4672-a5aa-17409d47732b: !Template
+    answer_choices: negative ||| positive
+    id: 72c26943-644c-4672-a5aa-17409d47732b
+    jinja: From the following review, can you tell whether the sentiment is positive
+      or negative? {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_94
+    reference: jonghyeonkim
+  5278aaa1-05ea-4228-a7f1-466e1f2062c3: !Template
+    answer_choices: negative ||| positive
+    id: 5278aaa1-05ea-4228-a7f1-466e1f2062c3
+    jinja: 'Determine whether the following movie review expresses positive or negative
+      sentiment: {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_95
+    reference: jonghyeonkim
+  3e9aecb5-90f2-42fa-bc32-ce40c2f5502e: !Template
+    answer_choices: negative ||| positive
+    id: 3e9aecb5-90f2-42fa-bc32-ce40c2f5502e
+    jinja: 'Determine whether the sentiment of the following movie review is positive
+      or negative: {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_96
+    reference: jonghyeonkim
+  9bbdc269-e5e3-4e50-8cd0-ad26b42588b3: !Template
+    answer_choices: negative ||| positive
+    id: 9bbdc269-e5e3-4e50-8cd0-ad26b42588b3
+    jinja: From the following movie review, can you tell if the sentiment is positive
+      or negative? {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_97
+    reference: jonghyeonkim
+  7ccf2495-3e85-4e75-adb7-7192e7946c9d: !Template
+    answer_choices: negative ||| positive
+    id: 7ccf2495-3e85-4e75-adb7-7192e7946c9d
+    jinja: In the following review, does the reviewer express a positive or negative
+      sentiment towards the movie? {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_98
+    reference: jonghyeonkim
+  875ccbe4-9fbc-4a23-9173-3f7e35d81795: !Template
+    answer_choices: negative ||| positive
+    id: 875ccbe4-9fbc-4a23-9173-3f7e35d81795
+    jinja: Do you think the reviewer had a positive or negative sentiment towards the
+      movie in the following review? {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_99
+    reference: jonghyeonkim
+  694c82af-02f2-4827-a673-73e460c7db87: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 694c82af-02f2-4827-a673-73e460c7db87
+    jinja: '{{text}} Is this movie review... ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_00
+    reference: jonghyeonkim
+  a9892a53-5817-40e2-a73a-097fb5d33c1c: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: a9892a53-5817-40e2-a73a-097fb5d33c1c
+    jinja: '{{text}} What is the tone of the review? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_01
+    reference: jonghyeonkim
+  b4e4c23d-b789-4da8-aaa9-b2c59c059bf1: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: b4e4c23d-b789-4da8-aaa9-b2c59c059bf1
+    jinja: '{{text}} expresses a sentiment that is... ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_02
+    reference: jonghyeonkim
+  9b48455e-79fc-47b7-96c7-3893d0c2360e: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 9b48455e-79fc-47b7-96c7-3893d0c2360e
+    jinja: '{{text}} Indicates a sentiment that is... ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_03
+    reference: jonghyeonkim
+  2951872b-4304-49c2-a465-2d78adc82ebc: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 2951872b-4304-49c2-a465-2d78adc82ebc
+    jinja: '{{text}} - Favorable or Unpleasant sentiment? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_04
+    reference: jonghyeonkim
+  2f1f1700-c649-432f-96ba-a4a120e9ae20: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 2f1f1700-c649-432f-96ba-a4a120e9ae20
+    jinja: What was the reviewer's opinion of {{text}}? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_05
+    reference: jonghyeonkim
+  1fd91ea1-fde0-424a-b031-6baeb23bcf0f: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 1fd91ea1-fde0-424a-b031-6baeb23bcf0f
+    jinja: '{{text}} - Favorable or Unpleasant? (choose one) ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_06
+    reference: jonghyeonkim
+  5e8d5cd9-3b74-4b62-a325-3afe229bae1e: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 5e8d5cd9-3b74-4b62-a325-3afe229bae1e
+    jinja: '{{text}} What is the sentiment of the review? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_07
+    reference: jonghyeonkim
+  8a3376ea-b945-4610-a448-e4f5424554c5: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 8a3376ea-b945-4610-a448-e4f5424554c5
+    jinja: 'What is the sentiment of this review: {{text}} ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_08
+    reference: jonghyeonkim
+  efc9e35c-2fea-4608-9a5b-e6c0074e49e4: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: efc9e35c-2fea-4608-9a5b-e6c0074e49e4
+    jinja: '{{text}} Is the movie review Favorable or Unpleasant? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_09
+    reference: jonghyeonkim
+  4f199c8e-75a9-4530-a760-dc455178ba76: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 4f199c8e-75a9-4530-a760-dc455178ba76
+    jinja: 'The sentiment in the following review: {{text}} is ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_10
+    reference: jonghyeonkim
+  87111597-00d0-4041-8785-582adb111a05: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 87111597-00d0-4041-8785-582adb111a05
+    jinja: '{{text}} - did the reviewer like the movie or not? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_11
+    reference: jonghyeonkim
+  d078a2c4-554f-4643-9675-76cfd73d349e: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: d078a2c4-554f-4643-9675-76cfd73d349e
+    jinja: Is the sentiment of {{text}} Favorable or Unpleasant? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_12
+    reference: jonghyeonkim
+  01a01d42-3748-4dd3-a0d1-3f19438e04f8: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 01a01d42-3748-4dd3-a0d1-3f19438e04f8
+    jinja: '{{text}} What does the reviewer think of the movie? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_13
+    reference: jonghyeonkim
+  52163ada-b5b2-432d-8f83-9f4f1b0b4537: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 52163ada-b5b2-432d-8f83-9f4f1b0b4537
+    jinja: '{{text}} How does the reviewer feel about the movie? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_14
+    reference: jonghyeonkim
+  bc7f00ae-3567-4cb0-a8e7-c2883a27749c: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: bc7f00ae-3567-4cb0-a8e7-c2883a27749c
+    jinja: What is the overall sentiment expressed in {{text}}? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_15
+    reference: jonghyeonkim
+  e5c74385-9e53-4e9f-a7db-15aed237c680: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: e5c74385-9e53-4e9f-a7db-15aed237c680
+    jinja: '{{text}} What is the overall sentiment of the review? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_16
+    reference: jonghyeonkim
+  7067e5ed-e0f9-454e-a032-6041356d69a0: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 7067e5ed-e0f9-454e-a032-6041356d69a0
+    jinja: 'What sentiment is expressed in this review: {{text}}? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_17
+    reference: jonghyeonkim
+  4bcf0fce-cf7b-4dd8-812b-46d61ae5367c: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 4bcf0fce-cf7b-4dd8-812b-46d61ae5367c
+    jinja: '{{text}} Is this a Favorable or Unpleasant movie review? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_18
+    reference: jonghyeonkim
+  b815132a-7cba-4abd-ad72-b4a7d82c5118: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: b815132a-7cba-4abd-ad72-b4a7d82c5118
+    jinja: '{{text}} What sentiment does the movie review express? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_19
+    reference: jonghyeonkim
+  e166515d-0f43-4d40-8590-92f0c8d38041: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: e166515d-0f43-4d40-8590-92f0c8d38041
+    jinja: '{{text}} What is the general tone of the movie review? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_20
+    reference: jonghyeonkim
+  491c8e09-e457-4130-ab60-d2cf0567dcdb: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 491c8e09-e457-4130-ab60-d2cf0567dcdb
+    jinja: '{{text}} What is the overall sentiment of this review? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_21
+    reference: jonghyeonkim
+  ccff0a4c-6f0e-4c2f-8e9e-3a72026e226b: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: ccff0a4c-6f0e-4c2f-8e9e-3a72026e226b
+    jinja: '{{text}} - what is the overall sentiment of the review? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_22
+    reference: jonghyeonkim
+  7ea9e1ee-5654-4704-b32e-f8fd70e3e8a8: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 7ea9e1ee-5654-4704-b32e-f8fd70e3e8a8
+    jinja: The following review expresses what sentiment? {{text}} ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_23
+    reference: jonghyeonkim
+  f41c56ae-4069-4486-aaa6-43dc71c903b4: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: f41c56ae-4069-4486-aaa6-43dc71c903b4
+    jinja: '{{text}} Is the reviewer''s opinion Favorable or Unpleasant? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_24
+    reference: jonghyeonkim
+  efd76b37-b7d0-4a6b-b3c1-3a5add1a2b30: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: efd76b37-b7d0-4a6b-b3c1-3a5add1a2b30
+    jinja: 'What is the sentiment of the following review: {{text}}? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_25
+    reference: jonghyeonkim
+  c65b7a5d-25c2-4078-a1ed-979c466028d0: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: c65b7a5d-25c2-4078-a1ed-979c466028d0
+    jinja: '{{text}} Based on the review, how was the movie received? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_26
+    reference: jonghyeonkim
+  98f3e0d0-a1dc-4b64-889d-93678d956dff: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 98f3e0d0-a1dc-4b64-889d-93678d956dff
+    jinja: '{{text}} Is this a Favorable or Unpleasant review of the movie? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_27
+    reference: jonghyeonkim
+  395350b3-7a16-40f0-bcb0-88c743b9928c: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 395350b3-7a16-40f0-bcb0-88c743b9928c
+    jinja: Is the following review {{'Favorable or Unpleasant'}}? {{text}} ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_28
+    reference: jonghyeonkim
+  6fc82c58-62ca-4aa4-b232-1c9f54b9ad70: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 6fc82c58-62ca-4aa4-b232-1c9f54b9ad70
+    jinja: What is the sentiment of the following movie review? {{text}} ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_29
+    reference: jonghyeonkim
+  1636c5fa-2635-43c9-aa30-62342abc3402: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 1636c5fa-2635-43c9-aa30-62342abc3402
+    jinja: '{{text}} How would you describe the sentiment of this review? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_30
+    reference: jonghyeonkim
+  9af7db54-4173-45e7-a05f-3156407ec9ac: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 9af7db54-4173-45e7-a05f-3156407ec9ac
+    jinja: What sentiment is expressed in the following review? {{text}} ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_31
+    reference: jonghyeonkim
+  a3ea88ab-e34e-4019-b930-b75152047ca1: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: a3ea88ab-e34e-4019-b930-b75152047ca1
+    jinja: '{{text}} Is the sentiment of this review Favorable or Unpleasant? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_32
+    reference: jonghyeonkim
+  475e02a3-abbd-447b-b28e-298fcf1707b6: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 475e02a3-abbd-447b-b28e-298fcf1707b6
+    jinja: What is the sentiment expressed in this movie review? {{text}} ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_33
+    reference: jonghyeonkim
+  ea6da5e1-bc1a-4f8d-9b6c-f5946f3615bc: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: ea6da5e1-bc1a-4f8d-9b6c-f5946f3615bc
+    jinja: 'Which sentiment is expressed in the following review: {{text}}? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_34
+    reference: jonghyeonkim
+  d92af093-3959-4a04-a518-2f03f3ebc42e: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: d92af093-3959-4a04-a518-2f03f3ebc42e
+    jinja: '{{text}} In general, how did the reviewer feel about the movie? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_35
+    reference: jonghyeonkim
+  dc49bc68-38a9-4052-a3d3-6c8d41fe8fe8: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: dc49bc68-38a9-4052-a3d3-6c8d41fe8fe8
+    jinja: 'Classify the following review as Favorable or Unpleasant: {{text}} ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_36
+    reference: jonghyeonkim
+  922359cc-f805-43df-9287-195936ed5de2: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 922359cc-f805-43df-9287-195936ed5de2
+    jinja: 'Determine if the sentiment of the following review: {{text}} is ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_37
+    reference: jonghyeonkim
+  73f11df3-4184-4249-a374-6f9f64a9e36f: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 73f11df3-4184-4249-a374-6f9f64a9e36f
+    jinja: What is the overall sentiment expressed in this review? {{text}} ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_38
+    reference: jonghyeonkim
+  614920fe-51bd-4258-82de-fb131462d71f: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 614920fe-51bd-4258-82de-fb131462d71f
+    jinja: '{{text}} What is the attitude of the reviewer towards the movie? ||| {{
+      answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_39
+    reference: jonghyeonkim
+  882a5d7c-df2d-45c1-ba3b-b15210cfdfe2: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 882a5d7c-df2d-45c1-ba3b-b15210cfdfe2
+    jinja: Is the following movie review {{'Favorable or Unpleasant'}}? {{text}} ||| {{
+      answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_40
+    reference: jonghyeonkim
+  facda117-0f2b-4567-913f-7ec86bd80ade: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: facda117-0f2b-4567-913f-7ec86bd80ade
+    jinja: '{{text}} Does the review express a Favorable or Unpleasant sentiment? ||| {{
+      answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_41
+    reference: jonghyeonkim
+  b7d57602-bd70-4120-a8ff-db07fed67a5f: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: b7d57602-bd70-4120-a8ff-db07fed67a5f
+    jinja: '{{text}} Was this movie review overall {{''Favorable or Unpleasant''}}? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_42
+    reference: jonghyeonkim
+  94d0b31e-0fa8-47de-919e-4b6a96e2b7b9: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 94d0b31e-0fa8-47de-919e-4b6a96e2b7b9
+    jinja: '{{text}} Is the sentiment of the review {{"Favorable or Unpleasant"}}? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_43
+    reference: jonghyeonkim
+  14da7c14-908f-418d-8dfe-072f4e6b73a5: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 14da7c14-908f-418d-8dfe-072f4e6b73a5
+    jinja: What sentiment is expressed in the following movie review? {{text}} ||| {{
+      answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_44
+    reference: jonghyeonkim
+  1a69df54-0ad0-49fc-8646-a93a391eb5f4: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 1a69df54-0ad0-49fc-8646-a93a391eb5f4
+    jinja: Which of the following sentiments best describes the review? {{text}} |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_45
+    reference: jonghyeonkim
+  ae5ec241-8931-4dd5-81a8-3ad8037d2f86: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: ae5ec241-8931-4dd5-81a8-3ad8037d2f86
+    jinja: '{{text}} Would you consider this a Favorable or Unpleasant movie review? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_46
+    reference: jonghyeonkim
+  4d7c10fd-940e-47bb-8020-558a3d79cdfe: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 4d7c10fd-940e-47bb-8020-558a3d79cdfe
+    jinja: 'What is the sentiment expressed in the review of the movie: {{text}}? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_47
+    reference: jonghyeonkim
+  ea59d54e-cb80-42f1-9e26-ded58de8e5d9: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: ea59d54e-cb80-42f1-9e26-ded58de8e5d9
+    jinja: 'Which sentiment is expressed in the following movie review: {{text}}? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_48
+    reference: jonghyeonkim
+  62892fa2-4859-41aa-8fdc-40eb76347e76: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 62892fa2-4859-41aa-8fdc-40eb76347e76
+    jinja: How would you describe the sentiment of the following review? {{text}} |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_49
+    reference: jonghyeonkim
+  91ca7b5c-d7aa-4f93-ac03-5b1a07c301a6: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 91ca7b5c-d7aa-4f93-ac03-5b1a07c301a6
+    jinja: What is the sentiment conveyed in the following movie review? {{text}} |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_50
+    reference: jonghyeonkim
+  7537ef9a-d55a-408a-b982-082885d75f45: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 7537ef9a-d55a-408a-b982-082885d75f45
+    jinja: Is the sentiment of the following review Favorable or Unpleasant? {{text}} |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_51
+    reference: jonghyeonkim
+  1ee2b6ac-c579-4dc1-9ed4-db7f25ceb605: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 1ee2b6ac-c579-4dc1-9ed4-db7f25ceb605
+    jinja: 'Categorize the following movie review as Favorable or Unpleasant: {{text}}
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_52
+    reference: jonghyeonkim
+  bae8d6e1-525e-4054-9847-ac3daca7199f: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: bae8d6e1-525e-4054-9847-ac3daca7199f
+    jinja: Does {{text}} express a Favorable or Unpleasant sentiment about the movie? |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_53
+    reference: jonghyeonkim
+  d75a26b1-e4ec-4ac9-923a-df038e03ae6d: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: d75a26b1-e4ec-4ac9-923a-df038e03ae6d
+    jinja: Does {{text}} express a Favorable or Unpleasant sentiment towards the movie?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_54
+    reference: jonghyeonkim
+  8c89b1ee-9322-4ee5-9e39-fddba6443a1b: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 8c89b1ee-9322-4ee5-9e39-fddba6443a1b
+    jinja: 'Tell whether the following movie review is Favorable or Unpleasant: {{text}}
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_55
+    reference: jonghyeonkim
+  ca898e7f-f157-429e-836b-75e3080e1968: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: ca898e7f-f157-429e-836b-75e3080e1968
+    jinja: '{{text}} Is this movie review expressing a Favorable or Unpleasant sentiment?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_56
+    reference: jonghyeonkim
+  2946a1e3-7dfb-4e25-ade6-329827ceacff: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 2946a1e3-7dfb-4e25-ade6-329827ceacff
+    jinja: '{{text}} Based on the review, is the sentiment {{"Favorable or Unpleasant"}}?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_57
+    reference: jonghyeonkim
+  1db824a2-806b-410f-b5e1-9db4eaf28163: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 1db824a2-806b-410f-b5e1-9db4eaf28163
+    jinja: '{{text}} How would you describe the overall sentiment of this movie review?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_58
+    reference: jonghyeonkim
+  7b80117c-158a-46fa-b6ff-9da00ab278cb: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 7b80117c-158a-46fa-b6ff-9da00ab278cb
+    jinja: Can you determine if the following review is Favorable or Unpleasant? {{text}}
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_59
+    reference: jonghyeonkim
+  5c0cc72f-1209-4d6a-804f-f570e32e4a94: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 5c0cc72f-1209-4d6a-804f-f570e32e4a94
+    jinja: '{{text}} Does the reviewer have a Favorable or Unpleasant opinion of the movie?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_60
+    reference: jonghyeonkim
+  6fcdf037-61b7-49e2-aa91-f78ce4dc8cce: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 6fcdf037-61b7-49e2-aa91-f78ce4dc8cce
+    jinja: Is the sentiment of the following movie review Favorable or Unpleasant? {{text}}
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_61
+    reference: jonghyeonkim
+  5c7a506c-7387-43da-a910-7c494909fce3: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 5c7a506c-7387-43da-a910-7c494909fce3
+    jinja: '{{text}} Please indicate whether this is a Favorable or Unpleasant movie review.
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_62
+    reference: jonghyeonkim
+  45d89711-60ef-485e-a02f-468919d28dd6: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 45d89711-60ef-485e-a02f-468919d28dd6
+    jinja: 'Indicate whether the following movie review is Favorable or Unpleasant: {{text}}
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_63
+    reference: jonghyeonkim
+  e134c194-1cde-4c3d-98ea-410e5bff4f28: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: e134c194-1cde-4c3d-98ea-410e5bff4f28
+    jinja: '{{text}} Would you say this movie review has a Favorable or Unpleasant sentiment?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_64
+    reference: jonghyeonkim
+  2d5f44ca-b845-451c-a10a-03eb9addeb11: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 2d5f44ca-b845-451c-a10a-03eb9addeb11
+    jinja: '{{text}} Did the reviewer have a Favorable or Unpleasant opinion about the
+      movie? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_65
+    reference: jonghyeonkim
+  d7a63f03-f2ad-43ab-9b39-b30961f1b984: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: d7a63f03-f2ad-43ab-9b39-b30961f1b984
+    jinja: '{{text}} Does the reviewer have a Favorable or Unpleasant opinion about the
+      movie? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_66
+    reference: jonghyeonkim
+  4abe236e-15c0-45db-9572-fc1369f70bec: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 4abe236e-15c0-45db-9572-fc1369f70bec
+    jinja: '{{text}} Is the reviewer''s sentiment towards the movie {{"Favorable or Unpleasant"}}?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_67
+    reference: jonghyeonkim
+  315dc840-825a-49e2-8e76-4f4c7075fe56: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 315dc840-825a-49e2-8e76-4f4c7075fe56
+    jinja: Does the following movie review express a Favorable or Unpleasant sentiment?
+      {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_68
+    reference: jonghyeonkim
+  b88aae40-5252-49ff-a4f9-499831e4d5be: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: b88aae40-5252-49ff-a4f9-499831e4d5be
+    jinja: Does the following movie review contain a Favorable or Unpleasant sentiment?
+      {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_69
+    reference: jonghyeonkim
+  d98cf4aa-b91c-4a0b-b57d-4027558437dc: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: d98cf4aa-b91c-4a0b-b57d-4027558437dc
+    jinja: '{{text}} Would you say the sentiment of this movie review is Favorable or
+      Unpleasant? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_70
+    reference: jonghyeonkim
+  f73cca92-9940-4070-b909-c616b5cd3d47: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: f73cca92-9940-4070-b909-c616b5cd3d47
+    jinja: Is the sentiment of the following movie review {{'Favorable or Unpleasant'}}?
+      {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_71
+    reference: jonghyeonkim
+  c9d656ac-a5aa-4e89-8ef2-98481244e3b0: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: c9d656ac-a5aa-4e89-8ef2-98481244e3b0
+    jinja: 'Label the sentiment of the following movie review as Favorable or Unpleasant:
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_72
+    reference: jonghyeonkim
+  f1f1f351-1b78-4245-9cfb-2a5882f8e014: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: f1f1f351-1b78-4245-9cfb-2a5882f8e014
+    jinja: Is the sentiment expressed in the movie review below Favorable or Unpleasant?
+      {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_73
+    reference: jonghyeonkim
+  f6b8a0a0-9f6b-4e26-8282-ed7c795fab6e: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: f6b8a0a0-9f6b-4e26-8282-ed7c795fab6e
+    jinja: 'Judge the sentiment of the following movie review as Favorable or Unpleasant:
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_74
+    reference: jonghyeonkim
+  b94b7f73-c015-470f-98d8-6a599d3f56dc: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: b94b7f73-c015-470f-98d8-6a599d3f56dc
+    jinja: 'Analyze the following movie review and classify it as Favorable or Unpleasant:
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_75
+    reference: jonghyeonkim
+  66fd091f-12c0-4fc0-aca8-239c7d79ef8a: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 66fd091f-12c0-4fc0-aca8-239c7d79ef8a
+    jinja: Based on the following review, is the sentiment {{"Favorable or Unpleasant"}}?
+      {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_76
+    reference: jonghyeonkim
+  8b9846af-48a6-412c-ad6d-e93df99f7b8f: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 8b9846af-48a6-412c-ad6d-e93df99f7b8f
+    jinja: 'Which of the following sentiments is expressed in the review of the movie:
+      {{text}}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_77
+    reference: jonghyeonkim
+  93e0ff16-3ae8-48f4-99f9-8582f84fe32e: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 93e0ff16-3ae8-48f4-99f9-8582f84fe32e
+    jinja: 'Assess the sentiment of the following review and choose the correct option:
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_78
+    reference: jonghyeonkim
+  e541a633-9bd9-446f-baa8-d147090900c0: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: e541a633-9bd9-446f-baa8-d147090900c0
+    jinja: Did the reviewer have a {{'Favorable or Unpleasant'}} opinion about the movie?
+      {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_79
+    reference: jonghyeonkim
+  064e5220-6ef8-49f5-8135-846d905ff762: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 064e5220-6ef8-49f5-8135-846d905ff762
+    jinja: 'Deduce the sentiment of the following movie review as Favorable or Unpleasant:
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_80
+    reference: jonghyeonkim
+  40473e6a-c7f8-428d-80fb-5040ca5cff25: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 40473e6a-c7f8-428d-80fb-5040ca5cff25
+    jinja: Does the following movie review have a {{"Favorable or Unpleasant"}} sentiment?
+      {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_81
+    reference: jonghyeonkim
+  ebf7c990-3107-46a7-ab12-b6416c6297e2: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: ebf7c990-3107-46a7-ab12-b6416c6297e2
+    jinja: '{{text}} Please indicate whether the review expresses a Favorable or Unpleasant
+      sentiment. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_82
+    reference: jonghyeonkim
+  d152986e-fba4-47d8-8317-ee76453030fd: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: d152986e-fba4-47d8-8317-ee76453030fd
+    jinja: Is the sentiment expressed in the following movie review Favorable or Unpleasant?
+      {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_83
+    reference: jonghyeonkim
+  40deebfb-8589-4f99-b83e-ff06ce2e3ed5: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 40deebfb-8589-4f99-b83e-ff06ce2e3ed5
+    jinja: '{{text}} Would you describe the sentiment of this movie review as Favorable
+      or Unpleasant? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_84
+    reference: jonghyeonkim
+  74b6cb9f-5303-42a8-bdd1-7875367c6b35: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 74b6cb9f-5303-42a8-bdd1-7875367c6b35
+    jinja: 'Identify whether the following review expresses Favorable or Unpleasant sentiment:
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_85
+    reference: jonghyeonkim
+  83fe8874-a80d-4558-a9e3-2009e09da519: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 83fe8874-a80d-4558-a9e3-2009e09da519
+    jinja: Can you tell whether the following review has a Favorable or Unpleasant sentiment?
+      {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_86
+    reference: jonghyeonkim
+  8ec2cd37-f9fd-4d9c-9ef9-160a3986b621: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 8ec2cd37-f9fd-4d9c-9ef9-160a3986b621
+    jinja: '{{text}} Does the reviewer have a {{"Favorable or Unpleasant"}} sentiment towards
+      the movie? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_87
+    reference: jonghyeonkim
+  4cc4a13e-b86a-48fe-8750-2f0ad4e20d52: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 4cc4a13e-b86a-48fe-8750-2f0ad4e20d52
+    jinja: From the following review, can you tell if the sentiment is Favorable or Unpleasant?
+      {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_88
+    reference: jonghyeonkim
+  5bd90cfa-db37-4696-b6e2-284bf16f20ff: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 5bd90cfa-db37-4696-b6e2-284bf16f20ff
+    jinja: 'The sentiment of the following review can be described as Favorable or Unpleasant:
+      {{text}} is ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_89
+    reference: jonghyeonkim
+  e6713b84-d1b9-4309-81e5-f5984631019d: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: e6713b84-d1b9-4309-81e5-f5984631019d
+    jinja: 'Specify if the following movie review is expressing a Favorable or Unpleasant
+      sentiment: {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_90
+    reference: jonghyeonkim
+  a106f58f-393b-40c9-8f44-70baadadaa5b: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: a106f58f-393b-40c9-8f44-70baadadaa5b
+    jinja: Does the following review express a Favorable or Unpleasant sentiment towards
+      the movie? {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_91
+    reference: jonghyeonkim
+  f6228f1c-0a45-44b6-8082-5008172865dc: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: f6228f1c-0a45-44b6-8082-5008172865dc
+    jinja: 'Choose the correct option to indicate the sentiment expressed in the following
+      review: {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_92
+    reference: jonghyeonkim
+  e14a140c-232e-4bd3-a3fb-a45402fa5560: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: e14a140c-232e-4bd3-a3fb-a45402fa5560
+    jinja: Did the author of the following review express a {{"Favorable or Unpleasant"}}
+      sentiment? {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_93
+    reference: jonghyeonkim
+  5fb56225-205f-4cdb-bd78-ca81df57570d: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 5fb56225-205f-4cdb-bd78-ca81df57570d
+    jinja: From the following review, can you tell whether the sentiment is Favorable
+      or Unpleasant? {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_94
+    reference: jonghyeonkim
+  c52830f0-2e83-4bbc-88be-f27197adfc0a: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: c52830f0-2e83-4bbc-88be-f27197adfc0a
+    jinja: 'Determine whether the following movie review expresses Favorable or Unpleasant
+      sentiment: {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_95
+    reference: jonghyeonkim
+  eacab2ce-e6e2-49ee-ac21-80de6011cdbf: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: eacab2ce-e6e2-49ee-ac21-80de6011cdbf
+    jinja: 'Determine whether the sentiment of the following movie review is Favorable
+      or Unpleasant: {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_96
+    reference: jonghyeonkim
+  e8160239-2492-412f-a85c-8c7675fbcd15: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: e8160239-2492-412f-a85c-8c7675fbcd15
+    jinja: From the following movie review, can you tell if the sentiment is Favorable
+      or Unpleasant? {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_97
+    reference: jonghyeonkim
+  57680e2d-ff9c-485b-ac51-74773dfcc20a: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 57680e2d-ff9c-485b-ac51-74773dfcc20a
+    jinja: In the following review, does the reviewer express a Favorable or Unpleasant
+      sentiment towards the movie? {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_98
+    reference: jonghyeonkim
+  976e4f5a-7c7a-4711-8b8e-3a051d539411: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 976e4f5a-7c7a-4711-8b8e-3a051d539411
+    jinja: Do you think the reviewer had a Favorable or Unpleasant sentiment towards the
+      movie in the following review? {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_99
+    reference: jonghyeonkim
+  3449a209-e3a4-4d76-a69f-478a42c556b7: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 3449a209-e3a4-4d76-a69f-478a42c556b7
+    jinja: '{{text}} Is this movie review... ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_00
+    reference: jonghyeonkim
+  cde4223a-0f2e-4bfe-a174-902e0b92e00c: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: cde4223a-0f2e-4bfe-a174-902e0b92e00c
+    jinja: '{{text}} What is the tone of the review? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_01
+    reference: jonghyeonkim
+  e243d22c-0175-434e-afd3-5f15047d98eb: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: e243d22c-0175-434e-afd3-5f15047d98eb
+    jinja: '{{text}} expresses a sentiment that is... ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_02
+    reference: jonghyeonkim
+  48bcf3d8-0c23-4ec2-9564-97367c320a2a: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 48bcf3d8-0c23-4ec2-9564-97367c320a2a
+    jinja: '{{text}} Indicates a sentiment that is... ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_03
+    reference: jonghyeonkim
+  bf682d8d-bd8f-451f-a77d-37f4a6398251: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: bf682d8d-bd8f-451f-a77d-37f4a6398251
+    jinja: '{{text}} - Positive or Unpleasant sentiment? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_04
+    reference: jonghyeonkim
+  2130f026-8074-48cd-a9a9-2444b9e08049: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 2130f026-8074-48cd-a9a9-2444b9e08049
+    jinja: What was the reviewer's opinion of {{text}}? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_05
+    reference: jonghyeonkim
+  aada77f8-6158-4b11-a542-ea83b9356391: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: aada77f8-6158-4b11-a542-ea83b9356391
+    jinja: '{{text}} - Positive or Unpleasant? (choose one) ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_06
+    reference: jonghyeonkim
+  1c0e1646-c649-4f1b-9f52-24cdeaf653ea: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 1c0e1646-c649-4f1b-9f52-24cdeaf653ea
+    jinja: '{{text}} What is the sentiment of the review? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_07
+    reference: jonghyeonkim
+  85698626-b036-4803-bcbb-589019ec683b: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 85698626-b036-4803-bcbb-589019ec683b
+    jinja: 'What is the sentiment of this review: {{text}} ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_08
+    reference: jonghyeonkim
+  a87e6e84-eb86-41a6-9c43-a7e5512e1a3e: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: a87e6e84-eb86-41a6-9c43-a7e5512e1a3e
+    jinja: '{{text}} Is the movie review Positive or Unpleasant? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_09
+    reference: jonghyeonkim
+  737a68dc-3f5d-4105-bef4-8ec21d6d4ecb: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 737a68dc-3f5d-4105-bef4-8ec21d6d4ecb
+    jinja: 'The sentiment in the following review: {{text}} is ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_10
+    reference: jonghyeonkim
+  970f694f-5c57-43e4-a02e-8a0f523b3b5f: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 970f694f-5c57-43e4-a02e-8a0f523b3b5f
+    jinja: '{{text}} - did the reviewer like the movie or not? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_11
+    reference: jonghyeonkim
+  71c4920a-be9c-4abe-ba14-ac4167b5d690: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 71c4920a-be9c-4abe-ba14-ac4167b5d690
+    jinja: Is the sentiment of {{text}} Positive or Unpleasant? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_12
+    reference: jonghyeonkim
+  0d215c24-9130-4b8c-9112-56221d2468b7: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 0d215c24-9130-4b8c-9112-56221d2468b7
+    jinja: '{{text}} What does the reviewer think of the movie? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_13
+    reference: jonghyeonkim
+  edf57782-a071-402b-a034-2762b666cdbd: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: edf57782-a071-402b-a034-2762b666cdbd
+    jinja: '{{text}} How does the reviewer feel about the movie? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_14
+    reference: jonghyeonkim
+  ac5a4eec-a99a-45c9-b62b-927ef9c04407: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: ac5a4eec-a99a-45c9-b62b-927ef9c04407
+    jinja: What is the overall sentiment expressed in {{text}}? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_15
+    reference: jonghyeonkim
+  b24ae327-8ae7-421c-a16f-42ed73f8ffd8: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: b24ae327-8ae7-421c-a16f-42ed73f8ffd8
+    jinja: '{{text}} What is the overall sentiment of the review? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_16
+    reference: jonghyeonkim
+  afa77abf-fec6-4349-8ee1-654259f40b1f: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: afa77abf-fec6-4349-8ee1-654259f40b1f
+    jinja: 'What sentiment is expressed in this review: {{text}}? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_17
+    reference: jonghyeonkim
+  2915bd62-7ed9-45a7-a2f7-2ebfcc023ddd: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 2915bd62-7ed9-45a7-a2f7-2ebfcc023ddd
+    jinja: '{{text}} Is this a Positive or Unpleasant movie review? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_18
+    reference: jonghyeonkim
+  c76dbc6c-90ec-4261-9f27-fb666eaa6fcb: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: c76dbc6c-90ec-4261-9f27-fb666eaa6fcb
+    jinja: '{{text}} What sentiment does the movie review express? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_19
+    reference: jonghyeonkim
+  43fe8003-fdc9-4cb5-885f-20d3dd642d11: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 43fe8003-fdc9-4cb5-885f-20d3dd642d11
+    jinja: '{{text}} What is the general tone of the movie review? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_20
+    reference: jonghyeonkim
+  2705606a-c50a-44c2-801e-e66d8460dfc0: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 2705606a-c50a-44c2-801e-e66d8460dfc0
+    jinja: '{{text}} What is the overall sentiment of this review? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_21
+    reference: jonghyeonkim
+  8870084c-87ff-4535-b493-a01d9e6dc82c: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 8870084c-87ff-4535-b493-a01d9e6dc82c
+    jinja: '{{text}} - what is the overall sentiment of the review? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_22
+    reference: jonghyeonkim
+  82198bb1-e18d-4b1b-b337-3570db3719db: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 82198bb1-e18d-4b1b-b337-3570db3719db
+    jinja: The following review expresses what sentiment? {{text}} ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_23
+    reference: jonghyeonkim
+  d4272ffd-ac6e-40f0-9f0f-291705ed6929: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: d4272ffd-ac6e-40f0-9f0f-291705ed6929
+    jinja: '{{text}} Is the reviewer''s opinion Positive or Unpleasant? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_24
+    reference: jonghyeonkim
+  67bbb277-5249-4292-a4b6-f2f1861704f8: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 67bbb277-5249-4292-a4b6-f2f1861704f8
+    jinja: 'What is the sentiment of the following review: {{text}}? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_25
+    reference: jonghyeonkim
+  c380894a-2286-4908-8f75-21803ee03d17: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: c380894a-2286-4908-8f75-21803ee03d17
+    jinja: '{{text}} Based on the review, how was the movie received? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_26
+    reference: jonghyeonkim
+  b23c6ba1-e45a-4468-9c93-39a2c37f2dd5: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: b23c6ba1-e45a-4468-9c93-39a2c37f2dd5
+    jinja: '{{text}} Is this a Positive or Unpleasant review of the movie? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_27
+    reference: jonghyeonkim
+  bc3c9eb0-cea6-4278-9821-72125504ab16: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: bc3c9eb0-cea6-4278-9821-72125504ab16
+    jinja: Is the following review {{'Positive or Unpleasant'}}? {{text}} ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_28
+    reference: jonghyeonkim
+  de47ca6f-2896-4b80-b00d-b9586cbfe76a: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: de47ca6f-2896-4b80-b00d-b9586cbfe76a
+    jinja: What is the sentiment of the following movie review? {{text}} ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_29
+    reference: jonghyeonkim
+  ab789ce4-02ae-4e3f-b885-81d8b586e9fd: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: ab789ce4-02ae-4e3f-b885-81d8b586e9fd
+    jinja: '{{text}} How would you describe the sentiment of this review? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_30
+    reference: jonghyeonkim
+  accef5e3-f17a-42d6-8c17-1e1af2c44d6b: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: accef5e3-f17a-42d6-8c17-1e1af2c44d6b
+    jinja: What sentiment is expressed in the following review? {{text}} ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_31
+    reference: jonghyeonkim
+  3e8ecf3f-7e26-4bd4-a1bb-a2536bd62d35: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 3e8ecf3f-7e26-4bd4-a1bb-a2536bd62d35
+    jinja: '{{text}} Is the sentiment of this review Positive or Unpleasant? ||| {{
+      answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_32
+    reference: jonghyeonkim
+  82646fe2-5cd7-48a8-8484-54fb475b96c6: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 82646fe2-5cd7-48a8-8484-54fb475b96c6
+    jinja: What is the sentiment expressed in this movie review? {{text}} ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_33
+    reference: jonghyeonkim
+  54efc708-517c-487b-9d63-b6cfbbd39088: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 54efc708-517c-487b-9d63-b6cfbbd39088
+    jinja: 'Which sentiment is expressed in the following review: {{text}}? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_34
+    reference: jonghyeonkim
+  f1a9d85e-daef-404d-ae75-00fa7d3ac01c: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: f1a9d85e-daef-404d-ae75-00fa7d3ac01c
+    jinja: '{{text}} In general, how did the reviewer feel about the movie? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_35
+    reference: jonghyeonkim
+  93abdc66-1884-4a28-8d59-20b15cffb7af: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 93abdc66-1884-4a28-8d59-20b15cffb7af
+    jinja: 'Classify the following review as Positive or Unpleasant: {{text}} ||| {{
+      answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_36
+    reference: jonghyeonkim
+  8d228692-c1c8-467e-b825-9671e0ed0593: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 8d228692-c1c8-467e-b825-9671e0ed0593
+    jinja: 'Determine if the sentiment of the following review: {{text}} is ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_37
+    reference: jonghyeonkim
+  7a584da6-c5ee-4c77-9a46-d8c213441e21: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 7a584da6-c5ee-4c77-9a46-d8c213441e21
+    jinja: What is the overall sentiment expressed in this review? {{text}} ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_38
+    reference: jonghyeonkim
+  09ad462e-0a6b-411d-a0a9-9c6b694a0764: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 09ad462e-0a6b-411d-a0a9-9c6b694a0764
+    jinja: '{{text}} What is the attitude of the reviewer towards the movie? ||| {{
+      answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_39
+    reference: jonghyeonkim
+  56f85dfd-a136-45e2-974d-32fea6a67d65: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 56f85dfd-a136-45e2-974d-32fea6a67d65
+    jinja: Is the following movie review {{'Positive or Unpleasant'}}? {{text}} |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_40
+    reference: jonghyeonkim
+  57547195-da39-4629-ae85-02d648348fdb: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 57547195-da39-4629-ae85-02d648348fdb
+    jinja: '{{text}} Does the review express a Positive or Unpleasant sentiment? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_41
+    reference: jonghyeonkim
+  5f85dcdc-49ab-4069-9c76-726833c05603: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 5f85dcdc-49ab-4069-9c76-726833c05603
+    jinja: '{{text}} Was this movie review overall {{''Positive or Unpleasant''}}? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_42
+    reference: jonghyeonkim
+  58ec245b-b2fe-459d-be82-03b57fc7b41a: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 58ec245b-b2fe-459d-be82-03b57fc7b41a
+    jinja: '{{text}} Is the sentiment of the review {{"Positive or Unpleasant"}}? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_43
+    reference: jonghyeonkim
+  baf15142-c95f-4465-9c49-9c820d40d884: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: baf15142-c95f-4465-9c49-9c820d40d884
+    jinja: What sentiment is expressed in the following movie review? {{text}} ||| {{
+      answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_44
+    reference: jonghyeonkim
+  7d1f348c-47cc-4ee1-9c1a-6a406fc8c3fc: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 7d1f348c-47cc-4ee1-9c1a-6a406fc8c3fc
+    jinja: Which of the following sentiments best describes the review? {{text}} |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_45
+    reference: jonghyeonkim
+  db8f4a07-59a0-4f88-8df4-f8079e780c5e: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: db8f4a07-59a0-4f88-8df4-f8079e780c5e
+    jinja: '{{text}} Would you consider this a Positive or Unpleasant movie review?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_46
+    reference: jonghyeonkim
+  8dc78105-5fef-4b5a-a784-d2e221f90890: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 8dc78105-5fef-4b5a-a784-d2e221f90890
+    jinja: 'What is the sentiment expressed in the review of the movie: {{text}}? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_47
+    reference: jonghyeonkim
+  09d9858f-f432-4d30-89eb-a8e3449ccf07: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 09d9858f-f432-4d30-89eb-a8e3449ccf07
+    jinja: 'Which sentiment is expressed in the following movie review: {{text}}? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_48
+    reference: jonghyeonkim
+  8faae86c-26c0-4c16-bedd-9be242bdd915: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 8faae86c-26c0-4c16-bedd-9be242bdd915
+    jinja: How would you describe the sentiment of the following review? {{text}} |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_49
+    reference: jonghyeonkim
+  8830e181-1b8a-45eb-8c0c-40cf8b7e6080: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 8830e181-1b8a-45eb-8c0c-40cf8b7e6080
+    jinja: What is the sentiment conveyed in the following movie review? {{text}} |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_50
+    reference: jonghyeonkim
+  4a20c921-3c9a-4458-ad47-e0f7be890410: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 4a20c921-3c9a-4458-ad47-e0f7be890410
+    jinja: Is the sentiment of the following review Positive or Unpleasant? {{text}}
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_51
+    reference: jonghyeonkim
+  bff8e1ed-cbea-4134-b342-8750eb7479b2: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: bff8e1ed-cbea-4134-b342-8750eb7479b2
+    jinja: 'Categorize the following movie review as Positive or Unpleasant: {{text}}
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_52
+    reference: jonghyeonkim
+  f56c649d-c8c0-4d0b-9476-cae2621a23ce: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: f56c649d-c8c0-4d0b-9476-cae2621a23ce
+    jinja: Does {{text}} express a Positive or Unpleasant sentiment about the movie?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_53
+    reference: jonghyeonkim
+  9edbf5e5-3afa-4e73-85fc-511cf8dcc3b4: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 9edbf5e5-3afa-4e73-85fc-511cf8dcc3b4
+    jinja: Does {{text}} express a Positive or Unpleasant sentiment towards the movie?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_54
+    reference: jonghyeonkim
+  6f0581eb-b4c2-41b0-ae7b-3c056771bf67: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 6f0581eb-b4c2-41b0-ae7b-3c056771bf67
+    jinja: 'Tell whether the following movie review is Positive or Unpleasant: {{text}}
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_55
+    reference: jonghyeonkim
+  e4a65c81-f3ba-4766-abf5-78a859c3ff61: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: e4a65c81-f3ba-4766-abf5-78a859c3ff61
+    jinja: '{{text}} Is this movie review expressing a Positive or Unpleasant sentiment?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_56
+    reference: jonghyeonkim
+  9df4add6-9f72-436b-8da0-b26b542c1e82: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 9df4add6-9f72-436b-8da0-b26b542c1e82
+    jinja: '{{text}} Based on the review, is the sentiment {{"Positive or Unpleasant"}}?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_57
+    reference: jonghyeonkim
+  9101580b-dae7-4862-aae0-1226b2c97560: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 9101580b-dae7-4862-aae0-1226b2c97560
+    jinja: '{{text}} How would you describe the overall sentiment of this movie review?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_58
+    reference: jonghyeonkim
+  d9765076-d027-442f-8b89-b5111b7d5c8a: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: d9765076-d027-442f-8b89-b5111b7d5c8a
+    jinja: Can you determine if the following review is Positive or Unpleasant? {{text}}
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_59
+    reference: jonghyeonkim
+  3256f02b-ba5d-407f-987e-a86a9d16e66d: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 3256f02b-ba5d-407f-987e-a86a9d16e66d
+    jinja: '{{text}} Does the reviewer have a Positive or Unpleasant opinion of the
+      movie? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_60
+    reference: jonghyeonkim
+  1d6e1fa3-1c24-4db2-8d8d-72525531bb56: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 1d6e1fa3-1c24-4db2-8d8d-72525531bb56
+    jinja: Is the sentiment of the following movie review Positive or Unpleasant? {{text}}
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_61
+    reference: jonghyeonkim
+  770591ff-308e-4983-abc9-a31efb0bdd08: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 770591ff-308e-4983-abc9-a31efb0bdd08
+    jinja: '{{text}} Please indicate whether this is a Positive or Unpleasant movie
+      review. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_62
+    reference: jonghyeonkim
+  e56c6906-196c-4ec0-8316-79d7f597ddfa: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: e56c6906-196c-4ec0-8316-79d7f597ddfa
+    jinja: 'Indicate whether the following movie review is Positive or Unpleasant: {{text}}
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_63
+    reference: jonghyeonkim
+  5e9425d3-7cc6-49ab-90d4-9cf4ef7cbd56: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 5e9425d3-7cc6-49ab-90d4-9cf4ef7cbd56
+    jinja: '{{text}} Would you say this movie review has a Positive or Unpleasant sentiment?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_64
+    reference: jonghyeonkim
+  8b906bed-5978-42cb-9096-5d9b35f1908b: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 8b906bed-5978-42cb-9096-5d9b35f1908b
+    jinja: '{{text}} Did the reviewer have a Positive or Unpleasant opinion about the
+      movie? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_65
+    reference: jonghyeonkim
+  f9b70e95-9010-4737-a674-ae81546b26a9: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: f9b70e95-9010-4737-a674-ae81546b26a9
+    jinja: '{{text}} Does the reviewer have a Positive or Unpleasant opinion about the
+      movie? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_66
+    reference: jonghyeonkim
+  0fd189c2-4e06-4d4b-8613-aa941a8ab0d2: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 0fd189c2-4e06-4d4b-8613-aa941a8ab0d2
+    jinja: '{{text}} Is the reviewer''s sentiment towards the movie {{"Positive or Unpleasant"}}?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_67
+    reference: jonghyeonkim
+  770d8676-7f65-4582-a346-8b7abf5172af: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 770d8676-7f65-4582-a346-8b7abf5172af
+    jinja: Does the following movie review express a Positive or Unpleasant sentiment?
+      {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_68
+    reference: jonghyeonkim
+  20c9e1f1-66c6-4738-b74f-285a81abe467: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 20c9e1f1-66c6-4738-b74f-285a81abe467
+    jinja: Does the following movie review contain a Positive or Unpleasant sentiment?
+      {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_69
+    reference: jonghyeonkim
+  28901233-1ce8-4ef4-872d-04b8492c78bb: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 28901233-1ce8-4ef4-872d-04b8492c78bb
+    jinja: '{{text}} Would you say the sentiment of this movie review is Positive or
+      Unpleasant? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_70
+    reference: jonghyeonkim
+  ba6c1e59-abb8-4268-85cc-3a58ba287fe9: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: ba6c1e59-abb8-4268-85cc-3a58ba287fe9
+    jinja: Is the sentiment of the following movie review {{'Positive or Unpleasant'}}?
+      {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_71
+    reference: jonghyeonkim
+  e9678b68-5a1d-468d-99da-87f0baabe4ff: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: e9678b68-5a1d-468d-99da-87f0baabe4ff
+    jinja: 'Label the sentiment of the following movie review as Positive or Unpleasant:
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_72
+    reference: jonghyeonkim
+  82e5cd88-e456-4db2-98ba-d131c8419287: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 82e5cd88-e456-4db2-98ba-d131c8419287
+    jinja: Is the sentiment expressed in the movie review below Positive or Unpleasant?
+      {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_73
+    reference: jonghyeonkim
+  6f4e9a9a-6ec9-49f0-9edd-98a29a453fb7: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 6f4e9a9a-6ec9-49f0-9edd-98a29a453fb7
+    jinja: 'Judge the sentiment of the following movie review as Positive or Unpleasant:
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_74
+    reference: jonghyeonkim
+  83fef1f2-48bc-43de-b8f2-7ac6686bdb52: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 83fef1f2-48bc-43de-b8f2-7ac6686bdb52
+    jinja: 'Analyze the following movie review and classify it as Positive or Unpleasant:
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_75
+    reference: jonghyeonkim
+  30f67df6-e95b-4f30-8b14-6a4bc009116d: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 30f67df6-e95b-4f30-8b14-6a4bc009116d
+    jinja: Based on the following review, is the sentiment {{"Positive or Unpleasant"}}?
+      {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_76
+    reference: jonghyeonkim
+  8318f1c6-6bbb-4299-a0e1-c06413e1cf20: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 8318f1c6-6bbb-4299-a0e1-c06413e1cf20
+    jinja: 'Which of the following sentiments is expressed in the review of the movie:
+      {{text}}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_77
+    reference: jonghyeonkim
+  d72092c7-bc77-45ce-be90-5ff96cccd875: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: d72092c7-bc77-45ce-be90-5ff96cccd875
+    jinja: 'Assess the sentiment of the following review and choose the correct option:
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_78
+    reference: jonghyeonkim
+  0b85a2b9-46ac-43b6-af04-dcca80077c6f: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 0b85a2b9-46ac-43b6-af04-dcca80077c6f
+    jinja: Did the reviewer have a {{'Positive or Unpleasant'}} opinion about the movie?
+      {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_79
+    reference: jonghyeonkim
+  91e3d2ac-78eb-4fd9-a333-eb02061640b6: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 91e3d2ac-78eb-4fd9-a333-eb02061640b6
+    jinja: 'Deduce the sentiment of the following movie review as Positive or Unpleasant:
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_80
+    reference: jonghyeonkim
+  8b2399da-f525-45ef-afaa-62daec587118: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 8b2399da-f525-45ef-afaa-62daec587118
+    jinja: Does the following movie review have a {{"Positive or Unpleasant"}} sentiment?
+      {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_81
+    reference: jonghyeonkim
+  158bfac9-a6ff-4099-a50b-3df8c15065ad: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 158bfac9-a6ff-4099-a50b-3df8c15065ad
+    jinja: '{{text}} Please indicate whether the review expresses a Positive or Unpleasant
+      sentiment. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_82
+    reference: jonghyeonkim
+  a24259ae-9dec-48f7-81ef-1bcf2043e10c: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: a24259ae-9dec-48f7-81ef-1bcf2043e10c
+    jinja: Is the sentiment expressed in the following movie review Positive or Unpleasant?
+      {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_83
+    reference: jonghyeonkim
+  5665dd0e-9e82-4a70-b6b8-8745623eaf05: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 5665dd0e-9e82-4a70-b6b8-8745623eaf05
+    jinja: '{{text}} Would you describe the sentiment of this movie review as Positive
+      or Unpleasant? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_84
+    reference: jonghyeonkim
+  0a2d69af-cbc5-454e-8139-58b5851bae2a: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 0a2d69af-cbc5-454e-8139-58b5851bae2a
+    jinja: 'Identify whether the following review expresses Positive or Unpleasant sentiment:
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_85
+    reference: jonghyeonkim
+  66316ba0-fd02-4677-a556-f8df13bc9908: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 66316ba0-fd02-4677-a556-f8df13bc9908
+    jinja: Can you tell whether the following review has a Positive or Unpleasant sentiment?
+      {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_86
+    reference: jonghyeonkim
+  3ab74837-f3e3-4dda-986c-a1c020c28070: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 3ab74837-f3e3-4dda-986c-a1c020c28070
+    jinja: '{{text}} Does the reviewer have a {{"Positive or Unpleasant"}} sentiment
+      towards the movie? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_87
+    reference: jonghyeonkim
+  c4342933-5412-4a4d-9a3c-99125d16148a: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: c4342933-5412-4a4d-9a3c-99125d16148a
+    jinja: From the following review, can you tell if the sentiment is Positive or Unpleasant?
+      {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_88
+    reference: jonghyeonkim
+  c072837a-cbf9-4b8a-af53-3fbe328ca751: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: c072837a-cbf9-4b8a-af53-3fbe328ca751
+    jinja: 'The sentiment of the following review can be described as Positive or Unpleasant:
+      {{text}} is ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_89
+    reference: jonghyeonkim
+  95a5759b-d86e-40dd-a3dd-fc98a3597ba5: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 95a5759b-d86e-40dd-a3dd-fc98a3597ba5
+    jinja: 'Specify if the following movie review is expressing a Positive or Unpleasant
+      sentiment: {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_90
+    reference: jonghyeonkim
+  85833e2e-96e2-4d83-85a4-e4bf37f2de4c: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 85833e2e-96e2-4d83-85a4-e4bf37f2de4c
+    jinja: Does the following review express a Positive or Unpleasant sentiment towards
+      the movie? {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_91
+    reference: jonghyeonkim
+  cec72926-937f-437b-ae6b-32b924b84a74: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: cec72926-937f-437b-ae6b-32b924b84a74
+    jinja: 'Choose the correct option to indicate the sentiment expressed in the following
+      review: {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_92
+    reference: jonghyeonkim
+  bdb1469f-6253-484c-8135-0693a19e6d25: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: bdb1469f-6253-484c-8135-0693a19e6d25
+    jinja: Did the author of the following review express a {{"Positive or Unpleasant"}}
+      sentiment? {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_93
+    reference: jonghyeonkim
+  5d29d7c6-90bd-4c88-aff6-106cada75167: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 5d29d7c6-90bd-4c88-aff6-106cada75167
+    jinja: From the following review, can you tell whether the sentiment is Positive
+      or Unpleasant? {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_94
+    reference: jonghyeonkim
+  e3211a5c-5cc3-414b-8fc2-38701fdeb283: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: e3211a5c-5cc3-414b-8fc2-38701fdeb283
+    jinja: 'Determine whether the following movie review expresses Positive or Unpleasant
+      sentiment: {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_95
+    reference: jonghyeonkim
+  82c8ce59-c4b1-42bb-b7a0-48c47ab74011: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 82c8ce59-c4b1-42bb-b7a0-48c47ab74011
+    jinja: 'Determine whether the sentiment of the following movie review is Positive
+      or Unpleasant: {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_96
+    reference: jonghyeonkim
+  0d41ff96-1415-4e87-87e7-4109263a3f59: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 0d41ff96-1415-4e87-87e7-4109263a3f59
+    jinja: From the following movie review, can you tell if the sentiment is Positive
+      or Unpleasant? {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_97
+    reference: jonghyeonkim
+  819fc37b-d8d4-49a4-baac-023b7781059f: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 819fc37b-d8d4-49a4-baac-023b7781059f
+    jinja: In the following review, does the reviewer express a Positive or Unpleasant
+      sentiment towards the movie? {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_98
+    reference: jonghyeonkim
+  d826dbe6-3350-4988-8dc2-5d354c3ff97c: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: d826dbe6-3350-4988-8dc2-5d354c3ff97c
+    jinja: Do you think the reviewer had a Positive or Unpleasant sentiment towards
+      the movie in the following review? {{text}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_99
+    reference: jonghyeonkim

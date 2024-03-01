@@ -1,0 +1,4571 @@
+dataset: tweet_eval
+subset: emotion
+templates:
+  7c09c33e-31f2-414b-89a1-6b1dda92ef6f: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 7c09c33e-31f2-414b-89a1-6b1dda92ef6f
+    jinja: '{{text}}
+
+
+      To get full credit in this exam, choose the correct emotion from the following
+      choices: {{answer_choices | join(", ")}}
+
+      |||
+
+      {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: emotion_exam
+    reference: exam style prompt
+  87db02f2-585e-4fd1-81c0-e94297607097: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 87db02f2-585e-4fd1-81c0-e94297607097
+    jinja: 'Which emotion among {{answer_choices | join(", ")}} best describes the
+      feeling of the author of the following tweet?
+
+
+      {{text}}|||
+
+      {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: author_emotion
+    reference: ''
+  8bc3ebc5-77f1-4d55-bd96-c62429ebf093: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 8bc3ebc5-77f1-4d55-bd96-c62429ebf093
+    jinja: 'Which emotion is best represented by the following tweet?
+
+      {{text}}
+
+
+      Possible emotions: {{answer_choices | join(", ")}}
+
+      |||
+
+      {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: which_emotion
+    reference: ''
+  a5992077-2e31-467b-a6ee-b75dee933d0e: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: a5992077-2e31-467b-a6ee-b75dee933d0e
+    jinja: "{{text}}\n\nCategorize the tweet into one of the following options: \n\
+      {{answer_choices[0]}}\n{{answer_choices[1]}}\n{{answer_choices[2]}}\n\
+      {{answer_choices[3]}}\n|||\n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: emotion_with_option
+    reference: ''
+  b8f4912e-e3be-4dd5-82ec-6f110c056a86: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: b8f4912e-e3be-4dd5-82ec-6f110c056a86
+    jinja: '{{text}}
+
+
+      What is the emotion of the text?
+
+
+      Hint: {{answer_choices | join(", ")}}
+
+      |||
+
+      {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: emotion_hint
+    reference: ''
+  ba836b69-b47c-4342-b1b6-0327ad053c1c: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: ba836b69-b47c-4342-b1b6-0327ad053c1c
+    jinja: 'Question: What is the primary emotion conveyed in the following text?
+    
+
+      {{text}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: fewshot
+    reference: jonghyeonkim
+  a4cb5ce4-d547-4697-bd35-831df649d713: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: a4cb5ce4-d547-4697-bd35-831df649d713
+    jinja: '{{text}}
+
+
+      The tone of this sentence is ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_00
+    reference: jonghyeonkim
+  f53ee7d8-53d1-49d1-a8cc-aa04fc770d04: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: f53ee7d8-53d1-49d1-a8cc-aa04fc770d04
+    jinja: '{{text}}
+
+
+      The sentiment of this text is ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_01
+    reference: jonghyeonkim
+  efa2f9c2-b1ae-4ea3-8e01-9f6f02d63408: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: efa2f9c2-b1ae-4ea3-8e01-9f6f02d63408
+    jinja: "What is the mood of this tweet? {{text}}\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_02
+    reference: jonghyeonkim
+  732ba637-8392-44ed-b75f-90a47bca0f79: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 732ba637-8392-44ed-b75f-90a47bca0f79
+    jinja: '{{text}}
+
+
+      Select the appropriate emotion: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_03
+    reference: jonghyeonkim
+  72efe164-dd8d-477b-a371-6da59e1ea9c6: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 72efe164-dd8d-477b-a371-6da59e1ea9c6
+    jinja: '{{text}}
+
+
+      Identify the emotion being expressed: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_04
+    reference: jonghyeonkim
+  835b11b1-0982-462f-8aa3-bf07782ef848: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 835b11b1-0982-462f-8aa3-bf07782ef848
+    jinja: What emotion is expressed in this tweet? {{text}} ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_05
+    reference: jonghyeonkim
+  27d4c3e3-ab4e-44fd-8710-73ce3e10eaa3: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 27d4c3e3-ab4e-44fd-8710-73ce3e10eaa3
+    jinja: '{{text}}
+
+
+      What emotion is expressed in this tweet? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_06
+    reference: jonghyeonkim
+  4e202251-d3b4-4e47-9e07-d1911acab015: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 4e202251-d3b4-4e47-9e07-d1911acab015
+    jinja: '{{text}}
+
+
+      What is the emotional state of the author? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_07
+    reference: jonghyeonkim
+  ce9570a1-719c-4908-8f5f-a8eef7c6284e: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: ce9570a1-719c-4908-8f5f-a8eef7c6284e
+    jinja: "What emotion is conveyed by this sentence? {{text}}\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_08
+    reference: jonghyeonkim
+  d50c1214-56ea-48c9-8eea-d68cd9ddfe1a: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: d50c1214-56ea-48c9-8eea-d68cd9ddfe1a
+    jinja: "What emotion does the following text convey? {{text}}\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_09
+    reference: jonghyeonkim
+  ef59daab-5bc6-4856-858d-c26cdb558a28: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: ef59daab-5bc6-4856-858d-c26cdb558a28
+    jinja: "Identify the emotion conveyed by this tweet: {{text}}\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_10
+    reference: jonghyeonkim
+  16783d84-61f8-4328-8525-4d3e8071ef38: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 16783d84-61f8-4328-8525-4d3e8071ef38
+    jinja: "Identify the emotion in the following text:\n\n{{text}}\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_11
+    reference: jonghyeonkim
+  3d62ff35-4ad5-4346-b188-784b46f068da: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 3d62ff35-4ad5-4346-b188-784b46f068da
+    jinja: "What emotion is being conveyed in this tweet? {{text}}\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_12
+    reference: jonghyeonkim
+  88df41e1-e65d-4486-b8ec-a8f830c94dfa: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 88df41e1-e65d-4486-b8ec-a8f830c94dfa
+    jinja: "Please label the emotion of the following text: {{text}}\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_13
+    reference: jonghyeonkim
+  22e8c9ce-cc9e-4bf9-8c0e-abe9afcd2d76: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 22e8c9ce-cc9e-4bf9-8c0e-abe9afcd2d76
+    jinja: "What is the emotion represented in this tweet?\n\n{{text}}\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_14
+    reference: jonghyeonkim
+  7a7584f1-f4be-43ed-b0d7-864eb4b9cf1f: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 7a7584f1-f4be-43ed-b0d7-864eb4b9cf1f
+    jinja: '{{text}}
+
+
+      What is the feeling being expressed in this text? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_15
+    reference: jonghyeonkim
+  d3f205af-0237-421a-ad7b-35f73b3e50ef: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: d3f205af-0237-421a-ad7b-35f73b3e50ef
+    jinja: '{{text}}
+
+
+      What is the emotional tone of the following tweet? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_16
+    reference: jonghyeonkim
+  ae2cc7a7-8a38-4214-8132-4456480c4c6f: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: ae2cc7a7-8a38-4214-8132-4456480c4c6f
+    jinja: "What is the emotional tone of the following tweet? {{text}}\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_17
+    reference: jonghyeonkim
+  94cc77ff-ade5-49e4-b192-80616d0a32a2: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 94cc77ff-ade5-49e4-b192-80616d0a32a2
+    jinja: "What is the overall emotion conveyed by this tweet? {{text}}\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_18
+    reference: jonghyeonkim
+  6f520801-7f9b-4f0b-82e4-0b5997ac39c5: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 6f520801-7f9b-4f0b-82e4-0b5997ac39c5
+    jinja: 'Choose the emotion conveyed in the following tweet:
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_19
+    reference: jonghyeonkim
+  5dfdd587-43e3-4d9d-add9-2293ee673591: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 5dfdd587-43e3-4d9d-add9-2293ee673591
+    jinja: 'What emotion is conveyed in the following sentence:
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_20
+    reference: jonghyeonkim
+  a3952c86-41a8-43b2-b5ad-4cf3433d2b6c: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: a3952c86-41a8-43b2-b5ad-4cf3433d2b6c
+    jinja: "What emotion does the following sentence express:\n\n{{text}}\n\n ||| {{\
+      \ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_21
+    reference: jonghyeonkim
+  1100e27c-e092-4f10-a2c0-9980b3dd76c4: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 1100e27c-e092-4f10-a2c0-9980b3dd76c4
+    jinja: '{{text}}
+
+
+      What emotion is being conveyed in the tweet?
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_22
+    reference: jonghyeonkim
+  2b28a61b-0300-45d9-b1c3-657743f05ef7: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 2b28a61b-0300-45d9-b1c3-657743f05ef7
+    jinja: 'Indicate the emotion conveyed in the following tweet:
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_23
+    reference: jonghyeonkim
+  c680de09-0c9d-4471-a703-4331a9b2d2c7: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: c680de09-0c9d-4471-a703-4331a9b2d2c7
+    jinja: 'What is the predominant emotion in the following tweet?
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_24
+    reference: jonghyeonkim
+  93c230ef-cfb3-4a29-995f-2f498e776c8a: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 93c230ef-cfb3-4a29-995f-2f498e776c8a
+    jinja: "Determine the emotion expressed in the following tweet: {{text}}\n ||| {{\
+      \ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_25
+    reference: jonghyeonkim
+  b23a7c3b-bb04-42a6-a20a-081ba98bbe44: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: b23a7c3b-bb04-42a6-a20a-081ba98bbe44
+    jinja: "{{text}}\n\nWhat is the predominant emotion expressed in the tweet?\n |||\
+      \ {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_26
+    reference: jonghyeonkim
+  bea046e3-c2ef-4b0c-bb4c-40e6d6cf7ef3: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: bea046e3-c2ef-4b0c-bb4c-40e6d6cf7ef3
+    jinja: 'What emotion is the author of the tweet trying to convey?
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_27
+    reference: jonghyeonkim
+  7de39783-d158-489d-80e0-245087d6c968: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 7de39783-d158-489d-80e0-245087d6c968
+    jinja: 'Fill in the blank.
+
+
+      {{text}}
+
+
+      The emotion of this sentence is _____ ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_28
+    reference: jonghyeonkim
+  00df7028-3dbf-4276-81f2-719c7fb28e91: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 00df7028-3dbf-4276-81f2-719c7fb28e91
+    jinja: "Classify the emotion expressed in the following sentence: {{text}}\n |||\
+      \ {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_29
+    reference: jonghyeonkim
+  021a2d7b-f92d-43ec-a496-626a19f8039a: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 021a2d7b-f92d-43ec-a496-626a19f8039a
+    jinja: "Write the emotion that is conveyed in the following tweet: {{text}}\n |||\
+      \ {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_30
+    reference: jonghyeonkim
+  a7bd520a-becf-4849-93b1-532d0008be48: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: a7bd520a-becf-4849-93b1-532d0008be48
+    jinja: "What is the emotion being conveyed in the following tweet? {{text}}\n |||\
+      \ {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_31
+    reference: jonghyeonkim
+  13e42632-d458-4f3a-8f95-505f1b2d4fcf: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 13e42632-d458-4f3a-8f95-505f1b2d4fcf
+    jinja: "Please identify the emotion that is conveyed in this tweet: {{text}}\n |||\
+      \ {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_32
+    reference: jonghyeonkim
+  d558fa96-6881-4850-a933-c0537bb78bbf: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: d558fa96-6881-4850-a933-c0537bb78bbf
+    jinja: 'What is the primary emotion conveyed in the following text?
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_33
+    reference: jonghyeonkim
+  b9f782c5-1251-4f4f-a430-808eae5938a3: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: b9f782c5-1251-4f4f-a430-808eae5938a3
+    jinja: '{{text}}
+
+
+      Based on the tweet, what is the prevailing emotion?
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_34
+    reference: jonghyeonkim
+  1d2326c5-be6f-4cb6-add6-da7d61fc33c1: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 1d2326c5-be6f-4cb6-add6-da7d61fc33c1
+    jinja: 'What is the emotional content of the following tweet? {{text}}
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_35
+    reference: jonghyeonkim
+  43e2e837-c2d6-4776-9e93-794c3306abfd: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 43e2e837-c2d6-4776-9e93-794c3306abfd
+    jinja: '{{text}}
+
+
+      Tell the emotion that the author of the tweet is expressing: ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_36
+    reference: jonghyeonkim
+  3aca61ec-1c47-49da-8445-bce05c1e8e77: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 3aca61ec-1c47-49da-8445-bce05c1e8e77
+    jinja: 'Identify the emotion expressed in the following tweet: {{text}}
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_37
+    reference: jonghyeonkim
+  72f40f50-b5e8-4fe0-a528-c58c68f3b85a: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 72f40f50-b5e8-4fe0-a528-c58c68f3b85a
+    jinja: 'What is the dominant emotion expressed in the following text?
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_38
+    reference: jonghyeonkim
+  68152f3b-bdf6-4b09-869e-8e349371a6e4: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 68152f3b-bdf6-4b09-869e-8e349371a6e4
+    jinja: 'What emotion is being expressed in the following tweet? {{text}}
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_39
+    reference: jonghyeonkim
+  83fbd207-d04f-4d57-a61b-2a763bfbf929: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 83fbd207-d04f-4d57-a61b-2a763bfbf929
+    jinja: Analyze the following tweet and determine the emotion it conveys. {{text}}
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_40
+    reference: jonghyeonkim
+  c113a059-df85-4682-8555-24dd5ab283a3: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: c113a059-df85-4682-8555-24dd5ab283a3
+    jinja: 'Read the tweet below and determine the emotion being expressed: {{text}}
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_41
+    reference: jonghyeonkim
+  9ef1bd5f-843f-4f3c-8753-241fa20fb2e7: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 9ef1bd5f-843f-4f3c-8753-241fa20fb2e7
+    jinja: 'Choose the best emotion for the following tweet:
+
+
+      {{text}}
+
+      Choices: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_42
+    reference: jonghyeonkim
+  08366251-e655-434c-b088-6f36872f2581: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 08366251-e655-434c-b088-6f36872f2581
+    jinja: 'Please select the emotion that best describes the sentiment in the following
+      tweet: {{text}}
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_43
+    reference: jonghyeonkim
+  9bec5811-3437-460f-ae34-7a5c05a64629: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 9bec5811-3437-460f-ae34-7a5c05a64629
+    jinja: '{{text}}
+
+
+      Which one of the following emotions is the tweet expressing? {{answer_choices
+      | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_44
+    reference: jonghyeonkim
+  f660d71c-25ed-4b37-82e0-50a15762956b: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: f660d71c-25ed-4b37-82e0-50a15762956b
+    jinja: 'What is the emotion conveyed in the following tweet:
+
+
+      {{text}}
+
+      Choices: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_45
+    reference: jonghyeonkim
+  411cb77a-d9d2-487d-90ee-549334eea396: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 411cb77a-d9d2-487d-90ee-549334eea396
+    jinja: 'Classify the emotion conveyed in the following text:
+
+
+      {{text}}
+
+
+      Options: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_46
+    reference: jonghyeonkim
+  9189c9b1-3ba0-4e43-845f-8c0b9cb50cae: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 9189c9b1-3ba0-4e43-845f-8c0b9cb50cae
+    jinja: 'Identify the emotion conveyed in the following tweet:
+
+
+      {{text}}
+
+      Choices: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_47
+    reference: jonghyeonkim
+  02b2888a-db3d-408a-af0f-48bc3c7b805c: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 02b2888a-db3d-408a-af0f-48bc3c7b805c
+    jinja: 'Determine the emotion conveyed in the following tweet:
+
+
+      {{text}}
+
+      Choices: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_48
+    reference: jonghyeonkim
+  8f98f8d7-71c4-4a1f-b181-f53eba42cbae: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 8f98f8d7-71c4-4a1f-b181-f53eba42cbae
+    jinja: "Identify the emotion conveyed in the following tweet:\n\n{{text}}\n\nOptions:\n\
+      {{answer_choices | join(\", \")}}\n ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_49
+    reference: jonghyeonkim
+  d35bcfae-5398-4f96-a87b-3f1565cc4cb1: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: d35bcfae-5398-4f96-a87b-3f1565cc4cb1
+    jinja: 'Choose the emotion that best fits the following tweet:
+
+
+      {{text}}
+
+
+      Options: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_50
+    reference: jonghyeonkim
+  2c7415ed-eac8-4846-98ff-7140860f3fb5: !Template
+    answer_choices: (a) anger ||| (b) joy ||| (c) optimism ||| (d) sadness
+    id: 2c7415ed-eac8-4846-98ff-7140860f3fb5
+    jinja: "{{text}}\n\nPick the emotion that is being expressed in the text:\n(a) anger\n\
+      (b) joy\n(c) optimism\n(d) sadness\n ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_51
+    reference: jonghyeonkim
+  11103057-6028-473b-b989-3a9926bdd897: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 11103057-6028-473b-b989-3a9926bdd897
+    jinja: 'Please select the correct emotion for the following tweet:
+
+
+      {{text}}
+
+      choices: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_52
+    reference: jonghyeonkim
+  7e8ad99b-0f2f-4f44-8c6f-568beb7dff5a: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 7e8ad99b-0f2f-4f44-8c6f-568beb7dff5a
+    jinja: 'Select the correct emotion conveyed in the following tweet:
+
+
+      {{text}}
+
+
+      Options:
+
+      {{answer_choices | join(", ")}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_53
+    reference: jonghyeonkim
+  d0bf2e4d-521e-4b48-8408-e234752ab22e: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: d0bf2e4d-521e-4b48-8408-e234752ab22e
+    jinja: 'Indicate the dominant emotional tone of the following text:
+
+
+      {{text}}
+
+
+      Options: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_54
+    reference: jonghyeonkim
+  2044b5ea-1896-4a90-8746-57f6366323df: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 2044b5ea-1896-4a90-8746-57f6366323df
+    jinja: 'Please choose the appropriate emotion for the following text:
+
+
+      {{text}}
+
+      Choices: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_55
+    reference: jonghyeonkim
+  7c227d99-ee36-4a31-a76a-1a33cb19dc92: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 7c227d99-ee36-4a31-a76a-1a33cb19dc92
+    jinja: '{{text}}
+
+
+      Based on the tweet, which of the following emotions is being expressed? {{answer_choices
+      | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_56
+    reference: jonghyeonkim
+  ec7ef173-1104-49b1-8fef-4f2f87e2d9e8: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: ec7ef173-1104-49b1-8fef-4f2f87e2d9e8
+    jinja: '{{text}}
+
+
+      Identify the emotion expressed in the tweet from the following options: {{answer_choices
+      | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_57
+    reference: jonghyeonkim
+  3903763b-69a0-4622-9074-e9850a177030: !Template
+    answer_choices: (a) anger ||| (b) joy ||| (c) optimism ||| (d) sadness
+    id: 3903763b-69a0-4622-9074-e9850a177030
+    jinja: "Select the emotion that best describes the following tweet.\n\n{{text}}\n\
+      \n(a) anger\n(b) joy\n(c) optimism\n(d) sadness\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_58
+    reference: jonghyeonkim
+  a7488cd1-2f4a-4bd3-9f85-07b3877c9126: !Template
+    answer_choices: (a) anger ||| (b) joy ||| (c) optimism ||| (d) sadness
+    id: a7488cd1-2f4a-4bd3-9f85-07b3877c9126
+    jinja: 'Read the following tweet and decide which emotion it conveys. {{text}}
+
+
+      (a) anger (b) joy (c) optimism (d) sadness ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_59
+    reference: jonghyeonkim
+  31387575-f6fd-4658-8701-9972309c838e: !Template
+    answer_choices: (a) anger ||| (b) joy ||| (c) optimism ||| (d) sadness
+    id: 31387575-f6fd-4658-8701-9972309c838e
+    jinja: "{{text}}\n\nChoose the word that best describes the emotion of the text:\n\
+      (a) angry\n(b) happy\n(c) optimism\n(d) sadness\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_60
+    reference: jonghyeonkim
+  6a9b9ad8-727f-4a82-ae9c-0af1ab0f4586: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 6a9b9ad8-727f-4a82-ae9c-0af1ab0f4586
+    jinja: '{{text}}
+
+
+      Select the emotion that best describes the tweet from the following options: {{answer_choices
+      | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_61
+    reference: jonghyeonkim
+  6c3e88bc-3be6-4ebb-99fd-26912b29974e: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 6c3e88bc-3be6-4ebb-99fd-26912b29974e
+    jinja: '{{text}}
+
+
+      Choose the emotion that best describes the tweet from the following options:
+
+
+      {{answer_choices | join(", ")}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_62
+    reference: jonghyeonkim
+  2ab98d94-fb96-4ad1-ac57-ef87e468e51c: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 2ab98d94-fb96-4ad1-ac57-ef87e468e51c
+    jinja: 'Please categorize the following tweet based on the emotion it conveys:
+
+
+      {{text}}
+
+      Choices: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_63
+    reference: jonghyeonkim
+  5a5f3f61-472d-4382-8481-58385eedb5fc: !Template
+    answer_choices: (a) anger ||| (b) joy ||| (c) optimism ||| (d) sadness
+    id: 5a5f3f61-472d-4382-8481-58385eedb5fc
+    jinja: "Which of the following emotions does the following tweet express?\n\n{{text}}\n\
+      \n(a) anger\n(b) joy\n(c) optimism\n(d) sadness\n\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_64
+    reference: jonghyeonkim
+  7312ae02-530c-45cc-a326-a43a58623d48: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 7312ae02-530c-45cc-a326-a43a58623d48
+    jinja: '{{text}}
+
+
+      Select the emotion that is most evident in the tweet from the following options:
+
+      {{answer_choices | join(", ")}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_65
+    reference: jonghyeonkim
+  ee0beac6-e0d1-4956-badf-ba8dfaba5743: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: ee0beac6-e0d1-4956-badf-ba8dfaba5743
+    jinja: 'Which of the following emotions best matches the sentiment of the text?
+
+
+      {{text}}
+
+
+      Options: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_66
+    reference: jonghyeonkim
+  1aedc590-f30f-4cce-a4c5-b36a38e62f24: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 1aedc590-f30f-4cce-a4c5-b36a38e62f24
+    jinja: 'Choose the best emotion to describe the sentiment of the following text:
+
+
+      {{text}}
+
+
+      Options: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_67
+    reference: jonghyeonkim
+  167bea83-851f-4562-8c7e-547480e1c3ec: !Template
+    answer_choices: (a) anger ||| (b) joy ||| (c) optimism ||| (d) sadness
+    id: 167bea83-851f-4562-8c7e-547480e1c3ec
+    jinja: "{{text}}\n\nIndicate the emotion of the sentence with one of the following\
+      \ options:\n(a) anger\n(b) joy\n(c) optimism\n(d) sadness\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_68
+    reference: jonghyeonkim
+  26ec4cf2-cdb2-4f59-b4b2-a43c5b9a5a6f: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 26ec4cf2-cdb2-4f59-b4b2-a43c5b9a5a6f
+    jinja: "{{text}}\n\nChoose the emotion from the following list that is best represented\
+      \ in this tweet:\n{{answer_choices | join(\", \")}}\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_69
+    reference: jonghyeonkim
+  8d6f536b-6ee6-4545-807b-b8492663241f: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 8d6f536b-6ee6-4545-807b-b8492663241f
+    jinja: 'What emotion is expressed in the following tweet?
+
+
+      {{text}}
+
+
+      Please choose from the following:
+
+
+      {{answer_choices | join(", ")}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_70
+    reference: jonghyeonkim
+  ccbbfe42-5ff4-452a-bfb3-114e34e089cc: !Template
+    answer_choices: (a) anger ||| (b) joy ||| (c) optimism ||| (d) sadness
+    id: ccbbfe42-5ff4-452a-bfb3-114e34e089cc
+    jinja: "What emotion is conveyed in the following tweet?\n\n{{text}}\n\nChoose the\
+      \ best option:\n(a) anger\n(b) joy\n(c) optimism\n(d) sadness\n\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_71
+    reference: jonghyeonkim
+  7ed2fd9c-1b53-48f1-bd88-d658a95bb870: !Template
+    answer_choices: (a) anger ||| (b) joy ||| (c) optimism ||| (d) sadness
+    id: 7ed2fd9c-1b53-48f1-bd88-d658a95bb870
+    jinja: 'Select the emotion that best matches the sentiment expressed in this tweet:
+      {{text}}
+
+
+      (a) anger (b) joy (c) optimism (d) sadness ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_72
+    reference: jonghyeonkim
+  433d12b1-7546-4208-bacd-bbfa6b8972ec: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 433d12b1-7546-4208-bacd-bbfa6b8972ec
+    jinja: '{{text}}
+
+
+      What is the emotion that best matches the sentiment conveyed in the tweet?
+
+
+      Choose from:
+
+      {{answer_choices | join(", ")}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_73
+    reference: jonghyeonkim
+  f193139a-73cb-4daa-8432-1bf49c7d14b3: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: f193139a-73cb-4daa-8432-1bf49c7d14b3
+    jinja: '{{text}}
+
+
+      What is the emotional state that is most accurately conveyed in the tweet?
+
+
+      Choose from:
+
+      {{answer_choices | join(", ")}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_74
+    reference: jonghyeonkim
+  951ec287-4168-4aed-91f8-5ac512fe7ef1: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 951ec287-4168-4aed-91f8-5ac512fe7ef1
+    jinja: 'What is the overall emotion of the following tweet?
+
+
+      {{text}}
+
+
+      Choose one of the following options: {{answer_choices | join(", ")}} ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_75
+    reference: jonghyeonkim
+  ddb247f3-8ab4-4c67-ba48-a69e700ed697: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: ddb247f3-8ab4-4c67-ba48-a69e700ed697
+    jinja: 'Please select the best emotional classification that describes the following
+      text:
+
+
+      {{text}}
+
+
+      Options: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_76
+    reference: jonghyeonkim
+  ce133226-acd0-4b57-b79b-64439cf7a556: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: ce133226-acd0-4b57-b79b-64439cf7a556
+    jinja: '{{text}}
+
+
+      Select the most appropriate emotional category that the following tweet belongs
+      to.
+
+
+      Options: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_77
+    reference: jonghyeonkim
+  45bc889e-2bd7-4714-a31e-7e5218b3e31d: !Template
+    answer_choices: (a) anger ||| (b) joy ||| (c) optimism ||| (d) sadness
+    id: 45bc889e-2bd7-4714-a31e-7e5218b3e31d
+    jinja: "What is the emotion being conveyed in the following tweet?\n\n{{text}}\n\
+      \nSelect the best option:\n(a) anger\n(b) joy\n(c) optimism\n(d) sadness\n |||\
+      \ {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_78
+    reference: jonghyeonkim
+  ea455855-6697-4f15-9abe-cda8c79115d7: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: ea455855-6697-4f15-9abe-cda8c79115d7
+    jinja: 'What is the dominant emotion conveyed in the following tweet?
+
+
+      {{text}}
+
+
+      Please select one of the following: {{answer_choices | join(", ")}} ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_79
+    reference: jonghyeonkim
+  fcb56793-2909-4d69-82f0-fccb9ea9bddc: !Template
+    answer_choices: (a) anger ||| (b) joy ||| (c) optimism ||| (d) sadness
+    id: fcb56793-2909-4d69-82f0-fccb9ea9bddc
+    jinja: "Identify the emotion conveyed in the following tweet:\n\n{{text}}\n\nChoose\
+      \ one of the following options:\n(a) anger\n(b) joy\n(c) optimism\n(d) sadness\n\
+      \ ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_80
+    reference: jonghyeonkim
+  16203ebe-471d-478d-a315-021b4857c4c8: !Template
+    answer_choices: (a) anger ||| (b) joy ||| (c) optimism ||| (d) sadness
+    id: 16203ebe-471d-478d-a315-021b4857c4c8
+    jinja: "What emotion is being expressed in the following tweet?\n\n{{text}}\n\n\
+      Select one of the following options:\n(a) anger\n(b) joy\n(c) optimism\n(d) sadness\n\
+      \ ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_81
+    reference: jonghyeonkim
+  defc0269-0a33-427c-8030-58b31df0c20d: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: defc0269-0a33-427c-8030-58b31df0c20d
+    jinja: '{{text}}
+
+
+      Determine the most appropriate emotion for the sentiment conveyed in this tweet
+      from the following options:
+
+      {{answer_choices | join(", ")}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_82
+    reference: jonghyeonkim
+  4285785f-335f-43a6-b03b-4527255b8a67: !Template
+    answer_choices: (a) anger ||| (b) joy ||| (c) optimism ||| (d) sadness
+    id: 4285785f-335f-43a6-b03b-4527255b8a67
+    jinja: "Identify the emotion in the following tweet:\n\n{{text}}\n\nChoose the option\
+      \ that best describes the emotion:\n(a) anger\n(b) joy\n(c) optimism\n(d) sadness\n\
+      \ ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_83
+    reference: jonghyeonkim
+  323449fb-5407-45f6-881f-373f930b95be: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 323449fb-5407-45f6-881f-373f930b95be
+    jinja: '{{text}}
+
+
+      Indicate the emotion that best matches the sentiment expressed in the tweet.
+
+
+      Choose one from the following: {{answer_choices | join(", ")}} ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_84
+    reference: jonghyeonkim
+  5db31a67-8a13-4b8f-9686-8ba1b1c96b81: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: 5db31a67-8a13-4b8f-9686-8ba1b1c96b81
+    jinja: 'Which of the following emotions is best suited to describe the following
+      text?
+
+
+      {{text}}
+
+
+      Please choose one of the following: {{answer_choices | join('', '')}} ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_85
+    reference: jonghyeonkim
+  aa195ac5-97b5-4c69-98e3-be1e6e56ee59: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: aa195ac5-97b5-4c69-98e3-be1e6e56ee59
+    jinja: 'Please classify the following text into the most appropriate emotional category:
+
+
+      {{text}}
+
+
+      Choose from the following emotions:
+
+
+      {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_86
+    reference: jonghyeonkim
+  be02cbf5-79ab-49bf-8a90-727f087adcb6: !Template
+    answer_choices: A. anger ||| B. joy ||| C. optimism ||| D. sadness
+    id: be02cbf5-79ab-49bf-8a90-727f087adcb6
+    jinja: '{{text}}
+
+
+      Identify the emotion portrayed in the text:
+
+
+      {{answer_choices[0]}}
+
+      {{answer_choices[1]}}
+
+      {{answer_choices[2]}}
+
+      {{answer_choices[3]}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_87
+    reference: jonghyeonkim
+  e4c8dc16-2bf7-45d1-8302-f24962dff282: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: e4c8dc16-2bf7-45d1-8302-f24962dff282
+    jinja: 'Choose the emotion best represented in the following tweet: {{text}}
+
+
+      - {{answer_choices[0]}}
+
+      - {{answer_choices[1]}}
+
+      - {{answer_choices[2]}}
+
+      - {{answer_choices[3]}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_88
+    reference: jonghyeonkim
+  f8e61f6f-b98c-441c-96ce-881ce30fe400: !Template
+    answer_choices: A. anger ||| B. joy ||| C. optimism ||| D. sadness
+    id: f8e61f6f-b98c-441c-96ce-881ce30fe400
+    jinja: '{{text}}
+
+
+      What is the primary emotion conveyed in the tweet?
+
+
+      {{answer_choices[0]}}
+
+      {{answer_choices[1]}}
+
+      {{answer_choices[2]}}
+
+      {{answer_choices[3]}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_89
+    reference: jonghyeonkim
+  f9f8605c-461a-431e-9169-41fa3b4b3e8c: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: f9f8605c-461a-431e-9169-41fa3b4b3e8c
+    jinja: 'Which emotion best describes the tone of the following tweet? {{text}}
+
+
+      - {{answer_choices[0]}}
+
+      - {{answer_choices[1]}}
+
+      - {{answer_choices[2]}}
+
+      - {{answer_choices[3]}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_90
+    reference: jonghyeonkim
+  d9dbd850-64ae-4409-bd02-0edf4b8a0df4: !Template
+    answer_choices: A. anger ||| B. joy ||| C. optimism ||| D. sadness
+    id: d9dbd850-64ae-4409-bd02-0edf4b8a0df4
+    jinja: 'Please classify the following tweet based on its emotion:
+
+
+      {{text}}
+
+
+      {{answer_choices[0]}}
+
+      {{answer_choices[1]}}
+
+      {{answer_choices[2]}}
+
+      {{answer_choices[3]}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_91
+    reference: jonghyeonkim
+  e15e0695-9f48-47d5-b09e-f2f5920adb10: !Template
+    answer_choices: A. anger ||| B. joy ||| C. optimism ||| D. sadness
+    id: e15e0695-9f48-47d5-b09e-f2f5920adb10
+    jinja: 'Choose the best emotion that describes the following tweet:
+
+
+      {{text}}
+
+
+      {{answer_choices[0]}}
+
+      {{answer_choices[1]}}
+
+      {{answer_choices[2]}}
+
+      {{answer_choices[3]}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_92
+    reference: jonghyeonkim
+  e6cb3461-e15b-424d-88fc-b71ace72525d: !Template
+    answer_choices: (a) anger ||| (b) joy ||| (c) optimism ||| (d) sadness
+    id: e6cb3461-e15b-424d-88fc-b71ace72525d
+    jinja: 'What is the emotion being expressed in the tweet below?
+
+
+      {{text}}
+
+
+      {{answer_choices[0]}}
+
+      {{answer_choices[1]}}
+
+      {{answer_choices[2]}}
+
+      {{answer_choices[3]}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_93
+    reference: jonghyeonkim
+  d2de1de7-e48d-4bb4-8226-d6b8455e42e9: !Template
+    answer_choices: A. anger ||| B. joy ||| C. optimism ||| D. sadness
+    id: d2de1de7-e48d-4bb4-8226-d6b8455e42e9
+    jinja: '{{text}}
+
+
+      Select the best option that represents the emotion in the text:
+
+
+      {{answer_choices[0]}}
+
+      {{answer_choices[1]}}
+
+      {{answer_choices[2]}}
+
+      {{answer_choices[3]}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_94
+    reference: jonghyeonkim
+  4dbe82ed-91ab-4a87-a518-6802c3ea082b: !Template
+    answer_choices: (a) anger ||| (b) joy ||| (c) optimism ||| (d) sadness
+    id: 4dbe82ed-91ab-4a87-a518-6802c3ea082b
+    jinja: '{{text}}
+
+
+      Select the emotion that the tweet is most likely conveying:
+
+
+      {{answer_choices[0]}}
+
+      {{answer_choices[1]}}
+
+      {{answer_choices[2]}}
+
+      {{answer_choices[3]}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_95
+    reference: jonghyeonkim
+  c567e9df-2f0a-4f92-9823-42b159d4d1b6: !Template
+    answer_choices: A. anger ||| B. joy ||| C. optimism ||| D. sadness
+    id: c567e9df-2f0a-4f92-9823-42b159d4d1b6
+    jinja: '{{text}}
+
+
+      Which of the following emotions is best described in the tweet?
+
+
+      {{answer_choices[0]}}
+
+      {{answer_choices[1]}}
+
+      {{answer_choices[2]}}
+
+      {{answer_choices[3]}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_96
+    reference: jonghyeonkim
+  3fd43563-f934-46a4-ad71-819412438933: !Template
+    answer_choices: (a) anger ||| (b) joy ||| (c) optimism ||| (d) sadness
+    id: 3fd43563-f934-46a4-ad71-819412438933
+    jinja: '{{text}}
+
+
+      Which of the following emotions is best conveyed by the tweet?
+
+
+      {{answer_choices[0]}}
+
+      {{answer_choices[1]}}
+
+      {{answer_choices[2]}}
+
+      {{answer_choices[3]}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_97
+    reference: jonghyeonkim
+  30299335-8c6d-4e27-b47b-75c70688d4cd: !Template
+    answer_choices: (a) anger ||| (b) joy ||| (c) optimism ||| (d) sadness
+    id: 30299335-8c6d-4e27-b47b-75c70688d4cd
+    jinja: "{{text}}\n\nWhat feeling is being expressed in this tweet? Choose the most\
+      \ appropriate option: \n\n{{answer_choices[0]}}\n{{answer_choices[1]}}\n\
+      {{answer_choices[2]}}\n{{answer_choices[3]}}\n\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_98
+    reference: jonghyeonkim
+  a6168f4f-f616-4144-acf6-f6968a84f780: !Template
+    answer_choices: anger ||| joy ||| optimism ||| sadness
+    id: a6168f4f-f616-4144-acf6-f6968a84f780
+    jinja: 'Consider the following tweet and select the correct emotion from the options
+      below:
+
+
+      {{text}}
+
+
+      {{answer_choices[0]}}
+
+      {{answer_choices[1]}}
+
+      {{answer_choices[2]}}
+
+      {{answer_choices[3]}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_99
+    reference: jonghyeonkim
+  a6b8fec2-a354-4e4c-9fd7-82a87f212f87: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: a6b8fec2-a354-4e4c-9fd7-82a87f212f87
+    jinja: '{{text}}
+
+
+      The tone of this sentence is ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_00
+    reference: jonghyeonkim
+  e05873af-7662-474a-9d09-5dbab977cbe5: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: e05873af-7662-474a-9d09-5dbab977cbe5
+    jinja: '{{text}}
+
+
+      The sentiment of this text is ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_01
+    reference: jonghyeonkim
+  d5ca265f-9564-49db-acb1-c7735944e3e4: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: d5ca265f-9564-49db-acb1-c7735944e3e4
+    jinja: "What is the mood of this tweet? {{text}}\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_02
+    reference: jonghyeonkim
+  881ba1f4-4ba3-4081-a4d2-28fd4da43573: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 881ba1f4-4ba3-4081-a4d2-28fd4da43573
+    jinja: '{{text}}
+
+
+      Select the appropriate emotion: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_03
+    reference: jonghyeonkim
+  ffcb3d0f-54c7-418e-a2e9-b739a70b13c6: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: ffcb3d0f-54c7-418e-a2e9-b739a70b13c6
+    jinja: '{{text}}
+
+
+      Identify the emotion being expressed: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_04
+    reference: jonghyeonkim
+  3c77ea51-da92-40b2-9347-bf6029cb4031: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 3c77ea51-da92-40b2-9347-bf6029cb4031
+    jinja: What emotion is expressed in this tweet? {{text}} ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_05
+    reference: jonghyeonkim
+  6bddc26f-3e52-4290-ba48-41bb5c86fe1a: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 6bddc26f-3e52-4290-ba48-41bb5c86fe1a
+    jinja: '{{text}}
+
+
+      What emotion is expressed in this tweet? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_06
+    reference: jonghyeonkim
+  c2eac2f1-4816-410e-960c-19f17e838a6a: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: c2eac2f1-4816-410e-960c-19f17e838a6a
+    jinja: '{{text}}
+
+
+      What is the emotional state of the author? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_07
+    reference: jonghyeonkim
+  cf660963-eca7-4cb8-b368-630562999e87: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: cf660963-eca7-4cb8-b368-630562999e87
+    jinja: "What emotion is conveyed by this sentence? {{text}}\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_08
+    reference: jonghyeonkim
+  19e4c252-efbb-4389-b9e7-811503bed16d: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 19e4c252-efbb-4389-b9e7-811503bed16d
+    jinja: "What emotion does the following text convey? {{text}}\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_09
+    reference: jonghyeonkim
+  6e5d1603-66d3-4201-a72f-2825dbc053d0: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 6e5d1603-66d3-4201-a72f-2825dbc053d0
+    jinja: "Identify the emotion conveyed by this tweet: {{text}}\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_10
+    reference: jonghyeonkim
+  b739bec8-51b3-4f99-8a15-3a45f11fd9b9: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: b739bec8-51b3-4f99-8a15-3a45f11fd9b9
+    jinja: "Identify the emotion in the following text:\n\n{{text}}\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_11
+    reference: jonghyeonkim
+  0bbf982e-e25f-4b6a-897a-5f5a75d035eb: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 0bbf982e-e25f-4b6a-897a-5f5a75d035eb
+    jinja: "What emotion is being conveyed in this tweet? {{text}}\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_12
+    reference: jonghyeonkim
+  df2f45d3-46f0-4e73-a1c4-defec8c6c6f9: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: df2f45d3-46f0-4e73-a1c4-defec8c6c6f9
+    jinja: "Please label the emotion of the following text: {{text}}\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_13
+    reference: jonghyeonkim
+  c4435d69-a9ce-4a6b-a3bc-97bfff3f9cf5: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: c4435d69-a9ce-4a6b-a3bc-97bfff3f9cf5
+    jinja: "What is the emotion represented in this tweet?\n\n{{text}}\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_14
+    reference: jonghyeonkim
+  054e8633-8b9f-4784-b9cd-b43ac780ca12: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 054e8633-8b9f-4784-b9cd-b43ac780ca12
+    jinja: '{{text}}
+
+
+      What is the feeling being expressed in this text? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_15
+    reference: jonghyeonkim
+  b1d14243-8b2a-4764-89af-0b19ce69bc8d: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: b1d14243-8b2a-4764-89af-0b19ce69bc8d
+    jinja: '{{text}}
+
+
+      What is the emotional tone of the following tweet? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_16
+    reference: jonghyeonkim
+  00d7e565-522c-4892-881c-ab2a19a88f3d: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 00d7e565-522c-4892-881c-ab2a19a88f3d
+    jinja: "What is the emotional tone of the following tweet? {{text}}\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_17
+    reference: jonghyeonkim
+  245902a0-b41e-44ae-849c-a1f535d5a0f1: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 245902a0-b41e-44ae-849c-a1f535d5a0f1
+    jinja: "What is the overall emotion conveyed by this tweet? {{text}}\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_18
+    reference: jonghyeonkim
+  d7f78a71-a772-42f8-9ff5-cf8f3f629cbd: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: d7f78a71-a772-42f8-9ff5-cf8f3f629cbd
+    jinja: 'Choose the emotion conveyed in the following tweet:
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_19
+    reference: jonghyeonkim
+  9fc044f7-bce3-4486-9b86-09115046a74f: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 9fc044f7-bce3-4486-9b86-09115046a74f
+    jinja: 'What emotion is conveyed in the following sentence:
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_20
+    reference: jonghyeonkim
+  feb078b7-20be-4d05-acfb-18078f55853f: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: feb078b7-20be-4d05-acfb-18078f55853f
+    jinja: "What emotion does the following sentence express:\n\n{{text}}\n\n ||| {{\
+      \ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_21
+    reference: jonghyeonkim
+  4e3e1737-ccb0-4e61-97ac-af7306334173: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 4e3e1737-ccb0-4e61-97ac-af7306334173
+    jinja: '{{text}}
+
+
+      What emotion is being conveyed in the tweet?
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_22
+    reference: jonghyeonkim
+  4d8b0c04-e4b8-4033-b66c-9a8559b54517: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 4d8b0c04-e4b8-4033-b66c-9a8559b54517
+    jinja: 'Indicate the emotion conveyed in the following tweet:
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_23
+    reference: jonghyeonkim
+  b33df383-d056-4f5f-9f57-135e5d2463db: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: b33df383-d056-4f5f-9f57-135e5d2463db
+    jinja: 'What is the predominant emotion in the following tweet?
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_24
+    reference: jonghyeonkim
+  8341f3ba-e5bf-4cbe-b662-0d2b63d4f8a1: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 8341f3ba-e5bf-4cbe-b662-0d2b63d4f8a1
+    jinja: "Determine the emotion expressed in the following tweet: {{text}}\n ||| {{\
+      \ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_25
+    reference: jonghyeonkim
+  57c73e3c-fc27-471d-8854-abc36fcdf853: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 57c73e3c-fc27-471d-8854-abc36fcdf853
+    jinja: "{{text}}\n\nWhat is the predominant emotion expressed in the tweet?\n |||\
+      \ {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_26
+    reference: jonghyeonkim
+  16a52690-9e97-44f1-8258-965cbdcd62c0: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 16a52690-9e97-44f1-8258-965cbdcd62c0
+    jinja: 'What emotion is the author of the tweet trying to convey?
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_27
+    reference: jonghyeonkim
+  0172a6a7-8f4e-4bc9-932e-00e8fcecb480: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 0172a6a7-8f4e-4bc9-932e-00e8fcecb480
+    jinja: 'Fill in the blank.
+
+
+      {{text}}
+
+
+      The emotion of this sentence is _____ ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_28
+    reference: jonghyeonkim
+  c53a63c7-80aa-4653-a0fc-489cca73f411: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: c53a63c7-80aa-4653-a0fc-489cca73f411
+    jinja: "Classify the emotion expressed in the following sentence: {{text}}\n |||\
+      \ {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_29
+    reference: jonghyeonkim
+  59f519d8-d315-41ac-aa09-4ed894f15513: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 59f519d8-d315-41ac-aa09-4ed894f15513
+    jinja: "Write the emotion that is conveyed in the following tweet: {{text}}\n |||\
+      \ {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_30
+    reference: jonghyeonkim
+  02f2a5fd-f8fa-4f80-ab02-b8d9a59d2ccd: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 02f2a5fd-f8fa-4f80-ab02-b8d9a59d2ccd
+    jinja: "What is the emotion being conveyed in the following tweet? {{text}}\n |||\
+      \ {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_31
+    reference: jonghyeonkim
+  3bcf7f29-f503-4b65-864f-bf9a4cd73dc0: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 3bcf7f29-f503-4b65-864f-bf9a4cd73dc0
+    jinja: "Please identify the emotion that is conveyed in this tweet: {{text}}\n |||\
+      \ {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_32
+    reference: jonghyeonkim
+  67cf48d6-ebd1-4137-a463-d5fc61f888d0: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 67cf48d6-ebd1-4137-a463-d5fc61f888d0
+    jinja: 'What is the primary emotion conveyed in the following text?
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_33
+    reference: jonghyeonkim
+  67b51b79-18a5-4257-a349-215cf2a56411: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 67b51b79-18a5-4257-a349-215cf2a56411
+    jinja: '{{text}}
+
+
+      Based on the tweet, what is the prevailing emotion?
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_34
+    reference: jonghyeonkim
+  cad58d48-95bf-4a2a-8d38-0f6931529646: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: cad58d48-95bf-4a2a-8d38-0f6931529646
+    jinja: 'What is the emotional content of the following tweet? {{text}}
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_35
+    reference: jonghyeonkim
+  5968e588-dd89-45d7-90c7-9e12d9b1951d: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 5968e588-dd89-45d7-90c7-9e12d9b1951d
+    jinja: '{{text}}
+
+
+      Tell the emotion that the author of the tweet is expressing: ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_36
+    reference: jonghyeonkim
+  a6a94e49-75c6-4f7e-99b9-5a71fe861fbb: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: a6a94e49-75c6-4f7e-99b9-5a71fe861fbb
+    jinja: 'Identify the emotion expressed in the following tweet: {{text}}
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_37
+    reference: jonghyeonkim
+  9c12d972-12ca-4cb9-9c52-398ded4bfacb: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 9c12d972-12ca-4cb9-9c52-398ded4bfacb
+    jinja: 'What is the dominant emotion expressed in the following text?
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_38
+    reference: jonghyeonkim
+  59469e3b-7b45-457b-8e01-fbbe1d0894ad: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 59469e3b-7b45-457b-8e01-fbbe1d0894ad
+    jinja: 'What emotion is being expressed in the following tweet? {{text}}
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_39
+    reference: jonghyeonkim
+  7e561401-e853-454d-9466-d5f14a253af6: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 7e561401-e853-454d-9466-d5f14a253af6
+    jinja: Analyze the following tweet and determine the emotion it conveys. {{text}}
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_40
+    reference: jonghyeonkim
+  0d1f89a0-cfc9-4e91-abd1-e3b77a2e625b: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 0d1f89a0-cfc9-4e91-abd1-e3b77a2e625b
+    jinja: 'Read the tweet below and determine the emotion being expressed: {{text}}
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_41
+    reference: jonghyeonkim
+  4615c0e4-27da-47cf-960c-a43fd13b498c: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 4615c0e4-27da-47cf-960c-a43fd13b498c
+    jinja: 'Choose the best emotion for the following tweet:
+
+
+      {{text}}
+
+      Choices: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_42
+    reference: jonghyeonkim
+  b62a2e41-0240-403b-bed3-405f9252d689: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: b62a2e41-0240-403b-bed3-405f9252d689
+    jinja: 'Please select the emotion that best describes the sentiment in the following
+      tweet: {{text}}
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_43
+    reference: jonghyeonkim
+  339cb47f-ea45-43e6-a2cf-e5fee0ce9078: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 339cb47f-ea45-43e6-a2cf-e5fee0ce9078
+    jinja: '{{text}}
+
+
+      Which one of the following emotions is the tweet expressing? {{answer_choices
+      | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_44
+    reference: jonghyeonkim
+  f3f52981-b11b-4076-adee-bf7ac8cc8a01: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: f3f52981-b11b-4076-adee-bf7ac8cc8a01
+    jinja: 'What is the emotion conveyed in the following tweet:
+
+
+      {{text}}
+
+      Choices: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_45
+    reference: jonghyeonkim
+  cdb4edb0-e875-4c4b-af90-dd7d3833ffa2: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: cdb4edb0-e875-4c4b-af90-dd7d3833ffa2
+    jinja: 'Classify the emotion conveyed in the following text:
+
+
+      {{text}}
+
+
+      Options: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_46
+    reference: jonghyeonkim
+  4aca501f-a0d8-4ba1-a9eb-167098c4f750: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 4aca501f-a0d8-4ba1-a9eb-167098c4f750
+    jinja: 'Identify the emotion conveyed in the following tweet:
+
+
+      {{text}}
+
+      Choices: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_47
+    reference: jonghyeonkim
+  4fcf7202-2f16-4220-9072-94a96c6890b8: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 4fcf7202-2f16-4220-9072-94a96c6890b8
+    jinja: 'Determine the emotion conveyed in the following tweet:
+
+
+      {{text}}
+
+      Choices: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_48
+    reference: jonghyeonkim
+  61428e89-4398-4628-b7a9-a7b2f1583ef4: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 61428e89-4398-4628-b7a9-a7b2f1583ef4
+    jinja: "Identify the emotion conveyed in the following tweet:\n\n{{text}}\n\nOptions:\n\
+      {{answer_choices | join(\", \")}}\n ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_49
+    reference: jonghyeonkim
+  66c31c8b-bff3-4e72-9d14-ec63905a3ad7: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 66c31c8b-bff3-4e72-9d14-ec63905a3ad7
+    jinja: 'Choose the emotion that best fits the following tweet:
+
+
+      {{text}}
+
+
+      Options: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_50
+    reference: jonghyeonkim
+  1ffd05f2-412d-46b2-ae0a-9302f03f7941: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 1ffd05f2-412d-46b2-ae0a-9302f03f7941
+    jinja: "{{text}}\n\nPick the emotion that is being expressed in the text:\n(a) Outrage\n\
+      (b) Delight\n(c) Optimism\n(d) Sadness\n ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_51
+    reference: jonghyeonkim
+  16da933e-bf46-4e3a-b0c2-2f1bdab2c8a7: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 16da933e-bf46-4e3a-b0c2-2f1bdab2c8a7
+    jinja: 'Please select the correct emotion for the following tweet:
+
+
+      {{text}}
+
+      choices: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_52
+    reference: jonghyeonkim
+  54b0f591-d4ff-4a64-8728-585346a294e7: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 54b0f591-d4ff-4a64-8728-585346a294e7
+    jinja: 'Select the correct emotion conveyed in the following tweet:
+
+
+      {{text}}
+
+
+      Options:
+
+      {{answer_choices | join(", ")}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_53
+    reference: jonghyeonkim
+  88f97022-d6db-4ef4-97e6-3e1e9f828d0b: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 88f97022-d6db-4ef4-97e6-3e1e9f828d0b
+    jinja: 'Indicate the dominant emotional tone of the following text:
+
+
+      {{text}}
+
+
+      Options: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_54
+    reference: jonghyeonkim
+  e408bd07-396d-4945-9837-05804c783a48: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: e408bd07-396d-4945-9837-05804c783a48
+    jinja: 'Please choose the appropriate emotion for the following text:
+
+
+      {{text}}
+
+      Choices: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_55
+    reference: jonghyeonkim
+  70187fe6-b78f-4a2a-8ba0-a279cffcb878: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 70187fe6-b78f-4a2a-8ba0-a279cffcb878
+    jinja: '{{text}}
+
+
+      Based on the tweet, which of the following emotions is being expressed? {{answer_choices
+      | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_56
+    reference: jonghyeonkim
+  659729aa-6689-4726-894c-fe8d05bab306: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 659729aa-6689-4726-894c-fe8d05bab306
+    jinja: '{{text}}
+
+
+      Identify the emotion expressed in the tweet from the following options: {{answer_choices
+      | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_57
+    reference: jonghyeonkim
+  6503b675-fd55-4f47-8c6f-81db479ec8cd: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 6503b675-fd55-4f47-8c6f-81db479ec8cd
+    jinja: "Select the emotion that best describes the following tweet.\n\n{{text}}\n\
+      \n(a) Outrage\n(b) Delight\n(c) Optimism\n(d) Sadness\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_58
+    reference: jonghyeonkim
+  7de7b9a7-4d94-4dcc-94fa-840cf72b6888: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 7de7b9a7-4d94-4dcc-94fa-840cf72b6888
+    jinja: 'Read the following tweet and decide which emotion it conveys. {{text}}
+
+
+      (a) Outrage (b) Delight (c) Optimism (d) Sadness ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_59
+    reference: jonghyeonkim
+  ad9b7be8-ae7e-49ba-b5c8-6fc4925a5976: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: ad9b7be8-ae7e-49ba-b5c8-6fc4925a5976
+    jinja: "{{text}}\n\nChoose the word that best describes the emotion of the text:\n\
+      (a) angry\n(b) happy\n(c) Optimism\n(d) Sadness\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_60
+    reference: jonghyeonkim
+  83bc6670-d053-4490-b005-5e1ea6293060: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 83bc6670-d053-4490-b005-5e1ea6293060
+    jinja: '{{text}}
+
+
+      Select the emotion that best describes the tweet from the following options: {{answer_choices
+      | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_61
+    reference: jonghyeonkim
+  5779fc7d-770c-4e48-b9b6-da1cf58d3f69: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 5779fc7d-770c-4e48-b9b6-da1cf58d3f69
+    jinja: '{{text}}
+
+
+      Choose the emotion that best describes the tweet from the following options:
+
+
+      {{answer_choices | join(", ")}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_62
+    reference: jonghyeonkim
+  c0e997b0-ba3a-4bae-8ba9-12fe282d6958: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: c0e997b0-ba3a-4bae-8ba9-12fe282d6958
+    jinja: 'Please categorize the following tweet based on the emotion it conveys:
+
+
+      {{text}}
+
+      Choices: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_63
+    reference: jonghyeonkim
+  9be6f854-9a7f-48a4-9d93-2e416d13bf7a: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 9be6f854-9a7f-48a4-9d93-2e416d13bf7a
+    jinja: "Which of the following emotions does the following tweet express?\n\n{{text}}\n\
+      \n(a) Outrage\n(b) Delight\n(c) Optimism\n(d) Sadness\n\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_64
+    reference: jonghyeonkim
+  3e9c7bd8-3629-4192-a85c-700ceaf07797: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 3e9c7bd8-3629-4192-a85c-700ceaf07797
+    jinja: '{{text}}
+
+
+      Select the emotion that is most evident in the tweet from the following options:
+
+      {{answer_choices | join(", ")}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_65
+    reference: jonghyeonkim
+  f3c8f120-cc88-4d16-a9da-44f212f66ce2: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: f3c8f120-cc88-4d16-a9da-44f212f66ce2
+    jinja: 'Which of the following emotions best matches the sentiment of the text?
+
+
+      {{text}}
+
+
+      Options: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_66
+    reference: jonghyeonkim
+  fabfc8f8-0c5f-4e28-856c-fd0d280f7255: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: fabfc8f8-0c5f-4e28-856c-fd0d280f7255
+    jinja: 'Choose the best emotion to describe the sentiment of the following text:
+
+
+      {{text}}
+
+
+      Options: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_67
+    reference: jonghyeonkim
+  f2d76440-f1a5-4272-b4e1-11bfe361b207: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: f2d76440-f1a5-4272-b4e1-11bfe361b207
+    jinja: "{{text}}\n\nIndicate the emotion of the sentence with one of the following\
+      \ options:\n(a) Outrage\n(b) Delight\n(c) Optimism\n(d) Sadness\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_68
+    reference: jonghyeonkim
+  b0670cf9-be90-45a9-a0f7-4a70c0e0301e: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: b0670cf9-be90-45a9-a0f7-4a70c0e0301e
+    jinja: "{{text}}\n\nChoose the emotion from the following list that is best represented\
+      \ in this tweet:\n{{answer_choices | join(\", \")}}\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_69
+    reference: jonghyeonkim
+  4b3c9be2-a24f-4090-8bd5-c3afa6813671: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 4b3c9be2-a24f-4090-8bd5-c3afa6813671
+    jinja: 'What emotion is expressed in the following tweet?
+
+
+      {{text}}
+
+
+      Please choose from the following:
+
+
+      {{answer_choices | join(", ")}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_70
+    reference: jonghyeonkim
+  bcfa05d9-7f81-4074-991f-0206e088fbf8: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: bcfa05d9-7f81-4074-991f-0206e088fbf8
+    jinja: "What emotion is conveyed in the following tweet?\n\n{{text}}\n\nChoose the\
+      \ best option:\n(a) Outrage\n(b) Delight\n(c) Optimism\n(d) Sadness\n\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_71
+    reference: jonghyeonkim
+  b6911d0b-5cfb-41fc-a63b-668f4e361558: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: b6911d0b-5cfb-41fc-a63b-668f4e361558
+    jinja: 'Select the emotion that best matches the sentiment expressed in this tweet:
+      {{text}}
+
+
+      (a) Outrage (b) Delight (c) Optimism (d) Sadness ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_72
+    reference: jonghyeonkim
+  80d9d335-ebcd-431c-bd61-52f9b56ccf51: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 80d9d335-ebcd-431c-bd61-52f9b56ccf51
+    jinja: '{{text}}
+
+
+      What is the emotion that best matches the sentiment conveyed in the tweet?
+
+
+      Choose from:
+
+      {{answer_choices | join(", ")}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_73
+    reference: jonghyeonkim
+  e4eda88f-52ae-4d21-af6e-4d79f3f16f1b: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: e4eda88f-52ae-4d21-af6e-4d79f3f16f1b
+    jinja: '{{text}}
+
+
+      What is the emotional state that is most accurately conveyed in the tweet?
+
+
+      Choose from:
+
+      {{answer_choices | join(", ")}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_74
+    reference: jonghyeonkim
+  33f6f05d-3e90-4bcb-85d0-5483726701e9: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 33f6f05d-3e90-4bcb-85d0-5483726701e9
+    jinja: 'What is the overall emotion of the following tweet?
+
+
+      {{text}}
+
+
+      Choose one of the following options: {{answer_choices | join(", ")}} ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_75
+    reference: jonghyeonkim
+  ddf44af4-a1c8-4418-83d3-0f27bb7ef347: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: ddf44af4-a1c8-4418-83d3-0f27bb7ef347
+    jinja: 'Please select the best emotional classification that describes the following
+      text:
+
+
+      {{text}}
+
+
+      Options: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_76
+    reference: jonghyeonkim
+  a267420d-fa6e-4ce2-9b61-59073c57dd87: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: a267420d-fa6e-4ce2-9b61-59073c57dd87
+    jinja: '{{text}}
+
+
+      Select the most appropriate emotional category that the following tweet belongs
+      to.
+
+
+      Options: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_77
+    reference: jonghyeonkim
+  e0ffb060-81fb-42a2-9931-f342c812695f: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: e0ffb060-81fb-42a2-9931-f342c812695f
+    jinja: "What is the emotion being conveyed in the following tweet?\n\n{{text}}\n\
+      \nSelect the best option:\n(a) Outrage\n(b) Delight\n(c) Optimism\n(d) Sadness\n |||\
+      \ {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_78
+    reference: jonghyeonkim
+  ac022bee-c2e1-4503-93e8-8a3ed8b61a2c: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: ac022bee-c2e1-4503-93e8-8a3ed8b61a2c
+    jinja: 'What is the dominant emotion conveyed in the following tweet?
+
+
+      {{text}}
+
+
+      Please select one of the following: {{answer_choices | join(", ")}} ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_79
+    reference: jonghyeonkim
+  99c8e768-18fb-412a-bc52-f0697125f9d4: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 99c8e768-18fb-412a-bc52-f0697125f9d4
+    jinja: "Identify the emotion conveyed in the following tweet:\n\n{{text}}\n\nChoose\
+      \ one of the following options:\n(a) Outrage\n(b) Delight\n(c) Optimism\n(d) Sadness\n\
+      \ ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_80
+    reference: jonghyeonkim
+  139df4c6-ee0f-4c03-b03b-0e21211a6c84: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 139df4c6-ee0f-4c03-b03b-0e21211a6c84
+    jinja: "What emotion is being expressed in the following tweet?\n\n{{text}}\n\n\
+      Select one of the following options:\n(a) Outrage\n(b) Delight\n(c) Optimism\n(d) Sadness\n\
+      \ ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_81
+    reference: jonghyeonkim
+  6cd3f33b-b6ee-49af-b1fd-6e213146ec20: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 6cd3f33b-b6ee-49af-b1fd-6e213146ec20
+    jinja: '{{text}}
+
+
+      Determine the most appropriate emotion for the sentiment conveyed in this tweet
+      from the following options:
+
+      {{answer_choices | join(", ")}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_82
+    reference: jonghyeonkim
+  df5640e6-aa13-4edf-bdfc-72e62458ddba: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: df5640e6-aa13-4edf-bdfc-72e62458ddba
+    jinja: "Identify the emotion in the following tweet:\n\n{{text}}\n\nChoose the option\
+      \ that best describes the emotion:\n(a) Outrage\n(b) Delight\n(c) Optimism\n(d) Sadness\n\
+      \ ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_83
+    reference: jonghyeonkim
+  1955c426-877d-4a34-b80b-cff7b6cad704: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 1955c426-877d-4a34-b80b-cff7b6cad704
+    jinja: '{{text}}
+
+
+      Indicate the emotion that best matches the sentiment expressed in the tweet.
+
+
+      Choose one from the following: {{answer_choices | join(", ")}} ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_84
+    reference: jonghyeonkim
+  7f9c26da-7921-4102-98c7-e0c4e9e59af7: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 7f9c26da-7921-4102-98c7-e0c4e9e59af7
+    jinja: 'Which of the following emotions is best suited to describe the following
+      text?
+
+
+      {{text}}
+
+
+      Please choose one of the following: {{answer_choices | join('', '')}} ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_85
+    reference: jonghyeonkim
+  2231921f-0a2c-411b-b3aa-3c1e05235304: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 2231921f-0a2c-411b-b3aa-3c1e05235304
+    jinja: 'Please classify the following text into the most appropriate emotional category:
+
+
+      {{text}}
+
+
+      Choose from the following emotions:
+
+
+      {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_86
+    reference: jonghyeonkim
+  442c8707-2956-484e-b0af-33cdec41ab15: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 442c8707-2956-484e-b0af-33cdec41ab15
+    jinja: '{{text}}
+
+
+      Identify the emotion portrayed in the text:
+
+
+      {{answer_choices[0]}}
+
+      {{answer_choices[1]}}
+
+      {{answer_choices[2]}}
+
+      {{answer_choices[3]}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_87
+    reference: jonghyeonkim
+  56e22042-e23d-47d5-940f-f2fe96cde0a9: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 56e22042-e23d-47d5-940f-f2fe96cde0a9
+    jinja: 'Choose the emotion best represented in the following tweet: {{text}}
+
+
+      - {{answer_choices[0]}}
+
+      - {{answer_choices[1]}}
+
+      - {{answer_choices[2]}}
+
+      - {{answer_choices[3]}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_88
+    reference: jonghyeonkim
+  37900332-54ce-4645-841e-2b4dfaeb1a7b: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 37900332-54ce-4645-841e-2b4dfaeb1a7b
+    jinja: '{{text}}
+
+
+      What is the primary emotion conveyed in the tweet?
+
+
+      {{answer_choices[0]}}
+
+      {{answer_choices[1]}}
+
+      {{answer_choices[2]}}
+
+      {{answer_choices[3]}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_89
+    reference: jonghyeonkim
+  132d1d98-13c6-433c-958b-f74fc68cd778: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 132d1d98-13c6-433c-958b-f74fc68cd778
+    jinja: 'Which emotion best describes the tone of the following tweet? {{text}}
+
+
+      - {{answer_choices[0]}}
+
+      - {{answer_choices[1]}}
+
+      - {{answer_choices[2]}}
+
+      - {{answer_choices[3]}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_90
+    reference: jonghyeonkim
+  0bb8be54-b2cc-4489-9139-1aed069ac901: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 0bb8be54-b2cc-4489-9139-1aed069ac901
+    jinja: 'Please classify the following tweet based on its emotion:
+
+
+      {{text}}
+
+
+      {{answer_choices[0]}}
+
+      {{answer_choices[1]}}
+
+      {{answer_choices[2]}}
+
+      {{answer_choices[3]}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_91
+    reference: jonghyeonkim
+  f3704274-23c6-4aaa-b421-a81e96329e1a: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: f3704274-23c6-4aaa-b421-a81e96329e1a
+    jinja: 'Choose the best emotion that describes the following tweet:
+
+
+      {{text}}
+
+
+      {{answer_choices[0]}}
+
+      {{answer_choices[1]}}
+
+      {{answer_choices[2]}}
+
+      {{answer_choices[3]}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_92
+    reference: jonghyeonkim
+  315cfb23-3f50-48d0-ad4e-b8ebe0d3df11: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 315cfb23-3f50-48d0-ad4e-b8ebe0d3df11
+    jinja: 'What is the emotion being expressed in the tweet below?
+
+
+      {{text}}
+
+
+      {{answer_choices[0]}}
+
+      {{answer_choices[1]}}
+
+      {{answer_choices[2]}}
+
+      {{answer_choices[3]}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_93
+    reference: jonghyeonkim
+  de5ec521-f1d0-4dcb-b888-99e418238596: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: de5ec521-f1d0-4dcb-b888-99e418238596
+    jinja: '{{text}}
+
+
+      Select the best option that represents the emotion in the text:
+
+
+      {{answer_choices[0]}}
+
+      {{answer_choices[1]}}
+
+      {{answer_choices[2]}}
+
+      {{answer_choices[3]}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_94
+    reference: jonghyeonkim
+  6167f117-91f8-4e1a-bfd5-b11d089ae02a: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 6167f117-91f8-4e1a-bfd5-b11d089ae02a
+    jinja: '{{text}}
+
+
+      Select the emotion that the tweet is most likely conveying:
+
+
+      {{answer_choices[0]}}
+
+      {{answer_choices[1]}}
+
+      {{answer_choices[2]}}
+
+      {{answer_choices[3]}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_95
+    reference: jonghyeonkim
+  fab6edc3-810e-42ba-8549-2938118e763a: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: fab6edc3-810e-42ba-8549-2938118e763a
+    jinja: '{{text}}
+
+
+      Which of the following emotions is best described in the tweet?
+
+
+      {{answer_choices[0]}}
+
+      {{answer_choices[1]}}
+
+      {{answer_choices[2]}}
+
+      {{answer_choices[3]}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_96
+    reference: jonghyeonkim
+  344bf08f-1a2c-4b5b-a473-7e5054dbdd52: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 344bf08f-1a2c-4b5b-a473-7e5054dbdd52
+    jinja: '{{text}}
+
+
+      Which of the following emotions is best conveyed by the tweet?
+
+
+      {{answer_choices[0]}}
+
+      {{answer_choices[1]}}
+
+      {{answer_choices[2]}}
+
+      {{answer_choices[3]}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_97
+    reference: jonghyeonkim
+  e9ebebf6-db2d-4165-a567-6a040eb1780e: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: e9ebebf6-db2d-4165-a567-6a040eb1780e
+    jinja: "{{text}}\n\nWhat feeling is being expressed in this tweet? Choose the most\
+      \ appropriate option: \n\n{{answer_choices[0]}}\n{{answer_choices[1]}}\n{{answer_choices[2]}}\n\
+      {{answer_choices[3]}}\n\n ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_98
+    reference: jonghyeonkim
+  55bcf48a-18bc-4c58-b88c-3e453c0ce719: !Template
+    answer_choices: Outrage ||| Delight ||| Optimism ||| Sadness
+    id: 55bcf48a-18bc-4c58-b88c-3e453c0ce719
+    jinja: 'Consider the following tweet and select the correct emotion from the options
+      below:
+
+
+      {{text}}
+
+
+      {{answer_choices[0]}}
+
+      {{answer_choices[1]}}
+
+      {{answer_choices[2]}}
+
+      {{answer_choices[3]}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_99
+    reference: jonghyeonkim
+  f9ffe7c3-a2cd-4e3a-a891-fbfbb0a9d84a: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: f9ffe7c3-a2cd-4e3a-a891-fbfbb0a9d84a
+    jinja: '{{text}}
+
+
+      The tone of this sentence is ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_00
+    reference: jonghyeonkim
+  c95fc620-717a-4d1d-b0b8-e211ae2171a1: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: c95fc620-717a-4d1d-b0b8-e211ae2171a1
+    jinja: '{{text}}
+
+
+      The sentiment of this text is ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_01
+    reference: jonghyeonkim
+  98652ad3-7bb8-490e-b18a-bce4715a603b: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 98652ad3-7bb8-490e-b18a-bce4715a603b
+    jinja: "What is the mood of this tweet? {{text}}\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_02
+    reference: jonghyeonkim
+  fd576a5b-a09d-44d3-b9b4-801af21cc49f: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: fd576a5b-a09d-44d3-b9b4-801af21cc49f
+    jinja: '{{text}}
+
+
+      Select the appropriate emotion: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_03
+    reference: jonghyeonkim
+  fff6f99e-b4e8-4456-b1da-6df3624fa660: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: fff6f99e-b4e8-4456-b1da-6df3624fa660
+    jinja: '{{text}}
+
+
+      Identify the emotion being expressed: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_04
+    reference: jonghyeonkim
+  6f487564-271d-456d-a1b5-b53e87ef8966: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 6f487564-271d-456d-a1b5-b53e87ef8966
+    jinja: What emotion is expressed in this tweet? {{text}} ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_05
+    reference: jonghyeonkim
+  57d316a4-5911-4131-b31f-9816a1dc9513: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 57d316a4-5911-4131-b31f-9816a1dc9513
+    jinja: '{{text}}
+
+
+      What emotion is expressed in this tweet? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_06
+    reference: jonghyeonkim
+  ca93c151-6e43-4993-ba13-792811acf5e1: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: ca93c151-6e43-4993-ba13-792811acf5e1
+    jinja: '{{text}}
+
+
+      What is the emotional state of the author? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_07
+    reference: jonghyeonkim
+  cbb4fa33-51cb-4023-b73a-755775018bf7: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: cbb4fa33-51cb-4023-b73a-755775018bf7
+    jinja: "What emotion is conveyed by this sentence? {{text}}\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_08
+    reference: jonghyeonkim
+  8631dbd7-aef0-4401-bce2-d277e91a3930: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 8631dbd7-aef0-4401-bce2-d277e91a3930
+    jinja: "What emotion does the following text convey? {{text}}\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_09
+    reference: jonghyeonkim
+  cd59125e-ea67-4cab-9482-c5f291847fc4: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: cd59125e-ea67-4cab-9482-c5f291847fc4
+    jinja: "Identify the emotion conveyed by this tweet: {{text}}\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_10
+    reference: jonghyeonkim
+  32f72273-2171-47fd-9a67-dca1ad67828a: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 32f72273-2171-47fd-9a67-dca1ad67828a
+    jinja: "Identify the emotion in the following text:\n\n{{text}}\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_11
+    reference: jonghyeonkim
+  512ea7b3-0c33-4ddb-8aa7-9b69f2ecd0f8: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 512ea7b3-0c33-4ddb-8aa7-9b69f2ecd0f8
+    jinja: "What emotion is being conveyed in this tweet? {{text}}\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_12
+    reference: jonghyeonkim
+  7d67416b-c0b9-4dbc-adc6-157bb2db8e7d: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 7d67416b-c0b9-4dbc-adc6-157bb2db8e7d
+    jinja: "Please label the emotion of the following text: {{text}}\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_13
+    reference: jonghyeonkim
+  3d17e9b3-6b3d-45aa-bfa9-e561b6381980: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 3d17e9b3-6b3d-45aa-bfa9-e561b6381980
+    jinja: "What is the emotion represented in this tweet?\n\n{{text}}\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_14
+    reference: jonghyeonkim
+  21aee9ca-2d7c-4b58-a50b-e534357d2217: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 21aee9ca-2d7c-4b58-a50b-e534357d2217
+    jinja: '{{text}}
+
+
+      What is the feeling being expressed in this text? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_15
+    reference: jonghyeonkim
+  2940232f-4861-4777-8bba-0b9b45674d01: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 2940232f-4861-4777-8bba-0b9b45674d01
+    jinja: '{{text}}
+
+
+      What is the emotional tone of the following tweet? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_16
+    reference: jonghyeonkim
+  ac8ab81b-8972-466f-bcd2-2ad3a3c1e11e: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: ac8ab81b-8972-466f-bcd2-2ad3a3c1e11e
+    jinja: "What is the emotional tone of the following tweet? {{text}}\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_17
+    reference: jonghyeonkim
+  7ab94636-9f4b-4e03-9afc-4ca20f1f4f98: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 7ab94636-9f4b-4e03-9afc-4ca20f1f4f98
+    jinja: "What is the overall emotion conveyed by this tweet? {{text}}\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_18
+    reference: jonghyeonkim
+  bb30f6b4-90c1-4ffe-8328-bdb36a0f2da2: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: bb30f6b4-90c1-4ffe-8328-bdb36a0f2da2
+    jinja: 'Choose the emotion conveyed in the following tweet:
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_19
+    reference: jonghyeonkim
+  9dc6ff42-d8fb-4363-93d9-489f5d3cecca: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 9dc6ff42-d8fb-4363-93d9-489f5d3cecca
+    jinja: 'What emotion is conveyed in the following sentence:
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_20
+    reference: jonghyeonkim
+  0f82fcf2-54a1-4dd1-8695-6f7136226de2: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 0f82fcf2-54a1-4dd1-8695-6f7136226de2
+    jinja: "What emotion does the following sentence express:\n\n{{text}}\n\n ||| {{\
+      \ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_21
+    reference: jonghyeonkim
+  533f17dd-7d51-44ab-ab8f-3fd1747e6508: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 533f17dd-7d51-44ab-ab8f-3fd1747e6508
+    jinja: '{{text}}
+
+
+      What emotion is being conveyed in the tweet?
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_22
+    reference: jonghyeonkim
+  ea15670c-2879-4c20-bdf5-5e1278b44d58: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: ea15670c-2879-4c20-bdf5-5e1278b44d58
+    jinja: 'Indicate the emotion conveyed in the following tweet:
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_23
+    reference: jonghyeonkim
+  0ce88f6e-4daa-4ae6-ab33-64bbc4b80ffb: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 0ce88f6e-4daa-4ae6-ab33-64bbc4b80ffb
+    jinja: 'What is the predominant emotion in the following tweet?
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_24
+    reference: jonghyeonkim
+  788d3544-b860-4da6-a97a-315b2619da1c: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 788d3544-b860-4da6-a97a-315b2619da1c
+    jinja: "Determine the emotion expressed in the following tweet: {{text}}\n ||| {{\
+      \ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_25
+    reference: jonghyeonkim
+  5cff86e3-bbb5-4b5f-8603-138b6403c1b5: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 5cff86e3-bbb5-4b5f-8603-138b6403c1b5
+    jinja: "{{text}}\n\nWhat is the predominant emotion expressed in the tweet?\n |||\
+      \ {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_26
+    reference: jonghyeonkim
+  0072744d-c716-487d-bc38-a542dd354488: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 0072744d-c716-487d-bc38-a542dd354488
+    jinja: 'What emotion is the author of the tweet trying to convey?
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_27
+    reference: jonghyeonkim
+  42d5ef12-2f9e-4e3d-83cd-5cc0fe58d0aa: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 42d5ef12-2f9e-4e3d-83cd-5cc0fe58d0aa
+    jinja: 'Fill in the blank.
+
+
+      {{text}}
+
+
+      The emotion of this sentence is _____ ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_28
+    reference: jonghyeonkim
+  45163f8e-c08b-47c0-aebe-9707d1d4a6b2: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 45163f8e-c08b-47c0-aebe-9707d1d4a6b2
+    jinja: "Classify the emotion expressed in the following sentence: {{text}}\n |||\
+      \ {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_29
+    reference: jonghyeonkim
+  a0ba58bb-8a64-4b26-a54f-383e98c0fda2: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: a0ba58bb-8a64-4b26-a54f-383e98c0fda2
+    jinja: "Write the emotion that is conveyed in the following tweet: {{text}}\n |||\
+      \ {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_30
+    reference: jonghyeonkim
+  d457bbd1-ad6f-4958-93c5-7192c6090dbb: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: d457bbd1-ad6f-4958-93c5-7192c6090dbb
+    jinja: "What is the emotion being conveyed in the following tweet? {{text}}\n |||\
+      \ {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_31
+    reference: jonghyeonkim
+  9c0aaf00-6e3b-4b0c-b056-8870c0c728df: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 9c0aaf00-6e3b-4b0c-b056-8870c0c728df
+    jinja: "Please identify the emotion that is conveyed in this tweet: {{text}}\n |||\
+      \ {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_32
+    reference: jonghyeonkim
+  be199e63-e8fe-42b8-ae81-cff3b1a01575: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: be199e63-e8fe-42b8-ae81-cff3b1a01575
+    jinja: 'What is the primary emotion conveyed in the following text?
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_33
+    reference: jonghyeonkim
+  935fa424-b717-4b29-8e65-6cb7b5c71f9b: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 935fa424-b717-4b29-8e65-6cb7b5c71f9b
+    jinja: '{{text}}
+
+
+      Based on the tweet, what is the prevailing emotion?
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_34
+    reference: jonghyeonkim
+  833e30bd-df8f-4829-99cf-1f491ced7bbf: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 833e30bd-df8f-4829-99cf-1f491ced7bbf
+    jinja: 'What is the emotional content of the following tweet? {{text}}
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_35
+    reference: jonghyeonkim
+  022b9c05-4c79-4382-a69f-213ea9db61f1: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 022b9c05-4c79-4382-a69f-213ea9db61f1
+    jinja: '{{text}}
+
+
+      Tell the emotion that the author of the tweet is expressing: ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_36
+    reference: jonghyeonkim
+  3c15e251-8e84-4904-8d91-a964640ed933: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 3c15e251-8e84-4904-8d91-a964640ed933
+    jinja: 'Identify the emotion expressed in the following tweet: {{text}}
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_37
+    reference: jonghyeonkim
+  00dac834-71e9-4f52-93a2-901369f5d3c4: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 00dac834-71e9-4f52-93a2-901369f5d3c4
+    jinja: 'What is the dominant emotion expressed in the following text?
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_38
+    reference: jonghyeonkim
+  e25487c1-54af-4c04-9137-b0f9285703bd: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: e25487c1-54af-4c04-9137-b0f9285703bd
+    jinja: 'What emotion is being expressed in the following tweet? {{text}}
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_39
+    reference: jonghyeonkim
+  88f23caf-d0c2-4bd8-97de-6d2c56eac6a4: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 88f23caf-d0c2-4bd8-97de-6d2c56eac6a4
+    jinja: Analyze the following tweet and determine the emotion it conveys. {{text}}
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_40
+    reference: jonghyeonkim
+  833bf121-dd00-49b7-a8b9-415eb27f4e4d: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 833bf121-dd00-49b7-a8b9-415eb27f4e4d
+    jinja: 'Read the tweet below and determine the emotion being expressed: {{text}}
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_41
+    reference: jonghyeonkim
+  b775d014-e636-4d6f-84b2-321823ce689e: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: b775d014-e636-4d6f-84b2-321823ce689e
+    jinja: 'Choose the best emotion for the following tweet:
+
+
+      {{text}}
+
+      Choices: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_42
+    reference: jonghyeonkim
+  ffac17b4-c52c-4ea7-8b87-a33919062048: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: ffac17b4-c52c-4ea7-8b87-a33919062048
+    jinja: 'Please select the emotion that best describes the sentiment in the following
+      tweet: {{text}}
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_43
+    reference: jonghyeonkim
+  684f26bf-2fb2-4eb5-bde8-33d694e8a0f7: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 684f26bf-2fb2-4eb5-bde8-33d694e8a0f7
+    jinja: '{{text}}
+
+
+      Which one of the following emotions is the tweet expressing? {{answer_choices
+      | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_44
+    reference: jonghyeonkim
+  42322296-82e4-4773-9835-18c7b0043543: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 42322296-82e4-4773-9835-18c7b0043543
+    jinja: 'What is the emotion conveyed in the following tweet:
+
+
+      {{text}}
+
+      Choices: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_45
+    reference: jonghyeonkim
+  9e8a4282-2c3b-4a2f-8921-5e5db270697d: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 9e8a4282-2c3b-4a2f-8921-5e5db270697d
+    jinja: 'Classify the emotion conveyed in the following text:
+
+
+      {{text}}
+
+
+      Options: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_46
+    reference: jonghyeonkim
+  0baaee3b-67ab-4c1c-b656-b64d76a64e50: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 0baaee3b-67ab-4c1c-b656-b64d76a64e50
+    jinja: 'Identify the emotion conveyed in the following tweet:
+
+
+      {{text}}
+
+      Choices: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_47
+    reference: jonghyeonkim
+  e4f5b060-87cf-4dd0-b3e2-6f6d143ccecf: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: e4f5b060-87cf-4dd0-b3e2-6f6d143ccecf
+    jinja: 'Determine the emotion conveyed in the following tweet:
+
+
+      {{text}}
+
+      Choices: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_48
+    reference: jonghyeonkim
+  eaedc572-763f-494e-b7bc-af991152b580: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: eaedc572-763f-494e-b7bc-af991152b580
+    jinja: "Identify the emotion conveyed in the following tweet:\n\n{{text}}\n\nOptions:\n\
+      {{answer_choices | join(\", \")}}\n ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_49
+    reference: jonghyeonkim
+  61628812-e1b8-4475-b05f-4cc12f88f51a: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 61628812-e1b8-4475-b05f-4cc12f88f51a
+    jinja: 'Choose the emotion that best fits the following tweet:
+
+
+      {{text}}
+
+
+      Options: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_50
+    reference: jonghyeonkim
+  6f6d113d-1b49-4e99-86af-3fefb016a6fa: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 6f6d113d-1b49-4e99-86af-3fefb016a6fa
+    jinja: "{{text}}\n\nPick the emotion that is being expressed in the text:\n(a) Anger\n\
+      (b) Joy\n(c) Optimism\n(d) Sadness\n ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_51
+    reference: jonghyeonkim
+  8b5d123d-13cd-4111-8cf6-882f96ceafe5: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 8b5d123d-13cd-4111-8cf6-882f96ceafe5
+    jinja: 'Please select the correct emotion for the following tweet:
+
+
+      {{text}}
+
+      choices: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_52
+    reference: jonghyeonkim
+  d6baf33f-00f5-487b-bb3f-d7ca7a07fc32: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: d6baf33f-00f5-487b-bb3f-d7ca7a07fc32
+    jinja: 'Select the correct emotion conveyed in the following tweet:
+
+
+      {{text}}
+
+
+      Options:
+
+      {{answer_choices | join(", ")}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_53
+    reference: jonghyeonkim
+  f0e7762b-262a-4b87-80b1-328e460195b4: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: f0e7762b-262a-4b87-80b1-328e460195b4
+    jinja: 'Indicate the dominant emotional tone of the following text:
+
+
+      {{text}}
+
+
+      Options: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_54
+    reference: jonghyeonkim
+  c44239c8-6704-4cc0-87dd-42cda84c854a: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: c44239c8-6704-4cc0-87dd-42cda84c854a
+    jinja: 'Please choose the appropriate emotion for the following text:
+
+
+      {{text}}
+
+      Choices: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_55
+    reference: jonghyeonkim
+  6a13b415-1a6f-4005-99a4-bf48dd12312f: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 6a13b415-1a6f-4005-99a4-bf48dd12312f
+    jinja: '{{text}}
+
+
+      Based on the tweet, which of the following emotions is being expressed? {{answer_choices
+      | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_56
+    reference: jonghyeonkim
+  344b8449-2783-4e8f-8216-712d3556b431: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 344b8449-2783-4e8f-8216-712d3556b431
+    jinja: '{{text}}
+
+
+      Identify the emotion expressed in the tweet from the following options: {{answer_choices
+      | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_57
+    reference: jonghyeonkim
+  e6e9f831-68a3-40ec-a997-69e2ce8fd17e: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: e6e9f831-68a3-40ec-a997-69e2ce8fd17e
+    jinja: "Select the emotion that best describes the following tweet.\n\n{{text}}\n\
+      \n(a) Anger\n(b) Joy\n(c) Optimism\n(d) Sadness\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_58
+    reference: jonghyeonkim
+  b18661e2-665b-4048-a776-d3eac492287b: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: b18661e2-665b-4048-a776-d3eac492287b
+    jinja: 'Read the following tweet and decide which emotion it conveys. {{text}}
+
+
+      (a) Anger (b) Joy (c) Optimism (d) Sadness ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_59
+    reference: jonghyeonkim
+  f8176649-ab7d-4f04-8a54-8727d1c8e319: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: f8176649-ab7d-4f04-8a54-8727d1c8e319
+    jinja: "{{text}}\n\nChoose the word that best describes the emotion of the text:\n\
+      (a) angry\n(b) happy\n(c) Optimism\n(d) Sadness\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_60
+    reference: jonghyeonkim
+  959cd5ba-4f5d-4e42-8f46-50ae5c3da346: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 959cd5ba-4f5d-4e42-8f46-50ae5c3da346
+    jinja: '{{text}}
+
+
+      Select the emotion that best describes the tweet from the following options: {{answer_choices
+      | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_61
+    reference: jonghyeonkim
+  84d90797-7793-4f26-b63e-39185e9f4af7: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 84d90797-7793-4f26-b63e-39185e9f4af7
+    jinja: '{{text}}
+
+
+      Choose the emotion that best describes the tweet from the following options:
+
+
+      {{answer_choices | join(", ")}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_62
+    reference: jonghyeonkim
+  6cb68f45-039e-40e3-a056-4ee04284eaad: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 6cb68f45-039e-40e3-a056-4ee04284eaad
+    jinja: 'Please categorize the following tweet based on the emotion it conveys:
+
+
+      {{text}}
+
+      Choices: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_63
+    reference: jonghyeonkim
+  58235b58-648e-4f13-ae25-0f2b32814858: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 58235b58-648e-4f13-ae25-0f2b32814858
+    jinja: "Which of the following emotions does the following tweet express?\n\n{{text}}\n\
+      \n(a) Anger\n(b) Joy\n(c) Optimism\n(d) Sadness\n\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_64
+    reference: jonghyeonkim
+  51a4ab43-866c-41d4-913b-dc64a82132a2: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 51a4ab43-866c-41d4-913b-dc64a82132a2
+    jinja: '{{text}}
+
+
+      Select the emotion that is most evident in the tweet from the following options:
+
+      {{answer_choices | join(", ")}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_65
+    reference: jonghyeonkim
+  7d1ac7f0-fe59-4dec-a453-4da15c7f9dcb: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 7d1ac7f0-fe59-4dec-a453-4da15c7f9dcb
+    jinja: 'Which of the following emotions best matches the sentiment of the text?
+
+
+      {{text}}
+
+
+      Options: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_66
+    reference: jonghyeonkim
+  b12c2d66-9032-4a02-94ed-e5b80aa1a295: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: b12c2d66-9032-4a02-94ed-e5b80aa1a295
+    jinja: 'Choose the best emotion to describe the sentiment of the following text:
+
+
+      {{text}}
+
+
+      Options: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_67
+    reference: jonghyeonkim
+  5534da19-a733-47f8-b4ee-fd7600161613: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 5534da19-a733-47f8-b4ee-fd7600161613
+    jinja: "{{text}}\n\nIndicate the emotion of the sentence with one of the following\
+      \ options:\n(a) Anger\n(b) Joy\n(c) Optimism\n(d) Sadness\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_68
+    reference: jonghyeonkim
+  417168c2-8d40-4806-affe-20d956cc76d9: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 417168c2-8d40-4806-affe-20d956cc76d9
+    jinja: "{{text}}\n\nChoose the emotion from the following list that is best represented\
+      \ in this tweet:\n{{answer_choices | join(\", \")}}\n ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_69
+    reference: jonghyeonkim
+  2b9186ab-2871-4d2d-9259-5eddadce2a43: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 2b9186ab-2871-4d2d-9259-5eddadce2a43
+    jinja: 'What emotion is expressed in the following tweet?
+
+
+      {{text}}
+
+
+      Please choose from the following:
+
+
+      {{answer_choices | join(", ")}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_70
+    reference: jonghyeonkim
+  d650e508-794d-45fe-92d3-11dd1f2c18d0: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: d650e508-794d-45fe-92d3-11dd1f2c18d0
+    jinja: "What emotion is conveyed in the following tweet?\n\n{{text}}\n\nChoose the\
+      \ best option:\n(a) Anger\n(b) Joy\n(c) Optimism\n(d) Sadness\n\n ||| {{\
+      \ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_71
+    reference: jonghyeonkim
+  59cf52dc-ee5a-4049-aeba-b3f1766fab26: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 59cf52dc-ee5a-4049-aeba-b3f1766fab26
+    jinja: 'Select the emotion that best matches the sentiment expressed in this tweet:
+      {{text}}
+
+
+      (a) Anger (b) Joy (c) Optimism (d) Sadness ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_72
+    reference: jonghyeonkim
+  26ab75a6-d5d6-4b1e-8894-1806f9be8740: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 26ab75a6-d5d6-4b1e-8894-1806f9be8740
+    jinja: '{{text}}
+
+
+      What is the emotion that best matches the sentiment conveyed in the tweet?
+
+
+      Choose from:
+
+      {{answer_choices | join(", ")}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_73
+    reference: jonghyeonkim
+  f900e6ef-5b06-41c7-81c7-5404e58f9eec: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: f900e6ef-5b06-41c7-81c7-5404e58f9eec
+    jinja: '{{text}}
+
+
+      What is the emotional state that is most accurately conveyed in the tweet?
+
+
+      Choose from:
+
+      {{answer_choices | join(", ")}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_74
+    reference: jonghyeonkim
+  406c8183-6fe6-4ff5-b362-58baf36b5ab4: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 406c8183-6fe6-4ff5-b362-58baf36b5ab4
+    jinja: 'What is the overall emotion of the following tweet?
+
+
+      {{text}}
+
+
+      Choose one of the following options: {{answer_choices | join(", ")}} ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_75
+    reference: jonghyeonkim
+  e2b7f914-0328-42a3-a36f-6b092f2a61a6: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: e2b7f914-0328-42a3-a36f-6b092f2a61a6
+    jinja: 'Please select the best emotional classification that describes the following
+      text:
+
+
+      {{text}}
+
+
+      Options: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_76
+    reference: jonghyeonkim
+  499d3eb2-6a42-4489-b3cb-88f7c77f96cb: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 499d3eb2-6a42-4489-b3cb-88f7c77f96cb
+    jinja: '{{text}}
+
+
+      Select the most appropriate emotional category that the following tweet belongs
+      to.
+
+
+      Options: {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_77
+    reference: jonghyeonkim
+  d0727ed5-df01-4437-9245-3762bf3ee110: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: d0727ed5-df01-4437-9245-3762bf3ee110
+    jinja: "What is the emotion being conveyed in the following tweet?\n\n{{text}}\n\
+      \nSelect the best option:\n(a) Anger\n(b) Joy\n(c) Optimism\n(d) Sadness\n\
+      \ ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_78
+    reference: jonghyeonkim
+  55557803-8bd6-41c8-bd2f-f2cf04a19480: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 55557803-8bd6-41c8-bd2f-f2cf04a19480
+    jinja: 'What is the dominant emotion conveyed in the following tweet?
+
+
+      {{text}}
+
+
+      Please select one of the following: {{answer_choices | join(", ")}} ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_79
+    reference: jonghyeonkim
+  5aaebc76-2fa0-4864-8f76-d53a9e87b59d: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 5aaebc76-2fa0-4864-8f76-d53a9e87b59d
+    jinja: "Identify the emotion conveyed in the following tweet:\n\n{{text}}\n\nChoose\
+      \ one of the following options:\n(a) Anger\n(b) Joy\n(c) Optimism\n(d) Sadness\n\
+      \ ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_80
+    reference: jonghyeonkim
+  2458d238-b2c7-44fc-b169-dbf06af477cb: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 2458d238-b2c7-44fc-b169-dbf06af477cb
+    jinja: "What emotion is being expressed in the following tweet?\n\n{{text}}\n\n\
+      Select one of the following options:\n(a) Anger\n(b) Joy\n(c) Optimism\n\
+      (d) Sadness\n ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_81
+    reference: jonghyeonkim
+  ac75b0cd-a53d-4475-9733-e1041b87feac: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: ac75b0cd-a53d-4475-9733-e1041b87feac
+    jinja: '{{text}}
+
+
+      Determine the most appropriate emotion for the sentiment conveyed in this tweet
+      from the following options:
+
+      {{answer_choices | join(", ")}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_82
+    reference: jonghyeonkim
+  c9282663-a7f3-40f4-b1e6-5b5179923e5e: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: c9282663-a7f3-40f4-b1e6-5b5179923e5e
+    jinja: "Identify the emotion in the following tweet:\n\n{{text}}\n\nChoose the option\
+      \ that best describes the emotion:\n(a) Anger\n(b) Joy\n(c) Optimism\n(d)\
+      \ Sadness\n ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_83
+    reference: jonghyeonkim
+  54dbc36f-bb5b-47c3-ba70-e62f49b7fa2d: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 54dbc36f-bb5b-47c3-ba70-e62f49b7fa2d
+    jinja: '{{text}}
+
+
+      Indicate the emotion that best matches the sentiment expressed in the tweet.
+
+
+      Choose one from the following: {{answer_choices | join(", ")}} ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_84
+    reference: jonghyeonkim
+  809eeb8a-267b-4afb-ae83-6af3f89d28b7: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 809eeb8a-267b-4afb-ae83-6af3f89d28b7
+    jinja: 'Which of the following emotions is best suited to describe the following
+      text?
+
+
+      {{text}}
+
+
+      Please choose one of the following: {{answer_choices | join('', '')}} ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_85
+    reference: jonghyeonkim
+  5e0d133a-bef0-4176-9358-bbb56f8862e7: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 5e0d133a-bef0-4176-9358-bbb56f8862e7
+    jinja: 'Please classify the following text into the most appropriate emotional category:
+
+
+      {{text}}
+
+
+      Choose from the following emotions:
+
+
+      {{answer_choices | join('', '')}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_86
+    reference: jonghyeonkim
+  25a3ef67-934c-4126-ba2a-2a821855e534: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 25a3ef67-934c-4126-ba2a-2a821855e534
+    jinja: '{{text}}
+
+
+      Identify the emotion portrayed in the text:
+
+
+      {{answer_choices[0]}}
+
+      {{answer_choices[1]}}
+
+      {{answer_choices[2]}}
+
+      {{answer_choices[3]}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_87
+    reference: jonghyeonkim
+  87578bf2-bf5e-466d-87eb-7f296738521c: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 87578bf2-bf5e-466d-87eb-7f296738521c
+    jinja: 'Choose the emotion best represented in the following tweet: {{text}}
+
+
+      - {{answer_choices[0]}}
+
+      - {{answer_choices[1]}}
+
+      - {{answer_choices[2]}}
+
+      - {{answer_choices[3]}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_88
+    reference: jonghyeonkim
+  c245dda3-2c1a-4032-9dc4-288116906def: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: c245dda3-2c1a-4032-9dc4-288116906def
+    jinja: '{{text}}
+
+
+      What is the primary emotion conveyed in the tweet?
+
+
+      {{answer_choices[0]}}
+
+      {{answer_choices[1]}}
+
+      {{answer_choices[2]}}
+
+      {{answer_choices[3]}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_89
+    reference: jonghyeonkim
+  3c0e3ae7-c077-4653-b8bd-1afaba7cf63a: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 3c0e3ae7-c077-4653-b8bd-1afaba7cf63a
+    jinja: 'Which emotion best describes the tone of the following tweet? {{text}}
+
+
+      - {{answer_choices[0]}}
+
+      - {{answer_choices[1]}}
+
+      - {{answer_choices[2]}}
+
+      - {{answer_choices[3]}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_90
+    reference: jonghyeonkim
+  8cc7bda5-554e-48fd-88db-4fbf891d58be: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 8cc7bda5-554e-48fd-88db-4fbf891d58be
+    jinja: 'Please classify the following tweet based on its emotion:
+
+
+      {{text}}
+
+
+      {{answer_choices[0]}}
+
+      {{answer_choices[1]}}
+
+      {{answer_choices[2]}}
+
+      {{answer_choices[3]}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_91
+    reference: jonghyeonkim
+  cd209c57-9712-44e7-853c-e02211db1c7b: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: cd209c57-9712-44e7-853c-e02211db1c7b
+    jinja: 'Choose the best emotion that describes the following tweet:
+
+
+      {{text}}
+
+
+      {{answer_choices[0]}}
+
+      {{answer_choices[1]}}
+
+      {{answer_choices[2]}}
+
+      {{answer_choices[3]}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_92
+    reference: jonghyeonkim
+  6f5f65dc-5c25-49b0-a05a-a5cba6ebb9d4: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 6f5f65dc-5c25-49b0-a05a-a5cba6ebb9d4
+    jinja: 'What is the emotion being expressed in the tweet below?
+
+
+      {{text}}
+
+
+      {{answer_choices[0]}}
+
+      {{answer_choices[1]}}
+
+      {{answer_choices[2]}}
+
+      {{answer_choices[3]}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_93
+    reference: jonghyeonkim
+  ebaac81c-d47e-49ea-92af-80b9f0dc9708: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: ebaac81c-d47e-49ea-92af-80b9f0dc9708
+    jinja: '{{text}}
+
+
+      Select the best option that represents the emotion in the text:
+
+
+      {{answer_choices[0]}}
+
+      {{answer_choices[1]}}
+
+      {{answer_choices[2]}}
+
+      {{answer_choices[3]}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_94
+    reference: jonghyeonkim
+  44610946-192a-46bd-ab14-aabb46b4fef3: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 44610946-192a-46bd-ab14-aabb46b4fef3
+    jinja: '{{text}}
+
+
+      Select the emotion that the tweet is most likely conveying:
+
+
+      {{answer_choices[0]}}
+
+      {{answer_choices[1]}}
+
+      {{answer_choices[2]}}
+
+      {{answer_choices[3]}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_95
+    reference: jonghyeonkim
+  12587392-c4e5-4992-9ad4-df1accf46c91: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 12587392-c4e5-4992-9ad4-df1accf46c91
+    jinja: '{{text}}
+
+
+      Which of the following emotions is best described in the tweet?
+
+
+      {{answer_choices[0]}}
+
+      {{answer_choices[1]}}
+
+      {{answer_choices[2]}}
+
+      {{answer_choices[3]}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_96
+    reference: jonghyeonkim
+  8b5681d1-b2c3-4534-84cc-64c35778d79a: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 8b5681d1-b2c3-4534-84cc-64c35778d79a
+    jinja: '{{text}}
+
+
+      Which of the following emotions is best conveyed by the tweet?
+
+
+      {{answer_choices[0]}}
+
+      {{answer_choices[1]}}
+
+      {{answer_choices[2]}}
+
+      {{answer_choices[3]}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_97
+    reference: jonghyeonkim
+  80ca3a56-f265-4db9-abc7-009f71171c10: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: 80ca3a56-f265-4db9-abc7-009f71171c10
+    jinja: "{{text}}\n\nWhat feeling is being expressed in this tweet? Choose the most\
+      \ appropriate option: \n\n{{answer_choices[0]}}\n{{answer_choices[1]}}\n{{answer_choices[2]}}\n\
+      {{answer_choices[3]}}\n\n ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_98
+    reference: jonghyeonkim
+  a8471cf0-acb7-4854-83c8-743b61407346: !Template
+    answer_choices: Anger ||| Joy ||| Optimism ||| Sadness
+    id: a8471cf0-acb7-4854-83c8-743b61407346
+    jinja: 'Consider the following tweet and select the correct emotion from the options
+      below:
+
+
+      {{text}}
+
+
+      {{answer_choices[0]}}
+
+      {{answer_choices[1]}}
+
+      {{answer_choices[2]}}
+
+      {{answer_choices[3]}}
+
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_99
+    reference: jonghyeonkim

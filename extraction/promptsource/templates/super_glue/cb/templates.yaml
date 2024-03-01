@@ -1,0 +1,3566 @@
+dataset: super_glue
+subset: cb
+templates:
+  2e76cd0f-68ca-4f03-83ed-11cf15b25a84: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 2e76cd0f-68ca-4f03-83ed-11cf15b25a84
+    jinja: 'Suppose {{premise}} Can we infer that "{{hypothesis}}"? Yes, no, or maybe?
+      ||| {% if label !=-1 %}{{ answer_choices[label] }}{% endif %} '
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: can we infer
+    reference: Webson & Pavlick 2021
+  358860fd-61ad-45fd-92a6-a72ca9107ebc: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 358860fd-61ad-45fd-92a6-a72ca9107ebc
+    jinja: '{{premise}} Based on the previous passage, is it true that "{{hypothesis}}"?
+      Yes, no, or maybe? ||| {% if label !=-1 %}{{ answer_choices[label] }}{% endif
+      %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: based on the previous passage
+    reference: "Adapted from the BoolQ prompts in Schick & Sch\xFCtze 2021."
+  3f43a599-ffdb-490e-8952-c0ce41dd4621: !Template
+    answer_choices: True ||| False ||| Inconclusive
+    id: 3f43a599-ffdb-490e-8952-c0ce41dd4621
+    jinja: '{{premise}} Based on that information, is the claim: "{{hypothesis}}"
+      {{"true"}}, {{"false"}}, or {{"inconclusive"}}? ||| {% if label !=-1 %}{{ answer_choices[label]
+      }}{% endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: claim true_false_inconclusive
+    reference: Sanh et al. 2021
+  404eed25-558a-4d39-9515-7de46d60d4e0: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 404eed25-558a-4d39-9515-7de46d60d4e0
+    jinja: Given that {{premise}} Does it follow that {{hypothesis}} Yes, no, or maybe?
+      ||| {% if label !=-1 %}{{ answer_choices[label] }}{% endif %}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: does it follow that
+    reference: Sanh et al. 2021
+  5c9b1fa9-93f0-4f82-b9e3-e0967e4d7260: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 5c9b1fa9-93f0-4f82-b9e3-e0967e4d7260
+    jinja: '{{premise}} Are we justified in saying that "{{hypothesis}}"? Yes, no,
+      or maybe? ||| {% if label !=-1 %}{{ answer_choices[label] }}{% endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: justified in saying
+    reference: Webson & Pavlick 2021
+  6b0c6191-183d-4731-8050-ab17c909335c: !Template
+    answer_choices: Always ||| Never ||| Sometimes
+    id: 6b0c6191-183d-4731-8050-ab17c909335c
+    jinja: Suppose it's true that {{premise}} Then, is "{{hypothesis}}" {{"always"}},
+      {{"sometimes"}}, or {{"never"}} true? ||| {% if label !=-1 %}{{ answer_choices[label]
+      }}{% endif %}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: always_sometimes_never
+    reference: Sanh et al. 2021
+  75db2bc2-3caa-4956-9653-13c7dd6255df: !Template
+    answer_choices: True ||| False ||| Neither
+    id: 75db2bc2-3caa-4956-9653-13c7dd6255df
+    jinja: '{{premise}}
+
+      Question: {{hypothesis}} True, False, or Neither? ||| {% if label !=-1 %}{{
+      answer_choices[label] }}{% endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: GPT-3 style
+    reference: 'Same as reported in Figure G7 of the GPT-3 paper, except that there
+      is no task identifying tokens like "anli R1: ".'
+  87237a07-7cce-470a-80ac-3e5e3a5283ba: !Template
+    answer_choices: Always ||| Never ||| Sometimes
+    id: 87237a07-7cce-470a-80ac-3e5e3a5283ba
+    jinja: "{{premise}} \n\nKeeping in mind the above text, consider: {{hypothesis}}\
+      \ Is this {{\"always\"}}, {{\"sometimes\"}}, or {{\"never\"}} correct? ||| {%\
+      \ if label !=-1 %}{{ answer_choices[label] }}{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: consider always_sometimes_never
+    reference: Sanh et al. 2021
+  8798b8a4-1f59-4c72-9c1b-3e3044a7462a: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 8798b8a4-1f59-4c72-9c1b-3e3044a7462a
+    jinja: Given {{premise}} Is it guaranteed true that "{{hypothesis}}"? Yes, no,
+      or maybe? ||| {% if label !=-1 %}{{ answer_choices[label] }}{% endif %}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: guaranteed true
+    reference: Webson & Pavlick 2021
+  8e3b8d3d-1362-47dc-922a-82c03f965989: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 8e3b8d3d-1362-47dc-922a-82c03f965989
+    jinja: Given that {{premise}} Therefore, it must be true that "{{hypothesis}}"?
+      Yes, no, or maybe? ||| {% if label !=-1 %}{{ answer_choices[label] }}{% endif
+      %}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: must be true
+    reference: Sanh et al. 2021
+  90ab1002-093c-4e54-b48f-626655e36b65: !Template
+    answer_choices: Guaranteed ||| Impossible ||| Possible
+    id: 90ab1002-093c-4e54-b48f-626655e36b65
+    jinja: "Assume it is true that {{premise}} \n\nTherefore, \"{{hypothesis}}\" is\
+      \ {{\"guaranteed\"}}, {{\"possible\"}}, or {{\"impossible\"}}? ||| {% if label\
+      \ !=-1 %}{{ answer_choices[label] }}{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: guaranteed_possible_impossible
+    reference: Sanh et al. 2021
+  a485d120-6eef-4ff6-8684-42df1639b101: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: a485d120-6eef-4ff6-8684-42df1639b101
+    jinja: "{{premise}} \n\nQuestion: Does this imply that \"{{hypothesis}}\"? Yes,\
+      \ no, or maybe? ||| {% if label !=-1 %}{{answer_choices[label]}}{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: does this imply
+    reference: Sanh et al. 2021
+  bee62bfa-5307-4e1c-97b2-2ad2f7bcb179: !Template
+    answer_choices: Correct ||| Incorrect ||| Inconclusive
+    id: bee62bfa-5307-4e1c-97b2-2ad2f7bcb179
+    jinja: '{{premise}} Using only the above description and what you know about the
+      world, "{{hypothesis}}" is definitely correct, incorrect, or inconclusive? |||
+      {% if label !=-1 %}{{ answer_choices[label] }}{% endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: MNLI crowdsource
+    reference: Adapted from Williams et al. 2018's instructions to crowdsourcing workers.
+  e503b148-8e6c-43b5-9ed6-312794c54d9b: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: e503b148-8e6c-43b5-9ed6-312794c54d9b
+    jinja: Given {{premise}} Should we assume that "{{hypothesis}}" is true? Yes,
+      no, or maybe? ||| {% if label !=-1 %}{{ answer_choices[label] }}{% endif %}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: should assume
+    reference: Webson & Pavlick 2021
+  ea56b7f3-6e07-45bc-b619-c527eac4a41b: !Template
+    answer_choices: True ||| False ||| Inconclusive
+    id: ea56b7f3-6e07-45bc-b619-c527eac4a41b
+    jinja: 'Take the following as truth: {{premise}}
+
+      Then the following statement: "{{hypothesis}}" is {{"true"}}, {{"false"}}, or
+      {{"inconclusive"}}? ||| {% if label !=-1 %}{{ answer_choices[label] }}{% endif
+      %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: take the following as truth
+    reference: Sanh et al. 2021
+  7cf18090-513c-45e9-89e5-82cd36db4b7f: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 7cf18090-513c-45e9-89e5-82cd36db4b7f
+    jinja: '{{premise}}
+
+      Question: {{hypothesis}}. Yes, No or Maybe?
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: fewshot
+    reference: jonghyeonkim
+  a53d8c60-4780-4780-959e-6628ac900f15: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: a53d8c60-4780-4780-959e-6628ac900f15
+    jinja: Can {{hypothesis}} be inferred from {{premise}}? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_00
+    reference: jonghyeonkim
+  aeaa821c-9789-42c7-9648-0731c1aabcac: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: aeaa821c-9789-42c7-9648-0731c1aabcac
+    jinja: Suppose {{premise}} Can we infer that "{{hypothesis}}"? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_01
+    reference: jonghyeonkim
+  16412a34-b701-4f5b-8e9b-8ffee5ee4ee1: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 16412a34-b701-4f5b-8e9b-8ffee5ee4ee1
+    jinja: Is {{hypothesis}} a logical consequence of {{premise}}? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_02
+    reference: jonghyeonkim
+  a61ac3e7-74ef-429b-83d8-554a78bbfbc8: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: a61ac3e7-74ef-429b-83d8-554a78bbfbc8
+    jinja: Does {{hypothesis}} necessarily follow from {{premise}}? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_03
+    reference: jonghyeonkim
+  d9df9370-8752-452d-a66e-5fa00844ce55: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: d9df9370-8752-452d-a66e-5fa00844ce55
+    jinja: '{{premise}}. Is it correct to infer that {{hypothesis}}? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_04
+    reference: jonghyeonkim
+  9be9674f-0b49-4427-aa9f-e37f64b70cfe: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 9be9674f-0b49-4427-aa9f-e37f64b70cfe
+    jinja: '{{premise}}. Does this mean that {{hypothesis}} is true? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_05
+    reference: jonghyeonkim
+  c688402f-834f-4ea6-9218-33f3d4543ea0: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: c688402f-834f-4ea6-9218-33f3d4543ea0
+    jinja: Is {{hypothesis}} a reasonable inference from {{premise}}? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_06
+    reference: jonghyeonkim
+  c3030d91-fd64-441d-bf1e-3e9cbb78b1bb: !Template
+    answer_choices: yes ||| no ||| maybe
+    id: c3030d91-fd64-441d-bf1e-3e9cbb78b1bb
+    jinja: '{{premise}} implies {{hypothesis}}. yes, no, or maybe? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_07
+    reference: jonghyeonkim
+  0a2801e0-c6f2-4f4c-9302-deb5d307de7b: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 0a2801e0-c6f2-4f4c-9302-deb5d307de7b
+    jinja: Given {{premise}}, is {{hypothesis}} a plausible conclusion? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_08
+    reference: jonghyeonkim
+  7ab2e043-36b0-4dbd-b806-389c05fd4e08: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 7ab2e043-36b0-4dbd-b806-389c05fd4e08
+    jinja: Based on {{premise}}, can we say that {{hypothesis}} is true? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_09
+    reference: jonghyeonkim
+  b3ecf7f1-2c78-43c7-8083-86105a671395: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: b3ecf7f1-2c78-43c7-8083-86105a671395
+    jinja: Given {{premise}} Is it guaranteed true that "{{hypothesis}}"? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_10
+    reference: jonghyeonkim
+  26d70bc8-c3d3-4844-96be-64885bbc4bf8: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 26d70bc8-c3d3-4844-96be-64885bbc4bf8
+    jinja: '{{premise}}. Does this imply that {{hypothesis}} must be true? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_11
+    reference: jonghyeonkim
+  ba34abf1-f00c-4dbc-9aff-642e90849318: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: ba34abf1-f00c-4dbc-9aff-642e90849318
+    jinja: '{{premise}}
+
+
+      Question: {{hypothesis}} is true? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_12
+    reference: jonghyeonkim
+  d28cf556-f142-4bdd-8207-56856c2f426d: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: d28cf556-f142-4bdd-8207-56856c2f426d
+    jinja: "{{premise}} \n\nQuestion: Does this imply that \"{{hypothesis}}\"? ||| {{\
+      \ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_13
+    reference: jonghyeonkim
+  17c163a9-c94c-4c2f-b85f-8d89f75e2747: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 17c163a9-c94c-4c2f-b85f-8d89f75e2747
+    jinja: Given {{premise}}, is it likely that "{{hypothesis}}" is true? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_14
+    reference: jonghyeonkim
+  9c30398a-51c1-4451-881a-92dc5f8aa3a8: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 9c30398a-51c1-4451-881a-92dc5f8aa3a8
+    jinja: Is it reasonable to infer "{{hypothesis}}" from "{{premise}}"? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_15
+    reference: jonghyeonkim
+  38444d6c-9685-4250-a3f7-1ac06ab602d1: !Template
+    answer_choices: yes ||| no ||| maybe
+    id: 38444d6c-9685-4250-a3f7-1ac06ab602d1
+    jinja: '{{premise}} entails that {{hypothesis}}. yes, no, or maybe? ||| {{
+      answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_16
+    reference: jonghyeonkim
+  64dee5de-06a5-4b59-89f4-c1e4557d1ba2: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 64dee5de-06a5-4b59-89f4-c1e4557d1ba2
+    jinja: Given {{premise}} Should we assume that "{{hypothesis}}" is true? ||| {{
+      answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_17
+    reference: jonghyeonkim
+  6bb61429-53a4-4b1b-8669-6243d0c0ca80: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 6bb61429-53a4-4b1b-8669-6243d0c0ca80
+    jinja: Assuming {{premise}}, is it possible that {{hypothesis}} is true? ||| {{
+      answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_18
+    reference: jonghyeonkim
+  e7fe4bc3-2981-4932-89dd-da1533b5d496: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: e7fe4bc3-2981-4932-89dd-da1533b5d496
+    jinja: Is it true that "{{hypothesis}}" based on the given "{{premise}}"? ||| {{
+      answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_19
+    reference: jonghyeonkim
+  8daa26a4-c7f1-4cd4-b0d3-88410db161dd: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 8daa26a4-c7f1-4cd4-b0d3-88410db161dd
+    jinja: Is {{hypothesis}} a plausible conclusion to draw from {{premise}}? ||| {{
+      answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_20
+    reference: jonghyeonkim
+  a5c22aa3-1bea-4d7b-a77f-365385a22977: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: a5c22aa3-1bea-4d7b-a77f-365385a22977
+    jinja: Can we draw a logical inference from {{premise}} to {{hypothesis}}? ||| {{
+      answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_21
+    reference: jonghyeonkim
+  ddea46a0-1e58-4386-9704-eca5df4e630a: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: ddea46a0-1e58-4386-9704-eca5df4e630a
+    jinja: Based on the given text, can we conclude that {{hypothesis}} is true? |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_22
+    reference: jonghyeonkim
+  e98d1130-2140-443b-8357-b6fc734fa2eb: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: e98d1130-2140-443b-8357-b6fc734fa2eb
+    jinja: Based on {{premise}}, is it reasonable to assume that {{hypothesis}}? |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_23
+    reference: jonghyeonkim
+  8674a1ea-7d64-4732-b5bd-214dd0525139: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 8674a1ea-7d64-4732-b5bd-214dd0525139
+    jinja: Can we conclude that "{{hypothesis}}" from the fact that "{{premise}}"? |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_24
+    reference: jonghyeonkim
+  96becac0-ac83-408e-aa60-84e907803f71: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 96becac0-ac83-408e-aa60-84e907803f71
+    jinja: Based on {{premise}}, is it reasonable to conclude that {{hypothesis}}? |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_25
+    reference: jonghyeonkim
+  d37705cd-aa7a-489a-abd9-55dc8de2b308: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: d37705cd-aa7a-489a-abd9-55dc8de2b308
+    jinja: Given that {{premise}} Therefore, it must be true that "{{hypothesis}}"?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_26
+    reference: jonghyeonkim
+  be0a95a1-5132-4c50-aa89-493d54af9225: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: be0a95a1-5132-4c50-aa89-493d54af9225
+    jinja: Can {{premise}} be used to support "{{hypothesis}}"? Yes, no, or maybe?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_27
+    reference: jonghyeonkim
+  fa57b961-c74c-48c5-92af-a745ee5b5d68: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: fa57b961-c74c-48c5-92af-a745ee5b5d68
+    jinja: Given that {{premise}}, can we conclude that "{{hypothesis}}"?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_28
+    reference: jonghyeonkim
+  5815befd-9d1d-4373-adf6-120de5ee297e: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 5815befd-9d1d-4373-adf6-120de5ee297e
+    jinja: '{{premise}}. Would you say that {{hypothesis}} is a reasonable conclusion?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_29
+    reference: jonghyeonkim
+  1027e517-818a-4de7-b5a0-7e065aff4fab: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 1027e517-818a-4de7-b5a0-7e065aff4fab
+    jinja: Given {{premise}}, is it reasonable to assume that {{hypothesis}} is true?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_30
+    reference: jonghyeonkim
+  03e25006-d992-48e6-b784-4c36c88e23f7: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 03e25006-d992-48e6-b784-4c36c88e23f7
+    jinja: Suppose {{premise}} Can we infer that "{{hypothesis}}"? Yes, no, or maybe?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_31
+    reference: jonghyeonkim
+  aaef6e35-106e-4db6-b45d-40217c58f9e9: !Template
+    answer_choices: yes ||| no ||| maybe
+    id: aaef6e35-106e-4db6-b45d-40217c58f9e9
+    jinja: Based on the passage, is it reasonable to conclude that "{{hypothesis}}"
+      is true? _____ ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_32
+    reference: jonghyeonkim
+  3adb1f42-7623-4d9e-a47a-321f3b692052: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 3adb1f42-7623-4d9e-a47a-321f3b692052
+    jinja: Suppose {{premise}}. Is {{hypothesis}} necessarily true? Yes, no, or maybe?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_33
+    reference: jonghyeonkim
+  773f5fe8-2db6-4dea-a1ba-a52d040c58f0: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 773f5fe8-2db6-4dea-a1ba-a52d040c58f0
+    jinja: Can {{hypothesis}} be logically inferred from {{premise}}? Yes, no or maybe?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_34
+    reference: jonghyeonkim
+  ba1dc4fd-6fb5-4a1b-ae00-4b41e89c9f08: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: ba1dc4fd-6fb5-4a1b-ae00-4b41e89c9f08
+    jinja: Suppose {{premise}}. Is it reasonable to assume that {{hypothesis}} is true?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_35
+    reference: jonghyeonkim
+  4234ea0e-5c60-4257-8595-3fd6a10fbcf3: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 4234ea0e-5c60-4257-8595-3fd6a10fbcf3
+    jinja: Does "{{hypothesis}}" logically follow from {{premise}}? Yes, no, or maybe?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_36
+    reference: jonghyeonkim
+  3b524324-1b00-4639-920b-e0681fbe057f: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 3b524324-1b00-4639-920b-e0681fbe057f
+    jinja: '{{premise}} Based on the previous passage, is it true that "{{hypothesis}}"?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_37
+    reference: jonghyeonkim
+  40798613-5294-4ae5-9277-841230cf4e45: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 40798613-5294-4ae5-9277-841230cf4e45
+    jinja: '{{premise}} Is the claim "{{hypothesis}}" supported by the information given?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_38
+    reference: jonghyeonkim
+  8c02573b-b131-484d-80a3-046024f42a15: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 8c02573b-b131-484d-80a3-046024f42a15
+    jinja: Suppose {{premise}}. Would this imply that {{hypothesis}}? Yes, no, or maybe?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_39
+    reference: jonghyeonkim
+  2b6ef5dc-9a01-48c0-bd3f-07499f7db30a: !Template
+    answer_choices: yes ||| no ||| maybe
+    id: 2b6ef5dc-9a01-48c0-bd3f-07499f7db30a
+    jinja: '{{premise}} From the information given, can we deduce that "{{hypothesis}}"
+      is true? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_40
+    reference: jonghyeonkim
+  56cd1c4e-0321-494b-97af-4091deb0745f: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 56cd1c4e-0321-494b-97af-4091deb0745f
+    jinja: Can "{{hypothesis}}" be logically inferred from {{premise}}? Yes, no, or
+      maybe? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_41
+    reference: jonghyeonkim
+  05bd41e0-28ea-43f8-924f-045153c44635: !Template
+    answer_choices: yes ||| no ||| maybe
+    id: 05bd41e0-28ea-43f8-924f-045153c44635
+    jinja: '{{premise}} Does this imply that "{{hypothesis}}" is true?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_42
+    reference: jonghyeonkim
+  a151c239-1ec5-492a-9b4d-a4290f785959: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: a151c239-1ec5-492a-9b4d-a4290f785959
+    jinja: "{{premise}} \n\nQuestion: Does this imply that \"{{hypothesis}}\"? Yes,\
+      \ no, or maybe? ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_43
+    reference: jonghyeonkim
+  63621186-940d-4c33-b6a0-f4523ec25187: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 63621186-940d-4c33-b6a0-f4523ec25187
+    jinja: '{{premise}} Would it be a reasonable inference to conclude that "{{hypothesis}}"?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_44
+    reference: jonghyeonkim
+  9756805e-03f4-4504-8339-09151b4edb25: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 9756805e-03f4-4504-8339-09151b4edb25
+    jinja: Given {{premise}} Is it guaranteed true that "{{hypothesis}}"? Yes, no, or
+      maybe? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_45
+    reference: jonghyeonkim
+  4cc60e3e-bbca-4aa9-be30-440bef751f7a: !Template
+    answer_choices: yes ||| no ||| maybe
+    id: 4cc60e3e-bbca-4aa9-be30-440bef751f7a
+    jinja: Given the statement "{{premise}}", is "{{hypothesis}}" yes, no, or maybe?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_46
+    reference: jonghyeonkim
+  7f817a98-2f95-418d-84d7-27eaa23f1ff9: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 7f817a98-2f95-418d-84d7-27eaa23f1ff9
+    jinja: Given {{premise}} Should we assume that "{{hypothesis}}" is true? Yes, no,
+      or maybe? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_47
+    reference: jonghyeonkim
+  d651c729-ef06-4554-9fcc-afdf34e38137: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: d651c729-ef06-4554-9fcc-afdf34e38137
+    jinja: '{{premise}}. Would it be accurate to say that {{hypothesis}} is a logical
+      conclusion? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_48
+    reference: jonghyeonkim
+  66551ef0-ced8-434e-9a3f-2a087ed41d79: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 66551ef0-ced8-434e-9a3f-2a087ed41d79
+    jinja: Does {{premise}} provide enough evidence to support {{hypothesis}}? Yes,
+      no or maybe? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_49
+    reference: jonghyeonkim
+  ca68725d-1a82-47b1-9641-d2318dbf1f4c: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: ca68725d-1a82-47b1-9641-d2318dbf1f4c
+    jinja: Does {{premise}} provide enough justification to support the claim that {{hypothesis}}?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_50
+    reference: jonghyeonkim
+  136819ad-0cb4-4bac-9e5e-2f36a51dd426: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 136819ad-0cb4-4bac-9e5e-2f36a51dd426
+    jinja: Does {{premise}} provide enough evidence to support {{hypothesis}}? Yes,
+      no, or maybe? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_51
+    reference: jonghyeonkim
+  a3b7c0f4-9955-4407-82a2-97c72d9d3fdb: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: a3b7c0f4-9955-4407-82a2-97c72d9d3fdb
+    jinja: Is it reasonable to claim that "{{hypothesis}}" based on the information
+      in {{premise}}? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_52
+    reference: jonghyeonkim
+  43cd466f-148b-40de-a3fa-b29aef8c73d9: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 43cd466f-148b-40de-a3fa-b29aef8c73d9
+    jinja: '{{premise}} Would it be accurate to say "{{hypothesis}}" based on the information
+      given? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_53
+    reference: jonghyeonkim
+  299b8d1f-8e3e-45df-a843-fb02ed8186d7: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 299b8d1f-8e3e-45df-a843-fb02ed8186d7
+    jinja: '{{premise}} Is it correct to say that "{{hypothesis}}" based on the provided
+      information? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_54
+    reference: jonghyeonkim
+  3eb74712-36fd-4c18-9edf-bc3d49c21e6d: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 3eb74712-36fd-4c18-9edf-bc3d49c21e6d
+    jinja: '{{premise}} Does the provided information support the claim that "{{hypothesis}}"
+      is true? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_55
+    reference: jonghyeonkim
+  653ad20a-6ed6-4d55-aa14-5c8e1650ff49: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 653ad20a-6ed6-4d55-aa14-5c8e1650ff49
+    jinja: Given that {{premise}} Therefore, it must be true that "{{hypothesis}}"?
+      Yes, no, or maybe? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_56
+    reference: jonghyeonkim
+  d3191e93-56eb-4edd-bbb5-b4f7661bf752: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: d3191e93-56eb-4edd-bbb5-b4f7661bf752
+    jinja: '{{premise}} Would it be valid to claim that "{{hypothesis}}" based on the
+      information given? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_57
+    reference: jonghyeonkim
+  63f41a49-038e-4815-9741-cadfe812ba22: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 63f41a49-038e-4815-9741-cadfe812ba22
+    jinja: '{{premise}} Does the information support the claim that "{{hypothesis}}"?
+      Yes, no, or maybe? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_58
+    reference: jonghyeonkim
+  d88b424f-9d66-4375-87c8-9dd0de168463: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: d88b424f-9d66-4375-87c8-9dd0de168463
+    jinja: Given {{premise}}, does it necessarily follow that "{{hypothesis}}" is true?
+      Yes, no, or maybe? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_59
+    reference: jonghyeonkim
+  24cfc9a4-676a-4b70-a60f-bcaf0981e2b1: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 24cfc9a4-676a-4b70-a60f-bcaf0981e2b1
+    jinja: '{{premise}} Based on the previous passage, is it true that "{{hypothesis}}"?
+      Yes, no, or maybe? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_60
+    reference: jonghyeonkim
+  5f7e38b9-81a4-4c6d-9a3d-0a10fb664604: !Template
+    answer_choices: yes ||| no ||| maybe
+    id: 5f7e38b9-81a4-4c6d-9a3d-0a10fb664604
+    jinja: '{{premise}} Does this imply that "{{hypothesis}}" is {{"true"}}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_61
+    reference: jonghyeonkim
+  60407327-dde9-4caf-8045-984607e6386c: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 60407327-dde9-4caf-8045-984607e6386c
+    jinja: '{{premise}} Is the statement "{{hypothesis}}" a logical implication of the
+      provided information? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_62
+    reference: jonghyeonkim
+  d6cc723a-ead4-4d43-91ae-20fcbc9b8ad7: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: d6cc723a-ead4-4d43-91ae-20fcbc9b8ad7
+    jinja: If {{premise}}, then would it be correct to say that "{{hypothesis}}" is
+      true? Yes, no, or maybe? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_63
+    reference: jonghyeonkim
+  72abbdaf-46a1-48cc-a4bc-77c63c99f3b2: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 72abbdaf-46a1-48cc-a4bc-77c63c99f3b2
+    jinja: '{{premise}}. Based on this, is {{hypothesis}} more likely to be true than
+      false? Yes, No or Maybe? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_64
+    reference: jonghyeonkim
+  b133f7e3-b0c3-4579-b08a-580cc796a3c3: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: b133f7e3-b0c3-4579-b08a-580cc796a3c3
+    jinja: Is it reasonable to assume that "{{hypothesis}}" based on the information
+      provided in {{premise}}? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_65
+    reference: jonghyeonkim
+  f57ff364-7231-4f84-951c-a567b4f838fb: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: f57ff364-7231-4f84-951c-a567b4f838fb
+    jinja: Consider {{premise}}. Would you agree that "{{hypothesis}}" is a valid conclusion?
+      Yes, no, or maybe? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_66
+    reference: jonghyeonkim
+  b999ad7b-efec-46cc-8fae-707c741ca0a5: !Template
+    answer_choices: yes ||| no ||| maybe
+    id: b999ad7b-efec-46cc-8fae-707c741ca0a5
+    jinja: Based on {{premise}}, would you say that "{{hypothesis}}" is {{"true"}}? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_67
+    reference: jonghyeonkim
+  b7419c22-09dd-4ad2-bf32-e7522a835c50: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: b7419c22-09dd-4ad2-bf32-e7522a835c50
+    jinja: '{{premise}} Can the claim that "{{hypothesis}}" is true be supported based
+      on the provided information? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_68
+    reference: jonghyeonkim
+  d3a75238-3ca2-40a1-8076-fd46c0d9ef8a: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: d3a75238-3ca2-40a1-8076-fd46c0d9ef8a
+    jinja: Given that {{premise}} is true, is it reasonable to conclude that "{{hypothesis}}"?
+      Yes, no, or maybe? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_69
+    reference: jonghyeonkim
+  081fb56f-1295-46e7-a5dc-283560616a23: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 081fb56f-1295-46e7-a5dc-283560616a23
+    jinja: '{{premise}} Based on the given information, is it reasonable to conclude
+      that "{{hypothesis}}" is true? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_70
+    reference: jonghyeonkim
+  de590242-723a-4cbe-9f4d-ccaaa1b0ffd1: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: de590242-723a-4cbe-9f4d-ccaaa1b0ffd1
+    jinja: '{{premise}} Based on the passage, can we conclude that "{{hypothesis}}"?
+      Answer "Yes", "No", or "Maybe". ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_71
+    reference: jonghyeonkim
+  55808ec1-338c-4cdd-b123-c170946cfb46: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 55808ec1-338c-4cdd-b123-c170946cfb46
+    jinja: Considering "{{hypothesis}}" and {{premise}}, is "{{hypothesis}}" likely
+      to be true? Yes, no, or maybe? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_72
+    reference: jonghyeonkim
+  3615e36a-b8b0-41b9-b996-458724b031e1: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 3615e36a-b8b0-41b9-b996-458724b031e1
+    jinja: Based on {{premise}}, can we conclude that "{{hypothesis}}" is {{"true"}}? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_73
+    reference: jonghyeonkim
+  49c9b7a1-fbee-40bc-8ee8-5c9a948db752: !Template
+    answer_choices: yes ||| no ||| maybe
+    id: 49c9b7a1-fbee-40bc-8ee8-5c9a948db752
+    jinja: Given {{premise}}, can we say that "{{hypothesis}}" is accurate? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_74
+    reference: jonghyeonkim
+  02635182-6c25-4e8e-8f05-892a975803e8: !Template
+    answer_choices: Yes ||| no ||| maybe
+    id: 02635182-6c25-4e8e-8f05-892a975803e8
+    jinja: Based on the information provided in {{premise}}, can we say that "{{hypothesis}}"
+      is true? Yes, no, or maybe? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_75
+    reference: jonghyeonkim
+  cfb129a1-80fd-4761-bfec-9970e747d5f9: !Template
+    answer_choices: Yes ||| no ||| maybe
+    id: cfb129a1-80fd-4761-bfec-9970e747d5f9
+    jinja: '{{premise}} Suppose that statement is true, can we infer that "{{hypothesis}}"
+      is also true? Yes, no, or maybe? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_76
+    reference: jonghyeonkim
+  a363c121-14a1-4cf0-b46d-29367d84fd6d: !Template
+    answer_choices: Yes ||| no ||| maybe
+    id: a363c121-14a1-4cf0-b46d-29367d84fd6d
+    jinja: '{{premise}} Does the given information lead to the conclusion that "{{hypothesis}}"
+      is true? Yes, no, or maybe? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_77
+    reference: jonghyeonkim
+  366e6d7b-269c-4bf5-983b-0828b4eaad2e: !Template
+    answer_choices: yes ||| no ||| maybe
+    id: 366e6d7b-269c-4bf5-983b-0828b4eaad2e
+    jinja: Suppose its true that {{premise}} Then, is "{{hypothesis}}" always true? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_78
+    reference: jonghyeonkim
+  ca5bebe8-848b-45b5-98b7-3c9fa44d716f: !Template
+    answer_choices: no ||| yes ||| maybe
+    id: ca5bebe8-848b-45b5-98b7-3c9fa44d716f
+    jinja: Suppose {{premise}}. Can we logically infer that "{{hypothesis}}" is false? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_79
+    reference: jonghyeonkim
+  c23c39bb-4e61-425f-a5da-dcd0b2f5fabc: !Template
+    answer_choices: Yes ||| no ||| maybe
+    id: c23c39bb-4e61-425f-a5da-dcd0b2f5fabc
+    jinja: '{{premise}} If the above statement is true, can we conclude that "{{hypothesis}}"
+      is also true? Yes, no, or maybe? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_80
+    reference: jonghyeonkim
+  6896038b-e689-4758-83fc-d327b82d792d: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 6896038b-e689-4758-83fc-d327b82d792d
+    jinja: '{{premise}} Can we draw the conclusion that "{{hypothesis}}" based on the
+      provided information? Yes, no, or maybe? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_81
+    reference: jonghyeonkim
+  b46a9662-62ec-4ca7-8607-08a475939dda: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: b46a9662-62ec-4ca7-8607-08a475939dda
+    jinja: '{{premise}} Is it reasonable to assume that "{{hypothesis}}" follows from
+      the information given? Yes, no, or maybe? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_82
+    reference: jonghyeonkim
+  4db1cbd5-7288-4697-8675-4084adf8698d: !Template
+    answer_choices: yes ||| no ||| maybe
+    id: 4db1cbd5-7288-4697-8675-4084adf8698d
+    jinja: Can we conclude that "{{hypothesis}}" is consistent with "{{premise}}"? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_83
+    reference: jonghyeonkim
+  b8578408-49bd-474b-88de-28e658807a6f: !Template
+    answer_choices: no ||| yes ||| maybe
+    id: b8578408-49bd-474b-88de-28e658807a6f
+    jinja: '{{premise}} Based on that information, is the claim: "{{hypothesis}}" false? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_84
+    reference: jonghyeonkim
+  b10e37eb-1f91-4edb-b3d4-ce1fd02de324: !Template
+    answer_choices: yes ||| no ||| maybe
+    id: b10e37eb-1f91-4edb-b3d4-ce1fd02de324
+    jinja: From the information given, can we logically deduce that "{{hypothesis}}"
+      is true? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_85
+    reference: jonghyeonkim
+  366dd31c-779e-4537-918f-89cc3954ae3d: !Template
+    answer_choices: yes ||| no ||| maybe
+    id: 366dd31c-779e-4537-918f-89cc3954ae3d
+    jinja: '{{premise}} Therefore, can we infer that "{{hypothesis}}" is plausible? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_86
+    reference: jonghyeonkim
+  3b4d943c-3fe2-4769-bfde-444efb1e0ba8: !Template
+    answer_choices: no ||| yes ||| maybe
+    id: 3b4d943c-3fe2-4769-bfde-444efb1e0ba8
+    jinja: Given that "{{premise}}" is true, can we say that "{{hypothesis}}" is never true? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_87
+    reference: jonghyeonkim
+  ceda8a84-8869-4d3c-b954-18a9ae749d12: !Template
+    answer_choices: yes ||| no ||| maybe
+    id: ceda8a84-8869-4d3c-b954-18a9ae749d12
+    jinja: "Assume it is true that {{premise}} \n\nTherefore, \"{{hypothesis}}\" is guaranteed? ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_88
+    reference: jonghyeonkim
+  269fcf77-7ca4-470f-af25-2762d62ef504: !Template
+    answer_choices: yes ||| no ||| maybe
+    id: 269fcf77-7ca4-470f-af25-2762d62ef504
+    jinja: Based on the information provided, is the claim "{{hypothesis}}" supported? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_89
+    reference: jonghyeonkim
+  dc6e0406-8078-426b-a5a8-b1bfe0808c36: !Template
+    answer_choices: yes ||| no ||| maybe
+    id: dc6e0406-8078-426b-a5a8-b1bfe0808c36
+    jinja: Do the statements "{{premise}}" and "{{hypothesis}}" have a consistent relationship? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_90
+    reference: jonghyeonkim
+  b36f3511-cc9a-4a89-ba1a-968c749e4cfb: !Template
+    answer_choices: yes ||| no ||| maybe
+    id: b36f3511-cc9a-4a89-ba1a-968c749e4cfb
+    jinja: "{{premise}} \n\nKeeping in mind the above text, consider: {{hypothesis}}\n\
+      \ Is this always correct? ||| {{\
+      \ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_91
+    reference: jonghyeonkim
+  1f0587d7-d1d3-4090-8e4d-d829eb620a21: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 1f0587d7-d1d3-4090-8e4d-d829eb620a21
+    jinja: Is "{{hypothesis}}" consistent with {{premise}}? Answer with {{"yes"}}, {{"no"}},
+      or {{"maybe"}} based on the provided information. ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_92
+    reference: jonghyeonkim
+  b42915c9-0b05-4d1d-9e54-c8595f65fc16: !Template
+    answer_choices: yes ||| no ||| maybe
+    id: b42915c9-0b05-4d1d-9e54-c8595f65fc16
+    jinja: 'Take the following as truth: {{premise}}
+
+
+      Then the following statement: "{{hypothesis}}" is true? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_93
+    reference: jonghyeonkim
+  73f685bc-ab94-462c-9e9c-2089181575ef: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: 73f685bc-ab94-462c-9e9c-2089181575ef
+    jinja: 'Consider the following context: {{premise}}
+
+      Is it reasonable to conclude that "{{hypothesis}}" is True? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_94
+    reference: jonghyeonkim
+  c7e0a75d-d233-45b9-a5b4-21124e6998a6: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: c7e0a75d-d233-45b9-a5b4-21124e6998a6
+    jinja: Does "{{hypothesis}}" follow logically from {{premise}}? Answer with {{"Yes"}},
+      {{"No"}}, or {{"Maybe"}} based on the provided information. ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_95
+    reference: jonghyeonkim
+  ac2b99c2-a9bd-40a0-a57f-f543b18b084b: !Template
+    answer_choices: Yes ||| No ||| Maybe
+    id: ac2b99c2-a9bd-40a0-a57f-f543b18b084b
+    jinja: 'Consider the following statement: "{{premise}}". Does this support the idea
+      that "{{hypothesis}}" is true? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_96
+    reference: jonghyeonkim
+  d707ebb6-3e06-48e1-93cc-60b77f983d4c: !Template
+    answer_choices: yes ||| no ||| maybe
+    id: d707ebb6-3e06-48e1-93cc-60b77f983d4c
+    jinja: '{{premise}} Using only the above description and what you know about the
+      world, "{{hypothesis}}" is definitely correct? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_97
+    reference: jonghyeonkim
+  6cc8b1ac-3d28-4caa-879e-cdf2ef4b520b: !Template
+    answer_choices: A) Yes ||| B) No ||| C) Maybe
+    id: 6cc8b1ac-3d28-4caa-879e-cdf2ef4b520b
+    jinja: Based on {{premise}}, can we conclude that "{{hypothesis}}" is true? Please choose one of the following options. \nA) Yes\nB) No\nC) Maybe |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_98
+    reference: jonghyeonkim
+  ab430ac2-4036-473d-adba-06d3d07897bc: !Template
+    answer_choices: yes ||| no ||| maybe
+    id: ab430ac2-4036-473d-adba-06d3d07897bc
+    jinja: Based on the information provided in {{premise}}, can we conclude that "{{hypothesis}}"
+      is definitely true? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_99
+    reference: jonghyeonkim
+  5104e6aa-68e9-4607-9b4d-1c6cc0f7ced8: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 5104e6aa-68e9-4607-9b4d-1c6cc0f7ced8
+    jinja: Can {{hypothesis}} be inferred from {{premise}}? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_00
+    reference: jonghyeonkim
+  2fca13c3-8725-4860-9814-10ac276163ec: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 2fca13c3-8725-4860-9814-10ac276163ec
+    jinja: Suppose {{premise}} Can we infer that "{{hypothesis}}"? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_01
+    reference: jonghyeonkim
+  f70a082b-1ecb-478e-b9d2-2fd68097420e: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: f70a082b-1ecb-478e-b9d2-2fd68097420e
+    jinja: Is {{hypothesis}} a logical consequence of {{premise}}? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_02
+    reference: jonghyeonkim
+  37d2bc17-7f18-405e-b0b5-8639cdefe001: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 37d2bc17-7f18-405e-b0b5-8639cdefe001
+    jinja: Does {{hypothesis}} necessarily follow from {{premise}}? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_03
+    reference: jonghyeonkim
+  77375a21-a415-45eb-9a52-a6f056c1e42c: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 77375a21-a415-45eb-9a52-a6f056c1e42c
+    jinja: '{{premise}}. Is it correct to infer that {{hypothesis}}? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_04
+    reference: jonghyeonkim
+  475a73bf-f7c9-4af6-bcaa-663ae3dc5505: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 475a73bf-f7c9-4af6-bcaa-663ae3dc5505
+    jinja: '{{premise}}. Does this mean that {{hypothesis}} is true? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_05
+    reference: jonghyeonkim
+  ca485955-21b8-4cdf-9b46-ee6c6f38d636: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: ca485955-21b8-4cdf-9b46-ee6c6f38d636
+    jinja: Is {{hypothesis}} a reasonable inference from {{premise}}? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_06
+    reference: jonghyeonkim
+  a35398cb-f100-459d-abe6-9cb924afebac: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: a35398cb-f100-459d-abe6-9cb924afebac
+    jinja: '{{premise}} implies {{hypothesis}}. Of course, No way, or Uncertain? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_07
+    reference: jonghyeonkim
+  df58be30-5885-49ef-8fd3-74d497ed0385: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: df58be30-5885-49ef-8fd3-74d497ed0385
+    jinja: Given {{premise}}, is {{hypothesis}} a plausible conclusion? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_08
+    reference: jonghyeonkim
+  20d34fea-705b-4e94-bc1c-2f20c183ec30: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 20d34fea-705b-4e94-bc1c-2f20c183ec30
+    jinja: Based on {{premise}}, can we say that {{hypothesis}} is true? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_09
+    reference: jonghyeonkim
+  3a9b96db-b93b-40f8-aa61-862b0c35c05f: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 3a9b96db-b93b-40f8-aa61-862b0c35c05f
+    jinja: Given {{premise}} Is it guaranteed true that "{{hypothesis}}"? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_10
+    reference: jonghyeonkim
+  07075d87-430c-4da1-ab64-bfa9a8f74c4e: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 07075d87-430c-4da1-ab64-bfa9a8f74c4e
+    jinja: '{{premise}}. Does this imply that {{hypothesis}} must be true? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_11
+    reference: jonghyeonkim
+  aaca98b5-1f8e-47d6-82c3-87dc2d624c54: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: aaca98b5-1f8e-47d6-82c3-87dc2d624c54
+    jinja: '{{premise}}
+
+
+      Question: {{hypothesis}} is true? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_12
+    reference: jonghyeonkim
+  f9bc2c65-7502-4d73-973f-bb1c0a36e483: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: f9bc2c65-7502-4d73-973f-bb1c0a36e483
+    jinja: "{{premise}} \n\nQuestion: Does this imply that \"{{hypothesis}}\"? ||| {{\
+      \ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_13
+    reference: jonghyeonkim
+  99cf81de-9854-480c-97e2-d6d8c09223c0: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 99cf81de-9854-480c-97e2-d6d8c09223c0
+    jinja: Given {{premise}}, is it likely that "{{hypothesis}}" is true? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_14
+    reference: jonghyeonkim
+  75baef3e-71d4-4c31-aa12-ef8365e0fa95: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 75baef3e-71d4-4c31-aa12-ef8365e0fa95
+    jinja: Is it reasonable to infer "{{hypothesis}}" from "{{premise}}"? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_15
+    reference: jonghyeonkim
+  d8f6c433-789f-4e32-884e-312f8036974a: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: d8f6c433-789f-4e32-884e-312f8036974a
+    jinja: '{{premise}} entails that {{hypothesis}}. Of course, No way, or Uncertain?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_16
+    reference: jonghyeonkim
+  1cc51364-86c5-422a-9d49-a2dfc92f0dd2: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 1cc51364-86c5-422a-9d49-a2dfc92f0dd2
+    jinja: Given {{premise}} Should we assume that "{{hypothesis}}" is true? ||| {{
+      answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_17
+    reference: jonghyeonkim
+  f739b6d3-27d8-4ebf-aa3a-843a972aa06b: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: f739b6d3-27d8-4ebf-aa3a-843a972aa06b
+    jinja: Assuming {{premise}}, is it possible that {{hypothesis}} is true? ||| {{
+      answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_18
+    reference: jonghyeonkim
+  5430a7eb-0fd0-4cf4-9d7d-7966950d82e5: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 5430a7eb-0fd0-4cf4-9d7d-7966950d82e5
+    jinja: Is it true that "{{hypothesis}}" based on the given "{{premise}}"? ||| {{
+      answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_19
+    reference: jonghyeonkim
+  bd7965b5-ffbe-4a2d-9582-9ff9cdcc2adc: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: bd7965b5-ffbe-4a2d-9582-9ff9cdcc2adc
+    jinja: Is {{hypothesis}} a plausible conclusion to draw from {{premise}}? ||| {{
+      answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_20
+    reference: jonghyeonkim
+  11edcf69-9006-4b9d-afa8-7cfb70d577fc: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 11edcf69-9006-4b9d-afa8-7cfb70d577fc
+    jinja: Can we draw a logical inference from {{premise}} to {{hypothesis}}? ||| {{
+      answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_21
+    reference: jonghyeonkim
+  94dc3743-ebdc-4b25-a48b-4a025b4f3576: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 94dc3743-ebdc-4b25-a48b-4a025b4f3576
+    jinja: Based on the given text, can we conclude that {{hypothesis}} is true? |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_22
+    reference: jonghyeonkim
+  08bf0f57-409f-476e-a243-c966604eecef: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 08bf0f57-409f-476e-a243-c966604eecef
+    jinja: Based on {{premise}}, is it reasonable to assume that {{hypothesis}}? |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_23
+    reference: jonghyeonkim
+  ca234781-b3b4-47ba-9033-e7afd3f5a141: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: ca234781-b3b4-47ba-9033-e7afd3f5a141
+    jinja: Can we conclude that "{{hypothesis}}" from the fact that "{{premise}}"? |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_24
+    reference: jonghyeonkim
+  839c9003-241b-4cab-a26b-849e4880eb2a: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 839c9003-241b-4cab-a26b-849e4880eb2a
+    jinja: Based on {{premise}}, is it reasonable to conclude that {{hypothesis}}? |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_25
+    reference: jonghyeonkim
+  6ef7c88f-3597-4d8e-bc80-0a60cfc15f35: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 6ef7c88f-3597-4d8e-bc80-0a60cfc15f35
+    jinja: Given that {{premise}} Therefore, it must be true that "{{hypothesis}}"?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_26
+    reference: jonghyeonkim
+  97f7b9f3-e406-455f-928e-8564b5be670a: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 97f7b9f3-e406-455f-928e-8564b5be670a
+    jinja: Can {{premise}} be used to support "{{hypothesis}}"? Of course, No way, or
+      Uncertain? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_27
+    reference: jonghyeonkim
+  df50a734-3241-4677-978e-b91a02ea937e: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: df50a734-3241-4677-978e-b91a02ea937e
+    jinja: Given that {{premise}}, can we conclude that "{{hypothesis}}"? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_28
+    reference: jonghyeonkim
+  e68107c5-8405-4b18-9578-ca45ef0dd49b: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: e68107c5-8405-4b18-9578-ca45ef0dd49b
+    jinja: '{{premise}}. Would you say that {{hypothesis}} is a reasonable conclusion?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_29
+    reference: jonghyeonkim
+  c68a3a03-fffe-4f9a-b74e-52a443ccecc1: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: c68a3a03-fffe-4f9a-b74e-52a443ccecc1
+    jinja: Given {{premise}}, is it reasonable to assume that {{hypothesis}} is true?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_30
+    reference: jonghyeonkim
+  69f36c8b-9c9e-4ac3-bf8a-684ee9581318: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 69f36c8b-9c9e-4ac3-bf8a-684ee9581318
+    jinja: Suppose {{premise}} Can we infer that "{{hypothesis}}"? Of course, No way,
+      or Uncertain? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_31
+    reference: jonghyeonkim
+  95d4a5df-3362-4ebe-ad89-10f77889e908: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 95d4a5df-3362-4ebe-ad89-10f77889e908
+    jinja: Based on the passage, is it reasonable to conclude that "{{hypothesis}}"
+      is true? _____ ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_32
+    reference: jonghyeonkim
+  683ae154-7298-403b-a818-220a77f3d9d7: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 683ae154-7298-403b-a818-220a77f3d9d7
+    jinja: Suppose {{premise}}. Is {{hypothesis}} necessarily true? Of course, No way,
+      or Uncertain? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_33
+    reference: jonghyeonkim
+  3a4b17b5-f154-4798-9808-c93e5822953a: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 3a4b17b5-f154-4798-9808-c93e5822953a
+    jinja: Can {{hypothesis}} be logically inferred from {{premise}}? Of course, No
+      way or Uncertain? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_34
+    reference: jonghyeonkim
+  d35107a1-af8f-4a1c-ba88-c197d5bae4d3: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: d35107a1-af8f-4a1c-ba88-c197d5bae4d3
+    jinja: Suppose {{premise}}. Is it reasonable to assume that {{hypothesis}} is true?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_35
+    reference: jonghyeonkim
+  9a50a9e5-4669-4b2c-a381-f9672ff7ad4c: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 9a50a9e5-4669-4b2c-a381-f9672ff7ad4c
+    jinja: Does "{{hypothesis}}" logically follow from {{premise}}? Of course, No way,
+      or Uncertain? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_36
+    reference: jonghyeonkim
+  e5fd19b6-ae7a-4a5e-8539-277c0e19e80a: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: e5fd19b6-ae7a-4a5e-8539-277c0e19e80a
+    jinja: '{{premise}} Based on the previous passage, is it true that "{{hypothesis}}"?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_37
+    reference: jonghyeonkim
+  795b3cf4-3572-475b-b049-13885d444252: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 795b3cf4-3572-475b-b049-13885d444252
+    jinja: '{{premise}} Is the claim "{{hypothesis}}" supported by the information given?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_38
+    reference: jonghyeonkim
+  385f5a44-fce3-4a40-a896-5d0b82023f7e: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 385f5a44-fce3-4a40-a896-5d0b82023f7e
+    jinja: Suppose {{premise}}. Would this imply that {{hypothesis}}? Of course, No
+      way, or Uncertain? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_39
+    reference: jonghyeonkim
+  28d3dede-80d2-443e-9797-d4bae2c22923: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 28d3dede-80d2-443e-9797-d4bae2c22923
+    jinja: '{{premise}} From the information given, can we deduce that "{{hypothesis}}"
+      is true? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_40
+    reference: jonghyeonkim
+  624db150-ca21-462a-b9f5-dbff9c70b731: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 624db150-ca21-462a-b9f5-dbff9c70b731
+    jinja: Can "{{hypothesis}}" be logically inferred from {{premise}}? Of course, No
+      way, or Uncertain? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_41
+    reference: jonghyeonkim
+  054af12c-4b51-4c71-b66d-15ef57d44ca4: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 054af12c-4b51-4c71-b66d-15ef57d44ca4
+    jinja: '{{premise}} Does this imply that "{{hypothesis}}" is true? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_42
+    reference: jonghyeonkim
+  9a7d4c6c-492b-4cf9-8ace-e8245385a526: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 9a7d4c6c-492b-4cf9-8ace-e8245385a526
+    jinja: "{{premise}} \n\nQuestion: Does this imply that \"{{hypothesis}}\"? Of course,\
+      \ No way, or Uncertain? ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_43
+    reference: jonghyeonkim
+  dcbbb75b-9d3b-487b-a983-3b7f711a95f5: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: dcbbb75b-9d3b-487b-a983-3b7f711a95f5
+    jinja: '{{premise}} Would it be a reasonable inference to conclude that "{{hypothesis}}"?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_44
+    reference: jonghyeonkim
+  e2091f6a-270f-4db7-a3a6-61707f9cb3fc: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: e2091f6a-270f-4db7-a3a6-61707f9cb3fc
+    jinja: Given {{premise}} Is it guaranteed true that "{{hypothesis}}"? Of course,
+      No way, or Uncertain? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_45
+    reference: jonghyeonkim
+  3e031255-58a3-4fe1-9323-ab75d0057974: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 3e031255-58a3-4fe1-9323-ab75d0057974
+    jinja: Given the statement "{{premise}}", is "{{hypothesis}}" Of course, No way,
+      or Uncertain? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_46
+    reference: jonghyeonkim
+  2aec127d-e5ce-4706-92a4-6be6127177c0: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 2aec127d-e5ce-4706-92a4-6be6127177c0
+    jinja: Given {{premise}} Should we assume that "{{hypothesis}}" is true? Of course,
+      No way, or Uncertain? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_47
+    reference: jonghyeonkim
+  8dcfb16d-333a-4790-bc45-46150c93a6cb: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 8dcfb16d-333a-4790-bc45-46150c93a6cb
+    jinja: '{{premise}}. Would it be accurate to say that {{hypothesis}} is a logical
+      conclusion? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_48
+    reference: jonghyeonkim
+  1dca86d1-aada-4d7f-bb0e-912c748c1570: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 1dca86d1-aada-4d7f-bb0e-912c748c1570
+    jinja: Does {{premise}} provide enough evidence to support {{hypothesis}}? Of course,
+      No way or Uncertain? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_49
+    reference: jonghyeonkim
+  81d63dca-c282-447b-a821-95e7b1fe324a: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 81d63dca-c282-447b-a821-95e7b1fe324a
+    jinja: Does {{premise}} provide enough justification to support the claim that {{hypothesis}}?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_50
+    reference: jonghyeonkim
+  6e0478f1-7053-4f83-8580-b89143f34bf9: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 6e0478f1-7053-4f83-8580-b89143f34bf9
+    jinja: Does {{premise}} provide enough evidence to support {{hypothesis}}? Of course,
+      No way, or Uncertain? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_51
+    reference: jonghyeonkim
+  37984317-1bc1-4c72-9651-bfd6b454010b: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 37984317-1bc1-4c72-9651-bfd6b454010b
+    jinja: Is it reasonable to claim that "{{hypothesis}}" based on the information
+      in {{premise}}? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_52
+    reference: jonghyeonkim
+  a76b6c8f-d710-41e8-a9c2-208cbefb855c: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: a76b6c8f-d710-41e8-a9c2-208cbefb855c
+    jinja: '{{premise}} Would it be accurate to say "{{hypothesis}}" based on the information
+      given? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_53
+    reference: jonghyeonkim
+  0a7a2333-bc90-4416-b79b-9966a83ba09f: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 0a7a2333-bc90-4416-b79b-9966a83ba09f
+    jinja: '{{premise}} Is it correct to say that "{{hypothesis}}" based on the provided
+      information? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_54
+    reference: jonghyeonkim
+  134db990-463a-42b5-8195-d6bd8515eb74: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 134db990-463a-42b5-8195-d6bd8515eb74
+    jinja: '{{premise}} Does the provided information support the claim that "{{hypothesis}}"
+      is true? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_55
+    reference: jonghyeonkim
+  81a7e77a-e0c7-4b21-ac69-eead9f242f8f: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 81a7e77a-e0c7-4b21-ac69-eead9f242f8f
+    jinja: Given that {{premise}} Therefore, it must be true that "{{hypothesis}}"?
+      Of course, No way, or Uncertain? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_56
+    reference: jonghyeonkim
+  e9e1a4dc-1039-423c-bfaf-bd8fcf94dce9: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: e9e1a4dc-1039-423c-bfaf-bd8fcf94dce9
+    jinja: '{{premise}} Would it be valid to claim that "{{hypothesis}}" based on the
+      information given? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_57
+    reference: jonghyeonkim
+  b102f908-30b2-4821-a460-805957e40548: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: b102f908-30b2-4821-a460-805957e40548
+    jinja: '{{premise}} Does the information support the claim that "{{hypothesis}}"?
+      Of course, No way, or Uncertain? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_58
+    reference: jonghyeonkim
+  589a6505-6f5d-4b66-904e-534641ce0c08: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 589a6505-6f5d-4b66-904e-534641ce0c08
+    jinja: Given {{premise}}, does it necessarily follow that "{{hypothesis}}" is true?
+      Of course, No way, or Uncertain? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_59
+    reference: jonghyeonkim
+  a668baa6-cfc5-4b4d-a241-bb10f64877a2: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: a668baa6-cfc5-4b4d-a241-bb10f64877a2
+    jinja: '{{premise}} Based on the previous passage, is it true that "{{hypothesis}}"?
+      Of course, No way, or Uncertain? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_60
+    reference: jonghyeonkim
+  2bca7571-b504-4f32-bd74-bb0445d44edc: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 2bca7571-b504-4f32-bd74-bb0445d44edc
+    jinja: '{{premise}} Does this imply that "{{hypothesis}}" is {{"true"}}? ||| {{
+      answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_61
+    reference: jonghyeonkim
+  cb841378-5958-4851-ab8e-dabc606622c5: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: cb841378-5958-4851-ab8e-dabc606622c5
+    jinja: '{{premise}} Is the statement "{{hypothesis}}" a logical implication of the
+      provided information? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_62
+    reference: jonghyeonkim
+  a6e75f18-d029-4201-a740-4ce4c48c742d: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: a6e75f18-d029-4201-a740-4ce4c48c742d
+    jinja: If {{premise}}, then would it be correct to say that "{{hypothesis}}" is
+      true? Of course, No way, or Uncertain? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_63
+    reference: jonghyeonkim
+  c922e42f-5e3b-476d-ba32-b1023f61dd94: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: c922e42f-5e3b-476d-ba32-b1023f61dd94
+    jinja: '{{premise}}. Based on this, is {{hypothesis}} more likely to be true than
+      false? Of course, No way or Uncertain? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_64
+    reference: jonghyeonkim
+  99c92182-1879-4895-ba0a-489d3a4be00b: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 99c92182-1879-4895-ba0a-489d3a4be00b
+    jinja: Is it reasonable to assume that "{{hypothesis}}" based on the information
+      provided in {{premise}}? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_65
+    reference: jonghyeonkim
+  9956063d-4b58-4910-88c4-8370422c461d: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 9956063d-4b58-4910-88c4-8370422c461d
+    jinja: Consider {{premise}}. Would you agree that "{{hypothesis}}" is a valid conclusion?
+      Of course, No way, or Uncertain? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_66
+    reference: jonghyeonkim
+  c1064592-037a-41af-ad50-3cda67f65a1e: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: c1064592-037a-41af-ad50-3cda67f65a1e
+    jinja: Based on {{premise}}, would you say that "{{hypothesis}}" is {{"true"}}?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_67
+    reference: jonghyeonkim
+  ff6d93ac-a4dd-4268-bd9d-e1566c4365dc: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: ff6d93ac-a4dd-4268-bd9d-e1566c4365dc
+    jinja: '{{premise}} Can the claim that "{{hypothesis}}" is true be supported based
+      on the provided information? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_68
+    reference: jonghyeonkim
+  845e4a52-7748-4845-9125-4ec178f86111: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 845e4a52-7748-4845-9125-4ec178f86111
+    jinja: Given that {{premise}} is true, is it reasonable to conclude that "{{hypothesis}}"?
+      Of course, No way, or Uncertain? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_69
+    reference: jonghyeonkim
+  146847c0-279a-4625-bdc8-713b186acb78: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 146847c0-279a-4625-bdc8-713b186acb78
+    jinja: '{{premise}} Based on the given information, is it reasonable to conclude
+      that "{{hypothesis}}" is true? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_70
+    reference: jonghyeonkim
+  6f1bffb1-1f96-4442-8199-a944d1ec8bbc: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 6f1bffb1-1f96-4442-8199-a944d1ec8bbc
+    jinja: '{{premise}} Based on the passage, can we conclude that "{{hypothesis}}"?
+      Answer "Of course", "No way", or "Uncertain". ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_71
+    reference: jonghyeonkim
+  1c4efe99-4daf-4fdc-8ed7-8da7d1b58100: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 1c4efe99-4daf-4fdc-8ed7-8da7d1b58100
+    jinja: Considering "{{hypothesis}}" and {{premise}}, is "{{hypothesis}}" likely
+      to be true? Of course, No way, or Uncertain? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_72
+    reference: jonghyeonkim
+  9bd24c77-3e13-42e2-bd7b-744c26d4699e: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 9bd24c77-3e13-42e2-bd7b-744c26d4699e
+    jinja: Based on {{premise}}, can we conclude that "{{hypothesis}}" is {{"true"}}?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_73
+    reference: jonghyeonkim
+  f174628d-484e-4df1-ad6b-f336fb4f2e37: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: f174628d-484e-4df1-ad6b-f336fb4f2e37
+    jinja: Given {{premise}}, can we say that "{{hypothesis}}" is accurate? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_74
+    reference: jonghyeonkim
+  03179909-5896-408e-a16e-5e2d2b35b24f: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 03179909-5896-408e-a16e-5e2d2b35b24f
+    jinja: Based on the information provided in {{premise}}, can we say that "{{hypothesis}}"
+      is true? Of course, No way, or Uncertain? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_75
+    reference: jonghyeonkim
+  e8ccd346-ab71-4818-850c-f4ee5d93fcb5: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: e8ccd346-ab71-4818-850c-f4ee5d93fcb5
+    jinja: '{{premise}} Suppose that statement is true, can we infer that "{{hypothesis}}"
+      is also true? Of course, No way, or Uncertain? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_76
+    reference: jonghyeonkim
+  98b3056e-7e80-408b-ba85-c8fe227ec96f: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 98b3056e-7e80-408b-ba85-c8fe227ec96f
+    jinja: '{{premise}} Does the given information lead to the conclusion that "{{hypothesis}}"
+      is true? Of course, No way, or Uncertain? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_77
+    reference: jonghyeonkim
+  61c147e9-2d3f-4e13-abad-14f1b7c7294c: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 61c147e9-2d3f-4e13-abad-14f1b7c7294c
+    jinja: Suppose its true that {{premise}} Then, is "{{hypothesis}}" always true?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_78
+    reference: jonghyeonkim
+  55a26f32-94c0-4e2a-998b-67ed558c9692: !Template
+    answer_choices: No way ||| Of course ||| Uncertain
+    id: 55a26f32-94c0-4e2a-998b-67ed558c9692
+    jinja: Suppose {{premise}}. Can we logically infer that "{{hypothesis}}" is false?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_79
+    reference: jonghyeonkim
+  3ff8cb01-bc3a-4664-a1ed-4c10780c71e6: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 3ff8cb01-bc3a-4664-a1ed-4c10780c71e6
+    jinja: '{{premise}} If the above statement is true, can we conclude that "{{hypothesis}}"
+      is also true? Of course, No way, or Uncertain? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_80
+    reference: jonghyeonkim
+  6c451905-a934-4e76-8b92-9b68d2b22c35: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 6c451905-a934-4e76-8b92-9b68d2b22c35
+    jinja: '{{premise}} Can we draw the conclusion that "{{hypothesis}}" based on the
+      provided information? Of course, No way, or Uncertain? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_81
+    reference: jonghyeonkim
+  1c87be48-bc61-4a49-9de5-dfb46389fa49: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 1c87be48-bc61-4a49-9de5-dfb46389fa49
+    jinja: '{{premise}} Is it reasonable to assume that "{{hypothesis}}" follows from
+      the information given? Of course, No way, or Uncertain? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_82
+    reference: jonghyeonkim
+  65ed4d69-5b61-452b-87f0-f487d1507ce9: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 65ed4d69-5b61-452b-87f0-f487d1507ce9
+    jinja: Can we conclude that "{{hypothesis}}" is consistent with "{{premise}}"? |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_83
+    reference: jonghyeonkim
+  2212b935-dfc5-400d-ab83-06812e119a40: !Template
+    answer_choices: No way ||| Of course ||| Uncertain
+    id: 2212b935-dfc5-400d-ab83-06812e119a40
+    jinja: '{{premise}} Based on that information, is the claim: "{{hypothesis}}" false?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_84
+    reference: jonghyeonkim
+  c4cde224-e2fc-4a13-b688-4e37a7b39a6a: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: c4cde224-e2fc-4a13-b688-4e37a7b39a6a
+    jinja: From the information given, can we logically deduce that "{{hypothesis}}"
+      is true? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_85
+    reference: jonghyeonkim
+  e4190768-e87c-4515-99af-226724cda87e: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: e4190768-e87c-4515-99af-226724cda87e
+    jinja: '{{premise}} Therefore, can we infer that "{{hypothesis}}" is plausible?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_86
+    reference: jonghyeonkim
+  a6cd9a77-2b1c-44b2-af1d-0a3271d14b34: !Template
+    answer_choices: No way ||| Of course ||| Uncertain
+    id: a6cd9a77-2b1c-44b2-af1d-0a3271d14b34
+    jinja: Given that "{{premise}}" is true, can we say that "{{hypothesis}}" is never
+      true? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_87
+    reference: jonghyeonkim
+  47002f29-7d03-43ae-bd95-7a02ff7548a8: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 47002f29-7d03-43ae-bd95-7a02ff7548a8
+    jinja: "Assume it is true that {{premise}} \n\nTherefore, \"{{hypothesis}}\" is\
+      \ guaranteed? ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_88
+    reference: jonghyeonkim
+  9537fb9e-3e4f-40de-9eaf-5021fd3a9629: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 9537fb9e-3e4f-40de-9eaf-5021fd3a9629
+    jinja: Based on the information provided, is the claim "{{hypothesis}}" supported?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_89
+    reference: jonghyeonkim
+  197e7c3d-e78d-4607-862e-775e29b00636: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 197e7c3d-e78d-4607-862e-775e29b00636
+    jinja: Do the statements "{{premise}}" and "{{hypothesis}}" have a consistent relationship?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_90
+    reference: jonghyeonkim
+  e3a31861-3911-4637-8275-7ecf030c30bb: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: e3a31861-3911-4637-8275-7ecf030c30bb
+    jinja: "{{premise}} \n\nKeeping in mind the above text, consider: {{hypothesis}}\n\
+      \ Is this always correct? ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_91
+    reference: jonghyeonkim
+  db391da1-97c4-47cc-a18b-317f125e65d3: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: db391da1-97c4-47cc-a18b-317f125e65d3
+    jinja: Is "{{hypothesis}}" consistent with {{premise}}? Answer with {{"Of course"}},
+      {{"No way"}}, or {{"Uncertain"}} based on the provided information. ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_92
+    reference: jonghyeonkim
+  ae1d90e0-7fa3-4e76-acc4-e8048973d5a9: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: ae1d90e0-7fa3-4e76-acc4-e8048973d5a9
+    jinja: 'Take the following as truth: {{premise}}
+
+
+      Then the following statement: "{{hypothesis}}" is true? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_93
+    reference: jonghyeonkim
+  460589f0-487f-4434-94b3-041f332ea3b5: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 460589f0-487f-4434-94b3-041f332ea3b5
+    jinja: 'Consider the following context: {{premise}}
+
+      Is it reasonable to conclude that "{{hypothesis}}" is True? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_94
+    reference: jonghyeonkim
+  13b9e7e8-6dde-4f11-9b2a-a18628bd601f: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 13b9e7e8-6dde-4f11-9b2a-a18628bd601f
+    jinja: Does "{{hypothesis}}" follow logically from {{premise}}? Answer with {{"Of
+      course"}}, {{"No way"}}, or {{"Uncertain"}} based on the provided information.
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_95
+    reference: jonghyeonkim
+  3a0557e2-3935-4221-8803-e23b1b7abfb7: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 3a0557e2-3935-4221-8803-e23b1b7abfb7
+    jinja: 'Consider the following statement: "{{premise}}". Does this support the idea
+      that "{{hypothesis}}" is true? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_96
+    reference: jonghyeonkim
+  9ce475ee-1d38-43db-9b06-d275c15dc8f1: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 9ce475ee-1d38-43db-9b06-d275c15dc8f1
+    jinja: '{{premise}} Using only the above description and what you kNo wayw about
+      the world, "{{hypothesis}}" is definitely correct? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_97
+    reference: jonghyeonkim
+  d130170a-afcf-4d48-a5f4-db4d5b4cd03e: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: d130170a-afcf-4d48-a5f4-db4d5b4cd03e
+    jinja: Based on {{premise}}, can we conclude that "{{hypothesis}}" is true? Please
+      choose one of the following options. \nA) Of course\nB) No way\nC) Uncertain |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_98
+    reference: jonghyeonkim
+  4586bb96-dddc-4805-bd2f-8c2aa45ae8cb: !Template
+    answer_choices: Of course ||| No way ||| Uncertain
+    id: 4586bb96-dddc-4805-bd2f-8c2aa45ae8cb
+    jinja: Based on the information provided in {{premise}}, can we conclude that "{{hypothesis}}"
+      is definitely true? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_99
+    reference: jonghyeonkim
+  03ef8764-8dd2-4602-ae80-0f041bbdf482: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 03ef8764-8dd2-4602-ae80-0f041bbdf482
+    jinja: Can {{hypothesis}} be inferred from {{premise}}? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_00
+    reference: jonghyeonkim
+  dd78e896-380a-459c-886f-26306151b1e7: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: dd78e896-380a-459c-886f-26306151b1e7
+    jinja: Suppose {{premise}} Can we infer that "{{hypothesis}}"? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_01
+    reference: jonghyeonkim
+  737ce143-189d-433d-9cf3-b80ba730daa4: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 737ce143-189d-433d-9cf3-b80ba730daa4
+    jinja: Is {{hypothesis}} a logical consequence of {{premise}}? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_02
+    reference: jonghyeonkim
+  6d6ec9e4-8627-48e1-b328-1c90ee3ddc23: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 6d6ec9e4-8627-48e1-b328-1c90ee3ddc23
+    jinja: Does {{hypothesis}} necessarily follow from {{premise}}? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_03
+    reference: jonghyeonkim
+  f8e1abad-8d45-4883-b26f-7996055a5719: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: f8e1abad-8d45-4883-b26f-7996055a5719
+    jinja: '{{premise}}. Is it correct to infer that {{hypothesis}}? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_04
+    reference: jonghyeonkim
+  f3423aed-8fa1-42da-ad29-e399e84b9ccd: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: f3423aed-8fa1-42da-ad29-e399e84b9ccd
+    jinja: '{{premise}}. Does this mean that {{hypothesis}} is true? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_05
+    reference: jonghyeonkim
+  cce66693-2c3a-4cc3-b7c0-dc04b00a8cda: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: cce66693-2c3a-4cc3-b7c0-dc04b00a8cda
+    jinja: Is {{hypothesis}} a reasonable inference from {{premise}}? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_06
+    reference: jonghyeonkim
+  13696db1-9ad0-4cc0-b269-0826edb519c8: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 13696db1-9ad0-4cc0-b269-0826edb519c8
+    jinja: '{{premise}} implies {{hypothesis}}. Of course, No, or Uncertain? ||| {{
+      answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_07
+    reference: jonghyeonkim
+  3582a4d8-503c-4e2c-8823-cb3f8d14629a: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 3582a4d8-503c-4e2c-8823-cb3f8d14629a
+    jinja: Given {{premise}}, is {{hypothesis}} a plausible conclusion? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_08
+    reference: jonghyeonkim
+  de7b3775-7298-43ad-a583-854b7000cc78: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: de7b3775-7298-43ad-a583-854b7000cc78
+    jinja: Based on {{premise}}, can we say that {{hypothesis}} is true? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_09
+    reference: jonghyeonkim
+  a009c00a-df7a-4aa5-bb33-3484f4d05f91: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: a009c00a-df7a-4aa5-bb33-3484f4d05f91
+    jinja: Given {{premise}} Is it guaranteed true that "{{hypothesis}}"? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_10
+    reference: jonghyeonkim
+  eb5c4408-d54c-4c37-b643-7484a19f7639: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: eb5c4408-d54c-4c37-b643-7484a19f7639
+    jinja: '{{premise}}. Does this imply that {{hypothesis}} must be true? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_11
+    reference: jonghyeonkim
+  b7118c3e-2a3c-4d5d-a361-59a18ab79799: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: b7118c3e-2a3c-4d5d-a361-59a18ab79799
+    jinja: '{{premise}}
+
+
+      Question: {{hypothesis}} is true? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_12
+    reference: jonghyeonkim
+  e7dcee84-890f-442f-b143-440fad4574be: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: e7dcee84-890f-442f-b143-440fad4574be
+    jinja: "{{premise}} \n\nQuestion: Does this imply that \"{{hypothesis}}\"? ||| {{\
+      \ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_13
+    reference: jonghyeonkim
+  e8a13985-f4af-43ab-9fc8-ab6fe2cbc367: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: e8a13985-f4af-43ab-9fc8-ab6fe2cbc367
+    jinja: Given {{premise}}, is it likely that "{{hypothesis}}" is true? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_14
+    reference: jonghyeonkim
+  bebdb8a9-3d7f-47df-8709-921f2a6d1042: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: bebdb8a9-3d7f-47df-8709-921f2a6d1042
+    jinja: Is it reasonable to infer "{{hypothesis}}" from "{{premise}}"? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_15
+    reference: jonghyeonkim
+  25cb74dd-369e-4f31-bdcf-90eb700f4807: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 25cb74dd-369e-4f31-bdcf-90eb700f4807
+    jinja: '{{premise}} entails that {{hypothesis}}. Of course, No, or Uncertain? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_16
+    reference: jonghyeonkim
+  11b8e7f4-7dc4-4ba0-aaee-03b3a6843be4: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 11b8e7f4-7dc4-4ba0-aaee-03b3a6843be4
+    jinja: Given {{premise}} Should we assume that "{{hypothesis}}" is true? ||| {{
+      answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_17
+    reference: jonghyeonkim
+  f6f6544a-18b8-4779-b703-7d0505462c7b: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: f6f6544a-18b8-4779-b703-7d0505462c7b
+    jinja: Assuming {{premise}}, is it possible that {{hypothesis}} is true? ||| {{
+      answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_18
+    reference: jonghyeonkim
+  e1adbefd-bd94-4e92-9b30-3652f9f7d68c: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: e1adbefd-bd94-4e92-9b30-3652f9f7d68c
+    jinja: Is it true that "{{hypothesis}}" based on the given "{{premise}}"? ||| {{
+      answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_19
+    reference: jonghyeonkim
+  07ad776a-b94c-4e88-96f5-199b3f536f50: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 07ad776a-b94c-4e88-96f5-199b3f536f50
+    jinja: Is {{hypothesis}} a plausible conclusion to draw from {{premise}}? ||| {{
+      answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_20
+    reference: jonghyeonkim
+  6c5e9e3e-6eaa-40a9-ac15-75f2d43c1dd7: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 6c5e9e3e-6eaa-40a9-ac15-75f2d43c1dd7
+    jinja: Can we draw a logical inference from {{premise}} to {{hypothesis}}? ||| {{
+      answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_21
+    reference: jonghyeonkim
+  64f4989e-d8a6-44ad-86ef-ea184a3d26d3: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 64f4989e-d8a6-44ad-86ef-ea184a3d26d3
+    jinja: Based on the given text, can we conclude that {{hypothesis}} is true? |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_22
+    reference: jonghyeonkim
+  016d696e-99f7-49f7-812d-f48593ec9149: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 016d696e-99f7-49f7-812d-f48593ec9149
+    jinja: Based on {{premise}}, is it reasonable to assume that {{hypothesis}}? |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_23
+    reference: jonghyeonkim
+  80d807ad-5d3f-4688-b00c-0141b3314e33: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 80d807ad-5d3f-4688-b00c-0141b3314e33
+    jinja: Can we conclude that "{{hypothesis}}" from the fact that "{{premise}}"? |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_24
+    reference: jonghyeonkim
+  5f1277f0-eddb-4fe2-a763-6632a2f0320a: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 5f1277f0-eddb-4fe2-a763-6632a2f0320a
+    jinja: Based on {{premise}}, is it reasonable to conclude that {{hypothesis}}? |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_25
+    reference: jonghyeonkim
+  549256cd-cd69-480f-8b3c-17540ec1cdd6: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 549256cd-cd69-480f-8b3c-17540ec1cdd6
+    jinja: Given that {{premise}} Therefore, it must be true that "{{hypothesis}}"?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_26
+    reference: jonghyeonkim
+  d922237d-6574-42fb-adff-2476c0a596b3: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: d922237d-6574-42fb-adff-2476c0a596b3
+    jinja: Can {{premise}} be used to support "{{hypothesis}}"? Of course, No, or Uncertain?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_27
+    reference: jonghyeonkim
+  379c7e92-ef33-4d41-9427-3f009738cde6: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 379c7e92-ef33-4d41-9427-3f009738cde6
+    jinja: Given that {{premise}}, can we conclude that "{{hypothesis}}"? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_28
+    reference: jonghyeonkim
+  fbc1952c-e0de-405b-856c-5213c7f6eaec: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: fbc1952c-e0de-405b-856c-5213c7f6eaec
+    jinja: '{{premise}}. Would you say that {{hypothesis}} is a reasonable conclusion?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_29
+    reference: jonghyeonkim
+  89ab67f8-0fc1-4c3d-b209-8f918c7eedd8: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 89ab67f8-0fc1-4c3d-b209-8f918c7eedd8
+    jinja: Given {{premise}}, is it reasonable to assume that {{hypothesis}} is true?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_30
+    reference: jonghyeonkim
+  a96b13b8-e654-4c37-9701-3da8b8119e93: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: a96b13b8-e654-4c37-9701-3da8b8119e93
+    jinja: Suppose {{premise}} Can we infer that "{{hypothesis}}"? Of course, No, or
+      Uncertain? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_31
+    reference: jonghyeonkim
+  79d6baae-8b91-45ad-9bb8-37b73bb3cda0: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 79d6baae-8b91-45ad-9bb8-37b73bb3cda0
+    jinja: Based on the passage, is it reasonable to conclude that "{{hypothesis}}"
+      is true? _____ ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_32
+    reference: jonghyeonkim
+  2fad6325-3436-4a59-8da4-eece9b7f4bb2: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 2fad6325-3436-4a59-8da4-eece9b7f4bb2
+    jinja: Suppose {{premise}}. Is {{hypothesis}} necessarily true? Of course, No, or
+      Uncertain? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_33
+    reference: jonghyeonkim
+  79fc878a-29c1-4668-9dc7-68dd0e958fd1: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 79fc878a-29c1-4668-9dc7-68dd0e958fd1
+    jinja: Can {{hypothesis}} be logically inferred from {{premise}}? Of course, No
+      or Uncertain? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_34
+    reference: jonghyeonkim
+  c24a72e2-f289-43a2-ad8a-60e12c5fdb9e: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: c24a72e2-f289-43a2-ad8a-60e12c5fdb9e
+    jinja: Suppose {{premise}}. Is it reasonable to assume that {{hypothesis}} is true?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_35
+    reference: jonghyeonkim
+  e21c9e54-9822-45c4-8af0-0c9e474e4137: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: e21c9e54-9822-45c4-8af0-0c9e474e4137
+    jinja: Does "{{hypothesis}}" logically follow from {{premise}}? Of course, No, or
+      Uncertain? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_36
+    reference: jonghyeonkim
+  f71e1b57-b5a8-439f-bedb-337a1d76a489: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: f71e1b57-b5a8-439f-bedb-337a1d76a489
+    jinja: '{{premise}} Based on the previous passage, is it true that "{{hypothesis}}"?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_37
+    reference: jonghyeonkim
+  1477c8e9-1cb5-4480-b76a-ff6483354637: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 1477c8e9-1cb5-4480-b76a-ff6483354637
+    jinja: '{{premise}} Is the claim "{{hypothesis}}" supported by the information given?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_38
+    reference: jonghyeonkim
+  5dba2877-9dc6-432a-acc4-9cf7413845f2: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 5dba2877-9dc6-432a-acc4-9cf7413845f2
+    jinja: Suppose {{premise}}. Would this imply that {{hypothesis}}? Of course, No,
+      or Uncertain? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_39
+    reference: jonghyeonkim
+  4cc210b7-02e7-4b27-949b-e4207b0e7961: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 4cc210b7-02e7-4b27-949b-e4207b0e7961
+    jinja: '{{premise}} From the information given, can we deduce that "{{hypothesis}}"
+      is true? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_40
+    reference: jonghyeonkim
+  64b31083-ffe3-42ff-856e-ebf5e9dcbe20: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 64b31083-ffe3-42ff-856e-ebf5e9dcbe20
+    jinja: Can "{{hypothesis}}" be logically inferred from {{premise}}? Of course, No,
+      or Uncertain? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_41
+    reference: jonghyeonkim
+  a6e70113-7db8-4456-a828-c3ba4fc97095: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: a6e70113-7db8-4456-a828-c3ba4fc97095
+    jinja: '{{premise}} Does this imply that "{{hypothesis}}" is true? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_42
+    reference: jonghyeonkim
+  f20a58a5-f766-4395-afdd-91d4b271f709: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: f20a58a5-f766-4395-afdd-91d4b271f709
+    jinja: "{{premise}} \n\nQuestion: Does this imply that \"{{hypothesis}}\"? Of course,\
+      \ No, or Uncertain? ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_43
+    reference: jonghyeonkim
+  e2f69734-5b31-4fa1-a030-d3ed9db55fba: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: e2f69734-5b31-4fa1-a030-d3ed9db55fba
+    jinja: '{{premise}} Would it be a reasonable inference to conclude that "{{hypothesis}}"?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_44
+    reference: jonghyeonkim
+  06726528-f5b7-4d54-a95a-db89e5148473: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 06726528-f5b7-4d54-a95a-db89e5148473
+    jinja: Given {{premise}} Is it guaranteed true that "{{hypothesis}}"? Of course,
+      No, or Uncertain? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_45
+    reference: jonghyeonkim
+  8c1fe175-1504-4ffb-87e6-76596c113986: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 8c1fe175-1504-4ffb-87e6-76596c113986
+    jinja: Given the statement "{{premise}}", is "{{hypothesis}}" Of course, No, or
+      Uncertain? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_46
+    reference: jonghyeonkim
+  d9163f2b-a9d7-4c90-9f58-8bbe0424fda4: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: d9163f2b-a9d7-4c90-9f58-8bbe0424fda4
+    jinja: Given {{premise}} Should we assume that "{{hypothesis}}" is true? Of course,
+      No, or Uncertain? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_47
+    reference: jonghyeonkim
+  e6256908-9546-461d-84c6-f6b861a3b170: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: e6256908-9546-461d-84c6-f6b861a3b170
+    jinja: '{{premise}}. Would it be accurate to say that {{hypothesis}} is a logical
+      conclusion? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_48
+    reference: jonghyeonkim
+  cff56335-2643-4f1e-a5e0-5c450cb04277: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: cff56335-2643-4f1e-a5e0-5c450cb04277
+    jinja: Does {{premise}} provide enough evidence to support {{hypothesis}}? Of course,
+      No or Uncertain? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_49
+    reference: jonghyeonkim
+  c1911f42-ef3d-4ded-b9f2-114d60c1c47b: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: c1911f42-ef3d-4ded-b9f2-114d60c1c47b
+    jinja: Does {{premise}} provide enough justification to support the claim that {{hypothesis}}?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_50
+    reference: jonghyeonkim
+  4f9435a6-8393-4877-bcf6-86bc1fcca86f: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 4f9435a6-8393-4877-bcf6-86bc1fcca86f
+    jinja: Does {{premise}} provide enough evidence to support {{hypothesis}}? Of course,
+      No, or Uncertain? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_51
+    reference: jonghyeonkim
+  06870647-40a9-425e-9d3a-9bc5e68df97e: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 06870647-40a9-425e-9d3a-9bc5e68df97e
+    jinja: Is it reasonable to claim that "{{hypothesis}}" based on the information
+      in {{premise}}? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_52
+    reference: jonghyeonkim
+  9ac3e0f7-3f14-43eb-9fb9-826792d0dd8c: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 9ac3e0f7-3f14-43eb-9fb9-826792d0dd8c
+    jinja: '{{premise}} Would it be accurate to say "{{hypothesis}}" based on the information
+      given? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_53
+    reference: jonghyeonkim
+  a3a0045f-e616-4eb2-9155-ef08026fb024: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: a3a0045f-e616-4eb2-9155-ef08026fb024
+    jinja: '{{premise}} Is it correct to say that "{{hypothesis}}" based on the provided
+      information? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_54
+    reference: jonghyeonkim
+  ab6b382c-3b1f-41c9-bd50-0e09b8c57cdd: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: ab6b382c-3b1f-41c9-bd50-0e09b8c57cdd
+    jinja: '{{premise}} Does the provided information support the claim that "{{hypothesis}}"
+      is true? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_55
+    reference: jonghyeonkim
+  b68cc661-4203-43bb-bf72-94bae0c0d4aa: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: b68cc661-4203-43bb-bf72-94bae0c0d4aa
+    jinja: Given that {{premise}} Therefore, it must be true that "{{hypothesis}}"?
+      Of course, No, or Uncertain? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_56
+    reference: jonghyeonkim
+  422fb787-c5f5-46d2-a625-b8eb52b2a0b1: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 422fb787-c5f5-46d2-a625-b8eb52b2a0b1
+    jinja: '{{premise}} Would it be valid to claim that "{{hypothesis}}" based on the
+      information given? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_57
+    reference: jonghyeonkim
+  fc34274d-3cfe-4fa2-80f3-3d5bc58e63f4: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: fc34274d-3cfe-4fa2-80f3-3d5bc58e63f4
+    jinja: '{{premise}} Does the information support the claim that "{{hypothesis}}"?
+      Of course, No, or Uncertain? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_58
+    reference: jonghyeonkim
+  adb3cb4e-8a0c-4c4c-95ac-bb272191cb3f: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: adb3cb4e-8a0c-4c4c-95ac-bb272191cb3f
+    jinja: Given {{premise}}, does it necessarily follow that "{{hypothesis}}" is true?
+      Of course, No, or Uncertain? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_59
+    reference: jonghyeonkim
+  41cafc99-889e-45fc-a633-7b3badbb11b8: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 41cafc99-889e-45fc-a633-7b3badbb11b8
+    jinja: '{{premise}} Based on the previous passage, is it true that "{{hypothesis}}"?
+      Of course, No, or Uncertain? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_60
+    reference: jonghyeonkim
+  234cc72d-bb6c-46b6-a82c-5de5a9be6350: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 234cc72d-bb6c-46b6-a82c-5de5a9be6350
+    jinja: '{{premise}} Does this imply that "{{hypothesis}}" is {{"true"}}? ||| {{
+      answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_61
+    reference: jonghyeonkim
+  c0b99ec1-10d9-46e3-8b4b-44d73c33a2cb: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: c0b99ec1-10d9-46e3-8b4b-44d73c33a2cb
+    jinja: '{{premise}} Is the statement "{{hypothesis}}" a logical implication of the
+      provided information? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_62
+    reference: jonghyeonkim
+  6e648d56-29f0-4617-a7bb-4388bd76e7ce: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 6e648d56-29f0-4617-a7bb-4388bd76e7ce
+    jinja: If {{premise}}, then would it be correct to say that "{{hypothesis}}" is
+      true? Of course, No, or Uncertain? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_63
+    reference: jonghyeonkim
+  60a427ce-e627-4146-a95d-db338f183c82: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 60a427ce-e627-4146-a95d-db338f183c82
+    jinja: '{{premise}}. Based on this, is {{hypothesis}} more likely to be true than
+      false? Of course, No or Uncertain? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_64
+    reference: jonghyeonkim
+  c2bbb99b-97b2-4fc2-a0c0-492c6b3ffa04: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: c2bbb99b-97b2-4fc2-a0c0-492c6b3ffa04
+    jinja: Is it reasonable to assume that "{{hypothesis}}" based on the information
+      provided in {{premise}}? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_65
+    reference: jonghyeonkim
+  ea829db4-c0ab-44fc-b831-984fe739db70: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: ea829db4-c0ab-44fc-b831-984fe739db70
+    jinja: Consider {{premise}}. Would you agree that "{{hypothesis}}" is a valid conclusion?
+      Of course, No, or Uncertain? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_66
+    reference: jonghyeonkim
+  ddcb1ae7-33e7-4117-814e-2507b806d0ab: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: ddcb1ae7-33e7-4117-814e-2507b806d0ab
+    jinja: Based on {{premise}}, would you say that "{{hypothesis}}" is {{"true"}}?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_67
+    reference: jonghyeonkim
+  e1b9cd7e-ddae-48cd-a3d3-b9e6a2bcd467: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: e1b9cd7e-ddae-48cd-a3d3-b9e6a2bcd467
+    jinja: '{{premise}} Can the claim that "{{hypothesis}}" is true be supported based
+      on the provided information? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_68
+    reference: jonghyeonkim
+  ecaf4465-b6dc-46a9-923c-97d6c6dc0fd5: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: ecaf4465-b6dc-46a9-923c-97d6c6dc0fd5
+    jinja: Given that {{premise}} is true, is it reasonable to conclude that "{{hypothesis}}"?
+      Of course, No, or Uncertain? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_69
+    reference: jonghyeonkim
+  492b9bd4-163f-4f81-959f-3bfaa0556c08: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 492b9bd4-163f-4f81-959f-3bfaa0556c08
+    jinja: '{{premise}} Based on the given information, is it reasonable to conclude
+      that "{{hypothesis}}" is true? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_70
+    reference: jonghyeonkim
+  65732a89-e2bf-4935-ba44-82d8fca860b8: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 65732a89-e2bf-4935-ba44-82d8fca860b8
+    jinja: '{{premise}} Based on the passage, can we conclude that "{{hypothesis}}"?
+      Answer "Of course", "No", or "Uncertain". ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_71
+    reference: jonghyeonkim
+  d6fcd4eb-be30-4d4b-89a6-ced4f4acd660: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: d6fcd4eb-be30-4d4b-89a6-ced4f4acd660
+    jinja: Considering "{{hypothesis}}" and {{premise}}, is "{{hypothesis}}" likely
+      to be true? Of course, No, or Uncertain? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_72
+    reference: jonghyeonkim
+  6d197ae1-3ff0-4e28-b3e0-7d5c8a4cb413: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 6d197ae1-3ff0-4e28-b3e0-7d5c8a4cb413
+    jinja: Based on {{premise}}, can we conclude that "{{hypothesis}}" is {{"true"}}?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_73
+    reference: jonghyeonkim
+  3e411de3-9752-4256-9366-ef2be15ffd31: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 3e411de3-9752-4256-9366-ef2be15ffd31
+    jinja: Given {{premise}}, can we say that "{{hypothesis}}" is accurate? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_74
+    reference: jonghyeonkim
+  df0bc120-d47c-4ff4-b1c2-7bdf5fe565a1: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: df0bc120-d47c-4ff4-b1c2-7bdf5fe565a1
+    jinja: Based on the information provided in {{premise}}, can we say that "{{hypothesis}}"
+      is true? Of course, No, or Uncertain? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_75
+    reference: jonghyeonkim
+  965cff84-6fb2-4883-9260-723e28c83bab: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 965cff84-6fb2-4883-9260-723e28c83bab
+    jinja: '{{premise}} Suppose that statement is true, can we infer that "{{hypothesis}}"
+      is also true? Of course, No, or Uncertain? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_76
+    reference: jonghyeonkim
+  15bd15be-9ad0-42a5-9187-9b665a627380: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 15bd15be-9ad0-42a5-9187-9b665a627380
+    jinja: '{{premise}} Does the given information lead to the conclusion that "{{hypothesis}}"
+      is true? Of course, No, or Uncertain? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_77
+    reference: jonghyeonkim
+  ba753023-fca1-42b2-868a-f63207fb85c0: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: ba753023-fca1-42b2-868a-f63207fb85c0
+    jinja: Suppose its true that {{premise}} Then, is "{{hypothesis}}" always true?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_78
+    reference: jonghyeonkim
+  6889d1d5-e7ac-46ea-b6c4-1b0a7f1786ca: !Template
+    answer_choices: No ||| Of course ||| Uncertain
+    id: 6889d1d5-e7ac-46ea-b6c4-1b0a7f1786ca
+    jinja: Suppose {{premise}}. Can we logically infer that "{{hypothesis}}" is false?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_79
+    reference: jonghyeonkim
+  2f650f30-0d39-4a86-ba82-bf2bb23376a3: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 2f650f30-0d39-4a86-ba82-bf2bb23376a3
+    jinja: '{{premise}} If the above statement is true, can we conclude that "{{hypothesis}}"
+      is also true? Of course, No, or Uncertain? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_80
+    reference: jonghyeonkim
+  e682aaa2-66ea-4b87-bcb1-5e36f642e983: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: e682aaa2-66ea-4b87-bcb1-5e36f642e983
+    jinja: '{{premise}} Can we draw the conclusion that "{{hypothesis}}" based on the
+      provided information? Of course, No, or Uncertain? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_81
+    reference: jonghyeonkim
+  2f80531b-2853-4e26-8b13-c05f58b805a3: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 2f80531b-2853-4e26-8b13-c05f58b805a3
+    jinja: '{{premise}} Is it reasonable to assume that "{{hypothesis}}" follows from
+      the information given? Of course, No, or Uncertain? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_82
+    reference: jonghyeonkim
+  b0bc46ab-edd9-4b80-8cab-ada1d99d35fb: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: b0bc46ab-edd9-4b80-8cab-ada1d99d35fb
+    jinja: Can we conclude that "{{hypothesis}}" is consistent with "{{premise}}"? |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_83
+    reference: jonghyeonkim
+  09d8bed6-54d7-4b41-9759-b6674c0f4876: !Template
+    answer_choices: No ||| Of course ||| Uncertain
+    id: 09d8bed6-54d7-4b41-9759-b6674c0f4876
+    jinja: '{{premise}} Based on that information, is the claim: "{{hypothesis}}" false?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_84
+    reference: jonghyeonkim
+  faaa621c-fd6e-4610-8b0c-c5bcb627c823: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: faaa621c-fd6e-4610-8b0c-c5bcb627c823
+    jinja: From the information given, can we logically deduce that "{{hypothesis}}"
+      is true? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_85
+    reference: jonghyeonkim
+  92b1aaf8-128d-496f-858b-42bcc7da2293: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 92b1aaf8-128d-496f-858b-42bcc7da2293
+    jinja: '{{premise}} Therefore, can we infer that "{{hypothesis}}" is plausible?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_86
+    reference: jonghyeonkim
+  d9cbc728-bc4f-4e8c-b2a1-89c042a187a1: !Template
+    answer_choices: No ||| Of course ||| Uncertain
+    id: d9cbc728-bc4f-4e8c-b2a1-89c042a187a1
+    jinja: Given that "{{premise}}" is true, can we say that "{{hypothesis}}" is never
+      true? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_87
+    reference: jonghyeonkim
+  d1612a2f-7abc-484d-bf1d-a3e3639d21ad: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: d1612a2f-7abc-484d-bf1d-a3e3639d21ad
+    jinja: "Assume it is true that {{premise}} \n\nTherefore, \"{{hypothesis}}\" is\
+      \ guaranteed? ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_88
+    reference: jonghyeonkim
+  b55d58d1-714a-4d1a-9165-49268145f274: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: b55d58d1-714a-4d1a-9165-49268145f274
+    jinja: Based on the information provided, is the claim "{{hypothesis}}" supported?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_89
+    reference: jonghyeonkim
+  cc409834-8681-46d3-b09a-c7b76bf03b8c: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: cc409834-8681-46d3-b09a-c7b76bf03b8c
+    jinja: Do the statements "{{premise}}" and "{{hypothesis}}" have a consistent relationship?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_90
+    reference: jonghyeonkim
+  628db02f-16a3-4492-b629-3ba64034251c: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 628db02f-16a3-4492-b629-3ba64034251c
+    jinja: "{{premise}} \n\nKeeping in mind the above text, consider: {{hypothesis}}\n\
+      \ Is this always correct? ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_91
+    reference: jonghyeonkim
+  595eaab4-df89-4e36-8cf1-7fd389dd6f9f: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 595eaab4-df89-4e36-8cf1-7fd389dd6f9f
+    jinja: Is "{{hypothesis}}" consistent with {{premise}}? Answer with {{"Of course"}},
+      {{"No"}}, or {{"Uncertain"}} based on the provided information. ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_92
+    reference: jonghyeonkim
+  538f8bc5-143f-41ea-9887-6b788535acec: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 538f8bc5-143f-41ea-9887-6b788535acec
+    jinja: 'Take the following as truth: {{premise}}
+
+
+      Then the following statement: "{{hypothesis}}" is true? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_93
+    reference: jonghyeonkim
+  ad3b5b80-3208-48ec-8d00-374a0e18bbcf: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: ad3b5b80-3208-48ec-8d00-374a0e18bbcf
+    jinja: 'Consider the following context: {{premise}}
+
+      Is it reasonable to conclude that "{{hypothesis}}" is True? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_94
+    reference: jonghyeonkim
+  0576f092-7e8a-491e-8275-9dd305805416: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 0576f092-7e8a-491e-8275-9dd305805416
+    jinja: Does "{{hypothesis}}" follow logically from {{premise}}? Answer with {{"Of
+      course"}}, {{"No"}}, or {{"Uncertain"}} based on the provided information. |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_95
+    reference: jonghyeonkim
+  8bb707d6-e9ae-4643-9a7d-afa414894277: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 8bb707d6-e9ae-4643-9a7d-afa414894277
+    jinja: 'Consider the following statement: "{{premise}}". Does this support the idea
+      that "{{hypothesis}}" is true? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_96
+    reference: jonghyeonkim
+  5a826789-8970-4a74-8ec4-94ba76e45257: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 5a826789-8970-4a74-8ec4-94ba76e45257
+    jinja: '{{premise}} Using only the above description and what you kNow about the
+      world, "{{hypothesis}}" is definitely correct? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_97
+    reference: jonghyeonkim
+  a11e3ede-334d-4edc-973d-20b911eb96a0: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: a11e3ede-334d-4edc-973d-20b911eb96a0
+    jinja: Based on {{premise}}, can we conclude that "{{hypothesis}}" is true? Please
+      choose one of the following options. \nA) Of course\nB) No\nC) Uncertain ||| {{
+      answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_98
+    reference: jonghyeonkim
+  8bcc5b85-1848-4169-b71f-d0e3426350e4: !Template
+    answer_choices: Of course ||| No ||| Uncertain
+    id: 8bcc5b85-1848-4169-b71f-d0e3426350e4
+    jinja: Based on the information provided in {{premise}}, can we conclude that "{{hypothesis}}"
+      is definitely true? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_99
+    reference: jonghyeonkim

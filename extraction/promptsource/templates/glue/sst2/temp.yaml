@@ -1,0 +1,5758 @@
+dataset: glue
+subset: sst2
+templates:
+  cac7fdea-f122-45b6-bc7a-c7b4b1119917: !Template
+    answer_choices: Negative ||| Positive
+    id: cac7fdea-f122-45b6-bc7a-c7b4b1119917
+    jinja: "Review: {{sentence}}\nSentiment: ||| {{ answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: calibrate_before_use
+    reference: calibrate_before_use
+  11d1c505-9232-4c35-82a4-4c3642843e2e: !Template
+    answer_choices: negative ||| positive
+    id: 11d1c505-9232-4c35-82a4-4c3642843e2e
+    jinja: '{{sentence}}
+
+      Question: Was that sentence {{"positive"}} or {{"negative"}}? Answer: ||| {{
+      answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: positive negative after
+    reference: ''
+  228fcae7-7f4c-4e3c-9ac4-e49b26bc103d: !Template
+    answer_choices: negative ||| positive
+    id: 228fcae7-7f4c-4e3c-9ac4-e49b26bc103d
+    jinja: 'I''m reading a review that says "{{sentence}}".
+
+
+      Do you think the review is {{"positive"}} or {{"negative"}}? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: review
+    reference: ''
+  5aa0cea9-0f8d-454d-b25b-b0d4cda273b8: !Template
+    answer_choices: sad ||| happy
+    id: 5aa0cea9-0f8d-454d-b25b-b0d4cda273b8
+    jinja: 'Someone just said to me "{{sentence}}".
+
+
+      Do you think they are {{"sad"}} or {{"happy"}}? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: said
+    reference: ''
+  63c6b2be-8ecd-42ad-88c7-0d1dc1a8323a: !Template
+    answer_choices: negative ||| positive
+    id: 63c6b2be-8ecd-42ad-88c7-0d1dc1a8323a
+    jinja: 'Does the following sentence have a {{"positive"}} or {{"negative"}} sentiment?
+
+      {{sentence}}
+
+      |||
+
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: following positive negative
+    reference: ''
+  6dd74cd5-e074-4612-9e96-c17ca88c3bc4: !Template
+    answer_choices: bad ||| good
+    id: 6dd74cd5-e074-4612-9e96-c17ca88c3bc4
+    jinja: Someone sent me an email with the sentence "{{sentence}}". Do you think
+      they are feeling {{"good"}} or {{"bad"}}? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: happy or mad
+    reference: ''
+  8377380f-548f-453e-b830-283226e85889: !Template
+     answer_choices: bad ||| good
+     id: 8377380f-548f-453e-b830-283226e85889
+     jinja: '
+A review says {{sentence}}
+Do you the reviewer was {{"good"}} or {{"bad"}}?
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_0
+     reference: ''
+  3d760719-bfe6-4110-91b3-8ed827976492: !Template
+     answer_choices: bad ||| good
+     id: 3d760719-bfe6-4110-91b3-8ed827976492
+     jinja: '
+A review says {{sentence}}
+Do you the reviewer was {{"good"}} or {{"bad"}}?
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_1
+     reference: ''
+  a2c39564-42f7-4149-9a60-db145a3e5e77: !Template
+     answer_choices: bad ||| good
+     id: a2c39564-42f7-4149-9a60-db145a3e5e77
+     jinja: '
+A review says {{sentence}}
+Do you the reviewer was {{"good"}} or {{"bad"}}?
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_2
+     reference: ''
+  075d590d-b4fc-41a8-bd37-e379030a5bb9: !Template
+     answer_choices: sad ||| happy
+     id: 075d590d-b4fc-41a8-bd37-e379030a5bb9
+     jinja: '
+A review says {{sentence}}
+Do you the reviewer was {{"happy"}} or {{"sad"}}?
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_3
+     reference: ''
+  e6d18253-0511-4075-a634-4de6d18e3d31: !Template
+     answer_choices: sad ||| happy
+     id: e6d18253-0511-4075-a634-4de6d18e3d31
+     jinja: '
+A review says {{sentence}}
+Do you the reviewer was {{"happy"}} or {{"sad"}}?
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_4
+     reference: ''
+  6a7c8b98-1548-45a9-915d-8fb30c74b9ea: !Template
+     answer_choices: sad ||| happy
+     id: 6a7c8b98-1548-45a9-915d-8fb30c74b9ea
+     jinja: '
+A review says {{sentence}}
+Do you the reviewer was {{"happy"}} or {{"sad"}}?
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_5
+     reference: ''
+  a03f65de-03d7-478b-8e06-c25363b8046e: !Template
+     answer_choices: negative ||| positive
+     id: a03f65de-03d7-478b-8e06-c25363b8046e
+     jinja: '
+A review says {{sentence}}
+Do you the reviewer was {{"positive"}} or {{"negative"}}?
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_6
+     reference: ''
+  c1920b29-cc7b-4732-b95f-1aba91651d3c: !Template
+     answer_choices: negative ||| positive
+     id: c1920b29-cc7b-4732-b95f-1aba91651d3c
+     jinja: '
+A review says {{sentence}}
+Do you the reviewer was {{"positive"}} or {{"negative"}}?
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_7
+     reference: ''
+  6fb8a125-429b-4163-be98-c532efc65698: !Template
+     answer_choices: negative ||| positive
+     id: 6fb8a125-429b-4163-be98-c532efc65698
+     jinja: '
+A review says {{sentence}}
+Do you the reviewer was {{"positive"}} or {{"negative"}}?
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_8
+     reference: ''
+  eade709b-384d-4691-8738-5932e6f1524a: !Template
+     answer_choices: bad ||| good
+     id: eade709b-384d-4691-8738-5932e6f1524a
+     jinja: '
+A review says {{sentence}}
+Do you think the reviewer is feeling {{"good"}} or {{"bad"}}?
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_9
+     reference: ''
+  c8644ad6-d374-48f0-9ae9-d0b654dfdbd3: !Template
+     answer_choices: bad ||| good
+     id: c8644ad6-d374-48f0-9ae9-d0b654dfdbd3
+     jinja: '
+A review says {{sentence}}
+Do you think the reviewer is feeling {{"good"}} or {{"bad"}}?
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_10
+     reference: ''
+  19c02e9e-3d31-4155-8313-597fdfcc3aca: !Template
+     answer_choices: bad ||| good
+     id: 19c02e9e-3d31-4155-8313-597fdfcc3aca
+     jinja: '
+A review says {{sentence}}
+Do you think the reviewer is feeling {{"good"}} or {{"bad"}}?
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_11
+     reference: ''
+  bb704e77-c3fa-4f64-8162-2d99a1aa3d43: !Template
+     answer_choices: sad ||| happy
+     id: bb704e77-c3fa-4f64-8162-2d99a1aa3d43
+     jinja: '
+A review says {{sentence}}
+Do you think the reviewer is feeling {{"happy"}} or {{"sad"}}?
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_12
+     reference: ''
+  11c94162-fa13-49e3-9b38-3e3fb7279bd4: !Template
+     answer_choices: sad ||| happy
+     id: 11c94162-fa13-49e3-9b38-3e3fb7279bd4
+     jinja: '
+A review says {{sentence}}
+Do you think the reviewer is feeling {{"happy"}} or {{"sad"}}?
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_13
+     reference: ''
+  0689a56b-2eec-4183-b65c-87eeed772b9b: !Template
+     answer_choices: sad ||| happy
+     id: 0689a56b-2eec-4183-b65c-87eeed772b9b
+     jinja: '
+A review says {{sentence}}
+Do you think the reviewer is feeling {{"happy"}} or {{"sad"}}?
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_14
+     reference: ''
+  c7beb6be-e24f-4f67-a482-5cc23f8f2c30: !Template
+     answer_choices: negative ||| positive
+     id: c7beb6be-e24f-4f67-a482-5cc23f8f2c30
+     jinja: '
+A review says {{sentence}}
+Do you think the reviewer is feeling {{"positive"}} or {{"negative"}}?
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_15
+     reference: ''
+  d78f1aaf-eaf4-4ce4-8973-936ef77f8170: !Template
+     answer_choices: negative ||| positive
+     id: d78f1aaf-eaf4-4ce4-8973-936ef77f8170
+     jinja: '
+A review says {{sentence}}
+Do you think the reviewer is feeling {{"positive"}} or {{"negative"}}?
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_16
+     reference: ''
+  fbc654a4-983b-4ac8-a8e4-919ba673e073: !Template
+     answer_choices: negative ||| positive
+     id: fbc654a4-983b-4ac8-a8e4-919ba673e073
+     jinja: '
+A review says {{sentence}}
+Do you think the reviewer is feeling {{"positive"}} or {{"negative"}}?
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_17
+     reference: ''
+  582661b8-6a08-4874-87d8-ff7869b1b888: !Template
+     answer_choices: bad ||| good
+     id: 582661b8-6a08-4874-87d8-ff7869b1b888
+     jinja: '
+Does this sentence has a {{"good"}} or {{"bad"}} sentiment?
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_18
+     reference: ''
+  421775ab-9f1b-463a-981d-b5c896fe75a2: !Template
+     answer_choices: bad ||| good
+     id: 421775ab-9f1b-463a-981d-b5c896fe75a2
+     jinja: '
+Does this sentence has a {{"good"}} or {{"bad"}} sentiment?
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_19
+     reference: ''
+  fee859b8-cd11-491e-b188-a3813ed2cda1: !Template
+     answer_choices: bad ||| good
+     id: fee859b8-cd11-491e-b188-a3813ed2cda1
+     jinja: '
+Does this sentence has a {{"good"}} or {{"bad"}} sentiment?
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_20
+     reference: ''
+  15e55f1e-df48-4dc7-9314-0cad4d743a2d: !Template
+     answer_choices: sad ||| happy
+     id: 15e55f1e-df48-4dc7-9314-0cad4d743a2d
+     jinja: '
+Does this sentence has a {{"happy"}} or {{"sad"}} sentiment?
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_21
+     reference: ''
+  53cf1aa5-e9d5-42bf-9125-4742c6bca24f: !Template
+     answer_choices: sad ||| happy
+     id: 53cf1aa5-e9d5-42bf-9125-4742c6bca24f
+     jinja: '
+Does this sentence has a {{"happy"}} or {{"sad"}} sentiment?
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_22
+     reference: ''
+  465ad3ba-998d-4f25-82df-d26fbc3b262c: !Template
+     answer_choices: sad ||| happy
+     id: 465ad3ba-998d-4f25-82df-d26fbc3b262c
+     jinja: '
+Does this sentence has a {{"happy"}} or {{"sad"}} sentiment?
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_23
+     reference: ''
+  4b3db38e-3044-40d3-b893-43dbd0a17a71: !Template
+     answer_choices: negative ||| positive
+     id: 4b3db38e-3044-40d3-b893-43dbd0a17a71
+     jinja: '
+Does this sentence has a {{"positive"}} or {{"negative"}} sentiment?
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_24
+     reference: ''
+  7c99f834-a111-4718-bfbc-89f300d14a04: !Template
+     answer_choices: negative ||| positive
+     id: 7c99f834-a111-4718-bfbc-89f300d14a04
+     jinja: '
+Does this sentence has a {{"positive"}} or {{"negative"}} sentiment?
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_25
+     reference: ''
+  85bceafc-91c2-4911-be48-84290ab84be0: !Template
+     answer_choices: negative ||| positive
+     id: 85bceafc-91c2-4911-be48-84290ab84be0
+     jinja: '
+Does this sentence has a {{"positive"}} or {{"negative"}} sentiment?
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_26
+     reference: ''
+  559a18a2-f6f8-43ac-98e1-23a6257b377d: !Template
+     answer_choices: bad ||| good
+     id: 559a18a2-f6f8-43ac-98e1-23a6257b377d
+     jinja: '
+Is this sentence {{"good"}} or {{"bad"}}?
+{{sentence}}
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_27
+     reference: ''
+  db4b14aa-f167-4fa4-8198-fda035ef7987: !Template
+     answer_choices: bad ||| good
+     id: db4b14aa-f167-4fa4-8198-fda035ef7987
+     jinja: '
+Is this sentence {{"good"}} or {{"bad"}}?
+{{sentence}}
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_28
+     reference: ''
+  5065056c-1292-47e6-b1e6-d232d110557d: !Template
+     answer_choices: bad ||| good
+     id: 5065056c-1292-47e6-b1e6-d232d110557d
+     jinja: '
+Is this sentence {{"good"}} or {{"bad"}}?
+{{sentence}}
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_29
+     reference: ''
+  1c299a19-9d3b-4e17-b2eb-975bdd1969e8: !Template
+     answer_choices: sad ||| happy
+     id: 1c299a19-9d3b-4e17-b2eb-975bdd1969e8
+     jinja: '
+Is this sentence {{"happy"}} or {{"sad"}}?
+{{sentence}}
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_30
+     reference: ''
+  b89be22f-fba3-4d30-8ee1-57673ba4b2c7: !Template
+     answer_choices: sad ||| happy
+     id: b89be22f-fba3-4d30-8ee1-57673ba4b2c7
+     jinja: '
+Is this sentence {{"happy"}} or {{"sad"}}?
+{{sentence}}
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_31
+     reference: ''
+  d63b28fc-95cc-4aa6-9701-820b7d528daa: !Template
+     answer_choices: sad ||| happy
+     id: d63b28fc-95cc-4aa6-9701-820b7d528daa
+     jinja: '
+Is this sentence {{"happy"}} or {{"sad"}}?
+{{sentence}}
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_32
+     reference: ''
+  f9c2879b-47a3-4020-bbc3-c74a863e5593: !Template
+     answer_choices: negative ||| positive
+     id: f9c2879b-47a3-4020-bbc3-c74a863e5593
+     jinja: '
+Is this sentence {{"positive"}} or {{"negative"}}?
+{{sentence}}
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_33
+     reference: ''
+  30f33222-f387-4523-865b-e8b7a67d576c: !Template
+     answer_choices: negative ||| positive
+     id: 30f33222-f387-4523-865b-e8b7a67d576c
+     jinja: '
+Is this sentence {{"positive"}} or {{"negative"}}?
+{{sentence}}
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_34
+     reference: ''
+  32ff56fb-1c6e-498d-ac5c-f3df117d0714: !Template
+     answer_choices: negative ||| positive
+     id: 32ff56fb-1c6e-498d-ac5c-f3df117d0714
+     jinja: '
+Is this sentence {{"positive"}} or {{"negative"}}?
+{{sentence}}
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_35
+     reference: ''
+  1edb52d0-e37d-4ec1-b6de-1530c14efc53: !Template
+     answer_choices: bad ||| good
+     id: 1edb52d0-e37d-4ec1-b6de-1530c14efc53
+     jinja: '
+Someone said to me {{sentence}}
+Do you think they are feeling {{"good"}} or {{"bad"}}?
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_36
+     reference: ''
+  ac1f33e1-3e6c-480f-b9ec-ae9132c3a486: !Template
+     answer_choices: bad ||| good
+     id: ac1f33e1-3e6c-480f-b9ec-ae9132c3a486
+     jinja: '
+Someone said to me {{sentence}}
+Do you think they are feeling {{"good"}} or {{"bad"}}?
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_37
+     reference: ''
+  b1410ab4-44d7-4765-bb58-a49ef4148142: !Template
+     answer_choices: bad ||| good
+     id: b1410ab4-44d7-4765-bb58-a49ef4148142
+     jinja: '
+Someone said to me {{sentence}}
+Do you think they are feeling {{"good"}} or {{"bad"}}?
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_38
+     reference: ''
+  ceab5c11-c396-47a7-823a-1b28d234da8c: !Template
+     answer_choices: sad ||| happy
+     id: ceab5c11-c396-47a7-823a-1b28d234da8c
+     jinja: '
+Someone said to me {{sentence}}
+Do you think they are feeling {{"happy"}} or {{"sad"}}?
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_39
+     reference: ''
+  4fe24f43-8e3c-4146-ae1f-0bc52d2b9d72: !Template
+     answer_choices: sad ||| happy
+     id: 4fe24f43-8e3c-4146-ae1f-0bc52d2b9d72
+     jinja: '
+Someone said to me {{sentence}}
+Do you think they are feeling {{"happy"}} or {{"sad"}}?
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_40
+     reference: ''
+  3ab6ea0c-af6d-442a-9810-844119d781de: !Template
+     answer_choices: sad ||| happy
+     id: 3ab6ea0c-af6d-442a-9810-844119d781de
+     jinja: '
+Someone said to me {{sentence}}
+Do you think they are feeling {{"happy"}} or {{"sad"}}?
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_41
+     reference: ''
+  e84e8d22-b126-4e9a-af52-856fc7814abc: !Template
+     answer_choices: negative ||| positive
+     id: e84e8d22-b126-4e9a-af52-856fc7814abc
+     jinja: '
+Someone said to me {{sentence}}
+Do you think they are feeling {{"positive"}} or {{"negative"}}?
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_42
+     reference: ''
+  3858e8c9-51ea-42cb-a892-2740ad6ac1df: !Template
+     answer_choices: negative ||| positive
+     id: 3858e8c9-51ea-42cb-a892-2740ad6ac1df
+     jinja: '
+Someone said to me {{sentence}}
+Do you think they are feeling {{"positive"}} or {{"negative"}}?
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_43
+     reference: ''
+  cfe37357-119b-44f4-9230-33eb4eedcf30: !Template
+     answer_choices: negative ||| positive
+     id: cfe37357-119b-44f4-9230-33eb4eedcf30
+     jinja: '
+Someone said to me {{sentence}}
+Do you think they are feeling {{"positive"}} or {{"negative"}}?
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_44
+     reference: ''
+  0ddd2f67-3a6f-4152-a83d-003f4ce370ec: !Template
+     answer_choices: bad ||| good
+     id: 0ddd2f67-3a6f-4152-a83d-003f4ce370ec
+     jinja: '
+Someone said to me {{sentence}}
+Do you think they were {{"good"}} or {{"bad"}}?
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_45
+     reference: ''
+  8a4d63f4-424d-4c46-a143-1d7d9fb996e7: !Template
+     answer_choices: bad ||| good
+     id: 8a4d63f4-424d-4c46-a143-1d7d9fb996e7
+     jinja: '
+Someone said to me {{sentence}}
+Do you think they were {{"good"}} or {{"bad"}}?
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_46
+     reference: ''
+  343ba96f-973a-4d7e-9474-eff134d8b058: !Template
+     answer_choices: bad ||| good
+     id: 343ba96f-973a-4d7e-9474-eff134d8b058
+     jinja: '
+Someone said to me {{sentence}}
+Do you think they were {{"good"}} or {{"bad"}}?
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_47
+     reference: ''
+  9f7bb367-04c7-4229-b6c0-acbcf03795f9: !Template
+     answer_choices: sad ||| happy
+     id: 9f7bb367-04c7-4229-b6c0-acbcf03795f9
+     jinja: '
+Someone said to me {{sentence}}
+Do you think they were {{"happy"}} or {{"sad"}}?
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_48
+     reference: ''
+  b13866c5-d4f1-488a-b64b-841094723d2f: !Template
+     answer_choices: sad ||| happy
+     id: b13866c5-d4f1-488a-b64b-841094723d2f
+     jinja: '
+Someone said to me {{sentence}}
+Do you think they were {{"happy"}} or {{"sad"}}?
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_49
+     reference: ''
+  0313d337-7e4f-4682-b435-23ae3edd0a21: !Template
+     answer_choices: sad ||| happy
+     id: 0313d337-7e4f-4682-b435-23ae3edd0a21
+     jinja: '
+Someone said to me {{sentence}}
+Do you think they were {{"happy"}} or {{"sad"}}?
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_50
+     reference: ''
+  038dfaa9-2451-446e-819e-8c5aad79ab19: !Template
+     answer_choices: negative ||| positive
+     id: 038dfaa9-2451-446e-819e-8c5aad79ab19
+     jinja: '
+Someone said to me {{sentence}}
+Do you think they were {{"positive"}} or {{"negative"}}?
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_51
+     reference: ''
+  d317f013-a884-4f26-883d-ff4c7988dad9: !Template
+     answer_choices: negative ||| positive
+     id: d317f013-a884-4f26-883d-ff4c7988dad9
+     jinja: '
+Someone said to me {{sentence}}
+Do you think they were {{"positive"}} or {{"negative"}}?
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_52
+     reference: ''
+  182aa9b1-8ae4-4e92-adec-0f3be203fc78: !Template
+     answer_choices: negative ||| positive
+     id: 182aa9b1-8ae4-4e92-adec-0f3be203fc78
+     jinja: '
+Someone said to me {{sentence}}
+Do you think they were {{"positive"}} or {{"negative"}}?
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_53
+     reference: ''
+  8a5ecb3e-e094-4063-a715-c0f0ebc02fa4: !Template
+     answer_choices: bad ||| good
+     id: 8a5ecb3e-e094-4063-a715-c0f0ebc02fa4
+     jinja: ' A review says {{sentence}} Do you the reviewer was {{"good"}} or {{"bad"}}?  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_54
+     reference: ''
+  890b2eb4-44c4-4588-ae3a-f87b2b234e7e: !Template
+     answer_choices: bad ||| good
+     id: 890b2eb4-44c4-4588-ae3a-f87b2b234e7e
+     jinja: ' A review says {{sentence}} Do you the reviewer was {{"good"}} or {{"bad"}}? Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_55
+     reference: ''
+  b31bbd2d-36c2-4af4-9ee5-19170638f0f4: !Template
+     answer_choices: bad ||| good
+     id: b31bbd2d-36c2-4af4-9ee5-19170638f0f4
+     jinja: ' A review says {{sentence}} Do you the reviewer was {{"good"}} or {{"bad"}}? Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_56
+     reference: ''
+  7762f29a-cd9c-43b3-9b6b-6dd7796f0ad1: !Template
+     answer_choices: sad ||| happy
+     id: 7762f29a-cd9c-43b3-9b6b-6dd7796f0ad1
+     jinja: ' A review says {{sentence}} Do you the reviewer was {{"happy"}} or {{"sad"}}?  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_57
+     reference: ''
+  52b2a986-7647-46a5-b295-47c92bcb6517: !Template
+     answer_choices: sad ||| happy
+     id: 52b2a986-7647-46a5-b295-47c92bcb6517
+     jinja: ' A review says {{sentence}} Do you the reviewer was {{"happy"}} or {{"sad"}}? Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_58
+     reference: ''
+  48292100-6ba5-430d-ab1d-aebeea9e8c59: !Template
+     answer_choices: sad ||| happy
+     id: 48292100-6ba5-430d-ab1d-aebeea9e8c59
+     jinja: ' A review says {{sentence}} Do you the reviewer was {{"happy"}} or {{"sad"}}? Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_59
+     reference: ''
+  48bf4463-f758-4d7f-8c5d-697fc10be43a: !Template
+     answer_choices: negative ||| positive
+     id: 48bf4463-f758-4d7f-8c5d-697fc10be43a
+     jinja: ' A review says {{sentence}} Do you the reviewer was {{"positive"}} or {{"negative"}}?  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_60
+     reference: ''
+  fbf1f0fe-f190-47ea-9a23-e023763edb97: !Template
+     answer_choices: negative ||| positive
+     id: fbf1f0fe-f190-47ea-9a23-e023763edb97
+     jinja: ' A review says {{sentence}} Do you the reviewer was {{"positive"}} or {{"negative"}}? Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_61
+     reference: ''
+  e9c2a197-2091-41bc-984b-2ea7c5fcebee: !Template
+     answer_choices: negative ||| positive
+     id: e9c2a197-2091-41bc-984b-2ea7c5fcebee
+     jinja: ' A review says {{sentence}} Do you the reviewer was {{"positive"}} or {{"negative"}}? Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_62
+     reference: ''
+  04ce0a77-ba42-4e77-a2e1-fa7ebd9f330b: !Template
+     answer_choices: bad ||| good
+     id: 04ce0a77-ba42-4e77-a2e1-fa7ebd9f330b
+     jinja: ' A review says {{sentence}} Do you think the reviewer is feeling {{"good"}} or {{"bad"}}?  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_63
+     reference: ''
+  72ecfffd-7940-43f9-a6af-5bd3d44b5028: !Template
+     answer_choices: bad ||| good
+     id: 72ecfffd-7940-43f9-a6af-5bd3d44b5028
+     jinja: ' A review says {{sentence}} Do you think the reviewer is feeling {{"good"}} or {{"bad"}}? Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_64
+     reference: ''
+  e6ec6a41-ce5c-4b39-97e4-7ba691086db4: !Template
+     answer_choices: bad ||| good
+     id: e6ec6a41-ce5c-4b39-97e4-7ba691086db4
+     jinja: ' A review says {{sentence}} Do you think the reviewer is feeling {{"good"}} or {{"bad"}}? Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_65
+     reference: ''
+  a744acda-db86-4bde-95a4-3b86e60533a1: !Template
+     answer_choices: sad ||| happy
+     id: a744acda-db86-4bde-95a4-3b86e60533a1
+     jinja: ' A review says {{sentence}} Do you think the reviewer is feeling {{"happy"}} or {{"sad"}}?  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_66
+     reference: ''
+  8f8e62f2-da3e-4689-8cc0-7e811263f2b0: !Template
+     answer_choices: sad ||| happy
+     id: 8f8e62f2-da3e-4689-8cc0-7e811263f2b0
+     jinja: ' A review says {{sentence}} Do you think the reviewer is feeling {{"happy"}} or {{"sad"}}? Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_67
+     reference: ''
+  a7e646dc-e2bf-4f12-8823-ec3e6f2e831f: !Template
+     answer_choices: sad ||| happy
+     id: a7e646dc-e2bf-4f12-8823-ec3e6f2e831f
+     jinja: ' A review says {{sentence}} Do you think the reviewer is feeling {{"happy"}} or {{"sad"}}? Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_68
+     reference: ''
+  4c5a60b7-dfe9-4043-a78d-639dd971af7d: !Template
+     answer_choices: negative ||| positive
+     id: 4c5a60b7-dfe9-4043-a78d-639dd971af7d
+     jinja: ' A review says {{sentence}} Do you think the reviewer is feeling {{"positive"}} or {{"negative"}}?  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_69
+     reference: ''
+  decfc3d6-15f7-41e6-b657-c800cc49d5d2: !Template
+     answer_choices: negative ||| positive
+     id: decfc3d6-15f7-41e6-b657-c800cc49d5d2
+     jinja: ' A review says {{sentence}} Do you think the reviewer is feeling {{"positive"}} or {{"negative"}}? Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_70
+     reference: ''
+  8bf9247c-3fc9-4497-b77e-8b547c086ef6: !Template
+     answer_choices: negative ||| positive
+     id: 8bf9247c-3fc9-4497-b77e-8b547c086ef6
+     jinja: ' A review says {{sentence}} Do you think the reviewer is feeling {{"positive"}} or {{"negative"}}? Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_71
+     reference: ''
+  ba834ae2-45c3-4806-b594-7f66b654bfc6: !Template
+     answer_choices: bad ||| good
+     id: ba834ae2-45c3-4806-b594-7f66b654bfc6
+     jinja: ' Does this sentence has a {{"good"}} or {{"bad"}} sentiment?  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_72
+     reference: ''
+  c92ff0e4-35c1-42b9-9fab-2761b783be9c: !Template
+     answer_choices: bad ||| good
+     id: c92ff0e4-35c1-42b9-9fab-2761b783be9c
+     jinja: ' Does this sentence has a {{"good"}} or {{"bad"}} sentiment? Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_73
+     reference: ''
+  4580c124-82e8-413c-bd2e-5eeb2a2ad83a: !Template
+     answer_choices: bad ||| good
+     id: 4580c124-82e8-413c-bd2e-5eeb2a2ad83a
+     jinja: ' Does this sentence has a {{"good"}} or {{"bad"}} sentiment? Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_74
+     reference: ''
+  4af6b0bb-ce33-4023-b5aa-d85bc890248c: !Template
+     answer_choices: sad ||| happy
+     id: 4af6b0bb-ce33-4023-b5aa-d85bc890248c
+     jinja: ' Does this sentence has a {{"happy"}} or {{"sad"}} sentiment?  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_75
+     reference: ''
+  96d20a18-abbf-4ad8-b41d-bed893ac0a3c: !Template
+     answer_choices: sad ||| happy
+     id: 96d20a18-abbf-4ad8-b41d-bed893ac0a3c
+     jinja: ' Does this sentence has a {{"happy"}} or {{"sad"}} sentiment? Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_76
+     reference: ''
+  b9d0568b-9d5a-4339-82b2-8a14c674849e: !Template
+     answer_choices: sad ||| happy
+     id: b9d0568b-9d5a-4339-82b2-8a14c674849e
+     jinja: ' Does this sentence has a {{"happy"}} or {{"sad"}} sentiment? Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_77
+     reference: ''
+  45ea016e-7256-4cd2-889c-ca997995c968: !Template
+     answer_choices: negative ||| positive
+     id: 45ea016e-7256-4cd2-889c-ca997995c968
+     jinja: ' Does this sentence has a {{"positive"}} or {{"negative"}} sentiment?  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_78
+     reference: ''
+  834c4e91-b619-4e73-b56d-c0ec3a6c7c56: !Template
+     answer_choices: negative ||| positive
+     id: 834c4e91-b619-4e73-b56d-c0ec3a6c7c56
+     jinja: ' Does this sentence has a {{"positive"}} or {{"negative"}} sentiment? Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_79
+     reference: ''
+  bffe1778-e38a-48ba-b738-2687be944d6b: !Template
+     answer_choices: negative ||| positive
+     id: bffe1778-e38a-48ba-b738-2687be944d6b
+     jinja: ' Does this sentence has a {{"positive"}} or {{"negative"}} sentiment? Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_80
+     reference: ''
+  c454ff15-a4fa-4698-85aa-776ec6576818: !Template
+     answer_choices: bad ||| good
+     id: c454ff15-a4fa-4698-85aa-776ec6576818
+     jinja: ' Is this sentence {{"good"}} or {{"bad"}}? {{sentence}}  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_81
+     reference: ''
+  a1ec419b-0bc1-4da1-b9f7-54c650e665ba: !Template
+     answer_choices: bad ||| good
+     id: a1ec419b-0bc1-4da1-b9f7-54c650e665ba
+     jinja: ' Is this sentence {{"good"}} or {{"bad"}}? {{sentence}} Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_82
+     reference: ''
+  4f5e9613-73e7-4cb0-815c-187b9fdf5688: !Template
+     answer_choices: bad ||| good
+     id: 4f5e9613-73e7-4cb0-815c-187b9fdf5688
+     jinja: ' Is this sentence {{"good"}} or {{"bad"}}? {{sentence}} Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_83
+     reference: ''
+  284f5bfc-23a2-40d4-a488-dddb19882cd6: !Template
+     answer_choices: sad ||| happy
+     id: 284f5bfc-23a2-40d4-a488-dddb19882cd6
+     jinja: ' Is this sentence {{"happy"}} or {{"sad"}}? {{sentence}}  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_84
+     reference: ''
+  88e3b466-127a-4492-8bfc-713f76d09d50: !Template
+     answer_choices: sad ||| happy
+     id: 88e3b466-127a-4492-8bfc-713f76d09d50
+     jinja: ' Is this sentence {{"happy"}} or {{"sad"}}? {{sentence}} Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_85
+     reference: ''
+  31925b96-7f4a-4db4-8aad-3d863ee179bb: !Template
+     answer_choices: sad ||| happy
+     id: 31925b96-7f4a-4db4-8aad-3d863ee179bb
+     jinja: ' Is this sentence {{"happy"}} or {{"sad"}}? {{sentence}} Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_86
+     reference: ''
+  d3fea087-3988-4249-b871-98e49d063d47: !Template
+     answer_choices: negative ||| positive
+     id: d3fea087-3988-4249-b871-98e49d063d47
+     jinja: ' Is this sentence {{"positive"}} or {{"negative"}}? {{sentence}}  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_87
+     reference: ''
+  84ae8314-44e2-4ed2-872d-d62915ed19a2: !Template
+     answer_choices: negative ||| positive
+     id: 84ae8314-44e2-4ed2-872d-d62915ed19a2
+     jinja: ' Is this sentence {{"positive"}} or {{"negative"}}? {{sentence}} Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_88
+     reference: ''
+  11daf000-6c21-4b78-ae94-1384ce8492f4: !Template
+     answer_choices: negative ||| positive
+     id: 11daf000-6c21-4b78-ae94-1384ce8492f4
+     jinja: ' Is this sentence {{"positive"}} or {{"negative"}}? {{sentence}} Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_89
+     reference: ''
+  47159e72-0811-4cee-8211-2c2a76d1f804: !Template
+     answer_choices: bad ||| good
+     id: 47159e72-0811-4cee-8211-2c2a76d1f804
+     jinja: ' Someone said to me {{sentence}} Do you think they are feeling {{"good"}} or {{"bad"}}?  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_90
+     reference: ''
+  03f2636c-c13d-47c6-8185-bbc3be8c2025: !Template
+     answer_choices: bad ||| good
+     id: 03f2636c-c13d-47c6-8185-bbc3be8c2025
+     jinja: ' Someone said to me {{sentence}} Do you think they are feeling {{"good"}} or {{"bad"}}? Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_91
+     reference: ''
+  fe9c5881-98f8-4753-9fcd-b106773b3104: !Template
+     answer_choices: bad ||| good
+     id: fe9c5881-98f8-4753-9fcd-b106773b3104
+     jinja: ' Someone said to me {{sentence}} Do you think they are feeling {{"good"}} or {{"bad"}}? Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_92
+     reference: ''
+  527234bb-4566-4833-8449-7a566c399cd4: !Template
+     answer_choices: sad ||| happy
+     id: 527234bb-4566-4833-8449-7a566c399cd4
+     jinja: ' Someone said to me {{sentence}} Do you think they are feeling {{"happy"}} or {{"sad"}}?  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_93
+     reference: ''
+  d9d934e3-ccdf-4028-a9e1-6f93624b0976: !Template
+     answer_choices: sad ||| happy
+     id: d9d934e3-ccdf-4028-a9e1-6f93624b0976
+     jinja: ' Someone said to me {{sentence}} Do you think they are feeling {{"happy"}} or {{"sad"}}? Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_94
+     reference: ''
+  20f2e8cc-10c0-4db2-a704-269a3f49df3c: !Template
+     answer_choices: sad ||| happy
+     id: 20f2e8cc-10c0-4db2-a704-269a3f49df3c
+     jinja: ' Someone said to me {{sentence}} Do you think they are feeling {{"happy"}} or {{"sad"}}? Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_95
+     reference: ''
+  30f3f04e-6529-4379-97e3-bfcc8cae0ec5: !Template
+     answer_choices: negative ||| positive
+     id: 30f3f04e-6529-4379-97e3-bfcc8cae0ec5
+     jinja: ' Someone said to me {{sentence}} Do you think they are feeling {{"positive"}} or {{"negative"}}?  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_96
+     reference: ''
+  09a8b7ed-9d49-432f-bcd9-525c44561a90: !Template
+     answer_choices: negative ||| positive
+     id: 09a8b7ed-9d49-432f-bcd9-525c44561a90
+     jinja: ' Someone said to me {{sentence}} Do you think they are feeling {{"positive"}} or {{"negative"}}? Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_97
+     reference: ''
+  9634b645-d85c-48ab-9acc-33b842b93037: !Template
+     answer_choices: negative ||| positive
+     id: 9634b645-d85c-48ab-9acc-33b842b93037
+     jinja: ' Someone said to me {{sentence}} Do you think they are feeling {{"positive"}} or {{"negative"}}? Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_98
+     reference: ''
+  bb1b3199-6842-4866-9dad-6e62380a4cf2: !Template
+     answer_choices: bad ||| good
+     id: bb1b3199-6842-4866-9dad-6e62380a4cf2
+     jinja: ' Someone said to me {{sentence}} Do you think they were {{"good"}} or {{"bad"}}?  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_99
+     reference: ''
+  0d55351b-12c4-40c8-9ff1-5bb0c2d5cc99: !Template
+     answer_choices: bad ||| good
+     id: 0d55351b-12c4-40c8-9ff1-5bb0c2d5cc99
+     jinja: ' Someone said to me {{sentence}} Do you think they were {{"good"}} or {{"bad"}}? Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_100
+     reference: ''
+  c09e8e32-b139-4720-b1c8-2e757507e348: !Template
+     answer_choices: bad ||| good
+     id: c09e8e32-b139-4720-b1c8-2e757507e348
+     jinja: ' Someone said to me {{sentence}} Do you think they were {{"good"}} or {{"bad"}}? Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_101
+     reference: ''
+  98a3caf8-608b-4da9-b29d-7c8054fad3b4: !Template
+     answer_choices: sad ||| happy
+     id: 98a3caf8-608b-4da9-b29d-7c8054fad3b4
+     jinja: ' Someone said to me {{sentence}} Do you think they were {{"happy"}} or {{"sad"}}?  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_102
+     reference: ''
+  598955f9-0a6c-413e-9926-58289c782019: !Template
+     answer_choices: sad ||| happy
+     id: 598955f9-0a6c-413e-9926-58289c782019
+     jinja: ' Someone said to me {{sentence}} Do you think they were {{"happy"}} or {{"sad"}}? Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_103
+     reference: ''
+  437af414-29b6-4cfd-a636-6c67a7a4594a: !Template
+     answer_choices: sad ||| happy
+     id: 437af414-29b6-4cfd-a636-6c67a7a4594a
+     jinja: ' Someone said to me {{sentence}} Do you think they were {{"happy"}} or {{"sad"}}? Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_104
+     reference: ''
+  6a65ada7-d901-47f7-862c-53985a3e08b3: !Template
+     answer_choices: negative ||| positive
+     id: 6a65ada7-d901-47f7-862c-53985a3e08b3
+     jinja: ' Someone said to me {{sentence}} Do you think they were {{"positive"}} or {{"negative"}}?  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_105
+     reference: ''
+  404d2d79-6a47-41c8-9975-066d7100890c: !Template
+     answer_choices: negative ||| positive
+     id: 404d2d79-6a47-41c8-9975-066d7100890c
+     jinja: ' Someone said to me {{sentence}} Do you think they were {{"positive"}} or {{"negative"}}? Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_106
+     reference: ''
+  2c5c6be5-95fa-445b-ad00-75b94eb2201b: !Template
+     answer_choices: negative ||| positive
+     id: 2c5c6be5-95fa-445b-ad00-75b94eb2201b
+     jinja: ' Someone said to me {{sentence}} Do you think they were {{"positive"}} or {{"negative"}}? Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_107
+     reference: ''
+  71579f05-06e5-4a19-bcca-7f4b3352d139: !Template
+     answer_choices: negative ||| positive
+     id: 71579f05-06e5-4a19-bcca-7f4b3352d139
+     jinja: 'A review says {{sentence}}
+I think the reviewer felt ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_108
+     reference: ''
+  21881d96-e226-4b5e-8215-5fc1a9dedcb1: !Template
+     answer_choices: negative ||| positive
+     id: 21881d96-e226-4b5e-8215-5fc1a9dedcb1
+     jinja: 'A review says {{sentence}}
+I think the reviewer was ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_109
+     reference: ''
+  236fa0eb-5600-455c-951c-854d7f29076c: !Template
+     answer_choices: negative ||| positive
+     id: 236fa0eb-5600-455c-951c-854d7f29076c
+     jinja: 'A review says {{sentence}} I think the reviewer felt ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_110
+     reference: ''
+  3cf4c931-4f58-4ace-8e0a-ba524fa94743: !Template
+     answer_choices: negative ||| positive
+     id: 3cf4c931-4f58-4ace-8e0a-ba524fa94743
+     jinja: 'A review says {{sentence}} I think the reviewer was ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_111
+     reference: ''
+  ba094d13-0f63-498b-93c1-db93d41cc32d: !Template
+     answer_choices: bad ||| good
+     id: ba094d13-0f63-498b-93c1-db93d41cc32d
+     jinja: 'Question:
+A review says {{sentence}}
+Question:Do you the reviewer was {{"good"}} or {{"bad"}}?
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_112
+     reference: ''
+  925afea2-7cc2-408e-845c-7ae72f1afdef: !Template
+     answer_choices: bad ||| good
+     id: 925afea2-7cc2-408e-845c-7ae72f1afdef
+     jinja: 'Question:
+A review says {{sentence}}
+Question:Do you the reviewer was {{"good"}} or {{"bad"}}?
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_113
+     reference: ''
+  4b8139c0-2dd4-48f2-b5b7-64b85360a1ff: !Template
+     answer_choices: bad ||| good
+     id: 4b8139c0-2dd4-48f2-b5b7-64b85360a1ff
+     jinja: 'Question:
+A review says {{sentence}}
+Question:Do you the reviewer was {{"good"}} or {{"bad"}}?
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_114
+     reference: ''
+  671e7c84-a784-4ab1-bcc0-0388d853f7db: !Template
+     answer_choices: sad ||| happy
+     id: 671e7c84-a784-4ab1-bcc0-0388d853f7db
+     jinja: 'Question:
+A review says {{sentence}}
+Question:Do you the reviewer was {{"happy"}} or {{"sad"}}?
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_115
+     reference: ''
+  b2162d41-e692-4603-b04c-b8b97f3078ea: !Template
+     answer_choices: sad ||| happy
+     id: b2162d41-e692-4603-b04c-b8b97f3078ea
+     jinja: 'Question:
+A review says {{sentence}}
+Question:Do you the reviewer was {{"happy"}} or {{"sad"}}?
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_116
+     reference: ''
+  d20632cc-dc21-4023-809b-6dc8857b8eae: !Template
+     answer_choices: sad ||| happy
+     id: d20632cc-dc21-4023-809b-6dc8857b8eae
+     jinja: 'Question:
+A review says {{sentence}}
+Question:Do you the reviewer was {{"happy"}} or {{"sad"}}?
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_117
+     reference: ''
+  00243a44-cac9-4513-ba69-7f7606a53245: !Template
+     answer_choices: negative ||| positive
+     id: 00243a44-cac9-4513-ba69-7f7606a53245
+     jinja: 'Question:
+A review says {{sentence}}
+Question:Do you the reviewer was {{"positive"}} or {{"negative"}}?
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_118
+     reference: ''
+  8eafc2bd-6405-4960-a7a0-a4865231ae5d: !Template
+     answer_choices: negative ||| positive
+     id: 8eafc2bd-6405-4960-a7a0-a4865231ae5d
+     jinja: 'Question:
+A review says {{sentence}}
+Question:Do you the reviewer was {{"positive"}} or {{"negative"}}?
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_119
+     reference: ''
+  630b64ab-5cf7-4248-a200-c0e3f1d2bd6b: !Template
+     answer_choices: negative ||| positive
+     id: 630b64ab-5cf7-4248-a200-c0e3f1d2bd6b
+     jinja: 'Question:
+A review says {{sentence}}
+Question:Do you the reviewer was {{"positive"}} or {{"negative"}}?
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_120
+     reference: ''
+  3c3af3c5-ebf0-426e-8b84-46823cc2e31c: !Template
+     answer_choices: bad ||| good
+     id: 3c3af3c5-ebf0-426e-8b84-46823cc2e31c
+     jinja: 'Question:
+A review says {{sentence}}
+Question:Do you think the reviewer is feeling {{"good"}} or {{"bad"}}?
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_121
+     reference: ''
+  57d943e9-5c63-46b6-8a7e-6f77ee64cf57: !Template
+     answer_choices: bad ||| good
+     id: 57d943e9-5c63-46b6-8a7e-6f77ee64cf57
+     jinja: 'Question:
+A review says {{sentence}}
+Question:Do you think the reviewer is feeling {{"good"}} or {{"bad"}}?
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_122
+     reference: ''
+  b9582fee-c1aa-4a07-b798-c6669d0607db: !Template
+     answer_choices: bad ||| good
+     id: b9582fee-c1aa-4a07-b798-c6669d0607db
+     jinja: 'Question:
+A review says {{sentence}}
+Question:Do you think the reviewer is feeling {{"good"}} or {{"bad"}}?
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_123
+     reference: ''
+  3fb148c0-9613-40ff-a902-1148033cfc6b: !Template
+     answer_choices: sad ||| happy
+     id: 3fb148c0-9613-40ff-a902-1148033cfc6b
+     jinja: 'Question:
+A review says {{sentence}}
+Question:Do you think the reviewer is feeling {{"happy"}} or {{"sad"}}?
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_124
+     reference: ''
+  b92ad57b-a34a-4ba5-84c9-3d1160855b4d: !Template
+     answer_choices: sad ||| happy
+     id: b92ad57b-a34a-4ba5-84c9-3d1160855b4d
+     jinja: 'Question:
+A review says {{sentence}}
+Question:Do you think the reviewer is feeling {{"happy"}} or {{"sad"}}?
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_125
+     reference: ''
+  6bc01774-aabe-4ee4-b260-4047252b99a4: !Template
+     answer_choices: sad ||| happy
+     id: 6bc01774-aabe-4ee4-b260-4047252b99a4
+     jinja: 'Question:
+A review says {{sentence}}
+Question:Do you think the reviewer is feeling {{"happy"}} or {{"sad"}}?
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_126
+     reference: ''
+  859aedde-a3c6-4c6c-b426-acfbea120e2a: !Template
+     answer_choices: negative ||| positive
+     id: 859aedde-a3c6-4c6c-b426-acfbea120e2a
+     jinja: 'Question:
+A review says {{sentence}}
+Question:Do you think the reviewer is feeling {{"positive"}} or {{"negative"}}?
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_127
+     reference: ''
+  3b8a0aad-b573-467f-a8df-061b7eab0d67: !Template
+     answer_choices: negative ||| positive
+     id: 3b8a0aad-b573-467f-a8df-061b7eab0d67
+     jinja: 'Question:
+A review says {{sentence}}
+Question:Do you think the reviewer is feeling {{"positive"}} or {{"negative"}}?
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_128
+     reference: ''
+  b44cf2de-5179-441e-9a26-eb13acabf3e9: !Template
+     answer_choices: negative ||| positive
+     id: b44cf2de-5179-441e-9a26-eb13acabf3e9
+     jinja: 'Question:
+A review says {{sentence}}
+Question:Do you think the reviewer is feeling {{"positive"}} or {{"negative"}}?
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_129
+     reference: ''
+  3220eb18-5c07-4367-968f-2c7af9b45a12: !Template
+     answer_choices: bad ||| good
+     id: 3220eb18-5c07-4367-968f-2c7af9b45a12
+     jinja: 'Question:
+Does this sentence has a {{"good"}} or {{"bad"}} sentiment?
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_130
+     reference: ''
+  15a363a4-cfc2-403d-a741-164cd9071cd9: !Template
+     answer_choices: bad ||| good
+     id: 15a363a4-cfc2-403d-a741-164cd9071cd9
+     jinja: 'Question:
+Does this sentence has a {{"good"}} or {{"bad"}} sentiment?
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_131
+     reference: ''
+  537a1dae-289a-4729-bc86-501e9e7f4614: !Template
+     answer_choices: bad ||| good
+     id: 537a1dae-289a-4729-bc86-501e9e7f4614
+     jinja: 'Question:
+Does this sentence has a {{"good"}} or {{"bad"}} sentiment?
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_132
+     reference: ''
+  799a15d4-357d-452d-a67a-ccfbc3c0cb20: !Template
+     answer_choices: sad ||| happy
+     id: 799a15d4-357d-452d-a67a-ccfbc3c0cb20
+     jinja: 'Question:
+Does this sentence has a {{"happy"}} or {{"sad"}} sentiment?
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_133
+     reference: ''
+  79fe16c5-754a-4ca6-8f64-54f848686a85: !Template
+     answer_choices: sad ||| happy
+     id: 79fe16c5-754a-4ca6-8f64-54f848686a85
+     jinja: 'Question:
+Does this sentence has a {{"happy"}} or {{"sad"}} sentiment?
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_134
+     reference: ''
+  f12073b9-b87d-4ba9-9b4b-065d6b692645: !Template
+     answer_choices: sad ||| happy
+     id: f12073b9-b87d-4ba9-9b4b-065d6b692645
+     jinja: 'Question:
+Does this sentence has a {{"happy"}} or {{"sad"}} sentiment?
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_135
+     reference: ''
+  59434549-73bd-48a5-95c6-0e7f94e96a0f: !Template
+     answer_choices: negative ||| positive
+     id: 59434549-73bd-48a5-95c6-0e7f94e96a0f
+     jinja: 'Question:
+Does this sentence has a {{"positive"}} or {{"negative"}} sentiment?
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_136
+     reference: ''
+  e515984e-3daf-42d9-b224-ce5b2d4f2892: !Template
+     answer_choices: negative ||| positive
+     id: e515984e-3daf-42d9-b224-ce5b2d4f2892
+     jinja: 'Question:
+Does this sentence has a {{"positive"}} or {{"negative"}} sentiment?
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_137
+     reference: ''
+  8ef95fb4-8be1-4a2f-9f37-06121d35a3f5: !Template
+     answer_choices: negative ||| positive
+     id: 8ef95fb4-8be1-4a2f-9f37-06121d35a3f5
+     jinja: 'Question:
+Does this sentence has a {{"positive"}} or {{"negative"}} sentiment?
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_138
+     reference: ''
+  e9c7742b-7e68-499c-9858-7119dbfd833f: !Template
+     answer_choices: bad ||| good
+     id: e9c7742b-7e68-499c-9858-7119dbfd833f
+     jinja: 'Question:
+Is this sentence {{"good"}} or {{"bad"}}?
+{{sentence}}
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_139
+     reference: ''
+  a0de4cea-002e-4e47-b6e5-4e911db2353d: !Template
+     answer_choices: bad ||| good
+     id: a0de4cea-002e-4e47-b6e5-4e911db2353d
+     jinja: 'Question:
+Is this sentence {{"good"}} or {{"bad"}}?
+{{sentence}}
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_140
+     reference: ''
+  3bdb37f3-7cfa-48bc-8f24-8080c6cadd7c: !Template
+     answer_choices: bad ||| good
+     id: 3bdb37f3-7cfa-48bc-8f24-8080c6cadd7c
+     jinja: 'Question:
+Is this sentence {{"good"}} or {{"bad"}}?
+{{sentence}}
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_141
+     reference: ''
+  1bb3334b-2462-4234-8fd9-ea44ffffcd95: !Template
+     answer_choices: sad ||| happy
+     id: 1bb3334b-2462-4234-8fd9-ea44ffffcd95
+     jinja: 'Question:
+Is this sentence {{"happy"}} or {{"sad"}}?
+{{sentence}}
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_142
+     reference: ''
+  38493aca-765b-478e-96b0-f8c6cf9123ad: !Template
+     answer_choices: sad ||| happy
+     id: 38493aca-765b-478e-96b0-f8c6cf9123ad
+     jinja: 'Question:
+Is this sentence {{"happy"}} or {{"sad"}}?
+{{sentence}}
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_143
+     reference: ''
+  98d0f271-b0df-4a47-a329-4fc7e4a6ce89: !Template
+     answer_choices: sad ||| happy
+     id: 98d0f271-b0df-4a47-a329-4fc7e4a6ce89
+     jinja: 'Question:
+Is this sentence {{"happy"}} or {{"sad"}}?
+{{sentence}}
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_144
+     reference: ''
+  7a80556b-c437-4849-823d-6439ffb7c364: !Template
+     answer_choices: negative ||| positive
+     id: 7a80556b-c437-4849-823d-6439ffb7c364
+     jinja: 'Question:
+Is this sentence {{"positive"}} or {{"negative"}}?
+{{sentence}}
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_145
+     reference: ''
+  c7bcd02d-d09d-49b0-a1fe-b5cbaa171312: !Template
+     answer_choices: negative ||| positive
+     id: c7bcd02d-d09d-49b0-a1fe-b5cbaa171312
+     jinja: 'Question:
+Is this sentence {{"positive"}} or {{"negative"}}?
+{{sentence}}
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_146
+     reference: ''
+  c67cffde-d4fa-48c6-9195-ab9458303f52: !Template
+     answer_choices: negative ||| positive
+     id: c67cffde-d4fa-48c6-9195-ab9458303f52
+     jinja: 'Question:
+Is this sentence {{"positive"}} or {{"negative"}}?
+{{sentence}}
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_147
+     reference: ''
+  1e5190c6-4384-456e-b13a-2d3bff016793: !Template
+     answer_choices: bad ||| good
+     id: 1e5190c6-4384-456e-b13a-2d3bff016793
+     jinja: 'Question:
+Someone said to me {{sentence}}
+Question:Do you think they are feeling {{"good"}} or {{"bad"}}?
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_148
+     reference: ''
+  42a8e78d-e5c3-461f-bc01-cd09703df992: !Template
+     answer_choices: bad ||| good
+     id: 42a8e78d-e5c3-461f-bc01-cd09703df992
+     jinja: 'Question:
+Someone said to me {{sentence}}
+Question:Do you think they are feeling {{"good"}} or {{"bad"}}?
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_149
+     reference: ''
+  d345f552-55a4-4693-89e0-e9b8136f079e: !Template
+     answer_choices: bad ||| good
+     id: d345f552-55a4-4693-89e0-e9b8136f079e
+     jinja: 'Question:
+Someone said to me {{sentence}}
+Question:Do you think they are feeling {{"good"}} or {{"bad"}}?
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_150
+     reference: ''
+  b7383f2f-9d84-44c5-9491-24d392dd8294: !Template
+     answer_choices: sad ||| happy
+     id: b7383f2f-9d84-44c5-9491-24d392dd8294
+     jinja: 'Question:
+Someone said to me {{sentence}}
+Question:Do you think they are feeling {{"happy"}} or {{"sad"}}?
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_151
+     reference: ''
+  c1207a36-b009-42f7-ab5b-f08961f149e2: !Template
+     answer_choices: sad ||| happy
+     id: c1207a36-b009-42f7-ab5b-f08961f149e2
+     jinja: 'Question:
+Someone said to me {{sentence}}
+Question:Do you think they are feeling {{"happy"}} or {{"sad"}}?
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_152
+     reference: ''
+  776746f7-07ad-402e-9b30-bd45f0eddab8: !Template
+     answer_choices: sad ||| happy
+     id: 776746f7-07ad-402e-9b30-bd45f0eddab8
+     jinja: 'Question:
+Someone said to me {{sentence}}
+Question:Do you think they are feeling {{"happy"}} or {{"sad"}}?
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_153
+     reference: ''
+  c15889f8-895e-4920-84bc-fb8980b74aa2: !Template
+     answer_choices: negative ||| positive
+     id: c15889f8-895e-4920-84bc-fb8980b74aa2
+     jinja: 'Question:
+Someone said to me {{sentence}}
+Question:Do you think they are feeling {{"positive"}} or {{"negative"}}?
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_154
+     reference: ''
+  1c6b1840-197b-4912-a532-25c93fd34f3f: !Template
+     answer_choices: negative ||| positive
+     id: 1c6b1840-197b-4912-a532-25c93fd34f3f
+     jinja: 'Question:
+Someone said to me {{sentence}}
+Question:Do you think they are feeling {{"positive"}} or {{"negative"}}?
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_155
+     reference: ''
+  cd819766-7a1c-46ed-9f6f-208798bc222c: !Template
+     answer_choices: negative ||| positive
+     id: cd819766-7a1c-46ed-9f6f-208798bc222c
+     jinja: 'Question:
+Someone said to me {{sentence}}
+Question:Do you think they are feeling {{"positive"}} or {{"negative"}}?
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_156
+     reference: ''
+  cb19c3b9-ce1a-4269-b50e-87c0b2c43baa: !Template
+     answer_choices: bad ||| good
+     id: cb19c3b9-ce1a-4269-b50e-87c0b2c43baa
+     jinja: 'Question:
+Someone said to me {{sentence}}
+Question:Do you think they were {{"good"}} or {{"bad"}}?
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_157
+     reference: ''
+  c0712369-2646-4167-84aa-3118ae27038a: !Template
+     answer_choices: bad ||| good
+     id: c0712369-2646-4167-84aa-3118ae27038a
+     jinja: 'Question:
+Someone said to me {{sentence}}
+Question:Do you think they were {{"good"}} or {{"bad"}}?
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_158
+     reference: ''
+  57f78153-94d1-4836-bbf2-ac2a9dabefe8: !Template
+     answer_choices: bad ||| good
+     id: 57f78153-94d1-4836-bbf2-ac2a9dabefe8
+     jinja: 'Question:
+Someone said to me {{sentence}}
+Question:Do you think they were {{"good"}} or {{"bad"}}?
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_159
+     reference: ''
+  e2cf2ab0-4c9b-4f6d-8eed-1202a408e038: !Template
+     answer_choices: sad ||| happy
+     id: e2cf2ab0-4c9b-4f6d-8eed-1202a408e038
+     jinja: 'Question:
+Someone said to me {{sentence}}
+Question:Do you think they were {{"happy"}} or {{"sad"}}?
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_160
+     reference: ''
+  67a4fa94-09e4-4cd6-b4cb-717a921b57f8: !Template
+     answer_choices: sad ||| happy
+     id: 67a4fa94-09e4-4cd6-b4cb-717a921b57f8
+     jinja: 'Question:
+Someone said to me {{sentence}}
+Question:Do you think they were {{"happy"}} or {{"sad"}}?
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_161
+     reference: ''
+  691a70e3-c053-4fd0-8daa-b8d9c9db2fc2: !Template
+     answer_choices: sad ||| happy
+     id: 691a70e3-c053-4fd0-8daa-b8d9c9db2fc2
+     jinja: 'Question:
+Someone said to me {{sentence}}
+Question:Do you think they were {{"happy"}} or {{"sad"}}?
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_162
+     reference: ''
+  d41e36b6-e5bd-4269-b6fc-97066d0dfa85: !Template
+     answer_choices: negative ||| positive
+     id: d41e36b6-e5bd-4269-b6fc-97066d0dfa85
+     jinja: 'Question:
+Someone said to me {{sentence}}
+Question:Do you think they were {{"positive"}} or {{"negative"}}?
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_163
+     reference: ''
+  7b98c1f3-2327-49d5-b4d7-39cd7e6bc35c: !Template
+     answer_choices: negative ||| positive
+     id: 7b98c1f3-2327-49d5-b4d7-39cd7e6bc35c
+     jinja: 'Question:
+Someone said to me {{sentence}}
+Question:Do you think they were {{"positive"}} or {{"negative"}}?
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_164
+     reference: ''
+  71637ae6-207b-4afc-b011-1682d30705b8: !Template
+     answer_choices: negative ||| positive
+     id: 71637ae6-207b-4afc-b011-1682d30705b8
+     jinja: 'Question:
+Someone said to me {{sentence}}
+Question:Do you think they were {{"positive"}} or {{"negative"}}?
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_165
+     reference: ''
+  05fb6839-bb1e-4634-aca6-c83eac253b97: !Template
+     answer_choices: bad ||| good
+     id: 05fb6839-bb1e-4634-aca6-c83eac253b97
+     jinja: 'Question: A review says {{sentence}} Question:Do you the reviewer was {{"good"}} or {{"bad"}}?  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_166
+     reference: ''
+  1149bad6-eda9-4165-8f6d-8a1858e9300f: !Template
+     answer_choices: bad ||| good
+     id: 1149bad6-eda9-4165-8f6d-8a1858e9300f
+     jinja: 'Question: A review says {{sentence}} Question:Do you the reviewer was {{"good"}} or {{"bad"}}? Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_167
+     reference: ''
+  11590829-3a6b-4161-8710-24a82e844339: !Template
+     answer_choices: bad ||| good
+     id: 11590829-3a6b-4161-8710-24a82e844339
+     jinja: 'Question: A review says {{sentence}} Question:Do you the reviewer was {{"good"}} or {{"bad"}}? Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_168
+     reference: ''
+  b4a4dfb6-82ea-490d-846f-27d5fea904c1: !Template
+     answer_choices: sad ||| happy
+     id: b4a4dfb6-82ea-490d-846f-27d5fea904c1
+     jinja: 'Question: A review says {{sentence}} Question:Do you the reviewer was {{"happy"}} or {{"sad"}}?  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_169
+     reference: ''
+  7475d522-5dc4-43bd-8ca6-a3ffeb1833ce: !Template
+     answer_choices: sad ||| happy
+     id: 7475d522-5dc4-43bd-8ca6-a3ffeb1833ce
+     jinja: 'Question: A review says {{sentence}} Question:Do you the reviewer was {{"happy"}} or {{"sad"}}? Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_170
+     reference: ''
+  2a82cd31-baf4-4f53-a1f6-6c9047c5ffbf: !Template
+     answer_choices: sad ||| happy
+     id: 2a82cd31-baf4-4f53-a1f6-6c9047c5ffbf
+     jinja: 'Question: A review says {{sentence}} Question:Do you the reviewer was {{"happy"}} or {{"sad"}}? Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_171
+     reference: ''
+  c60f51ab-9fff-4e22-80af-a74b3891aaf1: !Template
+     answer_choices: negative ||| positive
+     id: c60f51ab-9fff-4e22-80af-a74b3891aaf1
+     jinja: 'Question: A review says {{sentence}} Question:Do you the reviewer was {{"positive"}} or {{"negative"}}?  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_172
+     reference: ''
+  4166eee1-8f23-4330-a913-2a3d8b7433e7: !Template
+     answer_choices: negative ||| positive
+     id: 4166eee1-8f23-4330-a913-2a3d8b7433e7
+     jinja: 'Question: A review says {{sentence}} Question:Do you the reviewer was {{"positive"}} or {{"negative"}}? Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_173
+     reference: ''
+  486974fc-3254-4867-b6ef-24872fd5975a: !Template
+     answer_choices: negative ||| positive
+     id: 486974fc-3254-4867-b6ef-24872fd5975a
+     jinja: 'Question: A review says {{sentence}} Question:Do you the reviewer was {{"positive"}} or {{"negative"}}? Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_174
+     reference: ''
+  655dfa59-5da9-48b9-8066-382770fee307: !Template
+     answer_choices: bad ||| good
+     id: 655dfa59-5da9-48b9-8066-382770fee307
+     jinja: 'Question: A review says {{sentence}} Question:Do you think the reviewer is feeling {{"good"}} or {{"bad"}}?  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_175
+     reference: ''
+  94348919-c6aa-4948-b67c-180a55e5334a: !Template
+     answer_choices: bad ||| good
+     id: 94348919-c6aa-4948-b67c-180a55e5334a
+     jinja: 'Question: A review says {{sentence}} Question:Do you think the reviewer is feeling {{"good"}} or {{"bad"}}? Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_176
+     reference: ''
+  5401b278-2c9b-4932-9fbf-7099ea2a9a5d: !Template
+     answer_choices: bad ||| good
+     id: 5401b278-2c9b-4932-9fbf-7099ea2a9a5d
+     jinja: 'Question: A review says {{sentence}} Question:Do you think the reviewer is feeling {{"good"}} or {{"bad"}}? Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_177
+     reference: ''
+  f4380e9b-83a0-4858-bb93-c10d2475c307: !Template
+     answer_choices: sad ||| happy
+     id: f4380e9b-83a0-4858-bb93-c10d2475c307
+     jinja: 'Question: A review says {{sentence}} Question:Do you think the reviewer is feeling {{"happy"}} or {{"sad"}}?  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_178
+     reference: ''
+  9a25675b-76ee-43ff-a336-8c113dfbff99: !Template
+     answer_choices: sad ||| happy
+     id: 9a25675b-76ee-43ff-a336-8c113dfbff99
+     jinja: 'Question: A review says {{sentence}} Question:Do you think the reviewer is feeling {{"happy"}} or {{"sad"}}? Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_179
+     reference: ''
+  0e974677-538b-45d9-8b56-9ca84477e48f: !Template
+     answer_choices: sad ||| happy
+     id: 0e974677-538b-45d9-8b56-9ca84477e48f
+     jinja: 'Question: A review says {{sentence}} Question:Do you think the reviewer is feeling {{"happy"}} or {{"sad"}}? Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_180
+     reference: ''
+  5915f671-05aa-4927-b960-9e117c8e44dd: !Template
+     answer_choices: negative ||| positive
+     id: 5915f671-05aa-4927-b960-9e117c8e44dd
+     jinja: 'Question: A review says {{sentence}} Question:Do you think the reviewer is feeling {{"positive"}} or {{"negative"}}?  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_181
+     reference: ''
+  a8f054fc-8494-446a-abb2-5f0ac883184a: !Template
+     answer_choices: negative ||| positive
+     id: a8f054fc-8494-446a-abb2-5f0ac883184a
+     jinja: 'Question: A review says {{sentence}} Question:Do you think the reviewer is feeling {{"positive"}} or {{"negative"}}? Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_182
+     reference: ''
+  99fd9ead-26ee-4f10-b630-768332a93a95: !Template
+     answer_choices: negative ||| positive
+     id: 99fd9ead-26ee-4f10-b630-768332a93a95
+     jinja: 'Question: A review says {{sentence}} Question:Do you think the reviewer is feeling {{"positive"}} or {{"negative"}}? Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_183
+     reference: ''
+  6fab2127-d652-4ceb-a5d8-08dac6fb6cd5: !Template
+     answer_choices: bad ||| good
+     id: 6fab2127-d652-4ceb-a5d8-08dac6fb6cd5
+     jinja: 'Question: Does this sentence has a {{"good"}} or {{"bad"}} sentiment?  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_184
+     reference: ''
+  5ae20604-3221-41fc-b27a-e3b26f7cfa2c: !Template
+     answer_choices: bad ||| good
+     id: 5ae20604-3221-41fc-b27a-e3b26f7cfa2c
+     jinja: 'Question: Does this sentence has a {{"good"}} or {{"bad"}} sentiment? Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_185
+     reference: ''
+  576783e3-3a58-41d6-9022-6cc66cdf022d: !Template
+     answer_choices: bad ||| good
+     id: 576783e3-3a58-41d6-9022-6cc66cdf022d
+     jinja: 'Question: Does this sentence has a {{"good"}} or {{"bad"}} sentiment? Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_186
+     reference: ''
+  2936f8c0-3db9-458a-b107-1cef89a358ba: !Template
+     answer_choices: sad ||| happy
+     id: 2936f8c0-3db9-458a-b107-1cef89a358ba
+     jinja: 'Question: Does this sentence has a {{"happy"}} or {{"sad"}} sentiment?  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_187
+     reference: ''
+  44906c96-4ea0-40bd-8ebf-4bea259f3787: !Template
+     answer_choices: sad ||| happy
+     id: 44906c96-4ea0-40bd-8ebf-4bea259f3787
+     jinja: 'Question: Does this sentence has a {{"happy"}} or {{"sad"}} sentiment? Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_188
+     reference: ''
+  d976755f-0cc3-450f-92d9-d54874019766: !Template
+     answer_choices: sad ||| happy
+     id: d976755f-0cc3-450f-92d9-d54874019766
+     jinja: 'Question: Does this sentence has a {{"happy"}} or {{"sad"}} sentiment? Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_189
+     reference: ''
+  3e045f29-1111-4d06-bc70-87c2a7f9f2b6: !Template
+     answer_choices: negative ||| positive
+     id: 3e045f29-1111-4d06-bc70-87c2a7f9f2b6
+     jinja: 'Question: Does this sentence has a {{"positive"}} or {{"negative"}} sentiment?  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_190
+     reference: ''
+  ceba128b-9839-4eaa-a046-e9d968ff025b: !Template
+     answer_choices: negative ||| positive
+     id: ceba128b-9839-4eaa-a046-e9d968ff025b
+     jinja: 'Question: Does this sentence has a {{"positive"}} or {{"negative"}} sentiment? Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_191
+     reference: ''
+  324d2543-c1bb-43db-ad01-b5cbbd1d98f1: !Template
+     answer_choices: negative ||| positive
+     id: 324d2543-c1bb-43db-ad01-b5cbbd1d98f1
+     jinja: 'Question: Does this sentence has a {{"positive"}} or {{"negative"}} sentiment? Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_192
+     reference: ''
+  47e3f7b7-31cb-4993-b5a7-8b5a1889f850: !Template
+     answer_choices: bad ||| good
+     id: 47e3f7b7-31cb-4993-b5a7-8b5a1889f850
+     jinja: 'Question: Is this sentence {{"good"}} or {{"bad"}}? {{sentence}}  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_193
+     reference: ''
+  2b20f23d-7c5e-49ea-9f80-5834e3a62518: !Template
+     answer_choices: bad ||| good
+     id: 2b20f23d-7c5e-49ea-9f80-5834e3a62518
+     jinja: 'Question: Is this sentence {{"good"}} or {{"bad"}}? {{sentence}} Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_194
+     reference: ''
+  89b321c2-486c-41ab-bc4c-9e45ad5120c2: !Template
+     answer_choices: bad ||| good
+     id: 89b321c2-486c-41ab-bc4c-9e45ad5120c2
+     jinja: 'Question: Is this sentence {{"good"}} or {{"bad"}}? {{sentence}} Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_195
+     reference: ''
+  1b5fef4b-48fd-48c5-9ca9-1065dbde8390: !Template
+     answer_choices: sad ||| happy
+     id: 1b5fef4b-48fd-48c5-9ca9-1065dbde8390
+     jinja: 'Question: Is this sentence {{"happy"}} or {{"sad"}}? {{sentence}}  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_196
+     reference: ''
+  3515e15f-50d1-4b6a-8080-b03d6b4cf23e: !Template
+     answer_choices: sad ||| happy
+     id: 3515e15f-50d1-4b6a-8080-b03d6b4cf23e
+     jinja: 'Question: Is this sentence {{"happy"}} or {{"sad"}}? {{sentence}} Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_197
+     reference: ''
+  53f890df-d8ff-42f4-953d-a4e6be246d90: !Template
+     answer_choices: sad ||| happy
+     id: 53f890df-d8ff-42f4-953d-a4e6be246d90
+     jinja: 'Question: Is this sentence {{"happy"}} or {{"sad"}}? {{sentence}} Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_198
+     reference: ''
+  d33708ca-24c5-4cb2-a499-c76844240e62: !Template
+     answer_choices: negative ||| positive
+     id: d33708ca-24c5-4cb2-a499-c76844240e62
+     jinja: 'Question: Is this sentence {{"positive"}} or {{"negative"}}? {{sentence}}  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_199
+     reference: ''
+  e9d11fa0-4b35-450a-9982-0793d39a0285: !Template
+     answer_choices: negative ||| positive
+     id: e9d11fa0-4b35-450a-9982-0793d39a0285
+     jinja: 'Question: Is this sentence {{"positive"}} or {{"negative"}}? {{sentence}} Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_200
+     reference: ''
+  4ece10ac-ed11-45e4-b0c8-0c768cb963ac: !Template
+     answer_choices: negative ||| positive
+     id: 4ece10ac-ed11-45e4-b0c8-0c768cb963ac
+     jinja: 'Question: Is this sentence {{"positive"}} or {{"negative"}}? {{sentence}} Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_201
+     reference: ''
+  047b8117-3eb1-4bd7-bd49-16e1040afad5: !Template
+     answer_choices: bad ||| good
+     id: 047b8117-3eb1-4bd7-bd49-16e1040afad5
+     jinja: 'Question: Someone said to me {{sentence}} Question:Do you think they are feeling {{"good"}} or {{"bad"}}?  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_202
+     reference: ''
+  92e2adfa-d85e-468a-a691-acf3fbc1a9c8: !Template
+     answer_choices: bad ||| good
+     id: 92e2adfa-d85e-468a-a691-acf3fbc1a9c8
+     jinja: 'Question: Someone said to me {{sentence}} Question:Do you think they are feeling {{"good"}} or {{"bad"}}? Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_203
+     reference: ''
+  111c94ad-92fc-4cbe-af6f-1150d1e7e720: !Template
+     answer_choices: bad ||| good
+     id: 111c94ad-92fc-4cbe-af6f-1150d1e7e720
+     jinja: 'Question: Someone said to me {{sentence}} Question:Do you think they are feeling {{"good"}} or {{"bad"}}? Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_204
+     reference: ''
+  af472921-9f06-41d2-9d09-c85962234ac3: !Template
+     answer_choices: sad ||| happy
+     id: af472921-9f06-41d2-9d09-c85962234ac3
+     jinja: 'Question: Someone said to me {{sentence}} Question:Do you think they are feeling {{"happy"}} or {{"sad"}}?  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_205
+     reference: ''
+  fa1aa50e-fbd0-4863-879b-92ae6840da00: !Template
+     answer_choices: sad ||| happy
+     id: fa1aa50e-fbd0-4863-879b-92ae6840da00
+     jinja: 'Question: Someone said to me {{sentence}} Question:Do you think they are feeling {{"happy"}} or {{"sad"}}? Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_206
+     reference: ''
+  1568f430-89cb-46be-84bf-6f1b8c4cea01: !Template
+     answer_choices: sad ||| happy
+     id: 1568f430-89cb-46be-84bf-6f1b8c4cea01
+     jinja: 'Question: Someone said to me {{sentence}} Question:Do you think they are feeling {{"happy"}} or {{"sad"}}? Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_207
+     reference: ''
+  b57d7270-567e-4c19-806b-da1871161c3e: !Template
+     answer_choices: negative ||| positive
+     id: b57d7270-567e-4c19-806b-da1871161c3e
+     jinja: 'Question: Someone said to me {{sentence}} Question:Do you think they are feeling {{"positive"}} or {{"negative"}}?  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_208
+     reference: ''
+  5145eb31-baa0-41dc-b959-dfd1ab35eb67: !Template
+     answer_choices: negative ||| positive
+     id: 5145eb31-baa0-41dc-b959-dfd1ab35eb67
+     jinja: 'Question: Someone said to me {{sentence}} Question:Do you think they are feeling {{"positive"}} or {{"negative"}}? Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_209
+     reference: ''
+  5512c68b-78d6-4094-a45e-a59eb22e0367: !Template
+     answer_choices: negative ||| positive
+     id: 5512c68b-78d6-4094-a45e-a59eb22e0367
+     jinja: 'Question: Someone said to me {{sentence}} Question:Do you think they are feeling {{"positive"}} or {{"negative"}}? Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_210
+     reference: ''
+  45cef6d7-ea95-41af-89e7-9e6434bb4700: !Template
+     answer_choices: bad ||| good
+     id: 45cef6d7-ea95-41af-89e7-9e6434bb4700
+     jinja: 'Question: Someone said to me {{sentence}} Question:Do you think they were {{"good"}} or {{"bad"}}?  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_211
+     reference: ''
+  73b9418b-dc1d-4c3b-95a0-bba44da7bac7: !Template
+     answer_choices: bad ||| good
+     id: 73b9418b-dc1d-4c3b-95a0-bba44da7bac7
+     jinja: 'Question: Someone said to me {{sentence}} Question:Do you think they were {{"good"}} or {{"bad"}}? Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_212
+     reference: ''
+  5fb7ab85-0764-44c3-a257-ab2ce84ccc5a: !Template
+     answer_choices: bad ||| good
+     id: 5fb7ab85-0764-44c3-a257-ab2ce84ccc5a
+     jinja: 'Question: Someone said to me {{sentence}} Question:Do you think they were {{"good"}} or {{"bad"}}? Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_213
+     reference: ''
+  aeb9494b-931e-4bd2-abdf-8756a989c1b1: !Template
+     answer_choices: sad ||| happy
+     id: aeb9494b-931e-4bd2-abdf-8756a989c1b1
+     jinja: 'Question: Someone said to me {{sentence}} Question:Do you think they were {{"happy"}} or {{"sad"}}?  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_214
+     reference: ''
+  c71785fa-8f61-4b2c-840e-7e47c7a127fa: !Template
+     answer_choices: sad ||| happy
+     id: c71785fa-8f61-4b2c-840e-7e47c7a127fa
+     jinja: 'Question: Someone said to me {{sentence}} Question:Do you think they were {{"happy"}} or {{"sad"}}? Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_215
+     reference: ''
+  afae2611-bec2-4423-affa-bdd50d7ba183: !Template
+     answer_choices: sad ||| happy
+     id: afae2611-bec2-4423-affa-bdd50d7ba183
+     jinja: 'Question: Someone said to me {{sentence}} Question:Do you think they were {{"happy"}} or {{"sad"}}? Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_216
+     reference: ''
+  ba716d2f-59da-4b4f-91f4-83a02d41c26f: !Template
+     answer_choices: negative ||| positive
+     id: ba716d2f-59da-4b4f-91f4-83a02d41c26f
+     jinja: 'Question: Someone said to me {{sentence}} Question:Do you think they were {{"positive"}} or {{"negative"}}?  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_217
+     reference: ''
+  260d0f81-8189-458e-be9c-7f112e66824c: !Template
+     answer_choices: negative ||| positive
+     id: 260d0f81-8189-458e-be9c-7f112e66824c
+     jinja: 'Question: Someone said to me {{sentence}} Question:Do you think they were {{"positive"}} or {{"negative"}}? Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_218
+     reference: ''
+  07cc4a23-99be-4704-b239-bf661e3487eb: !Template
+     answer_choices: negative ||| positive
+     id: 07cc4a23-99be-4704-b239-bf661e3487eb
+     jinja: 'Question: Someone said to me {{sentence}} Question:Do you think they were {{"positive"}} or {{"negative"}}? Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_219
+     reference: ''
+  0861c547-5194-4282-9f2c-c2e5b7788c93: !Template
+     answer_choices: negative ||| positive
+     id: 0861c547-5194-4282-9f2c-c2e5b7788c93
+     jinja: 'Someone said to me {{sentence}}
+I think they felt ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_220
+     reference: ''
+  199c798d-d976-41da-8f06-505dd3f82c46: !Template
+     answer_choices: negative ||| positive
+     id: 199c798d-d976-41da-8f06-505dd3f82c46
+     jinja: 'Someone said to me {{sentence}}
+I think they were ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_221
+     reference: ''
+  76bf2f3c-9653-43ba-9f36-9109fa71f9a3: !Template
+     answer_choices: negative ||| positive
+     id: 76bf2f3c-9653-43ba-9f36-9109fa71f9a3
+     jinja: 'Someone said to me {{sentence}} I think they felt ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_222
+     reference: ''
+  2eb2149c-2315-4b09-9aec-2108bd7f0b44: !Template
+     answer_choices: negative ||| positive
+     id: 2eb2149c-2315-4b09-9aec-2108bd7f0b44
+     jinja: 'Someone said to me {{sentence}} I think they were ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_223
+     reference: ''
+  52e14f41-7328-4c4e-991a-b36f018a4028: !Template
+     answer_choices: negative ||| positive
+     id: 52e14f41-7328-4c4e-991a-b36f018a4028
+     jinja: '{{sentence}}
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_224
+     reference: ''
+  d5d7bf65-95aa-4168-ab78-9c5e0c5a9c7a: !Template
+     answer_choices: negative ||| positive
+     id: d5d7bf65-95aa-4168-ab78-9c5e0c5a9c7a
+     jinja: '{{sentence}}
+
+It was ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_225
+     reference: ''
+  26d75845-3210-4444-8267-d0eeee03b06d: !Template
+     answer_choices: negative ||| positive
+     id: 26d75845-3210-4444-8267-d0eeee03b06d
+     jinja: '{{sentence}}
+
+The sentiment of this sentence is ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_226
+     reference: ''
+  0460ab02-aa1b-42a4-8000-ebc4febef621: !Template
+     answer_choices: negative ||| positive
+     id: 0460ab02-aa1b-42a4-8000-ebc4febef621
+     jinja: '{{sentence}}
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_227
+     reference: ''
+  100d9da7-1b6d-45a5-8744-c6cb66ff5fc2: !Template
+     answer_choices: bad ||| good
+     id: 100d9da7-1b6d-45a5-8744-c6cb66ff5fc2
+     jinja: '{{sentence}}
+Is this sentence {{"good"}} or {{"bad"}}?
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_228
+     reference: ''
+  31286db1-ff8c-433e-825b-1ccceee41c15: !Template
+     answer_choices: bad ||| good
+     id: 31286db1-ff8c-433e-825b-1ccceee41c15
+     jinja: '{{sentence}}
+Is this sentence {{"good"}} or {{"bad"}}?
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_229
+     reference: ''
+  7b71fbde-0f86-475b-ac93-fedb67fcaa6b: !Template
+     answer_choices: bad ||| good
+     id: 7b71fbde-0f86-475b-ac93-fedb67fcaa6b
+     jinja: '{{sentence}}
+Is this sentence {{"good"}} or {{"bad"}}?
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_230
+     reference: ''
+  936cc5f7-cc0b-4f50-ab5b-98f3ae63003b: !Template
+     answer_choices: sad ||| happy
+     id: 936cc5f7-cc0b-4f50-ab5b-98f3ae63003b
+     jinja: '{{sentence}}
+Is this sentence {{"happy"}} or {{"sad"}}?
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_231
+     reference: ''
+  fea2851f-4648-432c-977c-002cd45fee93: !Template
+     answer_choices: sad ||| happy
+     id: fea2851f-4648-432c-977c-002cd45fee93
+     jinja: '{{sentence}}
+Is this sentence {{"happy"}} or {{"sad"}}?
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_232
+     reference: ''
+  ecf0962c-59b0-46c2-9681-292b5e44478e: !Template
+     answer_choices: sad ||| happy
+     id: ecf0962c-59b0-46c2-9681-292b5e44478e
+     jinja: '{{sentence}}
+Is this sentence {{"happy"}} or {{"sad"}}?
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_233
+     reference: ''
+  b5c11ea7-403a-44a5-b7be-b0ee394e39f8: !Template
+     answer_choices: negative ||| positive
+     id: b5c11ea7-403a-44a5-b7be-b0ee394e39f8
+     jinja: '{{sentence}}
+Is this sentence {{"positive"}} or {{"negative"}}?
+ ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_234
+     reference: ''
+  5fd956cd-1a7f-4aa2-b905-a2a5b5a3645c: !Template
+     answer_choices: negative ||| positive
+     id: 5fd956cd-1a7f-4aa2-b905-a2a5b5a3645c
+     jinja: '{{sentence}}
+Is this sentence {{"positive"}} or {{"negative"}}?
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_235
+     reference: ''
+  8d1f4207-d1a5-4300-ae66-a4de742a81ca: !Template
+     answer_choices: negative ||| positive
+     id: 8d1f4207-d1a5-4300-ae66-a4de742a81ca
+     jinja: '{{sentence}}
+Is this sentence {{"positive"}} or {{"negative"}}?
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_236
+     reference: ''
+  6642da52-5321-4f93-bd57-5169bf25586c: !Template
+     answer_choices: negative ||| positive
+     id: 6642da52-5321-4f93-bd57-5169bf25586c
+     jinja: '{{sentence}}
+Question:
+It was ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_237
+     reference: ''
+  dde5ae0f-048c-4367-bfde-e57a7cf5807f: !Template
+     answer_choices: negative ||| positive
+     id: dde5ae0f-048c-4367-bfde-e57a7cf5807f
+     jinja: '{{sentence}}
+Question:
+The sentiment of this sentence is ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_238
+     reference: ''
+  4768405c-c9b2-46c5-8d27-c8fb384a521a: !Template
+     answer_choices: negative ||| positive
+     id: 4768405c-c9b2-46c5-8d27-c8fb384a521a
+     jinja: '{{sentence}}
+Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_239
+     reference: ''
+  f51bc4be-e9f8-4152-900d-4a30f9150e68: !Template
+     answer_choices: negative ||| positive
+     id: f51bc4be-e9f8-4152-900d-4a30f9150e68
+     jinja: '{{sentence}}
+The sentiment of this sentence is ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_240
+     reference: ''
+  c9816571-addc-4892-8fb6-7b80c9f5eda0: !Template
+     answer_choices: negative ||| positive
+     id: c9816571-addc-4892-8fb6-7b80c9f5eda0
+     jinja: '{{sentence}}  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_241
+     reference: ''
+  458121f0-8936-444a-8cef-eb3a6aaa385e: !Template
+     answer_choices: negative ||| positive
+     id: 458121f0-8936-444a-8cef-eb3a6aaa385e
+     jinja: '{{sentence}}  It was ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_242
+     reference: ''
+  0fc1ed4e-7930-4685-af79-ca1caf01a4db: !Template
+     answer_choices: negative ||| positive
+     id: 0fc1ed4e-7930-4685-af79-ca1caf01a4db
+     jinja: '{{sentence}}  The sentiment of this sentence is ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_243
+     reference: ''
+  1537d40b-77d5-49d7-9418-95560812a29b: !Template
+     answer_choices: negative ||| positive
+     id: 1537d40b-77d5-49d7-9418-95560812a29b
+     jinja: '{{sentence}} Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_244
+     reference: ''
+  90d6c59e-3f1f-4e7e-ba00-f28c91125afd: !Template
+     answer_choices: bad ||| good
+     id: 90d6c59e-3f1f-4e7e-ba00-f28c91125afd
+     jinja: '{{sentence}} Is this sentence {{"good"}} or {{"bad"}}?  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_245
+     reference: ''
+  f95024d0-ff4a-4004-b41e-e4b3152a4bc9: !Template
+     answer_choices: bad ||| good
+     id: f95024d0-ff4a-4004-b41e-e4b3152a4bc9
+     jinja: '{{sentence}} Is this sentence {{"good"}} or {{"bad"}}? Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_246
+     reference: ''
+  56840152-372e-4432-b5fa-1ed91be6cd59: !Template
+     answer_choices: bad ||| good
+     id: 56840152-372e-4432-b5fa-1ed91be6cd59
+     jinja: '{{sentence}} Is this sentence {{"good"}} or {{"bad"}}? Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_247
+     reference: ''
+  8b1cb197-bf43-4a7e-827a-63c5b18ecee3: !Template
+     answer_choices: sad ||| happy
+     id: 8b1cb197-bf43-4a7e-827a-63c5b18ecee3
+     jinja: '{{sentence}} Is this sentence {{"happy"}} or {{"sad"}}?  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_248
+     reference: ''
+  a5ba75ae-9d77-40eb-8f12-28da9cae1409: !Template
+     answer_choices: sad ||| happy
+     id: a5ba75ae-9d77-40eb-8f12-28da9cae1409
+     jinja: '{{sentence}} Is this sentence {{"happy"}} or {{"sad"}}? Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_249
+     reference: ''
+  b0891409-5b30-457d-acc2-cd231b6ca2c6: !Template
+     answer_choices: sad ||| happy
+     id: b0891409-5b30-457d-acc2-cd231b6ca2c6
+     jinja: '{{sentence}} Is this sentence {{"happy"}} or {{"sad"}}? Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_250
+     reference: ''
+  791450a3-b5bb-4eb2-92bf-7e34548468c4: !Template
+     answer_choices: negative ||| positive
+     id: 791450a3-b5bb-4eb2-92bf-7e34548468c4
+     jinja: '{{sentence}} Is this sentence {{"positive"}} or {{"negative"}}?  ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_251
+     reference: ''
+  27427e2c-6121-4830-8c5d-124098a74d50: !Template
+     answer_choices: negative ||| positive
+     id: 27427e2c-6121-4830-8c5d-124098a74d50
+     jinja: '{{sentence}} Is this sentence {{"positive"}} or {{"negative"}}? Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_252
+     reference: ''
+  4cfa16d0-114e-4c3d-b91d-96a302a5b37a: !Template
+     answer_choices: negative ||| positive
+     id: 4cfa16d0-114e-4c3d-b91d-96a302a5b37a
+     jinja: '{{sentence}} Is this sentence {{"positive"}} or {{"negative"}}? Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_253
+     reference: ''
+  ee942d76-be14-4a8c-aad0-7fdc3e22dbef: !Template
+     answer_choices: negative ||| positive
+     id: ee942d76-be14-4a8c-aad0-7fdc3e22dbef
+     jinja: '{{sentence}} Question: It was ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_254
+     reference: ''
+  7a147fd2-e48d-4e2d-9c49-310276e1c534: !Template
+     answer_choices: negative ||| positive
+     id: 7a147fd2-e48d-4e2d-9c49-310276e1c534
+     jinja: '{{sentence}} Question: The sentiment of this sentence is ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_255
+     reference: ''
+  155c73ed-3b57-4784-81c1-7e5fdcde6219: !Template
+     answer_choices: negative ||| positive
+     id: 155c73ed-3b57-4784-81c1-7e5fdcde6219
+     jinja: '{{sentence}} Sentiment: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_256
+     reference: ''
+  c40550f1-b85c-437e-94ae-efb8b9965e8a: !Template
+     answer_choices: negative ||| positive
+     id: c40550f1-b85c-437e-94ae-efb8b9965e8a
+     jinja: '{{sentence}} The sentiment of this sentence is ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: sst2_257
+     reference: ''
+  27f9463b-757a-4517-9fd3-3ebbcde2cc57: !Template
+     answer_choices: negative ||| positive
+     id: 27f9463b-757a-4517-9fd3-3ebbcde2cc57
+     jinja: '{{sentence}}
+Question: Is this sentence positive or negative?
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_0
+     reference: ''
+  d256c2c4-1bae-4196-b4ad-e4600392107e: !Template
+     answer_choices: negative ||| positive
+     id: d256c2c4-1bae-4196-b4ad-e4600392107e
+     jinja: 'Is this sentence positive or negative?
+{{sentence}} ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_1
+     reference: ''
+  bd6196be-d1ed-4457-b6d0-58bf6da7b005: !Template
+     answer_choices: negative ||| positive
+     id: bd6196be-d1ed-4457-b6d0-58bf6da7b005
+     jinja: 'Does the following sentence have a positive or negative sentiment?
+{{sentence}} ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_2
+     reference: ''
+  b99377cc-bc84-43ab-b981-d21beb5454ac: !Template
+     answer_choices: negative ||| positive
+     id: b99377cc-bc84-43ab-b981-d21beb5454ac
+     jinja: 'I''m reading a review that says "{{sentence}}".
+Do you think the review is positive or negative? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_3
+     reference: ''
+  e506e977-7449-4e68-a7ab-ba2c6eb53e3e: !Template
+     answer_choices: negative ||| positive
+     id: e506e977-7449-4e68-a7ab-ba2c6eb53e3e
+     jinja: 'Someone sent me an email with the sentence "{{sentence}}".
+Do you think they are feeling positive or negative? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_4
+     reference: ''
+  1be2ecca-7751-4aa5-a556-015b734da879: !Template
+     answer_choices: negative ||| positive
+     id: 1be2ecca-7751-4aa5-a556-015b734da879
+     jinja: 'Someone just said to me "{{sentence}}".
+Do you think they are positive or negative? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_5
+     reference: ''
+  593336e1-8ea9-4992-8ad2-c102073aefd4: !Template
+     answer_choices: negative ||| positive
+     id: 593336e1-8ea9-4992-8ad2-c102073aefd4
+     jinja: '{{sentence}} ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_6
+     reference: ''
+  55f375d4-5081-409b-8cf8-f2147dcccf51: !Template
+     answer_choices: negative ||| positive
+     id: 55f375d4-5081-409b-8cf8-f2147dcccf51
+     jinja: '{{sentence}} It was ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_7
+     reference: ''
+  72cd7deb-535f-444f-a818-76f09f41473a: !Template
+     answer_choices: negative ||| positive
+     id: 72cd7deb-535f-444f-a818-76f09f41473a
+     jinja: '{{sentence}} The sentiment of this sentence is ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_8
+     reference: ''
+  2b0b291d-4181-4759-b4cf-5ceec43373b9: !Template
+     answer_choices: negative ||| positive
+     id: 2b0b291d-4181-4759-b4cf-5ceec43373b9
+     jinja: '{{sentence}} The emotion of this sentence is ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_9
+     reference: ''
+  6fd21d07-0316-4864-a880-0b14b96885ee: !Template
+     answer_choices: negative ||| positive
+     id: 6fd21d07-0316-4864-a880-0b14b96885ee
+     jinja: '{{sentence}} this sentence is ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_10
+     reference: ''
+  c377d2cf-5cef-43ce-9938-aaf9f09eb7b3: !Template
+     answer_choices: negative ||| positive
+     id: c377d2cf-5cef-43ce-9938-aaf9f09eb7b3
+     jinja: '{{sentence}} I feel this sentence is ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_11
+     reference: ''
+  2f603528-e356-48ea-806d-1817661f13cd: !Template
+     answer_choices: negative ||| positive
+     id: 2f603528-e356-48ea-806d-1817661f13cd
+     jinja: '{{sentence}} I think this sentence is ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_12
+     reference: ''
+  ae2ebb85-b9e4-4dce-aeb8-3ea807e22bfb: !Template
+     answer_choices: negative ||| positive
+     id: ae2ebb85-b9e4-4dce-aeb8-3ea807e22bfb
+     jinja: '{{sentence}} I think it''s ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_13
+     reference: ''
+  c3b1b954-2a4f-4427-8e6f-da75bf429460: !Template
+     answer_choices: negative ||| positive
+     id: c3b1b954-2a4f-4427-8e6f-da75bf429460
+     jinja: '{{sentence}} this feels ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_14
+     reference: ''
+  ad19ab58-0b45-4af4-b8ac-2b66ac998e7d: !Template
+     answer_choices: negative ||| positive
+     id: ad19ab58-0b45-4af4-b8ac-2b66ac998e7d
+     jinja: '{{sentence}} This feels ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_15
+     reference: ''
+  e1bf1b7b-ddec-4103-bd25-6c4af49e2bc8: !Template
+     answer_choices: bad ||| good
+     id: e1bf1b7b-ddec-4103-bd25-6c4af49e2bc8
+     jinja: '{{sentence}}
+Question: Is this sentence {{good}} or {{bad}}?
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_16
+     reference: ''
+  e7da72fb-3e2e-429c-b521-9bd969dc8d12: !Template
+     answer_choices: bad ||| good
+     id: e7da72fb-3e2e-429c-b521-9bd969dc8d12
+     jinja: 'Is this sentence {{good}} or {{bad}}?
+{{sentence}} ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_17
+     reference: ''
+  f461ba37-877d-42b3-a7bd-1a0f425507a2: !Template
+     answer_choices: bad ||| good
+     id: f461ba37-877d-42b3-a7bd-1a0f425507a2
+     jinja: 'Does the following sentence have a {{good}} or {{bad}} sentiment?
+{{sentence}} ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_18
+     reference: ''
+  8ec2c306-e3c3-422f-9cea-1a5556dbc3e2: !Template
+     answer_choices: bad ||| good
+     id: 8ec2c306-e3c3-422f-9cea-1a5556dbc3e2
+     jinja: 'I''m reading a review that says "{{sentence}}".
+Do you think the review is {{good}} or {{bad}}? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_19
+     reference: ''
+  90a9662b-bfc6-4556-87e6-853f48815b22: !Template
+     answer_choices: bad ||| good
+     id: 90a9662b-bfc6-4556-87e6-853f48815b22
+     jinja: 'Someone sent me an email with the sentence "{{sentence}}".
+Do you think they are feeling {{good}} or {{bad}}? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_20
+     reference: ''
+  d8a368a9-547c-44fd-a562-807733d1f9dd: !Template
+     answer_choices: bad ||| good
+     id: d8a368a9-547c-44fd-a562-807733d1f9dd
+     jinja: 'Someone just said to me "{{sentence}}".
+Do you think they are {{good}} or {{bad}}? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_21
+     reference: ''
+  c7b76768-c4f4-448f-a308-5a31f3993b3d: !Template
+     answer_choices: bad ||| good
+     id: c7b76768-c4f4-448f-a308-5a31f3993b3d
+     jinja: '{{sentence}} ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_22
+     reference: ''
+  89fa321e-55e7-402d-bf90-0fce0ebdc751: !Template
+     answer_choices: bad ||| good
+     id: 89fa321e-55e7-402d-bf90-0fce0ebdc751
+     jinja: '{{sentence}} It was ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_23
+     reference: ''
+  74523f64-df72-455a-978f-41b83f9c37bd: !Template
+     answer_choices: bad ||| good
+     id: 74523f64-df72-455a-978f-41b83f9c37bd
+     jinja: '{{sentence}} The sentiment of this sentence is ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_24
+     reference: ''
+  cc4d1810-ef4e-421c-ab60-65255042fd5f: !Template
+     answer_choices: bad ||| good
+     id: cc4d1810-ef4e-421c-ab60-65255042fd5f
+     jinja: '{{sentence}} The emotion of this sentence is ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_25
+     reference: ''
+  d797b0d8-f05f-4124-bb9c-d06c2ae06aa0: !Template
+     answer_choices: bad ||| good
+     id: d797b0d8-f05f-4124-bb9c-d06c2ae06aa0
+     jinja: '{{sentence}} this sentence is ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_26
+     reference: ''
+  a8e4c45d-53e6-4199-b2f7-ef50e74de873: !Template
+     answer_choices: bad ||| good
+     id: a8e4c45d-53e6-4199-b2f7-ef50e74de873
+     jinja: '{{sentence}} I feel this sentence is ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_27
+     reference: ''
+  8e57dacf-99ad-4f53-a3a5-a36dcf2453cf: !Template
+     answer_choices: bad ||| good
+     id: 8e57dacf-99ad-4f53-a3a5-a36dcf2453cf
+     jinja: '{{sentence}} I think this sentence is ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_28
+     reference: ''
+  e8a78e5b-da86-41a2-b320-a66effdf7e45: !Template
+     answer_choices: bad ||| good
+     id: e8a78e5b-da86-41a2-b320-a66effdf7e45
+     jinja: '{{sentence}} I think it''s ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_29
+     reference: ''
+  9fafd8e0-a5cc-4948-8732-e987d45febb4: !Template
+     answer_choices: bad ||| good
+     id: 9fafd8e0-a5cc-4948-8732-e987d45febb4
+     jinja: '{{sentence}} this feels ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_30
+     reference: ''
+  bd0d0e83-31cc-4cea-b33b-41095d181745: !Template
+     answer_choices: bad ||| good
+     id: bd0d0e83-31cc-4cea-b33b-41095d181745
+     jinja: '{{sentence}} This feels ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_31
+     reference: ''
+  888e89d5-4cc4-43ba-b705-bbf876a957ab: !Template
+     answer_choices: sad ||| happy
+     id: 888e89d5-4cc4-43ba-b705-bbf876a957ab
+     jinja: '{{sentence}}
+Question: Is this sentence {{happy}} or {{sad}}?
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_32
+     reference: ''
+  c03ecea0-bd58-44ae-b80e-e716f4eaf4be: !Template
+     answer_choices: sad ||| happy
+     id: c03ecea0-bd58-44ae-b80e-e716f4eaf4be
+     jinja: 'Is this sentence {{happy}} or {{sad}}?
+{{sentence}} ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_33
+     reference: ''
+  8cdd062b-a940-42c6-86c9-d32e6d9a2969: !Template
+     answer_choices: sad ||| happy
+     id: 8cdd062b-a940-42c6-86c9-d32e6d9a2969
+     jinja: 'Does the following sentence have a {{happy}} or {{sad}} sentiment?
+{{sentence}} ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_34
+     reference: ''
+  8007c90b-6bdc-440c-aaf6-c6a23d6a9e55: !Template
+     answer_choices: sad ||| happy
+     id: 8007c90b-6bdc-440c-aaf6-c6a23d6a9e55
+     jinja: 'I''m reading a review that says "{{sentence}}".
+Do you think the review is {{happy}} or {{sad}}? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_35
+     reference: ''
+  91552d45-bf05-4cb3-979b-e522105bce6a: !Template
+     answer_choices: sad ||| happy
+     id: 91552d45-bf05-4cb3-979b-e522105bce6a
+     jinja: 'Someone sent me an email with the sentence "{{sentence}}".
+Do you think they are feeling {{happy}} or {{sad}}? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_36
+     reference: ''
+  2ad81221-8582-4886-bd9e-6d579e30916d: !Template
+     answer_choices: sad ||| happy
+     id: 2ad81221-8582-4886-bd9e-6d579e30916d
+     jinja: 'Someone just said to me "{{sentence}}".
+Do you think they are {{happy}} or {{sad}}? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_37
+     reference: ''
+  210370f4-abbc-4c28-a9a0-347c6664e384: !Template
+     answer_choices: sad ||| happy
+     id: 210370f4-abbc-4c28-a9a0-347c6664e384
+     jinja: '{{sentence}} ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_38
+     reference: ''
+  a581056c-f30d-40c1-81f9-8fe8146083d6: !Template
+     answer_choices: sad ||| happy
+     id: a581056c-f30d-40c1-81f9-8fe8146083d6
+     jinja: '{{sentence}} It was ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_39
+     reference: ''
+  92875afb-c85a-4ac2-a8d7-3b53ae420b7a: !Template
+     answer_choices: sad ||| happy
+     id: 92875afb-c85a-4ac2-a8d7-3b53ae420b7a
+     jinja: '{{sentence}} The sentiment of this sentence is ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_40
+     reference: ''
+  a3de93e9-1881-429d-89dc-3c2e57854de8: !Template
+     answer_choices: sad ||| happy
+     id: a3de93e9-1881-429d-89dc-3c2e57854de8
+     jinja: '{{sentence}} The emotion of this sentence is ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_41
+     reference: ''
+  6359540f-53ae-48b5-9511-4bafce547625: !Template
+     answer_choices: sad ||| happy
+     id: 6359540f-53ae-48b5-9511-4bafce547625
+     jinja: '{{sentence}} this sentence is ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_42
+     reference: ''
+  4e56e0e9-cfed-41a8-85a9-1f5abb8dc7c2: !Template
+     answer_choices: sad ||| happy
+     id: 4e56e0e9-cfed-41a8-85a9-1f5abb8dc7c2
+     jinja: '{{sentence}} I feel this sentence is ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_43
+     reference: ''
+  3b927ff8-8bd1-4227-81c3-67e92b2d4626: !Template
+     answer_choices: sad ||| happy
+     id: 3b927ff8-8bd1-4227-81c3-67e92b2d4626
+     jinja: '{{sentence}} I think this sentence is ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_44
+     reference: ''
+  d6b918d5-f36c-45d6-9ecb-34a9340a0359: !Template
+     answer_choices: sad ||| happy
+     id: d6b918d5-f36c-45d6-9ecb-34a9340a0359
+     jinja: '{{sentence}} I think it''s ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_45
+     reference: ''
+  a88e5e30-27e3-4f9c-9491-cb40d6e30677: !Template
+     answer_choices: sad ||| happy
+     id: a88e5e30-27e3-4f9c-9491-cb40d6e30677
+     jinja: '{{sentence}} this feels ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_46
+     reference: ''
+  7fdbd0b4-d21a-495e-ab1c-2865d59cff99: !Template
+     answer_choices: sad ||| happy
+     id: 7fdbd0b4-d21a-495e-ab1c-2865d59cff99
+     jinja: '{{sentence}} This feels ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_47
+     reference: ''
+  88d276af-3c44-4b3c-bab5-9e737b8e9c1e: !Template
+     answer_choices: terrible ||| awesome
+     id: 88d276af-3c44-4b3c-bab5-9e737b8e9c1e
+     jinja: '{{sentence}}
+Question: Is this sentence {{awesome}} or {{terrible}}?
+Answer: ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_48
+     reference: ''
+  9a206b08-1272-4b22-afda-313a32c2da39: !Template
+     answer_choices: terrible ||| awesome
+     id: 9a206b08-1272-4b22-afda-313a32c2da39
+     jinja: 'Is this sentence {{awesome}} or {{terrible}}?
+{{sentence}} ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_49
+     reference: ''
+  21786ae6-5bb1-480a-a590-266aa2ebb857: !Template
+     answer_choices: terrible ||| awesome
+     id: 21786ae6-5bb1-480a-a590-266aa2ebb857
+     jinja: 'Does the following sentence have a {{awesome}} or {{terrible}} sentiment?
+{{sentence}} ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_50
+     reference: ''
+  88d4718d-a85b-46d0-aead-d49ac0af09fb: !Template
+     answer_choices: terrible ||| awesome
+     id: 88d4718d-a85b-46d0-aead-d49ac0af09fb
+     jinja: 'I''m reading a review that says "{{sentence}}".
+Do you think the review is {{awesome}} or {{terrible}}? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_51
+     reference: ''
+  6152df9c-8af7-4397-9ddc-4b683bec3593: !Template
+     answer_choices: terrible ||| awesome
+     id: 6152df9c-8af7-4397-9ddc-4b683bec3593
+     jinja: 'Someone sent me an email with the sentence "{{sentence}}".
+Do you think they are feeling {{awesome}} or {{terrible}}? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_52
+     reference: ''
+  ad7d7128-3dbc-4bbb-9f5c-91bb96f984d2: !Template
+     answer_choices: terrible ||| awesome
+     id: ad7d7128-3dbc-4bbb-9f5c-91bb96f984d2
+     jinja: 'Someone just said to me "{{sentence}}".
+Do you think they are {{awesome}} or {{terrible}}? ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_53
+     reference: ''
+  801babf9-31ae-4271-8374-7fb7818eedea: !Template
+     answer_choices: terrible ||| awesome
+     id: 801babf9-31ae-4271-8374-7fb7818eedea
+     jinja: '{{sentence}} ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_54
+     reference: ''
+  4765793c-0f43-4a97-8f9a-b6369e57076f: !Template
+     answer_choices: terrible ||| awesome
+     id: 4765793c-0f43-4a97-8f9a-b6369e57076f
+     jinja: '{{sentence}} It was ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_55
+     reference: ''
+  34393039-dabb-4d60-b8c2-14c7e7326a77: !Template
+     answer_choices: terrible ||| awesome
+     id: 34393039-dabb-4d60-b8c2-14c7e7326a77
+     jinja: '{{sentence}} The sentiment of this sentence is ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_56
+     reference: ''
+  b78e5825-ceb3-44d4-9bf9-ade20ce45107: !Template
+     answer_choices: terrible ||| awesome
+     id: b78e5825-ceb3-44d4-9bf9-ade20ce45107
+     jinja: '{{sentence}} The emotion of this sentence is ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_57
+     reference: ''
+  a2b8b090-80cc-4e97-87be-cede6f5823bd: !Template
+     answer_choices: terrible ||| awesome
+     id: a2b8b090-80cc-4e97-87be-cede6f5823bd
+     jinja: '{{sentence}} this sentence is ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_58
+     reference: ''
+  e9404ec0-8d0a-41e1-a3fd-9df51e58146d: !Template
+     answer_choices: terrible ||| awesome
+     id: e9404ec0-8d0a-41e1-a3fd-9df51e58146d
+     jinja: '{{sentence}} I feel this sentence is ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_59
+     reference: ''
+  31dfa18a-d60e-428a-9463-4eeb803c63f3: !Template
+     answer_choices: terrible ||| awesome
+     id: 31dfa18a-d60e-428a-9463-4eeb803c63f3
+     jinja: '{{sentence}} I think this sentence is ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_60
+     reference: ''
+  518972d7-a708-4a4b-bb80-719d2128dbb3: !Template
+     answer_choices: terrible ||| awesome
+     id: 518972d7-a708-4a4b-bb80-719d2128dbb3
+     jinja: '{{sentence}} I think it''s ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_61
+     reference: ''
+  c60cf0a9-c6da-4e35-b960-8e8cc2805ff7: !Template
+     answer_choices: terrible ||| awesome
+     id: c60cf0a9-c6da-4e35-b960-8e8cc2805ff7
+     jinja: '{{sentence}} this feels ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_62
+     reference: ''
+  a18ea9ac-acf3-4114-b8db-ac938bafedd7: !Template
+     answer_choices: terrible ||| awesome
+     id: a18ea9ac-acf3-4114-b8db-ac938bafedd7
+     jinja: '{{sentence}} This feels ||| {{ answer_choices[label] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: true
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_63
+     reference: ''
+  a3e95d78-52cf-42b3-bfed-a245fe32731d: !Template
+    answer_choices: negative ||| positive
+    id: a3e95d78-52cf-42b3-bfed-a245fe32731d
+    jinja: '{{ sentence }} The sentiment of this sentence is ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_00
+    reference: soheeyang
+  577222d7-7c23-4c69-b4ee-7ae928e3e6eb: !Template
+    answer_choices: Serious ||| Lighthearted
+    id: 577222d7-7c23-4c69-b4ee-7ae928e3e6eb
+    jinja: '"{{ sentence }}" What tone does this message convey? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_01
+    reference: soheeyang
+  b6696899-75f8-4c80-a5cf-d0e712082f69: !Template
+    answer_choices: unsatisfied ||| satisfied
+    id: b6696899-75f8-4c80-a5cf-d0e712082f69
+    jinja: This review says, "{{ sentence }}". The sentiment is ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_02
+    reference: soheeyang
+  799052fe-1b46-4dd5-9877-d4ff1423d48c: !Template
+    answer_choices: sad ||| joyful
+    id: 799052fe-1b46-4dd5-9877-d4ff1423d48c
+    jinja: 'Read the sentence: "{{ sentence }}". The sentiment is ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_03
+    reference: soheeyang
+  0f52197e-984f-485f-8664-bc55764b0faa: !Template
+    answer_choices: negative ||| positive
+    id: 0f52197e-984f-485f-8664-bc55764b0faa
+    jinja: 'What''s your opinion on the following: "{{ sentence }}" ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_04
+    reference: soheeyang
+  8d51a519-2ab4-469f-9edb-d7efd1dacdfa: !Template
+    answer_choices: Displeased ||| Pleased
+    id: 8d51a519-2ab4-469f-9edb-d7efd1dacdfa
+    jinja: '"{{ sentence }}" The sentiment in the given message is: ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_05
+    reference: soheeyang
+  5d7ea238-cd7c-41c7-8f93-8ac73944e4d5: !Template
+    answer_choices: Displeased ||| Pleased
+    id: 5d7ea238-cd7c-41c7-8f93-8ac73944e4d5
+    jinja: '"{{ sentence }}" What is the sentiment of this message? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_06
+    reference: soheeyang
+  2228fbc7-4966-42fd-adef-6450191e01a3: !Template
+    answer_choices: negative ||| positive
+    id: 2228fbc7-4966-42fd-adef-6450191e01a3
+    jinja: 'What''s the sentiment of the following: "{{ sentence }}" ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_07
+    reference: soheeyang
+  1e3e8a8d-99a9-49ea-8157-986cb022f9fa: !Template
+    answer_choices: Negative ||| Positive
+    id: 1e3e8a8d-99a9-49ea-8157-986cb022f9fa
+    jinja: 'Write the sentiment of the following remark: {{ sentence }} ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_08
+    reference: soheeyang
+  61cbdb9d-ebc4-4031-81aa-5b7a0c46a9f2: !Template
+    answer_choices: disheartening ||| heartening
+    id: 61cbdb9d-ebc4-4031-81aa-5b7a0c46a9f2
+    jinja: 'What''s your take on the following message: "{{ sentence }}" ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_09
+    reference: soheeyang
+  7e88a144-4fa4-454f-aa04-696f9cc32224: !Template
+    answer_choices: gloomy ||| cheerful
+    id: 7e88a144-4fa4-454f-aa04-696f9cc32224
+    jinja: 'What''s the tone of the following statement: "{{ sentence }}" ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_10
+    reference: soheeyang
+  3e06465d-f10f-458d-b8c6-67b93fd78824: !Template
+    answer_choices: gloomy ||| bright
+    id: 3e06465d-f10f-458d-b8c6-67b93fd78824
+    jinja: What sentiment does this statement express? "{{ sentence }}" ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_11
+    reference: soheeyang
+  47d97dc3-7f4f-4839-934c-fd286d0abb7f: !Template
+    answer_choices: displeased ||| pleased
+    id: 47d97dc3-7f4f-4839-934c-fd286d0abb7f
+    jinja: 'What do you think of the following statement: "{{ sentence }}" ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_12
+    reference: soheeyang
+  cfbb024a-654b-40c3-a5ee-caca13bff603: !Template
+    answer_choices: Negative ||| Positive
+    id: cfbb024a-654b-40c3-a5ee-caca13bff603
+    jinja: What's the sentiment in the following sentence? {{ sentence }} ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_13
+    reference: soheeyang
+  63e710c8-70ec-4475-8af3-66128ef27983: !Template
+    answer_choices: dismal ||| bright
+    id: 63e710c8-70ec-4475-8af3-66128ef27983
+    jinja: 'What''s your impression of the following message: "{{ sentence }}" ||| {{
+      answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_14
+    reference: soheeyang
+  a92c8b03-3b5e-45dc-94ae-5de9c4b76b3f: !Template
+    answer_choices: displeased ||| pleased
+    id: a92c8b03-3b5e-45dc-94ae-5de9c4b76b3f
+    jinja: 'Indicate the sentiment in the following sentence: "{{ sentence }}" ||| {{
+      answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_15
+    reference: soheeyang
+  30544d44-4777-4afa-bb9c-ce2d40eed0a7: !Template
+    answer_choices: negative ||| positive
+    id: 30544d44-4777-4afa-bb9c-ce2d40eed0a7
+    jinja: What is the sentiment of the following statement? "{{ sentence }}" ||| {{
+      answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_16
+    reference: soheeyang
+  4eb253c9-f192-490c-a601-25a91f3985c9: !Template
+    answer_choices: unhappy ||| happy
+    id: 4eb253c9-f192-490c-a601-25a91f3985c9
+    jinja: 'Determine the sentiment of the following comment: "{{ sentence }}" ||| {{
+      answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_17
+    reference: soheeyang
+  60af907c-8b94-4b30-8dfb-22e0471b7ffc: !Template
+    answer_choices: bad ||| good
+    id: 60af907c-8b94-4b30-8dfb-22e0471b7ffc
+    jinja: 'Evaluate the sentiment in the following statement: "{{ sentence }}" |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_18
+    reference: soheeyang
+  3bd0955c-4aca-4c6e-aaa5-d4f5d89b564d: !Template
+    answer_choices: Discouraging ||| Encouraging
+    id: 3bd0955c-4aca-4c6e-aaa5-d4f5d89b564d
+    jinja: '{{ sentence }} Is this statement {{ " or ".join(answer_choices) }}? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_19
+    reference: soheeyang
+  2532ba23-4f03-4481-afd9-8d0be5df3cce: !Template
+    answer_choices: Disapproving ||| Approving
+    id: 2532ba23-4f03-4481-afd9-8d0be5df3cce
+    jinja: '"{{ sentence }}" What kind of sentiment does this statement express? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_20
+    reference: soheeyang
+  a39cfd68-89b0-4e3a-9953-317a953389ec: !Template
+    answer_choices: sad ||| joyful
+    id: a39cfd68-89b0-4e3a-9953-317a953389ec
+    jinja: What do you think the sentiment of this sentence is? "{{ sentence }}" |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_21
+    reference: soheeyang
+  1c8a7304-c31f-4dee-8453-4734fcc02a73: !Template
+    answer_choices: Gloomy ||| Sunny
+    id: 1c8a7304-c31f-4dee-8453-4734fcc02a73
+    jinja: '{{ sentence }} Is this a {{ " or ".join(answer_choices) }} sentiment? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_22
+    reference: soheeyang
+  9739949e-8a71-42c8-8e89-46e688178737: !Template
+    answer_choices: Unfavorable ||| Favorable
+    id: 9739949e-8a71-42c8-8e89-46e688178737
+    jinja: Is "{{ sentence }}" of a {{ " or ".join(answer_choices) }} sentiment? |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_23
+    reference: soheeyang
+  0b5208e7-3d6f-4395-b123-3fb7eb50ed77: !Template
+    answer_choices: Pessimistic ||| Optimistic
+    id: 0b5208e7-3d6f-4395-b123-3fb7eb50ed77
+    jinja: '"{{ sentence }}" Is this statement {{ " or ".join(answer_choices) }}? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_24
+    reference: soheeyang
+  53381104-adec-4893-81f9-ceb3a4a121fa: !Template
+    answer_choices: depressing ||| uplifting
+    id: 53381104-adec-4893-81f9-ceb3a4a121fa
+    jinja: Is this statement {{ " or ".join(answer_choices) }}? "{{ sentence }}" |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_25
+    reference: soheeyang
+  b86d8f3c-94ef-4433-a601-16182c3400a6: !Template
+    answer_choices: Displeased ||| Pleased
+    id: b86d8f3c-94ef-4433-a601-16182c3400a6
+    jinja: 'Sentiment: {{ " or ".join(answer_choices) }}. Sentence: {{ sentence }} |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_26
+    reference: soheeyang
+  fcb6395e-c34e-451b-a77a-3caca89cad10: !Template
+    answer_choices: disappointed ||| satisfied
+    id: fcb6395e-c34e-451b-a77a-3caca89cad10
+    jinja: 'What sentiment is conveyed in the following statement: "{{ sentence }}"
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_27
+    reference: soheeyang
+  ea4c850d-e2f3-4dee-8259-83a6f8d97dca: !Template
+    answer_choices: Negative ||| Positive
+    id: ea4c850d-e2f3-4dee-8259-83a6f8d97dca
+    jinja: '"{{ sentence }}" How would you classify the sentiment of this statement?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_28
+    reference: soheeyang
+  19f544e1-4410-4a34-8f34-e312210e5296: !Template
+    answer_choices: Gloomy ||| Cheerful
+    id: 19f544e1-4410-4a34-8f34-e312210e5296
+    jinja: Is the following sentence {{ " or ".join(answer_choices) }}? {{ sentence
+      }} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_29
+    reference: soheeyang
+  44cca48b-d3dc-42e8-9e6e-f464e2e76498: !Template
+    answer_choices: unfavorable ||| favorable
+    id: 44cca48b-d3dc-42e8-9e6e-f464e2e76498
+    jinja: 'Classify the sentiment expressed in the following statement: "{{ sentence
+      }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_30
+    reference: soheeyang
+  85b765dd-b05e-47a5-8cf7-940eaa121766: !Template
+    answer_choices: displeased ||| pleased
+    id: 85b765dd-b05e-47a5-8cf7-940eaa121766
+    jinja: 'The following sentence is {{ " or ".join(answer_choices) }}: "{{ sentence
+      }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_31
+    reference: soheeyang
+  7879f765-dba1-4808-ad5c-9c89371c2d39: !Template
+    answer_choices: sad ||| happy
+    id: 7879f765-dba1-4808-ad5c-9c89371c2d39
+    jinja: 'Is the following statement {{ " or ".join(answer_choices) }}: "{{ sentence
+      }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_32
+    reference: soheeyang
+  0f2af32b-7db8-4df4-9960-d00a689ee57d: !Template
+    answer_choices: Unfavorable ||| Favorable
+    id: 0f2af32b-7db8-4df4-9960-d00a689ee57d
+    jinja: The sentiment of "{{ sentence }}" is {{ " or ".join(answer_choices) }}. Agree?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_33
+    reference: soheeyang
+  b098d51e-7077-4603-af27-a24199f0b326: !Template
+    answer_choices: unpleasant ||| joyful
+    id: b098d51e-7077-4603-af27-a24199f0b326
+    jinja: Is the following statement {{ " or ".join(answer_choices) }}? "{{ sentence
+      }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_34
+    reference: soheeyang
+  3351e76c-259e-49d0-b7a4-0877ea6224bd: !Template
+    answer_choices: dark ||| bright
+    id: 3351e76c-259e-49d0-b7a4-0877ea6224bd
+    jinja: 'How do you interpret the sentiment in the following statement: "{{ sentence
+      }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_35
+    reference: soheeyang
+  18d1055a-b7f1-45e5-83f5-b9ac7f5f45da: !Template
+    answer_choices: Pessimistic ||| Optimistic
+    id: 18d1055a-b7f1-45e5-83f5-b9ac7f5f45da
+    jinja: '{{ sentence }} Is the sentiment expressed here {{ " or ".join(answer_choices)
+      }}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_36
+    reference: soheeyang
+  a8690c2f-84bc-4a1b-8375-8d18a8cdc5e4: !Template
+    answer_choices: Unenthusiastic ||| Enthusiastic
+    id: a8690c2f-84bc-4a1b-8375-8d18a8cdc5e4
+    jinja: 'This sentence has a sentiment of {{ " or ".join(answer_choices) }}: {{ sentence
+      }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_37
+    reference: soheeyang
+  8e444fb1-09fc-46de-a596-749b28154666: !Template
+    answer_choices: Negative ||| Positive
+    id: 8e444fb1-09fc-46de-a596-749b28154666
+    jinja: '"{{ sentence }}" Do you think this has a {{ " or ".join(answer_choices)
+      }} sentiment? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_38
+    reference: soheeyang
+  5fa3b905-8df1-4eb3-9fdb-029ec5ba563f: !Template
+    answer_choices: pessimistic ||| optimistic
+    id: 5fa3b905-8df1-4eb3-9fdb-029ec5ba563f
+    jinja: 'Do you find the following statement {{ " or ".join(answer_choices) }}: "{{
+      sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_39
+    reference: soheeyang
+  dbc6833c-853f-4c89-8674-f0f15ed232e0: !Template
+    answer_choices: downbeat ||| upbeat
+    id: dbc6833c-853f-4c89-8674-f0f15ed232e0
+    jinja: 'Do you consider the following message {{ " or ".join(answer_choices) }}: !Template
+      "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_40
+    reference: soheeyang
+  5a17a7d7-285b-4930-9b86-acc8d8b817c3: !Template
+    answer_choices: Depressing ||| Uplifting
+    id: 5a17a7d7-285b-4930-9b86-acc8d8b817c3
+    jinja: The statement, "{{ sentence }}", is either {{ " or ".join(answer_choices)
+      }}. Which is it? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_41
+    reference: soheeyang
+  e4686618-e7d7-4c5c-846b-ae9c9253678a: !Template
+    answer_choices: Sad ||| Happy
+    id: e4686618-e7d7-4c5c-846b-ae9c9253678a
+    jinja: The following text expresses a {{ " or ".join(answer_choices) }} sentiment.
+      {{ sentence }} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_42
+    reference: soheeyang
+  1048e4a5-a99a-4ca0-af01-6800b059b10c: !Template
+    answer_choices: dissatisfied ||| satisfied
+    id: 1048e4a5-a99a-4ca0-af01-6800b059b10c
+    jinja: Is the sentiment of the sentence below {{ " or ".join(answer_choices) }}?
+      "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_43
+    reference: soheeyang
+  7f061ee3-f415-4cec-acd7-fcef7911bfcc: !Template
+    answer_choices: unfavorable ||| favorable
+    id: 7f061ee3-f415-4cec-acd7-fcef7911bfcc
+    jinja: 'Determine if the following statement is {{ " or ".join(answer_choices) }}: !Template
+      "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_44
+    reference: soheeyang
+  9b6b8db2-b014-4c1f-bc61-c0c05d55a231: !Template
+    answer_choices: grumpy ||| joyful
+    id: 9b6b8db2-b014-4c1f-bc61-c0c05d55a231
+    jinja: The sentiment of this sentence is either {{ " or ".join(answer_choices) }}.
+      "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_45
+    reference: soheeyang
+  5ce927d0-af6f-4a5b-8f4f-fac1f9d47a18: !Template
+    answer_choices: awful ||| awesome
+    id: 5ce927d0-af6f-4a5b-8f4f-fac1f9d47a18
+    jinja: Can you tell if the following sentence is {{ " or ".join(answer_choices)
+      }}? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_46
+    reference: soheeyang
+  09369438-e0b1-48cd-a9c8-f1f5ac743aec: !Template
+    answer_choices: not happy ||| happy
+    id: 09369438-e0b1-48cd-a9c8-f1f5ac743aec
+    jinja: Is the sentiment in the following sentence {{ " or ".join(answer_choices)
+      }}? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_47
+    reference: soheeyang
+  3fb9266b-2dcd-4fa6-8594-5b10757204d1: !Template
+    answer_choices: negative ||| positive
+    id: 3fb9266b-2dcd-4fa6-8594-5b10757204d1
+    jinja: Is the sentiment of the following sentence {{ " or ".join(answer_choices)
+      }}? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_48
+    reference: soheeyang
+  db85dfad-b592-40be-b9a0-de1c2c7de9c9: !Template
+    answer_choices: displeased ||| pleased
+    id: db85dfad-b592-40be-b9a0-de1c2c7de9c9
+    jinja: 'Classify the sentiment of this sentence as {{ " or ".join(answer_choices)
+      }}: "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_49
+    reference: soheeyang
+  9894e0a4-4543-40ec-a206-6a697dbd0740: !Template
+    answer_choices: not happy ||| happy
+    id: 9894e0a4-4543-40ec-a206-6a697dbd0740
+    jinja: The following statement has a sentiment of {{ " or ".join(answer_choices)
+      }}. "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_50
+    reference: soheeyang
+  6e25386a-5d49-4d9b-bd3d-a2a9853c3ef1: !Template
+    answer_choices: Dismal ||| Delightful
+    id: 6e25386a-5d49-4d9b-bd3d-a2a9853c3ef1
+    jinja: Categorize the sentiment of the following as {{ " or ".join(answer_choices)
+      }}. {{ sentence }} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_51
+    reference: soheeyang
+  822d848a-2f7e-47a0-9574-bafe13543532: !Template
+    answer_choices: disapproving ||| approving
+    id: 822d848a-2f7e-47a0-9574-bafe13543532
+    jinja: Is the sentiment in the following statement {{ " or ".join(answer_choices)
+      }}? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_52
+    reference: soheeyang
+  bacc4430-9b04-40a2-89e5-809c2de4b4cc: !Template
+    answer_choices: negative ||| positive
+    id: bacc4430-9b04-40a2-89e5-809c2de4b4cc
+    jinja: Is the sentiment of the following statement {{ " or ".join(answer_choices)
+      }}? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_53
+    reference: soheeyang
+  fb6af05c-b8fe-409a-bb44-596f37c35ae7: !Template
+    answer_choices: dismal ||| cheerful
+    id: fb6af05c-b8fe-409a-bb44-596f37c35ae7
+    jinja: 'The following message conveys a sentiment of {{ " or ".join(answer_choices)
+      }}: "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_54
+    reference: soheeyang
+  7d51d971-db43-4c83-9b1a-1ddb7bddf27c: !Template
+    answer_choices: Sad ||| Happy
+    id: 7d51d971-db43-4c83-9b1a-1ddb7bddf27c
+    jinja: Do you think the sentiment of the following is {{ " or ".join(answer_choices)
+      }}? {{ sentence }} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_55
+    reference: soheeyang
+  c49bc650-b785-40ec-91ad-8815cdfef550: !Template
+    answer_choices: Dismal ||| Delightful
+    id: c49bc650-b785-40ec-91ad-8815cdfef550
+    jinja: Determine if the sentiment of the following is {{ " or ".join(answer_choices)
+      }}. {{ sentence }} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_56
+    reference: soheeyang
+  2702ffb7-ece3-4df6-9211-ae54cb54a1a1: !Template
+    answer_choices: disapproving ||| approving
+    id: 2702ffb7-ece3-4df6-9211-ae54cb54a1a1
+    jinja: Can you classify the sentiment of the text as {{ " or ".join(answer_choices)
+      }}? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_57
+    reference: soheeyang
+  79dd30a9-fca8-4e6e-afe8-b5db67ec87fe: !Template
+    answer_choices: unsatisfied ||| satisfied
+    id: 79dd30a9-fca8-4e6e-afe8-b5db67ec87fe
+    jinja: The sentiment of the following text is either {{ " or ".join(answer_choices)
+      }}. "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_58
+    reference: soheeyang
+  d3b088a4-369d-4968-b44c-2d88db6e287b: !Template
+    answer_choices: not happy ||| happy
+    id: d3b088a4-369d-4968-b44c-2d88db6e287b
+    jinja: 'Do you think the sentiment of this message is {{ " or ".join(answer_choices)
+      }}: "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_59
+    reference: soheeyang
+  be0f05fa-91ae-47e0-895a-5b578174bdb7: !Template
+    answer_choices: Dissatisfied ||| Satisfied
+    id: be0f05fa-91ae-47e0-895a-5b578174bdb7
+    jinja: Does the following statement express a {{ " or ".join(answer_choices) }}
+      sentiment? {{ sentence }} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_60
+    reference: soheeyang
+  a1e1264f-9cfd-4fff-97e1-627fec9cf0d9: !Template
+    answer_choices: negative ||| positive
+    id: a1e1264f-9cfd-4fff-97e1-627fec9cf0d9
+    jinja: Do you believe the sentiment in the sentence is {{ " or ".join(answer_choices)
+      }}? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_61
+    reference: soheeyang
+  b019c67c-20ae-48b5-bc0a-60e5e8199c39: !Template
+    answer_choices: Displeased ||| Pleased
+    id: b019c67c-20ae-48b5-bc0a-60e5e8199c39
+    jinja: 'Which of the following sentiments does "{{ sentence }}" express: {{ " or
+      ".join(answer_choices) }}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_62
+    reference: soheeyang
+  0da4db01-875c-4c38-93a8-c6816f9742ab: !Template
+    answer_choices: Negative ||| Positive
+    id: 0da4db01-875c-4c38-93a8-c6816f9742ab
+    jinja: 'Determine the sentiment of the sentence: "{{ sentence }}" - Is it {{ " or
+      ".join(answer_choices) }}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_63
+    reference: soheeyang
+  5db7adf5-87cb-4962-85c1-2b46ccfd5620: !Template
+    answer_choices: negative ||| positive
+    id: 5db7adf5-87cb-4962-85c1-2b46ccfd5620
+    jinja: Is the following sentence expressing a {{ " or ".join(answer_choices) }}
+      sentiment? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_64
+    reference: soheeyang
+  3468bb50-a995-46a7-8ae8-d2a904a85954: !Template
+    answer_choices: unhappy ||| happy
+    id: 3468bb50-a995-46a7-8ae8-d2a904a85954
+    jinja: Do you believe the sentiment of this sentence is {{ " or ".join(answer_choices)
+      }}? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_65
+    reference: soheeyang
+  6d524aaa-9052-405e-9733-a282ff6fef2a: !Template
+    answer_choices: negative ||| positive
+    id: 6d524aaa-9052-405e-9733-a282ff6fef2a
+    jinja: 'Please classify the sentiment of this sentence as {{ " or ".join(answer_choices)
+      }}: "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_66
+    reference: soheeyang
+  b726e009-65cd-4cfe-ade9-a27069ea3561: !Template
+    answer_choices: negative ||| positive
+    id: b726e009-65cd-4cfe-ade9-a27069ea3561
+    jinja: Based on the following sentence, is the sentiment {{ " or ".join(answer_choices)
+      }}? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_67
+    reference: soheeyang
+  73a958fb-5ad4-4b90-950e-87e124962b85: !Template
+    answer_choices: Unhappy ||| Happy
+    id: 73a958fb-5ad4-4b90-950e-87e124962b85
+    jinja: What do you think the sentiment of the sentence "{{ sentence }}" is? {{ "
+      or ".join(answer_choices) }} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_68
+    reference: soheeyang
+  23c82dcc-5026-4be6-9536-17bf7f1a92e5: !Template
+    answer_choices: Negative ||| Positive
+    id: 23c82dcc-5026-4be6-9536-17bf7f1a92e5
+    jinja: Classify the sentiment of the following statement as {{ " or ".join(answer_choices)
+      }}. {{ sentence }} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_69
+    reference: soheeyang
+  5cbd3095-2076-46e2-bf9c-7acfa1f0ad0a: !Template
+    answer_choices: unhappy ||| happy
+    id: 5cbd3095-2076-46e2-bf9c-7acfa1f0ad0a
+    jinja: Do you think the following sentence has a {{ " or ".join(answer_choices)
+      }} sentiment? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_70
+    reference: soheeyang
+  61c068f7-343c-4ea8-91e9-d228fedda5e7: !Template
+    answer_choices: Not great ||| Great
+    id: 61c068f7-343c-4ea8-91e9-d228fedda5e7
+    jinja: 'Please tell me if you think the following sentence is {{ " or ".join(answer_choices)
+      }}: {{ sentence }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_71
+    reference: soheeyang
+  a3fe0f14-fd7e-4793-9393-5e5b8bd514e9: !Template
+    answer_choices: unhappy ||| happy
+    id: a3fe0f14-fd7e-4793-9393-5e5b8bd514e9
+    jinja: 'Classify the sentiment of the following sentence as {{ " or ".join(answer_choices)
+      }}: "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_72
+    reference: soheeyang
+  068b02ca-90a0-4dd2-a0af-cfeac0e0a2ce: !Template
+    answer_choices: unhappy ||| happy
+    id: 068b02ca-90a0-4dd2-a0af-cfeac0e0a2ce
+    jinja: The following statement is {{ " or ".join(answer_choices) }}. What do you
+      think it is? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_73
+    reference: soheeyang
+  884b831f-c340-4e70-ba2d-7688f6dc0dbf: !Template
+    answer_choices: Negative ||| Positive
+    id: 884b831f-c340-4e70-ba2d-7688f6dc0dbf
+    jinja: Can you identify if the sentiment of the sentence "{{ sentence }}" is {{
+      " or ".join(answer_choices) }}? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_74
+    reference: soheeyang
+  dc2096f3-0f3a-424a-98a7-fe1901c793b4: !Template
+    answer_choices: Displeased ||| Pleased
+    id: dc2096f3-0f3a-424a-98a7-fe1901c793b4
+    jinja: What is the sentiment of this sentence? "{{ sentence }}" It is either {{
+      " or ".join(answer_choices) }}. ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_75
+    reference: soheeyang
+  c0fe9594-45af-4ad8-bde3-eff968467ad8: !Template
+    answer_choices: disapproval ||| approval
+    id: c0fe9594-45af-4ad8-bde3-eff968467ad8
+    jinja: Determine if the following text expresses a {{ " or ".join(answer_choices)
+      }} sentiment. "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_76
+    reference: soheeyang
+  de54e0e2-d3a6-431f-8b7d-5d5f47340975: !Template
+    answer_choices: unhappy ||| happy
+    id: de54e0e2-d3a6-431f-8b7d-5d5f47340975
+    jinja: 'Put the following statement in either of the categories: {{ " or ".join(answer_choices)
+      }}. "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_77
+    reference: soheeyang
+  c8f11f11-0769-438b-a30c-baa9f9b70601: !Template
+    answer_choices: not happy ||| happy
+    id: c8f11f11-0769-438b-a30c-baa9f9b70601
+    jinja: 'Please classify the sentiment in the following statement: {{ " or ".join(answer_choices)
+      }}. "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_78
+    reference: soheeyang
+  f8bf2d57-e958-4153-9087-1f4f9df661d8: !Template
+    answer_choices: Not happy ||| Happy
+    id: f8bf2d57-e958-4153-9087-1f4f9df661d8
+    jinja: '{{ sentence }} The sentiment of this statement is {{ " or ".join(answer_choices)
+      }}. What do you think it is? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_79
+    reference: soheeyang
+  f39d475e-0ac5-445b-87f9-e4f87a9a56b4: !Template
+    answer_choices: negative ||| positive
+    id: f39d475e-0ac5-445b-87f9-e4f87a9a56b4
+    jinja: The following statement's sentiment is {{ " or ".join(answer_choices) }}.
+      What do you think? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_80
+    reference: soheeyang
+  b2c483de-1055-4641-acd1-097499b3b801: !Template
+    answer_choices: disapproval ||| approval
+    id: b2c483de-1055-4641-acd1-097499b3b801
+    jinja: Do you think the following statement expresses a {{ " or ".join(answer_choices)
+      }} sentiment? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_81
+    reference: soheeyang
+  41955fff-7993-4430-91c4-535e49c3e28e: !Template
+    answer_choices: displeased ||| pleased
+    id: 41955fff-7993-4430-91c4-535e49c3e28e
+    jinja: 'Please classify the sentiment in the following statement as {{ " or ".join(answer_choices)
+      }}: "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_82
+    reference: soheeyang
+  e80d0be8-c25d-4ff4-ae3a-1025a3cfd21a: !Template
+    answer_choices: negative ||| positive
+    id: e80d0be8-c25d-4ff4-ae3a-1025a3cfd21a
+    jinja: What is the sentiment expressed in the following statement? {{ " or ".join(answer_choices)
+      }}. "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_83
+    reference: soheeyang
+  80b9c645-f57f-46a9-b161-73490cce64ea: !Template
+    answer_choices: Displeased ||| Pleased
+    id: 80b9c645-f57f-46a9-b161-73490cce64ea
+    jinja: 'Put the sentiment of the following into one of the categories: {{ " or ".join(answer_choices)
+      }}. {{ sentence }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_84
+    reference: soheeyang
+  2aebf203-89a3-45bb-a5cb-5bb5e17bf8a5: !Template
+    answer_choices: disapproval ||| approval
+    id: 2aebf203-89a3-45bb-a5cb-5bb5e17bf8a5
+    jinja: The sentiment of the statement is either {{ " or ".join(answer_choices) }}.
+      Can you classify it? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_85
+    reference: soheeyang
+  5a7c55f4-0d25-4927-b40f-e500671c2572: !Template
+    answer_choices: negative ||| positive
+    id: 5a7c55f4-0d25-4927-b40f-e500671c2572
+    jinja: Please categorize the sentiment of the following statement as {{ " or ".join(answer_choices)
+      }}. "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_86
+    reference: soheeyang
+  4d20a8bc-30a5-46dd-b574-4a4eb7d0c1f1: !Template
+    answer_choices: Not happy ||| Happy
+    id: 4d20a8bc-30a5-46dd-b574-4a4eb7d0c1f1
+    jinja: '"{{ sentence }}" Based on the given statement, what sentiment is it conveying?
+      {{ " or ".join(answer_choices) }}. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_87
+    reference: soheeyang
+  6c8e5a6b-a7a3-43a6-af9f-7c1b65fd6276: !Template
+    answer_choices: Bad ||| Good
+    id: 6c8e5a6b-a7a3-43a6-af9f-7c1b65fd6276
+    jinja: 'Read the following sentence: "{{ sentence }}". Does the sentiment convey
+      a {{ " or ".join(answer_choices) }} vibe? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_88
+    reference: soheeyang
+  c5abcc3c-20e8-4c8f-9bd3-30469123ef78: !Template
+    answer_choices: negative ||| positive
+    id: c5abcc3c-20e8-4c8f-9bd3-30469123ef78
+    jinja: 'Determine if the sentiment expressed in the following statement is {{ "
+      or ".join(answer_choices) }}: "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_89
+    reference: soheeyang
+  7a99a492-f2da-46f1-ac3a-8164f7b8569d: !Template
+    answer_choices: sad ||| happy
+    id: 7a99a492-f2da-46f1-ac3a-8164f7b8569d
+    jinja: Please classify the sentiment of the following statement as either {{ " or
+      ".join(answer_choices) }}. "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_90
+    reference: soheeyang
+  e7371696-ba5e-4850-adc9-6df5aef7c590: !Template
+    answer_choices: Negative ||| Positive
+    id: e7371696-ba5e-4850-adc9-6df5aef7c590
+    jinja: What do you think is the sentiment of the following sentence? "{{ sentence
+      }}" - Is it {{ " or ".join(answer_choices) }}? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_91
+    reference: soheeyang
+  414b8f5f-7bf9-4b60-af6e-071908a62543: !Template
+    answer_choices: dismal ||| bright
+    id: 414b8f5f-7bf9-4b60-af6e-071908a62543
+    jinja: What is the sentiment expressed in the following sentence? It's either {{
+      " or ".join(answer_choices) }}. "{{ sentence }}" ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_92
+    reference: soheeyang
+  3fbc07e5-4783-4f0a-b740-d6cc5bb3fce8: !Template
+    answer_choices: Not happy ||| Happy
+    id: 3fbc07e5-4783-4f0a-b740-d6cc5bb3fce8
+    jinja: The given statement is {{ " or ".join(answer_choices) }}. What do you think
+      is the sentiment conveyed in "{{ sentence }}"? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_93
+    reference: soheeyang
+  9ef562ea-e953-44a0-9cc2-e2b2139b56dd: !Template
+    answer_choices: dismal ||| cheerful
+    id: 9ef562ea-e953-44a0-9cc2-e2b2139b56dd
+    jinja: The sentiment in the following is either {{ " or ".join(answer_choices) }}.
+      Can you tell which one it is? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_94
+    reference: soheeyang
+  df017f5f-09c3-40c3-9ddc-1c4219a6f46f: !Template
+    answer_choices: Gloomy ||| Cheerful
+    id: df017f5f-09c3-40c3-9ddc-1c4219a6f46f
+    jinja: What do you think is the sentiment of the following sentence? "{{ sentence
+      }}" Choose from {{ " or ".join(answer_choices) }}. ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_95
+    reference: soheeyang
+  758ca772-76a6-4bdb-8c76-b3048661de26: !Template
+    answer_choices: disapproving ||| approving
+    id: 758ca772-76a6-4bdb-8c76-b3048661de26
+    jinja: The sentiment of the following sentence is either {{ " or ".join(answer_choices)
+      }}. What do you think it is? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_96
+    reference: soheeyang
+  2670bd5b-2012-41b5-924b-607268f53e54: !Template
+    answer_choices: displeased ||| pleased
+    id: 2670bd5b-2012-41b5-924b-607268f53e54
+    jinja: The sentiment of the following statement is {{ " or ".join(answer_choices)
+      }}. Can you determine which one it is? "{{ sentence }}" ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_97
+    reference: soheeyang
+  6d5f8be4-53af-412e-bede-17255448a005: !Template
+    answer_choices: Displeased ||| Pleased
+    id: 6d5f8be4-53af-412e-bede-17255448a005
+    jinja: I just read the following statement, "{{ sentence }}". How would you describe
+      the sentiment? Answer in {{ " or ".join(answer_choices) }}. ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_98
+    reference: soheeyang
+  f374309c-a633-4410-9a6a-e443e3656ab7: !Template
+    answer_choices: displeased ||| pleased
+    id: f374309c-a633-4410-9a6a-e443e3656ab7
+    jinja: According to the following sentence, the sentiment is either {{ " or ".join(answer_choices)
+      }}. Can you tell which one it is? "{{ sentence }}" ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_99
+    reference: soheeyang

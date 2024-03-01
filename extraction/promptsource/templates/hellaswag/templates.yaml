@@ -1,0 +1,2096 @@
+dataset: hellaswag
+templates:
+  00caa8cb-7f67-43bc-9e90-fc1d5d329432: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 00caa8cb-7f67-43bc-9e90-fc1d5d329432
+    jinja: 'Complete the description with an appropriate ending:
+
+      First, {{ ctx_a.lower() }} Then, {{ ctx_b.lower() }} ...
+
+
+      (a) {{ answer_choices[0] }}
+
+
+      (b) {{ answer_choices[1] }}
+
+
+      (c) {{ answer_choices[2] }}
+
+
+      (d) {{ answer_choices[3] }}
+
+      |||
+
+      {{ answer_choices[label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: complete_first_then
+    reference: ''
+  196a016d-bd25-4387-90b9-53197fd43b1e: !Template
+    answer_choices: null
+    id: 196a016d-bd25-4387-90b9-53197fd43b1e
+    jinja: "What is the topic of the sentence: {{ctx}} \n|||\n{{activity_label}} "
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: Topic without the ending answer
+    reference: Generate the topic sentence with only the starting sentence
+  1fd44f45-d0e6-41ad-a01f-737f4c53645b: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 1fd44f45-d0e6-41ad-a01f-737f4c53645b
+    jinja: 'Complete the sentence: {{ctx}}
+
+      |||
+
+      {{answer_choices[label | int()]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: Open-ended completion
+    reference: Template for open-ended common sense completion
+  4ebf22a1-2d23-426c-a083-b43fc8567687: !Template
+    answer_choices: null
+    id: 4ebf22a1-2d23-426c-a083-b43fc8567687
+    jinja: "{{ctx}} {{endings[label | int()]}}\nCan you identify the topic of the\
+      \ paragraph? \n|||\n{{activity_label}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: Topic of the context
+    reference: List the activity label as the topic from the sentence
+  52fbd075-46cb-49fb-a41b-00a0f4a60285: !Template
+    answer_choices: '{{endings | join(" ||| ") }}'
+    id: 52fbd075-46cb-49fb-a41b-00a0f4a60285
+    jinja: '{% set prompts = [
+
+      ''Can you pick the correct ending for the sentence: '',
+
+      ''The task is to generate the ending for the sentence: '',
+
+      ''How does this sentence end? '',
+
+      ''From the list of endings described below, what ending makes the most sense
+      for the sentence '',]
+
+      %}
+
+      {{prompts | choice}}
+
+      {{ctx}}
+
+
+      (a)  {{answer_choices[0]}}
+
+
+      (b)  {{answer_choices[1]}}
+
+
+      (c)  {{answer_choices[2]}}
+
+
+      (d)  {{answer_choices[3]}}
+
+      |||
+
+      {{answer_choices [label | int()]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Randomized prompts template
+    reference: Original task template with randomized prompt template
+  663470b8-3fab-449c-84ab-6c4738da51b3: !Template
+    answer_choices: Yes ||| No
+    id: 663470b8-3fab-449c-84ab-6c4738da51b3
+    jinja: "{% set instance = [0, 1, 2, 3] | choice %}\nConsider the following description:\
+      \ {{ ctx_a }}\nIs the following an appropriate continuation?\n{{ ctx_b }} {{\
+      \ endings[instance] }}\nYes or No?\n||| \n{% if label  == instance | string()\
+      \ %}\n{{answer_choices[0]}}\n{% else %} \n{{answer_choices[1]}}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: false
+    name: Appropriate continuation - Yes or No
+    reference: 'The template checks if the two contexts are valid continuations. '
+  6e9f8d7d-9016-45bc-b997-c42aeb2dc944: !Template
+    answer_choices: '{{endings | join("|||")}}'
+    id: 6e9f8d7d-9016-45bc-b997-c42aeb2dc944
+    jinja: 'How does this sentence end?
+
+      {{ctx}}
+
+
+      (a)  {{answer_choices[0]}}
+
+
+      (b)  {{answer_choices[1]}}
+
+
+      (c)  {{answer_choices[2]}}
+
+
+      (d)  {{answer_choices[3]}}
+
+
+      Hint: the topic of the sentence is {{activity_label}}
+
+      |||
+
+      {{answer_choices [label | int()]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Predict ending with hint
+    reference: Predict the ending with the activity label as the hint
+  a8ab00ee-78ad-465b-bbf0-9cd3d242dd7e: !Template
+    answer_choices: null
+    id: a8ab00ee-78ad-465b-bbf0-9cd3d242dd7e
+    jinja: 'How would you start the sentence:
+
+      {{endings[label | int()]}}
+
+      |||
+
+      {{ctx}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: Open-ended start
+    reference: Template asks the model to generate a premise or start for the ending
+  d95b81c4-5db7-44c1-926e-c7222c896a32: !Template
+    answer_choices: Yes ||| No
+    id: d95b81c4-5db7-44c1-926e-c7222c896a32
+    jinja: "{% set instance = [0, 1, 2, 3] | choice %}\nConsider the following text:\
+      \ {{ ctx_b }} {{ endings[instance] }}\nIs it an appropriate continuation of\
+      \ the following text: \n{{ ctx_a }} ?\nYes or No?\n||| \n{% if label  == instance\
+      \ | string() %}\n{{answer_choices[0]}}\n{% else %} \n{{answer_choices[1]}}\n\
+      {% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: false
+    name: Reversed appropriate continuation - Yes or No
+    reference: The template randomly selects a continuation and checks if the continuation
+      is appropriate for the given premise.
+  db8b1c25-f2db-4604-b8fc-f93d69d6fae7: !Template
+    answer_choices: Ending 1 ||| Ending 2 ||| Ending 3 ||| Ending 4
+    id: db8b1c25-f2db-4604-b8fc-f93d69d6fae7
+    jinja: '{{ ctx }}...
+
+      How does the description likely end?
+
+
+      Ending 1: {{ endings[0] }}
+
+
+      Ending 2: {{ endings[1] }}
+
+
+      Ending 3: {{ endings[2] }}
+
+
+      Ending 4: {{ endings[3] }}
+
+      ||| {{ answer_choices[label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: false
+    name: how_ends
+    reference: ''
+  def77598-682f-48de-b187-55db4d390f07: !Template
+    answer_choices: Ending 1 ||| Ending 2 ||| Ending 3 ||| Ending 4
+    id: def77598-682f-48de-b187-55db4d390f07
+    jinja: "If a description of a situation begins like this: {{ ctx }}... Then how\n\
+      does it continue? \n\nEnding 1: {{ endings[0] }}\n\nEnding 2: {{ endings[1]\
+      \ }}\n\nEnding 3: {{ endings[2] }}\n\nEnding 4: {{ endings[3] }}\n|||{{answer_choices[label\
+      \ | int()] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: if_begins_how_continues
+    reference: Returns a Ending <int> string in the template (similar to how ends
+      paraphrased)
+  130e3b5c-8d18-4eeb-b09c-ab1f706414f9: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 130e3b5c-8d18-4eeb-b09c-ab1f706414f9
+    jinja: '{{activity_label}}: {{ctx_a}} {{ctx_b|capitalize}} ||| {{ answer_choices [label | int()]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: fewshot
+    reference: jonghyeonkim
+  5d2728c5-444c-4201-820b-caa8d861bafd: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 5d2728c5-444c-4201-820b-caa8d861bafd
+    jinja: 'Fill in the blank:
+
+      {{ ctx }} ________ ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_00
+    reference: jonghyeonkim
+  2cba0704-d3f8-4edc-8d53-4df0e8faa5d3: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 2cba0704-d3f8-4edc-8d53-4df0e8faa5d3
+    jinja: 'What is the best way to conclude this:
+
+      {{ ctx }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_01
+    reference: jonghyeonkim
+  96c4ec5b-9621-4286-a9ca-bc4867a0e058: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 96c4ec5b-9621-4286-a9ca-bc4867a0e058
+    jinja: "What is the next step in this process?\n\n{{ctx}}\n ||| {{ answer_choices\
+      \ [label | int()] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_02
+    reference: jonghyeonkim
+  0022dcfe-d236-4731-8da5-bd5e1056d235: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 0022dcfe-d236-4731-8da5-bd5e1056d235
+    jinja: "Write an ending for the following description:\n{{ctx}}\n ||| {{ answer_choices\
+      \ [label | int()] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_03
+    reference: jonghyeonkim
+  4820c559-5b42-44d3-80a4-53da13dea63a: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 4820c559-5b42-44d3-80a4-53da13dea63a
+    jinja: "What is the next step in the following action?\n\n{{ctx}}\n ||| {{ answer_choices\
+      \ [label | int()] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_04
+    reference: jonghyeonkim
+  2edba965-a74f-4585-9d24-7de1a2a5bc5f: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 2edba965-a74f-4585-9d24-7de1a2a5bc5f
+    jinja: 'Fill in the blank:
+
+      {{ ctx }} The next step is to ________. ||| {{ answer_choices [label | int()]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_05
+    reference: jonghyeonkim
+  a26dddba-f332-4375-80fd-9194b2d20ce9: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: a26dddba-f332-4375-80fd-9194b2d20ce9
+    jinja: 'What is the most suitable ending for this description:
+
+      {{ ctx }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_06
+    reference: jonghyeonkim
+  5cf8b83e-96bc-461b-bcd5-8b9c34f29313: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 5cf8b83e-96bc-461b-bcd5-8b9c34f29313
+    jinja: "Complete the sentence with an appropriate ending:\n{{ ctx_a }} ...\n |||\
+      \ {{ answer_choices [label | int()] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_07
+    reference: jonghyeonkim
+  1cdea1bc-ed46-4e21-a7bf-5de479be533c: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 1cdea1bc-ed46-4e21-a7bf-5de479be533c
+    jinja: 'What is the best ending to this description:
+
+      {{ctx_a}} {{ctx_b}}...? ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_08
+    reference: jonghyeonkim
+  334f4e1d-0328-41c9-b18c-b2ec8d551c9e: !Template
+    answer_choices: '{{endings | join('' ||| '')}}'
+    id: 334f4e1d-0328-41c9-b18c-b2ec8d551c9e
+    jinja: "Complete the following sentence with the appropriate ending:\n{{ctx}}\n\
+      \ ||| {{ answer_choices [label | int()] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_09
+    reference: jonghyeonkim
+  0199d9f0-f612-46dd-9adf-a8767dfb7f39: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 0199d9f0-f612-46dd-9adf-a8767dfb7f39
+    jinja: "Fill in the blank to complete the following instructions:\n\n{{ctx}} _______\n\
+      \ ||| {{ answer_choices [label | int()] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_10
+    reference: jonghyeonkim
+  27ed6359-5187-47ee-8ee3-a6283b1e6d5f: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 27ed6359-5187-47ee-8ee3-a6283b1e6d5f
+    jinja: "How would you describe what happens next in the following sentence?\n\n\
+      {{ctx}}\n ||| {{ answer_choices [label | int()] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_11
+    reference: jonghyeonkim
+  65a90c3e-d093-4c60-94c3-d5d2d16c5567: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 65a90c3e-d093-4c60-94c3-d5d2d16c5567
+    jinja: 'Complete the following sentence:
+
+      {{ctx_b.lower()}}. {{ ctx_a.lower() }}. Then, ||| {{ answer_choices [label | int()]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_12
+    reference: jonghyeonkim
+  a76d7c17-59a4-419f-8c42-9b2699f4a6b8: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: a76d7c17-59a4-419f-8c42-9b2699f4a6b8
+    jinja: 'What is the outcome of this situation?
+
+
+      {{ctx_a}} {{ctx_b}} {{endings[label]}} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_13
+    reference: jonghyeonkim
+  0ea3d027-1488-49cc-8f2f-a3a5652ce64a: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 0ea3d027-1488-49cc-8f2f-a3a5652ce64a
+    jinja: 'Fill in the blank to complete the sentence:
+
+      {{ ctx_a }} Then {{ctx_b}} ________ ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_14
+    reference: jonghyeonkim
+  753743ea-7bb2-4002-8b19-bf181bcb9f22: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 753743ea-7bb2-4002-8b19-bf181bcb9f22
+    jinja: "Complete the description with the most appropriate ending:\n{{ctx_a}} {{ctx_b}}...\n\
+      \ ||| {{ answer_choices [label | int()] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_15
+    reference: jonghyeonkim
+  323885c0-71d8-4510-a74f-a90077647a47: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 323885c0-71d8-4510-a74f-a90077647a47
+    jinja: 'Complete the following action by choosing the correct ending:
+
+      {{ ctx_a }} {{ ctx_b }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_16
+    reference: jonghyeonkim
+  6cf0a19b-2167-4618-94c4-b4801388cc6b: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 6cf0a19b-2167-4618-94c4-b4801388cc6b
+    jinja: "Please fill in the missing ending to complete the following procedure:\n\
+      \n{{ctx}} _______\n ||| {{ answer_choices [label | int()] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_17
+    reference: jonghyeonkim
+  cad28e62-08cc-4cf5-8886-78f032c20faf: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: cad28e62-08cc-4cf5-8886-78f032c20faf
+    jinja: 'Fill in the blank to complete the sentence:
+
+      {{ ctx_a }} and then {{ctx_b}} and finally ________ ||| {{ answer_choices [label
+      | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_18
+    reference: jonghyeonkim
+  1572e7a0-d150-40ee-9a2d-fe91a5808811: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 1572e7a0-d150-40ee-9a2d-fe91a5808811
+    jinja: 'Complete the description with an appropriate ending:
+
+      {{ ctx_a }} Then {{ ctx_b }} and finally ________ ||| {{ answer_choices [label
+      | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_19
+    reference: jonghyeonkim
+  5d65dc6b-7750-4cf7-8955-611f71850d34: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 5d65dc6b-7750-4cf7-8955-611f71850d34
+    jinja: 'What would be the best way to complete the following sentence?
+
+
+      {{ctx_a.lower()}}. {{ ctx_b.lower() }}... ||| {{ answer_choices [label | int()]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_20
+    reference: jonghyeonkim
+  ae01d7d0-ddba-4637-9892-8e833a7d6693: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: ae01d7d0-ddba-4637-9892-8e833a7d6693
+    jinja: '{{ ctx_a }} ...
+
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_21
+    reference: jonghyeonkim
+  f87b3193-4efe-443e-9d72-5e0859c6cf83: !Template
+    answer_choices: '{{endings | join('' ||| '')}}'
+    id: f87b3193-4efe-443e-9d72-5e0859c6cf83
+    jinja: 'What happens next in the following context:
+
+      {{ctx}}
+
+
+      (a) {{endings[0]}}
+
+      (b) {{endings[1]}}
+
+      (c) {{endings[2]}}
+
+      (d) {{endings[3]}} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_22
+    reference: jonghyeonkim
+  38c5e652-3345-4570-8f6d-a1e376a17c17: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 38c5e652-3345-4570-8f6d-a1e376a17c17
+    jinja: '{{ctx_a}}. What happens next?
+
+
+      (a) {{answer_choices[0]}}
+
+      (b) {{answer_choices[1]}}
+
+      (c) {{answer_choices[2]}}
+
+      (d) {{answer_choices[3]}} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_23
+    reference: jonghyeonkim
+  2ee1924d-f0be-43ff-9c1a-5f30b43cb495: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 2ee1924d-f0be-43ff-9c1a-5f30b43cb495
+    jinja: '{{ctx}}. What should happen next?
+
+
+      (a) {{answer_choices[0]}}
+
+      (b) {{answer_choices[1]}}
+
+      (c) {{answer_choices[2]}}
+
+      (d) {{answer_choices[3]}} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_24
+    reference: jonghyeonkim
+  20da1e0e-aa19-4146-846f-94c9b608bcb8: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 20da1e0e-aa19-4146-846f-94c9b608bcb8
+    jinja: 'What happens after {{ctx_a}}?
+
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_25
+    reference: jonghyeonkim
+  d66b3d43-3718-4d6b-82cc-81af9e38fff2: !Template
+    answer_choices: '{{endings | join('' ||| '')}}'
+    id: d66b3d43-3718-4d6b-82cc-81af9e38fff2
+    jinja: 'What should be done after {{ ctx_a }}?
+
+
+      (a) {{answer_choices[0]}}
+
+      (b) {{answer_choices[1]}}
+
+      (c) {{answer_choices[2]}}
+
+      (d) {{answer_choices[3]}} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_26
+    reference: jonghyeonkim
+  7b200c6a-141f-47dd-9f45-99a8a5d68e6a: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 7b200c6a-141f-47dd-9f45-99a8a5d68e6a
+    jinja: 'What would you do next:
+
+      {{ctx}}
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_27
+    reference: jonghyeonkim
+  fb457d61-ff4c-4cf8-aa0d-3d48718baac5: !Template
+    answer_choices: '{{endings | join('' ||| '')}}'
+    id: fb457d61-ff4c-4cf8-aa0d-3d48718baac5
+    jinja: 'Choose the appropriate ending for the following situation:
+
+      {{ctx}}
+
+
+      (a) {{endings[0]}}
+
+      (b) {{endings[1]}}
+
+      (c) {{endings[2]}}
+
+      (d) {{endings[3]}} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_28
+    reference: jonghyeonkim
+  635511bb-b4ad-43b1-98d9-ccbb33673e07: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 635511bb-b4ad-43b1-98d9-ccbb33673e07
+    jinja: 'What should the person do after {{ctx_b}}?
+
+
+      (a) {{answer_choices[0]}}
+
+      (b) {{answer_choices[1]}}
+
+      (c) {{answer_choices[2]}}
+
+      (d) {{answer_choices[3]}} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_29
+    reference: jonghyeonkim
+  8a07fcf8-e59d-429a-ae48-7ed3905f1c39: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 8a07fcf8-e59d-429a-ae48-7ed3905f1c39
+    jinja: '{{ctx}}. What is the appropriate next step?
+
+
+      (a) {{answer_choices[0]}}
+
+      (b) {{answer_choices[1]}}
+
+      (c) {{answer_choices[2]}}
+
+      (d) {{answer_choices[3]}} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_30
+    reference: jonghyeonkim
+  e8974636-cf22-44ac-a992-e5de3af50fd7: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: e8974636-cf22-44ac-a992-e5de3af50fd7
+    jinja: "How should this procedure continue?\n\n{{ ctx }}\n\n(a) {{answer_choices[0]}}\n\
+      (b) {{answer_choices[1]}}\n(c) {{answer_choices[2]}}\n(d) {{answer_choices[3]}}\n\
+      \ ||| {{ answer_choices [label | int()] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_31
+    reference: jonghyeonkim
+  2037b551-016b-46b5-a600-8d96bfe893fb: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 2037b551-016b-46b5-a600-8d96bfe893fb
+    jinja: 'What is the appropriate next step after {{ctx}}?
+
+
+      (a) {{answer_choices[0]}}
+
+      (b) {{answer_choices[1]}}
+
+      (c) {{answer_choices[2]}}
+
+      (d) {{answer_choices[3]}} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_32
+    reference: jonghyeonkim
+  8872a69c-0f0f-4a94-a928-93d8321f8dfe: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 8872a69c-0f0f-4a94-a928-93d8321f8dfe
+    jinja: 'What is the next step in this process? {{ ctx }}
+
+
+      (a) {{answer_choices[0]}}
+
+      (b) {{answer_choices[1]}}
+
+      (c) {{answer_choices[2]}}
+
+      (d) {{answer_choices[3]}} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_33
+    reference: jonghyeonkim
+  f48ede5c-cc19-4298-bfe9-0450783f110f: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: f48ede5c-cc19-4298-bfe9-0450783f110f
+    jinja: 'What happens next in this scenario?
+
+      {{ ctx }}
+
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_34
+    reference: jonghyeonkim
+  953ca00d-02eb-464f-a700-5f3a73d8e96f: !Template
+    answer_choices: '{{endings | join('' ||| '')}}'
+    id: 953ca00d-02eb-464f-a700-5f3a73d8e96f
+    jinja: 'Complete the following description with an appropriate ending:
+
+      {{ctx_a}} {{ctx_b}}
+
+
+      (a) {{endings[0]}}
+
+      (b) {{endings[1]}}
+
+      (c) {{endings[2]}}
+
+      (d) {{endings[3]}} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_35
+    reference: jonghyeonkim
+  a1ad15dc-1f6d-4690-8bfc-b3e585e05628: !Template
+    answer_choices: '{{endings | join('' ||| '')}}'
+    id: a1ad15dc-1f6d-4690-8bfc-b3e585e05628
+    jinja: 'Choose the correct ending for this sentence:
+
+
+      {{ ctx }}
+
+      (a) {{answer_choices[0]}}
+
+      (b) {{answer_choices[1]}}
+
+      (c) {{answer_choices[2]}}
+
+      (d) {{answer_choices[3]}} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_36
+    reference: jonghyeonkim
+  b13b4a22-cee3-481d-a435-9b169301b75e: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: b13b4a22-cee3-481d-a435-9b169301b75e
+    jinja: 'What should happen next after this:
+
+      {{ ctx_a }}
+
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_37
+    reference: jonghyeonkim
+  4166c9c5-4755-4d9b-8ffe-ebbd756c9abf: !Template
+    answer_choices: '{{endings | join('' ||| '')}}'
+    id: 4166c9c5-4755-4d9b-8ffe-ebbd756c9abf
+    jinja: 'What is the last step in this activity?
+
+
+      {{ ctx_b }}...
+
+
+      (a) {{answer_choices[0]}}
+
+      (b) {{answer_choices[1]}}
+
+      (c) {{answer_choices[2]}}
+
+      (d) {{answer_choices[3]}} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_38
+    reference: jonghyeonkim
+  1585d751-e32d-4c5f-ba2b-80f99eaebf24: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 1585d751-e32d-4c5f-ba2b-80f99eaebf24
+    jinja: 'What is the best way to finish this description?
+
+      {{ctx}}
+
+
+      (a) {{answer_choices[0]}}
+
+      (b) {{answer_choices[1]}}
+
+      (c) {{answer_choices[2]}}
+
+      (d) {{answer_choices[3]}} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_39
+    reference: jonghyeonkim
+  2856e111-3c25-4732-8e93-4e9e87d64a7c: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 2856e111-3c25-4732-8e93-4e9e87d64a7c
+    jinja: 'What should be the final step in this process? {{ ctx }}
+
+
+      (a) {{answer_choices[0]}}
+
+      (b) {{answer_choices[1]}}
+
+      (c) {{answer_choices[2]}}
+
+      (d) {{answer_choices[3]}} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_40
+    reference: jonghyeonkim
+  03f74eae-7ce6-43d2-972d-11104011579e: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 03f74eae-7ce6-43d2-972d-11104011579e
+    jinja: '{{ctx_a}} Then, {{ctx_b}}. What should happen after that?
+
+
+      (a) {{answer_choices[0]}}
+
+      (b) {{answer_choices[1]}}
+
+      (c) {{answer_choices[2]}}
+
+      (d) {{answer_choices[3]}} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_41
+    reference: jonghyeonkim
+  44f7e97f-3e27-4f36-bcdb-7d576e06062c: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 44f7e97f-3e27-4f36-bcdb-7d576e06062c
+    jinja: 'What is the next step in this process?
+
+
+      {{ ctx }}
+
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_42
+    reference: jonghyeonkim
+  d9dc9dcb-1904-429c-9d40-74d553b5cab2: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: d9dc9dcb-1904-429c-9d40-74d553b5cab2
+    jinja: 'What is the best ending for the description:
+
+      {{ctx}}
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_43
+    reference: jonghyeonkim
+  6d7ca0f1-99e6-4eb1-93ca-d47126ed5301: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 6d7ca0f1-99e6-4eb1-93ca-d47126ed5301
+    jinja: 'Choose the correct ending to this situation:
+
+      {{ctx}}
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_44
+    reference: jonghyeonkim
+  39d075e7-62f7-4107-871f-9e23dccc6f85: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 39d075e7-62f7-4107-871f-9e23dccc6f85
+    jinja: 'Choose the correct ending for this context:
+
+      {{ ctx }}
+
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_45
+    reference: jonghyeonkim
+  a9fd03c5-6a4b-4fdf-9330-e17991f8dce9: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: a9fd03c5-6a4b-4fdf-9330-e17991f8dce9
+    jinja: 'What happens next in the following situation?
+
+
+      {{ctx}}
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_46
+    reference: jonghyeonkim
+  d6fa3e01-8155-4a90-acce-528a7b502816: !Template
+    answer_choices: '{{endings | join('' ||| '')}}'
+    id: d6fa3e01-8155-4a90-acce-528a7b502816
+    jinja: 'What is the next step in this activity involving {{ ctx_a }}?
+
+
+      (a) {{answer_choices[0]}}
+
+      (b) {{answer_choices[1]}}
+
+      (c) {{answer_choices[2]}}
+
+      (d) {{answer_choices[3]}} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_47
+    reference: jonghyeonkim
+  808ce614-cbbc-4381-a059-3302107e4df1: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 808ce614-cbbc-4381-a059-3302107e4df1
+    jinja: 'What is the best way to finish this action:
+
+      {{ ctx_b }}
+
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_48
+    reference: jonghyeonkim
+  834f500f-b1bd-4bd5-a475-d15d01ebce8b: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 834f500f-b1bd-4bd5-a475-d15d01ebce8b
+    jinja: '{{ctx_a}} Then, {{ctx_b}}. What should the person do after that?
+
+
+      (a) {{answer_choices[0]}}
+
+      (b) {{answer_choices[1]}}
+
+      (c) {{answer_choices[2]}}
+
+      (d) {{answer_choices[3]}} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_49
+    reference: jonghyeonkim
+  16519545-0e7c-497f-86dd-1eb3cc4255d8: !Template
+    answer_choices: '{{endings | join('' ||| '')}}'
+    id: 16519545-0e7c-497f-86dd-1eb3cc4255d8
+    jinja: 'What should the person do next in this activity?
+
+
+      {{ ctx_a }}...
+
+
+      (a) {{answer_choices[0]}}
+
+      (b) {{answer_choices[1]}}
+
+      (c) {{answer_choices[2]}}
+
+      (d) {{answer_choices[3]}} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_50
+    reference: jonghyeonkim
+  887f04f3-10ab-48d1-9bcf-de79d5c50039: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 887f04f3-10ab-48d1-9bcf-de79d5c50039
+    jinja: 'What is the best way to complete this situation?
+
+
+      {{ctx}}
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_51
+    reference: jonghyeonkim
+  441d6b4c-7ba5-4e4f-b949-07cc7fe4bc73: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 441d6b4c-7ba5-4e4f-b949-07cc7fe4bc73
+    jinja: 'Complete the following sentence:
+
+      {{ctx_a}}... {{ctx_b}}...
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_52
+    reference: jonghyeonkim
+  75f82785-dd5c-418c-9079-118367b1a790: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 75f82785-dd5c-418c-9079-118367b1a790
+    jinja: 'Which of the following options completes the description?
+
+
+      {{ctx}}
+
+      (a) {{answer_choices[0]}}
+
+      (b) {{answer_choices[1]}}
+
+      (c) {{answer_choices[2]}}
+
+      (d) {{answer_choices[3]}} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_53
+    reference: jonghyeonkim
+  43cd1f1a-9daf-415b-a702-e181c06ce1da: !Template
+    answer_choices: '{{endings | join('' ||| '')}}'
+    id: 43cd1f1a-9daf-415b-a702-e181c06ce1da
+    jinja: 'What is the next step in this {{ activity_label }} clue?
+
+
+      {{ ctx }}
+
+      (a) {{answer_choices[0]}}
+
+      (b) {{answer_choices[1]}}
+
+      (c) {{answer_choices[2]}}
+
+      (d) {{answer_choices[3]}} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_54
+    reference: jonghyeonkim
+  de169abc-62d1-4ca2-8b81-7d676de16a25: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: de169abc-62d1-4ca2-8b81-7d676de16a25
+    jinja: '{{ctx_b}} is the next step after {{ctx_a}}. What should come next?
+
+
+      (a) {{answer_choices[0]}}
+
+      (b) {{answer_choices[1]}}
+
+      (c) {{answer_choices[2]}}
+
+      (d) {{answer_choices[3]}} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_55
+    reference: jonghyeonkim
+  bf4dc93e-ccc0-4f48-a4da-089c665447e4: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: bf4dc93e-ccc0-4f48-a4da-089c665447e4
+    jinja: '{{ctx}}. Which of the following options completes the description?
+
+
+      (a) {{answer_choices[0]}}
+
+      (b) {{answer_choices[1]}}
+
+      (c) {{answer_choices[2]}}
+
+      (d) {{answer_choices[3]}} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_56
+    reference: jonghyeonkim
+  35b20919-585e-44f8-b309-ae499312906c: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 35b20919-585e-44f8-b309-ae499312906c
+    jinja: 'What is the next step in this process?
+
+
+      {{ctx_a}}
+
+      {{ctx_b}}
+
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_57
+    reference: jonghyeonkim
+  ad7d2c18-1e0c-4712-adcf-0b8bae2dc98d: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: ad7d2c18-1e0c-4712-adcf-0b8bae2dc98d
+    jinja: 'What should you do after {{ctx_b}}?
+
+
+      {{ctx_a}}
+
+      {{ctx_b}}...
+
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_58
+    reference: jonghyeonkim
+  48010237-edad-4187-a02b-9c62ce584fb2: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 48010237-edad-4187-a02b-9c62ce584fb2
+    jinja: "Choose the appropriate ending for the following sentence:\n\n{{ctx}}\n\n\
+      (a) {{answer_choices[0]}}\n(b) {{answer_choices[1]}}\n(c) {{answer_choices[2]}}\n\
+      (d) {{answer_choices[3]}}\n ||| {{ answer_choices [label | int()] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_59
+    reference: jonghyeonkim
+  592d572b-4392-4d95-8b34-e95a3b2f4819: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 592d572b-4392-4d95-8b34-e95a3b2f4819
+    jinja: 'How does the action described in the following sentence end?
+
+
+      {{ctx}}
+
+      (a) {{answer_choices[0]}}
+
+      (b) {{answer_choices[1]}}
+
+      (c) {{answer_choices[2]}}
+
+      (d) {{answer_choices[3]}} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_60
+    reference: jonghyeonkim
+  8cf7536e-a282-48e4-9dca-b6fc6e0a746c: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 8cf7536e-a282-48e4-9dca-b6fc6e0a746c
+    jinja: 'Complete the following steps: {{ ctx_a }} ... {{ ctx_b }} ...
+
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_61
+    reference: jonghyeonkim
+  266484a7-c4f0-4f9e-a1e8-84a4fdeaffe0: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 266484a7-c4f0-4f9e-a1e8-84a4fdeaffe0
+    jinja: 'What is the most appropriate ending for this situation:
+
+      {{ ctx }}
+
+
+      (a)  {{answer_choices[0]}}
+
+      (b)  {{answer_choices[1]}}
+
+      (c)  {{answer_choices[2]}}
+
+      (d)  {{answer_choices[3]}} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_62
+    reference: jonghyeonkim
+  4d030f7f-3b35-4a10-854e-84c13933e958: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 4d030f7f-3b35-4a10-854e-84c13933e958
+    jinja: 'What is the most suitable ending for this situation?
+
+
+      {{ ctx }}
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_63
+    reference: jonghyeonkim
+  9eeb7654-0362-4e96-91af-e9dc4fb39eff: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 9eeb7654-0362-4e96-91af-e9dc4fb39eff
+    jinja: 'What happens next in this scenario?
+
+      {{ctx_a}}
+
+      {{ctx_b}}
+
+      {{ctx}}
+
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_64
+    reference: jonghyeonkim
+  6b3cc360-af53-4784-8bd7-442847be9240: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 6b3cc360-af53-4784-8bd7-442847be9240
+    jinja: "Complete the description with an appropriate ending:\n{{ctx}}... \n(a) {{\
+      \ answer_choices[0] }}\n(b) {{ answer_choices[1] }}\n(c) {{ answer_choices[2]\
+      \ }}\n(d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_65
+    reference: jonghyeonkim
+  89af28d7-19ae-4df2-b1d0-03dab605265e: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 89af28d7-19ae-4df2-b1d0-03dab605265e
+    jinja: 'How would you complete this instruction:
+
+      {{ctx_a}} {{ctx_b}}...
+
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_66
+    reference: jonghyeonkim
+  134e7c56-1104-4e4a-af62-4dbe55ae7d9b: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 134e7c56-1104-4e4a-af62-4dbe55ae7d9b
+    jinja: "If a description of a situation begins like this: {{ ctx }}... Then how\
+      \ does it continue? \n\n(a) {{ endings[0] }}\n(b) {{ endings[1] }}\n(c) {{ endings[2]\
+      \ }}\n(d) {{ endings[3] }}\n ||| {{ answer_choices [label | int()] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_67
+    reference: jonghyeonkim
+  bff8172d-03e3-4163-8fb7-c2fcc2a5ae6e: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: bff8172d-03e3-4163-8fb7-c2fcc2a5ae6e
+    jinja: 'What action should be taken in the following scenario:
+
+      {{ ctx }}
+
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_68
+    reference: jonghyeonkim
+  dd347983-e629-4a73-a784-1f1c7afd3101: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: dd347983-e629-4a73-a784-1f1c7afd3101
+    jinja: 'What is the correct way to complete this step?
+
+
+      {{ctx_a}}
+
+      {{ctx_b}}
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_69
+    reference: jonghyeonkim
+  14d1f6c8-1ff7-444a-a28c-3ade28834bea: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 14d1f6c8-1ff7-444a-a28c-3ade28834bea
+    jinja: 'If the description of an action starts with {{ctx_a}}, what should come
+      next?
+
+
+      (a) {{answer_choices[0]}}
+
+      (b) {{answer_choices[1]}}
+
+      (c) {{answer_choices[2]}}
+
+      (d) {{answer_choices[3]}} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_70
+    reference: jonghyeonkim
+  af50a8eb-6f8a-4561-84e1-aa5809897eb5: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: af50a8eb-6f8a-4561-84e1-aa5809897eb5
+    jinja: 'Select the appropriate ending for the following description:
+
+      {{ ctx }}
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_71
+    reference: jonghyeonkim
+  b5fbe8dc-01f7-4082-ad07-865066c1ae0b: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: b5fbe8dc-01f7-4082-ad07-865066c1ae0b
+    jinja: 'Choose the best way to finish the description:
+
+      {{ ctx_a }} {{ ctx_b }}
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_72
+    reference: jonghyeonkim
+  9060dbc3-a211-4d1c-a0cb-8ee37c5c6e17: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 9060dbc3-a211-4d1c-a0cb-8ee37c5c6e17
+    jinja: 'How can you best continue this sequence of events?
+
+
+      {{ctx_a}}
+
+      {{ctx_b}}
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_73
+    reference: jonghyeonkim
+  a60f8f9c-bbd0-46b6-ab81-116d9e2e0f08: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: a60f8f9c-bbd0-46b6-ab81-116d9e2e0f08
+    jinja: 'Complete the following description with an appropriate ending:
+
+      {{ctx}}
+
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_74
+    reference: jonghyeonkim
+  d7bbdc08-71d8-46ae-ad85-9ae59d246941: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: d7bbdc08-71d8-46ae-ad85-9ae59d246941
+    jinja: 'What should be done after {{ctx_a}}? Select the most appropriate ending.
+
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_75
+    reference: jonghyeonkim
+  edbfdf17-331e-4ddf-a31e-be75e44440ef: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: edbfdf17-331e-4ddf-a31e-be75e44440ef
+    jinja: "What is the correct way to finish the following process?\n\n{{ ctx_a }}{{\
+      \ ctx_b }}\n(a) {{answer_choices[0]}}\n(b) {{answer_choices[1]}}\n(c) {{answer_choices[2]}}\n\
+      (d) {{answer_choices[3]}}\n ||| {{ answer_choices [label | int()] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_76
+    reference: jonghyeonkim
+  bdc67c52-9c53-4f27-bed2-ebe36bccd189: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: bdc67c52-9c53-4f27-bed2-ebe36bccd189
+    jinja: 'Choose the best ending to complete this sentence:
+
+      {{ctx_a}} {{ctx_b}}...
+
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_77
+    reference: jonghyeonkim
+  c369c7ed-1c84-4661-a01e-7252a7fce3b9: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: c369c7ed-1c84-4661-a01e-7252a7fce3b9
+    jinja: 'How should you complete the following steps:
+
+      {{ ctx_a }} {{ ctx_b }} ...
+
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_78
+    reference: jonghyeonkim
+  805e2ba0-89be-4dd6-999c-b5303198ba79: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 805e2ba0-89be-4dd6-999c-b5303198ba79
+    jinja: 'What is the next step after {{ctx_a}}? Select the most appropriate ending.
+
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_79
+    reference: jonghyeonkim
+  ff682ed5-e7f5-4bd0-87e6-f62ddd604efd: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: ff682ed5-e7f5-4bd0-87e6-f62ddd604efd
+    jinja: 'What should the person in the description do next? Choose the best option:
+
+
+      {{ctx}}
+
+      (a) {{answer_choices[0]}}
+
+      (b) {{answer_choices[1]}}
+
+      (c) {{answer_choices[2]}}
+
+      (d) {{answer_choices[3]}} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_80
+    reference: jonghyeonkim
+  f6453432-ae59-4ff5-abfd-9cf34bb69deb: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: f6453432-ae59-4ff5-abfd-9cf34bb69deb
+    jinja: 'Which of the following endings correctly completes the description:
+
+      {{ ctx }}
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_81
+    reference: jonghyeonkim
+  c4e33973-0bf4-4524-a191-c67a7b7855d9: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: c4e33973-0bf4-4524-a191-c67a7b7855d9
+    jinja: 'What does the person do after {{ctx_b}}? Select the most appropriate ending.
+
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_82
+    reference: jonghyeonkim
+  42a0062a-3e14-4c56-8b8a-3cd49a8ab0c9: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 42a0062a-3e14-4c56-8b8a-3cd49a8ab0c9
+    jinja: 'Which ending makes the most sense in the context of this scenario?
+
+
+      {{ ctx }}
+
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_83
+    reference: jonghyeonkim
+  83a192ff-36c3-4087-8d0d-2cbffc0721ff: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 83a192ff-36c3-4087-8d0d-2cbffc0721ff
+    jinja: 'Complete the following sentence with a suitable ending:
+
+      {{ctx_a}} {{ctx_b}} ...
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_84
+    reference: jonghyeonkim
+  1fd17298-9915-484f-971c-ed8f2efff364: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 1fd17298-9915-484f-971c-ed8f2efff364
+    jinja: 'Which of the following endings best fits the context of this sentence?
+
+
+      {{ ctx }}
+
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_85
+    reference: jonghyeonkim
+  c8819a47-ba7c-48f3-b9b9-72e73276391d: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: c8819a47-ba7c-48f3-b9b9-72e73276391d
+    jinja: "What should be the next step after {{ ctx_b.lower() }} in the following\
+      \ procedure?\n\n{{ctx}}\n(a) {{answer_choices[0]}}\n(b) {{answer_choices[1]}}\n\
+      (c) {{answer_choices[2]}}\n(d) {{answer_choices[3]}}\n ||| {{ answer_choices [label\
+      \ | int()] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_86
+    reference: jonghyeonkim
+  d783e072-33bb-49de-8b52-f775bc506168: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: d783e072-33bb-49de-8b52-f775bc506168
+    jinja: 'What action does the person in the description perform next? Choose the
+      best option:
+
+
+      {{ctx}}
+
+      (a) {{answer_choices[0]}}
+
+      (b) {{answer_choices[1]}}
+
+      (c) {{answer_choices[2]}}
+
+      (d) {{answer_choices[3]}} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_87
+    reference: jonghyeonkim
+  8cf0e607-ac34-4c3b-a355-f1b6b7de28d0: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 8cf0e607-ac34-4c3b-a355-f1b6b7de28d0
+    jinja: 'Complete the description with an appropriate ending:
+
+      {{ ctx_a }} Then, {{ ctx_b }} ...
+
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_88
+    reference: jonghyeonkim
+  3c6d697d-7724-4e82-990a-4ab1a9c8bb58: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 3c6d697d-7724-4e82-990a-4ab1a9c8bb58
+    jinja: 'How does this sentence end?
+
+
+      {{ctx}}
+
+      (a)  {{answer_choices[0]}}
+
+      (b)  {{answer_choices[1]}}
+
+      (c)  {{answer_choices[2]}}
+
+      (d)  {{answer_choices[3]}}
+
+
+      Hint: the topic of the sentence is {{activity_label}} ||| {{ answer_choices [label
+      | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_89
+    reference: jonghyeonkim
+  dbe8eeea-740e-4151-a0a0-4b3132861960: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: dbe8eeea-740e-4151-a0a0-4b3132861960
+    jinja: 'Choose the best ending to complete the following description:
+
+      {{ctx}}. The options are:
+
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_90
+    reference: jonghyeonkim
+  c207047b-ee9f-4717-8d94-45ca983964ed: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: c207047b-ee9f-4717-8d94-45ca983964ed
+    jinja: "Please select the most appropriate option to complete the following steps:\n\
+      \n{{ctx_a}}\n\n{{ctx_b}}\n\n(a) {{answer_choices[0]}}\n(b) {{answer_choices[1]}}\n\
+      (c) {{answer_choices[2]}}\n(d) {{answer_choices[3]}}\n ||| {{ answer_choices [label\
+      \ | int()] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_91
+    reference: jonghyeonkim
+  9cab908f-4bec-41b3-b7af-b144527c7012: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 9cab908f-4bec-41b3-b7af-b144527c7012
+    jinja: 'Complete the following description with an appropriate ending:
+
+      {{ ctx_a }} {{ ctx_b }} ...
+
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_92
+    reference: jonghyeonkim
+  d12cb5f5-4cc2-47d1-9ff0-58f88f8a1ac7: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: d12cb5f5-4cc2-47d1-9ff0-58f88f8a1ac7
+    jinja: 'Choose the best way to complete this sequence of events:
+
+
+      {{ ctx_a }} {{ ctx_b }} {{ ctx }}
+
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_93
+    reference: jonghyeonkim
+  b47af765-8e81-4386-a0d1-f7e2efa837b9: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: b47af765-8e81-4386-a0d1-f7e2efa837b9
+    jinja: 'Choose the most appropriate ending to complete this description:
+
+      {{ctx_a}} Then {{ctx_b}}...
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_94
+    reference: jonghyeonkim
+  85304e8a-a340-4ab1-940c-92bc5b4a355e: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 85304e8a-a340-4ab1-940c-92bc5b4a355e
+    jinja: 'What is the last thing the person does after {{ctx_b}}? Select the most
+      appropriate ending.
+
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_95
+    reference: jonghyeonkim
+  4569e3f6-6222-41ed-83dc-9d9e5ee2d7b1: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 4569e3f6-6222-41ed-83dc-9d9e5ee2d7b1
+    jinja: 'Complete the description with an appropriate ending:
+
+      First, {{ ctx_a }} Then, {{ ctx_b }} ...
+
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_96
+    reference: jonghyeonkim
+  17352b65-bd36-42eb-9791-b09eb9121f5c: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 17352b65-bd36-42eb-9791-b09eb9121f5c
+    jinja: 'What is the most likely outcome of the actions described in {{ ctx }}? Choose
+      the best option:
+
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_97
+    reference: jonghyeonkim
+  621bfae4-3854-4a8d-8f77-17084e6feabb: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: 621bfae4-3854-4a8d-8f77-17084e6feabb
+    jinja: 'What is the last thing that happens in this series of actions?
+
+
+      {{ctx_a}}
+
+      {{ctx_b}}
+
+      {{ctx}}...
+
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_98
+    reference: jonghyeonkim
+  b060a683-20fc-4239-ab24-2074057275b6: !Template
+    answer_choices: '{{endings | join(" ||| ")}}'
+    id: b060a683-20fc-4239-ab24-2074057275b6
+    jinja: 'How does the action described in {{ ctx_a }} relate to the action described
+      in {{ ctx_b }}? Choose the best option:
+
+
+      (a) {{ answer_choices[0] }}
+
+      (b) {{ answer_choices[1] }}
+
+      (c) {{ answer_choices[2] }}
+
+      (d) {{ answer_choices[3] }} ||| {{ answer_choices [label | int()] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_99
+    reference: jonghyeonkim

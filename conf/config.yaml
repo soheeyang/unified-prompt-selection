@@ -1,0 +1,38 @@
+defaults:
+  # The available prompt selection methods are "MI, MI_G, MI_L, MI_GL, GE, GE_M, LE, MDL, MDL_M, ZLP, ZPM, ZMV, PPL, PPL_L"
+  - method: MI
+  - dataset: sst2
+  - prompt: base_prompts
+  - decoder: opt-2.7b
+  - calibration: cbm-softmax
+  - _self_
+
+
+# If true, only get P(y|x,t) using a first token, not all tokens
+first_token: false
+
+# If true, get sum log prediction probability (not mean)
+sum_log_prob: false
+
+# fix the size of dataset.
+num_samples: 1000
+
+# fix random seed.
+seed: 42
+
+# If you want a fewshot evaluation, pass this argument a value corresponding to the number of shots you want.
+# You can choose from '1', '2', '4', '1,2', '1,4', '2,4', and '1,2,4'."
+fewshot: null
+
+# Decide whether to evaluate when extracting p(y|x,t)
+do_eval: true
+
+# Whether or not to use mixed precision training. Choose from ‘no’, ‘fp16’, ‘bf16 or ‘fp8’.
+mixed_precision: 'no'
+
+# Choose whether to filter prompts in the way described in the ZPS paper (https://arxiv.org/abs/2211.04668).
+# If true, the prompts will be filtered.
+filter: false
+
+# If true, the dataset is set to be unbalanced in the dynamic task.
+unbalance: false

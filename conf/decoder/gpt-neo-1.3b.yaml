@@ -1,0 +1,26 @@
+# Path to pretrained model or model identifier from huggingface.co/models.
+model_name_or_path: 'EleutherAI/gpt-neo-1.3b'
+
+# If passed, will use this index to ignore in the loss.
+# If you're doing an evaluation, be sure to check the pad_token_id of the model you're using and pass it as an argument.
+ignore_index: &PAD_TOKEN_ID 50256
+
+# If true, will call `model.parallelize` which splits the model on all GPUs available when applicable (model parallelism). "
+# Note that this feature is still experimental in HF Transformers."
+parallelize: false
+
+# Batch size (per device) for the evaluation dataloader.
+per_device_eval_batch_size: 8
+
+# Pretrained config name or path if not the same as model_name
+config_name: null
+
+# Pretrained tokenizer name or path if not the same as model_name
+tokenizer_name: null
+
+# If passed, will use a slow tokenizer (not backed by the 🤗 Tokenizers library).
+use_slow_tokenizer: false
+
+# The maximum total input sequence length after tokenization. Sequences longer than this will be truncated,
+# sequences shorter will be padded if `--pad_to_max_lengh` is passed.
+max_length: 1024

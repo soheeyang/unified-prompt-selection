@@ -1,0 +1,6 @@
+prompt_config_name: test
+template_names:
+  - prompt_00
+  - prompt_01
+  - prompt_02
+  # - prompt_100

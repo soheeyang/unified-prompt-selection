@@ -1,0 +1,36 @@
+# The name of the dataset to use (via the datasets library).
+dataset_name: &path 'newspop'
+
+# The configuration name of the dataset to use (via the datasets library).
+dataset_config_name: &name null
+
+# The split name of the dataset to use (via the datasets library).
+split: &split 'train'
+
+
+# Specify the arguments required to utilize datasets.load_dataset
+# https://huggingface.co/docs/datasets/package_reference/loading_methods#datasets.load_dataset
+DATASET_KWARGS:
+  path: *path
+  name: *name
+  split: *split
+
+# Arguments for proper data preprocessing
+DATASET_INFO: 
+  # Number of classes
+  num_classes: 4
+  # For dynamic task, specify column names for candidate answers
+  choices: null
+  # Correct Answer Label Column Name
+  label: 'label'
+  # Dynamic task or not
+  is_dynamic: false
+
+# Arguments required to add a custom prompt
+TEMPLATE_INFO:
+  # Name of the text column in the dataset to use
+  text_formats: ["{{title}}", "{{headline}}"]
+  
+  # Refer to the following PromptSource template jinja and modify jinja_suffix.
+  # ./extraction/promptsource/templates/{dataset_name/dataset_config_name}/templates.yaml
+  jinja_suffix: " ||| {{topic|capitalize}}"

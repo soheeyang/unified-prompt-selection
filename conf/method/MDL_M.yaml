@@ -1,0 +1,8 @@
+# Pass the prompt selection method to use as an argument.
+method: 'MDL'
+
+# If passed, the GE is computed with one hot P(y|x,t).
+one_hot: false
+
+# If passed, a prompt is selected for each x.
+select_for_each_x: false

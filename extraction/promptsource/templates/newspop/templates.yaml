@@ -1,0 +1,4156 @@
+dataset: newspop
+templates:
+  3f264cef-d7f0-4f62-81f6-fb2292ab59dd: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 3f264cef-d7f0-4f62-81f6-fb2292ab59dd
+    jinja: "Title: {{title}} \nHeadline: {{headline}}\n\nIs this article about {{answer_choices[0]}},\
+      \ {{answer_choices[1]}}, {{answer_choices[2]}} or {{answer_choices[3]}}?\n|||\n\
+      \n{{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: after_text_question
+    reference: ''
+  5053ada5-7fd3-491f-981e-be64ba35aa39: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 5053ada5-7fd3-491f-981e-be64ba35aa39
+    jinja: "What is the following article about?\n\nTitle: {{title}} \nHeadline: {{headline}}\n\
+      \n|||\n\n{{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: before_text_question_no_choice
+    reference: ''
+  590017ce-8204-400d-a172-93da2337aa6f: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 590017ce-8204-400d-a172-93da2337aa6f
+    jinja: "Title: {{title}} \nHeadline: {{headline}}\n\nWhat is this news about?\n\
+      |||\n\n{{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: after_text_question_no_choice
+    reference: ''
+  71d4d30d-7340-4ad4-bbfe-d587361c3ad8: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 71d4d30d-7340-4ad4-bbfe-d587361c3ad8
+    jinja: "{{title}}\n{{headline}}\n\nTopic: \n\n|||\n\n{{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: topic_no_choice_in_template
+    reference: ''
+  8fdfb019-2f82-4f94-a703-355b40ed9de2: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 8fdfb019-2f82-4f94-a703-355b40ed9de2
+    jinja: "Title: {{title}} \n\nIs this article about {{answer_choices[0]}}, {{answer_choices[1]}},\
+      \ {{answer_choices[2]}} or {{answer_choices[3]}}?\n|||\n\n{{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: false
+    name: after_text_question_title_only
+    reference: ''
+  b2b833b7-e431-40b8-869e-a675daa7e392: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: b2b833b7-e431-40b8-869e-a675daa7e392
+    jinja: 'Headline: {{headline}}
+
+
+      Is this article about {{answer_choices[0]}}, {{answer_choices[1]}}, {{answer_choices[2]}}
+      or {{answer_choices[3]}}?
+
+      |||
+
+
+      {{topic|capitalize}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: false
+    name: after_text_question_headline_only
+    reference: ''
+  e4cadaf7-5330-418c-bf8e-4897a39467f5: !Template
+    answer_choices: null
+    id: e4cadaf7-5330-418c-bf8e-4897a39467f5
+    jinja: "Summarize the headline to a title:\n {{headline}}\n\nThe title is:\n\n\
+      |||\n\n{{title}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: headline_to_title
+    reference: Summarize the headline to a title.
+  f8c33f6b-86a8-46bb-b26f-9a38a91207e3: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: f8c33f6b-86a8-46bb-b26f-9a38a91207e3
+    jinja: "Is the following article about {{answer_choices[0]}}, {{answer_choices[1]}},\
+      \ {{answer_choices[2]}} or {{answer_choices[3]}}?\n\nTitle: {{title}} \nHeadline:\
+      \ {{headline}}\n\n|||\n\n{{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: before_text_question
+    reference: ''
+  d91c73ea-bbab-42ae-8a30-d834c03cea9a: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: d91c73ea-bbab-42ae-8a30-d834c03cea9a
+     jinja: 'Title: {{title}} Headline: {{headline}} Choose a category for this news article. ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_00
+     reference: 'sohee'
+  2edbffc0-87eb-4d1b-90d5-866688dc926d: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: 2edbffc0-87eb-4d1b-90d5-866688dc926d
+     jinja: 'Title: {{title}} Headline: {{headline}} Choose the correct category for this article. ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_01
+     reference: 'sohee'
+  d461a324-38ed-4ca7-9a26-9904e25aff26: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: d461a324-38ed-4ca7-9a26-9904e25aff26
+     jinja: 'Title: {{title}} Headline: {{headline}} Pick one category for this news piece. ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_02
+     reference: 'sohee'
+  c87746f8-bbf5-4e7f-b90a-d6d7c06c4a1f: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: c87746f8-bbf5-4e7f-b90a-d6d7c06c4a1f
+     jinja: 'Title: {{title}} Headline: {{headline}} Pick the category that fits the text. ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_03
+     reference: 'sohee'
+  0c222474-e7b5-42a5-a583-6dda606f01ea: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: 0c222474-e7b5-42a5-a583-6dda606f01ea
+     jinja: 'Title: {{title}} Headline: {{headline}} Select the category that fits the text. ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_04
+     reference: 'sohee'
+  4faadc66-d8b5-4039-a362-e4811d8d0eda: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: 4faadc66-d8b5-4039-a362-e4811d8d0eda
+     jinja: 'Title: {{title}} Headline: {{headline}} The article discusses _____. ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_05
+     reference: 'sohee'
+  0d44fc0b-6ada-432b-8e3d-3a2807ca8529: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: 0d44fc0b-6ada-432b-8e3d-3a2807ca8529
+     jinja: 'Title: {{title}} Headline: {{headline}} The article is about (category). ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_06
+     reference: 'sohee'
+  d5cd23bd-c8fd-4cb5-9cd3-89cd929f0637: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: d5cd23bd-c8fd-4cb5-9cd3-89cd929f0637
+     jinja: 'Title: {{title}} Headline: {{headline}} The article is about _____. ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_07
+     reference: 'sohee'
+  e6454f9d-cf4b-4a98-98b6-7ee3ca88b4ac: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: e6454f9d-cf4b-4a98-98b6-7ee3ca88b4ac
+     jinja: 'Title: {{title}} Headline: {{headline}} The article is about _______. ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_08
+     reference: 'sohee'
+  628ad44d-1449-41ff-8525-caae5677916e: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: 628ad44d-1449-41ff-8525-caae5677916e
+     jinja: 'Title: {{title}} Headline: {{headline}} The article is discussing _____. ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_09
+     reference: 'sohee'
+  b8ff1eb8-bbf9-4be7-bded-9e07f560bc3b: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: b8ff1eb8-bbf9-4be7-bded-9e07f560bc3b
+     jinja: 'Title: {{title}} Headline: {{headline}} The article refers to which category? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_10
+     reference: 'sohee'
+  55fd1bd5-2e6f-405c-b4b6-e98c12ba9359: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: 55fd1bd5-2e6f-405c-b4b6-e98c12ba9359
+     jinja: 'Title: {{title}} Headline: {{headline}} The subject matter of this article. ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_11
+     reference: 'sohee'
+  ea3c081c-2eb5-4206-87fa-493bfcaa7af6: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: ea3c081c-2eb5-4206-87fa-493bfcaa7af6
+     jinja: 'Title: {{title}} Headline: {{headline}} The subject of this article. ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_12
+     reference: 'sohee'
+  ca14cc30-dfda-499e-b862-403652b701a2: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: ca14cc30-dfda-499e-b862-403652b701a2
+     jinja: 'Title: {{title}} Headline: {{headline}} The subject of this news item is _____. ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_13
+     reference: 'sohee'
+  fdc2d778-4e7d-4e3e-b0ee-1199597d0d08: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: fdc2d778-4e7d-4e3e-b0ee-1199597d0d08
+     jinja: 'Title: {{title}} Headline: {{headline}} The topic of this news piece is _____. ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_14
+     reference: 'sohee'
+  6b08e075-fcea-40b3-9b9d-0c052a43c009: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: 6b08e075-fcea-40b3-9b9d-0c052a43c009
+     jinja: 'Title: {{title}} Headline: {{headline}} The topic of this news piece is _______. ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_15
+     reference: 'sohee'
+  cb389388-ab37-474f-a3fa-eaa9e69324d1: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: cb389388-ab37-474f-a3fa-eaa9e69324d1
+     jinja: 'Title: {{title}} Headline: {{headline}} The topic of this sentence is _______ ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_16
+     reference: 'sohee'
+  a8f091b4-d244-40e5-98dc-e828258d563a: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: a8f091b4-d244-40e5-98dc-e828258d563a
+     jinja: 'Title: {{title}} Headline: {{headline}} To what category does the article belong? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_17
+     reference: 'sohee'
+  9cb0f2d1-3032-4886-bf20-3f0ba5a5cd3e: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: 9cb0f2d1-3032-4886-bf20-3f0ba5a5cd3e
+     jinja: 'Title: {{title}} Headline: {{headline}} To what category does the article refer? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_18
+     reference: 'sohee'
+  54a4665e-cc7e-4b3d-a264-c5d671337e32: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: 54a4665e-cc7e-4b3d-a264-c5d671337e32
+     jinja: 'Title: {{title}} Headline: {{headline}} To what category does this article belong? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_19
+     reference: 'sohee'
+  88ceaf50-7c65-4240-b904-3ca64824b608: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: 88ceaf50-7c65-4240-b904-3ca64824b608
+     jinja: 'Title: {{title}} Headline: {{headline}} To what category does this news piece belong? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_20
+     reference: 'sohee'
+  5d95eada-5c7a-4dd7-a48d-f1eefe7a9da5: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: 5d95eada-5c7a-4dd7-a48d-f1eefe7a9da5
+     jinja: 'Title: {{title}} Headline: {{headline}} To what topic does the article belong? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_21
+     reference: 'sohee'
+  16442f1c-e01d-481e-8ceb-4266ed767e1f: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: 16442f1c-e01d-481e-8ceb-4266ed767e1f
+     jinja: 'Title: {{title}} Headline: {{headline}} To what topic does the article pertain? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_22
+     reference: 'sohee'
+  4a5d9d25-175c-491b-8c01-5eb890064dfa: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: 4a5d9d25-175c-491b-8c01-5eb890064dfa
+     jinja: 'Title: {{title}} Headline: {{headline}} To what topic does this news piece belong? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_23
+     reference: 'sohee'
+  1de716dd-c375-4a4f-ae80-92104c3d6b13: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: 1de716dd-c375-4a4f-ae80-92104c3d6b13
+     jinja: 'Title: {{title}} Headline: {{headline}} To which category does the article belong? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_24
+     reference: 'sohee'
+  d504566e-51c3-4ea0-a8f0-9f608b79de0c: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: d504566e-51c3-4ea0-a8f0-9f608b79de0c
+     jinja: 'Title: {{title}} Headline: {{headline}} To which category does the article refer? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_25
+     reference: 'sohee'
+  976013e4-5b98-4313-a8e9-85c1566cd526: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: 976013e4-5b98-4313-a8e9-85c1566cd526
+     jinja: 'Title: {{title}} Headline: {{headline}} What category does the article belong to? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_26
+     reference: 'sohee'
+  730a9572-cd39-4137-bbd1-6ba0d0ad5c67: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: 730a9572-cd39-4137-bbd1-6ba0d0ad5c67
+     jinja: 'Title: {{title}} Headline: {{headline}} What category does the article refer to? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_27
+     reference: 'sohee'
+  2d47cd10-954c-44c0-8baa-f41c560920d8: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: 2d47cd10-954c-44c0-8baa-f41c560920d8
+     jinja: 'Title: {{title}} Headline: {{headline}} What category does this article belong to? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_28
+     reference: 'sohee'
+  aa249029-59a4-4266-86c5-399f3aac503f: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: aa249029-59a4-4266-86c5-399f3aac503f
+     jinja: 'Title: {{title}} Headline: {{headline}} What category does this article fit into? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_29
+     reference: 'sohee'
+  53075502-068e-4f74-b009-86a1333b9e05: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: 53075502-068e-4f74-b009-86a1333b9e05
+     jinja: 'Title: {{title}} Headline: {{headline}} What category fits this article? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_30
+     reference: 'sohee'
+  a781bfdf-c964-4145-b025-fb8474d70c68: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: a781bfdf-c964-4145-b025-fb8474d70c68
+     jinja: 'Title: {{title}} Headline: {{headline}} What category is this article in? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_31
+     reference: 'sohee'
+  6662485d-62d5-4a2d-a633-9ff616812e78: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: 6662485d-62d5-4a2d-a633-9ff616812e78
+     jinja: 'Title: {{title}} Headline: {{headline}} What does this article discuss? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_32
+     reference: 'sohee'
+  6db84e5f-4aa6-46af-80cc-3b68ab5c109e: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: 6db84e5f-4aa6-46af-80cc-3b68ab5c109e
+     jinja: 'Title: {{title}} Headline: {{headline}} What genre does this article belong to? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_33
+     reference: 'sohee'
+  3803080e-3c16-4f36-90ef-731d3905cf25: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: 3803080e-3c16-4f36-90ef-731d3905cf25
+     jinja: 'Title: {{title}} Headline: {{headline}} What is the article about? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_34
+     reference: 'sohee'
+  6e595c67-8bf9-4595-a21b-ae49dc497b55: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: 6e595c67-8bf9-4595-a21b-ae49dc497b55
+     jinja: 'Title: {{title}} Headline: {{headline}} What is the category for this article? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_35
+     reference: 'sohee'
+  b8b8a962-76ca-4851-9d30-08650dfb9f48: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: b8b8a962-76ca-4851-9d30-08650dfb9f48
+     jinja: 'Title: {{title}} Headline: {{headline}} What is the main idea of this article? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_36
+     reference: 'sohee'
+  7c5f5493-2cbf-4ac9-a64f-43d37bd80998: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: 7c5f5493-2cbf-4ac9-a64f-43d37bd80998
+     jinja: 'Title: {{title}} Headline: {{headline}} What is the main theme of this article? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_37
+     reference: 'sohee'
+  85a1c723-ca0c-49f7-a7b9-9892755e3ea6: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: 85a1c723-ca0c-49f7-a7b9-9892755e3ea6
+     jinja: 'Title: {{title}} Headline: {{headline}} What is the main topic of the article? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_38
+     reference: 'sohee'
+  55b43123-9687-4378-b44e-0f3bba62ce03: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: 55b43123-9687-4378-b44e-0f3bba62ce03
+     jinja: 'Title: {{title}} Headline: {{headline}} What is the main topic of this article? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_39
+     reference: 'sohee'
+  505d7cc0-3285-43e9-8f5d-1b67a500a964: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: 505d7cc0-3285-43e9-8f5d-1b67a500a964
+     jinja: 'Title: {{title}} Headline: {{headline}} What is the subject of the article? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_40
+     reference: 'sohee'
+  fb73a632-6193-495f-aa61-1e310adf9318: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: fb73a632-6193-495f-aa61-1e310adf9318
+     jinja: 'Title: {{title}} Headline: {{headline}} What is the topic of this news piece? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_41
+     reference: 'sohee'
+  61e12dfd-e323-4ca5-a149-5ba75c43d58b: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: 61e12dfd-e323-4ca5-a149-5ba75c43d58b
+     jinja: 'Title: {{title}} Headline: {{headline}} What is the topic of this sentence? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_42
+     reference: 'sohee'
+  2196c254-2e3c-41a0-937a-d0553f3cafcc: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: 2196c254-2e3c-41a0-937a-d0553f3cafcc
+     jinja: 'Title: {{title}} Headline: {{headline}} What is this article about? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_43
+     reference: 'sohee'
+  c4b929cf-5679-4c78-99ad-a0ee063381c8: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: c4b929cf-5679-4c78-99ad-a0ee063381c8
+     jinja: 'Title: {{title}} Headline: {{headline}} What is this news about? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_44
+     reference: 'sohee'
+  6bf9fb00-8037-4190-b166-22f17a27c694: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: 6bf9fb00-8037-4190-b166-22f17a27c694
+     jinja: 'Title: {{title}} Headline: {{headline}} What is this news article about? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_45
+     reference: 'sohee'
+  4e023d29-3cb8-4a3b-9d55-d66e21894009: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: 4e023d29-3cb8-4a3b-9d55-d66e21894009
+     jinja: 'Title: {{title}} Headline: {{headline}} What is this news piece about? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_46
+     reference: 'sohee'
+  36474f38-0340-4ac8-a5e3-8f6e1cf60b99: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: 36474f38-0340-4ac8-a5e3-8f6e1cf60b99
+     jinja: 'Title: {{title}} Headline: {{headline}} What topic does the article belong to? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_47
+     reference: 'sohee'
+  ce138f85-52c7-4904-9ee9-60c473a9496e: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: ce138f85-52c7-4904-9ee9-60c473a9496e
+     jinja: 'Title: {{title}} Headline: {{headline}} What topic does this news piece belong to? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_48
+     reference: 'sohee'
+  5655f226-4a52-4785-ab32-9fa9a6964b7b: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: 5655f226-4a52-4785-ab32-9fa9a6964b7b
+     jinja: 'Title: {{title}} Headline: {{headline}} What will this article discuss? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_49
+     reference: 'sohee'
+  e3ce5537-8122-4160-bba4-47854536ccda: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: e3ce5537-8122-4160-bba4-47854536ccda
+     jinja: 'Title: {{title}} Headline: {{headline}} What''s the article about? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_50
+     reference: 'sohee'
+  ceb2b941-91a5-4e64-9a2c-6282e64d83f3: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: ceb2b941-91a5-4e64-9a2c-6282e64d83f3
+     jinja: 'Title: {{title}} Headline: {{headline}} What''s this news about? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_51
+     reference: 'sohee'
+  3f853f1f-b587-4381-bd50-392281cc916f: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: 3f853f1f-b587-4381-bd50-392281cc916f
+     jinja: 'Title: {{title}} Headline: {{headline}} What''s this news article about? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_52
+     reference: 'sohee'
+  2d463b5a-e5e9-4eeb-9f11-ce3ef85e0b37: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: 2d463b5a-e5e9-4eeb-9f11-ce3ef85e0b37
+     jinja: 'Title: {{title}} Headline: {{headline}} What''s this news piece about? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_53
+     reference: 'sohee'
+  a7d5a7b0-7f29-4161-b496-4a55fd84a9b5: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: a7d5a7b0-7f29-4161-b496-4a55fd84a9b5
+     jinja: 'Title: {{title}} Headline: {{headline}} Which category does the article fall under? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_54
+     reference: 'sohee'
+  aeaa0d3f-d9e9-421f-b979-aa88ba8933ca: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: aeaa0d3f-d9e9-421f-b979-aa88ba8933ca
+     jinja: 'Title: {{title}} Headline: {{headline}} Which category does the article refer to? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_55
+     reference: 'sohee'
+  12788cf7-c940-4697-b156-9ee085260dfc: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: 12788cf7-c940-4697-b156-9ee085260dfc
+     jinja: 'Title: {{title}} Headline: {{headline}} Which category is the article referring to? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_56
+     reference: 'sohee'
+  9e5d2877-b197-4093-874d-16d31cc2807d: !Template
+     answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+     id: 9e5d2877-b197-4093-874d-16d31cc2807d
+     jinja: 'Title: {{title}} Headline: {{headline}} Which category is this article in? ||| {{topic|capitalize}}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_57
+     reference: 'sohee'
+  63d8939b-b782-4966-b723-7b1c6e15c4ab: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 63d8939b-b782-4966-b723-7b1c6e15c4ab
+    jinja: 'Question: {{title}} - {{headline}}
+
+      Which of the following best describes the subject matter of the article?
+
+      Answer: ||| {{topic|capitalize}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: fewshot
+    reference: jonghyeonkim
+  e71ca541-938f-4047-aea9-1a502fd384f9: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: e71ca541-938f-4047-aea9-1a502fd384f9
+    jinja: "{{title}}\n{{headline}}\n\nTopic: \n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_00
+    reference: jonghyeonkim
+  4bc63fa7-1d79-4580-9cfb-a7b26cd3cffc: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 4bc63fa7-1d79-4580-9cfb-a7b26cd3cffc
+    jinja: "{{headline}}\n\nWhat is the article about?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_01
+    reference: jonghyeonkim
+  40cfa673-6121-4712-8a04-fc3f3fd02b52: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 40cfa673-6121-4712-8a04-fc3f3fd02b52
+    jinja: "{{headline}}\n\nWhat is this article about?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_02
+    reference: jonghyeonkim
+  ae7cce03-bc3c-4131-822d-2ad2feaf673b: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: ae7cce03-bc3c-4131-822d-2ad2feaf673b
+    jinja: "{{title}}\n\nWhat is the article discussing?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_03
+    reference: jonghyeonkim
+  2e2849b6-70a4-4389-96c4-7d67424afac1: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 2e2849b6-70a4-4389-96c4-7d67424afac1
+    jinja: "Title: {{title}}\n\nWhat is the article about?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_04
+    reference: jonghyeonkim
+  0b2766f3-c107-4e02-88bb-742f9ffe1fc1: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 0b2766f3-c107-4e02-88bb-742f9ffe1fc1
+    jinja: "Title: {{title}}\n\nWhat is this article about?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_05
+    reference: jonghyeonkim
+  6027abc7-3443-4c43-b49a-96acfd79c2dd: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 6027abc7-3443-4c43-b49a-96acfd79c2dd
+    jinja: "{{title}}\n\nWhat topic does this article cover?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_06
+    reference: jonghyeonkim
+  4254ee77-d773-410d-a8d9-6d97bd09e8cf: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 4254ee77-d773-410d-a8d9-6d97bd09e8cf
+    jinja: "Title: {{title}} \n\nWhat is this article about?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_07
+    reference: jonghyeonkim
+  d9a4b212-d6b5-4c32-afd4-34493654bf5a: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: d9a4b212-d6b5-4c32-afd4-34493654bf5a
+    jinja: "{{title}}\n\nWhat is the subject of this article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_08
+    reference: jonghyeonkim
+  ad1d130c-b401-4f2e-a87d-14848046cf6a: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: ad1d130c-b401-4f2e-a87d-14848046cf6a
+    jinja: "{{title}}\n{{headline}}\n\nWhat is the news about?\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_09
+    reference: jonghyeonkim
+  5e1da889-2db6-4cfd-80f0-63b5aeca5ca2: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 5e1da889-2db6-4cfd-80f0-63b5aeca5ca2
+    jinja: "{{title}}\n\nWhat is the main focus of the article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_10
+    reference: jonghyeonkim
+  f3eeaa28-7421-4959-8dce-55b0a0b8e787: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: f3eeaa28-7421-4959-8dce-55b0a0b8e787
+    jinja: "{{title}}\n{{headline}}\n\nChoose the correct topic:\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_11
+    reference: jonghyeonkim
+  4e2c824a-fe25-4264-8a09-c5b8dcbefe3a: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 4e2c824a-fe25-4264-8a09-c5b8dcbefe3a
+    jinja: "Title: {{title}}\n\nWhat is this article discussing?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_12
+    reference: jonghyeonkim
+  d71a04cf-5e2d-46e1-9749-228c8d7536e9: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: d71a04cf-5e2d-46e1-9749-228c8d7536e9
+    jinja: "{{title}}\n\nWhat is the main topic of this article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_13
+    reference: jonghyeonkim
+  7894aaa5-963a-4b53-b994-8f767a04bbda: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 7894aaa5-963a-4b53-b994-8f767a04bbda
+    jinja: "{{title}}\n{{headline}}\n\nWhat is this article about?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_14
+    reference: jonghyeonkim
+  7e30df0e-49d1-4c58-b257-436f1c3add88: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 7e30df0e-49d1-4c58-b257-436f1c3add88
+    jinja: "What is the main topic of {{title}}?\n\n{{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_15
+    reference: jonghyeonkim
+  6a88890c-b18c-4251-b7bf-1f9cb2ccba77: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 6a88890c-b18c-4251-b7bf-1f9cb2ccba77
+    jinja: "What is the topic of the article?\n\nTitle: {{title}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_16
+    reference: jonghyeonkim
+  c73a99cb-2075-4e73-b541-6b2068d654fa: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: c73a99cb-2075-4e73-b541-6b2068d654fa
+    jinja: "{{title}}\n\nWhat is the central topic of this article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_17
+    reference: jonghyeonkim
+  01c1c4af-1c34-4176-88a1-d5ce2cf84618: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 01c1c4af-1c34-4176-88a1-d5ce2cf84618
+    jinja: "{{title}}\n\nWhat is the topic of the following article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_18
+    reference: jonghyeonkim
+  7f290c97-4746-41d9-85ef-5453b88b25b9: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 7f290c97-4746-41d9-85ef-5453b88b25b9
+    jinja: "Title: {{title}}\n\nWhat is the subject of this article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_19
+    reference: jonghyeonkim
+  dcd1bf54-a76c-4adc-988a-b8624228dc23: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: dcd1bf54-a76c-4adc-988a-b8624228dc23
+    jinja: "Title: {{title}}\n\nWhat is the news about?\n\n{{headline}}\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_20
+    reference: jonghyeonkim
+  3fc11f9d-cd53-41f1-8791-e59da4a4cfcf: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 3fc11f9d-cd53-41f1-8791-e59da4a4cfcf
+    jinja: "Title: {{title}}\n\nWhat is the main idea of the article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_21
+    reference: jonghyeonkim
+  5ec6f14e-5bf8-402d-b240-692d1760f894: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 5ec6f14e-5bf8-402d-b240-692d1760f894
+    jinja: "Headline: {{headline}}\n\nWhat is the news article about?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_22
+    reference: jonghyeonkim
+  d7dfe4aa-3196-450c-8964-55205604e98c: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: d7dfe4aa-3196-450c-8964-55205604e98c
+    jinja: "{{title}}\n\nWhat is the article discussing?\n\n{{headline}}\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_23
+    reference: jonghyeonkim
+  be9cc1a6-3673-4cfe-9118-952dba59201f: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: be9cc1a6-3673-4cfe-9118-952dba59201f
+    jinja: "{{title}}\n\n{{headline}}\n\nWhat is the article discussing?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_24
+    reference: jonghyeonkim
+  eea20862-72b3-4709-8b28-8794b8ea8c05: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: eea20862-72b3-4709-8b28-8794b8ea8c05
+    jinja: "Title: {{title}}\n\nWhat is the main idea of this article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_25
+    reference: jonghyeonkim
+  51a5c842-1278-4827-a901-ce5a4a1a5662: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 51a5c842-1278-4827-a901-ce5a4a1a5662
+    jinja: "{{title}}\n{{headline}}\n\nWhat is this article discussing?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_26
+    reference: jonghyeonkim
+  ebf262be-c4ce-43b6-8a18-4fe422d8a519: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: ebf262be-c4ce-43b6-8a18-4fe422d8a519
+    jinja: "Headline: {{headline}}\n\nWhich topic is the article about?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_27
+    reference: jonghyeonkim
+  db744bd0-07fa-4d69-bbf1-00631a4dec65: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: db744bd0-07fa-4d69-bbf1-00631a4dec65
+    jinja: "Title: {{title}}\n\nWhat is the main focus of this article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_28
+    reference: jonghyeonkim
+  6ff2b8d0-724b-4f51-b8bf-27fdd6ee4620: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 6ff2b8d0-724b-4f51-b8bf-27fdd6ee4620
+    jinja: "Headline: {{headline}}\n\nWhat is the focus of this article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_29
+    reference: jonghyeonkim
+  7dead84f-746b-4bd4-8f21-061e41c6e99a: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 7dead84f-746b-4bd4-8f21-061e41c6e99a
+    jinja: "Title: {{title}}\n\nWhat is the article about?\n\n{{headline}}\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_30
+    reference: jonghyeonkim
+  b592d85a-1f30-4310-b39c-412a8cd89d85: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: b592d85a-1f30-4310-b39c-412a8cd89d85
+    jinja: "{{title}}\n{{headline}}\n\nWhat is the topic of this article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_31
+    reference: jonghyeonkim
+  a5839aca-e08a-4d15-84e4-84addbd2ef93: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: a5839aca-e08a-4d15-84e4-84addbd2ef93
+    jinja: "{{title}}\n{{headline}}\n\nWhat is the focus of this article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_32
+    reference: jonghyeonkim
+  99d3079b-b6a5-4e39-94d4-441cf0d54a14: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 99d3079b-b6a5-4e39-94d4-441cf0d54a14
+    jinja: "Headline: {{headline}}\n\nWhich topic is the article about?\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_33
+    reference: jonghyeonkim
+  d6093595-b54f-4209-a3f4-7af700b7258c: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: d6093595-b54f-4209-a3f4-7af700b7258c
+    jinja: "Title: {{title}}\n\nWhat is the subject matter of the article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_34
+    reference: jonghyeonkim
+  8a6dc1a6-2273-4927-862d-40c6e964fd28: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 8a6dc1a6-2273-4927-862d-40c6e964fd28
+    jinja: "What is the following article about?\n\n{{title}}\n\n{{headline}}\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_35
+    reference: jonghyeonkim
+  5960eb34-8fb4-4cb0-8d7d-48f8b6074fb1: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 5960eb34-8fb4-4cb0-8d7d-48f8b6074fb1
+    jinja: "{{title}} - {{headline}}\n\nWhat is the topic of this article?\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_36
+    reference: jonghyeonkim
+  d628a81a-937b-4477-bffa-75dfbc083303: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: d628a81a-937b-4477-bffa-75dfbc083303
+    jinja: "Headline: {{headline}}\n\nWhich topic is covered in the article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_37
+    reference: jonghyeonkim
+  82152d10-7233-4d84-8c09-2fce7eb13545: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 82152d10-7233-4d84-8c09-2fce7eb13545
+    jinja: "Identify the subject of this article:\n\n{{title}}\n\n{{headline}}\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_38
+    reference: jonghyeonkim
+  eb646f4a-19f4-40a4-bead-130b744d8512: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: eb646f4a-19f4-40a4-bead-130b744d8512
+    jinja: "{{title}}\n{{headline}}\n\nWhat is the main topic of the article?\n\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_39
+    reference: jonghyeonkim
+  267a5e83-d297-4b7c-8e3b-9a644987aa84: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 267a5e83-d297-4b7c-8e3b-9a644987aa84
+    jinja: "{{headline}}\n\nWhat is the main focus of the article?\n\n{{title}}\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_40
+    reference: jonghyeonkim
+  23879010-0909-492d-8121-2bc297d606b6: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 23879010-0909-492d-8121-2bc297d606b6
+    jinja: "Which topic does this article discuss?\n\n{{title}}\n\n{{headline}}\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_41
+    reference: jonghyeonkim
+  21e364f4-75ba-4f70-a91b-6ae7065ce0d6: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 21e364f4-75ba-4f70-a91b-6ae7065ce0d6
+    jinja: "{{title}}\n{{headline}}\n\nWhat is the topic of this news article?\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_42
+    reference: jonghyeonkim
+  bcf14747-fe8e-4d46-adb1-67aecdcd3c4d: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: bcf14747-fe8e-4d46-adb1-67aecdcd3c4d
+    jinja: "{{title}}\n\nWhat is the main topic of this article?\n\n{{headline}}\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_43
+    reference: jonghyeonkim
+  df7437a9-0534-4563-990f-d231195e5994: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: df7437a9-0534-4563-990f-d231195e5994
+    jinja: "Headline: {{headline}}\n\nWhat is the main subject of the article?\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_44
+    reference: jonghyeonkim
+  e581c533-f76a-4d0f-a912-1537c9a89b05: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: e581c533-f76a-4d0f-a912-1537c9a89b05
+    jinja: "{{title}}\n\nWhat is the following article discussing?\n\n{{headline}}\n\
+      \ ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_45
+    reference: jonghyeonkim
+  6e4214aa-3968-4a4c-9bbf-55b43aa07cb4: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 6e4214aa-3968-4a4c-9bbf-55b43aa07cb4
+    jinja: "Title: {{title}} \nHeadline: {{headline}}\n\nWhat is this news about?\n\
+      \ ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_46
+    reference: jonghyeonkim
+  95bf1ff6-9b52-4bd3-bf40-7c5769d7f54a: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 95bf1ff6-9b52-4bd3-bf40-7c5769d7f54a
+    jinja: "Title: {{title}} \nHeadline: {{headline}}\n\nWhat is the article about?\n\
+      \ ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_47
+    reference: jonghyeonkim
+  20b9f6d7-5e1e-40ed-9dd3-f05cae60849e: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 20b9f6d7-5e1e-40ed-9dd3-f05cae60849e
+    jinja: "Title: {{title}} \nHeadline: {{headline}}\n\nChoose the correct topic:\n\
+      \n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_48
+    reference: jonghyeonkim
+  69ed5bc8-3102-4f0f-a4e1-976377523c26: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 69ed5bc8-3102-4f0f-a4e1-976377523c26
+    jinja: "What is the article about?\n\nTitle: {{title}}\nHeadline: {{headline}}\n\
+      \n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_49
+    reference: jonghyeonkim
+  86f82677-8261-47b1-9a3a-47d307ec0b63: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 86f82677-8261-47b1-9a3a-47d307ec0b63
+    jinja: "{{title}}\n\nCan you determine the topic of the article?\n\n{{headline}}\n\
+      \ ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_50
+    reference: jonghyeonkim
+  69d3894a-49fa-487f-90e9-3a7d0c98eac9: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 69d3894a-49fa-487f-90e9-3a7d0c98eac9
+    jinja: "Can you identify the topic of this article?\n\n{{title}}\n\n{{headline}}\n\
+      \ ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_51
+    reference: jonghyeonkim
+  01c0a9d6-5cc5-438b-8e08-9481874acb8c: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 01c0a9d6-5cc5-438b-8e08-9481874acb8c
+    jinja: "What is the article about?\n\nTitle: {{title}} \nHeadline: {{headline}}\n\
+      \n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_52
+    reference: jonghyeonkim
+  37e28bb1-22e7-4969-9e0e-71c1bea7b6ec: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 37e28bb1-22e7-4969-9e0e-71c1bea7b6ec
+    jinja: "Title: {{title}} \n\nWhich of the following topics is the article about?\n\
+      \n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_53
+    reference: jonghyeonkim
+  802851aa-4574-4eaa-9c25-78b6bd94e7ba: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 802851aa-4574-4eaa-9c25-78b6bd94e7ba
+    jinja: "Title: {{title}}\nHeadline: {{headline}}\n\nWhat is the article discussing?\n\
+      \ ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_54
+    reference: jonghyeonkim
+  30c19577-d91d-4004-8f6f-0fdb63d24ee0: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 30c19577-d91d-4004-8f6f-0fdb63d24ee0
+    jinja: "Title: {{title}}\n\nWhat is the topic of the following news?\n\n{{headline}}\n\
+      \ ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_55
+    reference: jonghyeonkim
+  aab960d0-7577-401e-be93-231b6890fd04: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: aab960d0-7577-401e-be93-231b6890fd04
+    jinja: "Title: {{title}} \nHeadline: {{headline}}\n\nWhat is this article discussing?\n\
+      \ ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_56
+    reference: jonghyeonkim
+  7f5db728-22a3-4dd6-b897-f221558bdf80: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 7f5db728-22a3-4dd6-b897-f221558bdf80
+    jinja: "What is this news article about?\n\nTitle: {{title}} \nHeadline: {{headline}}\n\
+      \n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_57
+    reference: jonghyeonkim
+  4a7bc4d5-fc5f-44c0-a62d-a02eb848e786: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 4a7bc4d5-fc5f-44c0-a62d-a02eb848e786
+    jinja: "{{headline}}\n\nWhat is the main subject of the following article?\n\n{{title}}\n\
+      \ ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_58
+    reference: jonghyeonkim
+  c73d9ba8-aa2e-4519-bdc5-f89665687189: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: c73d9ba8-aa2e-4519-bdc5-f89665687189
+    jinja: "What is the topic of this article?\n\nTitle: {{title}}\nHeadline: {{headline}}\n\
+      \n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_59
+    reference: jonghyeonkim
+  aa48c8b5-eb63-4cd9-b4b0-09601761ccb3: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: aa48c8b5-eb63-4cd9-b4b0-09601761ccb3
+    jinja: "{{title}}\n{{headline}}\n\nWhich of the following is the topic of the article?\n\
+      \n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_60
+    reference: jonghyeonkim
+  504a7904-c949-4848-8410-824fcd0a4ae4: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 504a7904-c949-4848-8410-824fcd0a4ae4
+    jinja: "{{title}}\nHeadline: {{headline}}\n\nWhat is the topic of the following\
+      \ article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_61
+    reference: jonghyeonkim
+  ecd6f37b-6c00-42fe-b69f-080bcefa4f59: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: ecd6f37b-6c00-42fe-b69f-080bcefa4f59
+    jinja: "{{title}}\n{{headline}}\n\nWhich of the following is the topic of this article?\n\
+      \n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_62
+    reference: jonghyeonkim
+  564fa63b-d711-4d95-9c5b-2f16d997f897: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 564fa63b-d711-4d95-9c5b-2f16d997f897
+    jinja: "What is the following article about?\n\nTitle: {{title}}\nHeadline: {{headline}}\n\
+      \n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_63
+    reference: jonghyeonkim
+  1264fe52-1fb6-4c8a-9f2a-4199d24e3018: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 1264fe52-1fb6-4c8a-9f2a-4199d24e3018
+    jinja: "What is the following article about?\n\nTitle: {{title}} \nHeadline: {{headline}}\n\
+      \n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_64
+    reference: jonghyeonkim
+  709a8c32-9acb-4c21-a19c-34dc0665dd7b: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 709a8c32-9acb-4c21-a19c-34dc0665dd7b
+    jinja: "Title: {{title}}\nHeadline: {{headline}}\n\nWhat is the main subject of\
+      \ the article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_65
+    reference: jonghyeonkim
+  f20ae0f2-5a5b-4a84-ba6d-36cd237e223c: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: f20ae0f2-5a5b-4a84-ba6d-36cd237e223c
+    jinja: "Title: {{title}} \nHeadline: {{headline}}\n\nWhat is the main focus of this\
+      \ article?\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_66
+    reference: jonghyeonkim
+  f35e2457-60c0-4bac-a839-62b49f144570: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: f35e2457-60c0-4bac-a839-62b49f144570
+    jinja: "{{title}}\n\nCan you identify the most suitable topic for this article?\n\
+      \n{{headline}}\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_67
+    reference: jonghyeonkim
+  a19b0568-d0d0-45bc-a919-55645206de0a: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: a19b0568-d0d0-45bc-a919-55645206de0a
+    jinja: "What is the main subject of this article?\n\nTitle: {{title}} \nHeadline:\
+      \ {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_68
+    reference: jonghyeonkim
+  f0c72824-7921-48f2-8b47-12db26c41d7a: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: f0c72824-7921-48f2-8b47-12db26c41d7a
+    jinja: "Choose the correct topic for this article:\n\nTitle: {{title}}\nHeadline:\
+      \ {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_69
+    reference: jonghyeonkim
+  9479f3a6-5285-41bc-9dae-cfe24fc6c5f6: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 9479f3a6-5285-41bc-9dae-cfe24fc6c5f6
+    jinja: "What is the focus of the following article?\n\nTitle: {{title}} \nHeadline:\
+      \ {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_70
+    reference: jonghyeonkim
+  c0b40b2b-beeb-45b2-b7f0-b66067073513: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: c0b40b2b-beeb-45b2-b7f0-b66067073513
+    jinja: "Title: {{title}}\n\nWhich of the following best describes the article's\
+      \ topic?\n\n{{headline}}\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_71
+    reference: jonghyeonkim
+  2632d409-b9a8-4654-963e-bbe2a13d6b71: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 2632d409-b9a8-4654-963e-bbe2a13d6b71
+    jinja: "What is the main topic of the following article?\n\nTitle: {{title}}\nHeadline:\
+      \ {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_72
+    reference: jonghyeonkim
+  6a60a8f6-5504-4791-9048-c1935acf3d16: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 6a60a8f6-5504-4791-9048-c1935acf3d16
+    jinja: "What is the main subject of the following article?\n\nTitle: {{title}}\n\
+      Headline: {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_73
+    reference: jonghyeonkim
+  f6850d6f-f559-497e-af28-c6d8aafd6965: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: f6850d6f-f559-497e-af28-c6d8aafd6965
+    jinja: "Please identify the topic of the following article.\n\nTitle: {{title}}\n\
+      Headline: {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_74
+    reference: jonghyeonkim
+  7dce7421-392e-4222-bf29-5e9414afcc9e: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 7dce7421-392e-4222-bf29-5e9414afcc9e
+    jinja: "What is the subject matter of the following article?\n\nTitle: {{title}}\n\
+      Headline: {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_75
+    reference: jonghyeonkim
+  9c492aed-55cc-4a9b-976e-3d5393ab6b53: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 9c492aed-55cc-4a9b-976e-3d5393ab6b53
+    jinja: "What is the main topic of the following news article?\n\nTitle: {{title}}\n\
+      Headline: {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_76
+    reference: jonghyeonkim
+  49ae9aca-8bf7-40fb-8c4a-b09fdd7fb41f: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 49ae9aca-8bf7-40fb-8c4a-b09fdd7fb41f
+    jinja: "Headline: {{headline}}\n\nChoose the correct topic:\n\nA. Economy\nB. Microsoft\n\
+      C. Obama\nD. Palestine\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_77
+    reference: jonghyeonkim
+  8e81306b-4460-4a7c-8819-949604af0282: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 8e81306b-4460-4a7c-8819-949604af0282
+    jinja: "Can you determine the subject of the following article?\n\nTitle: {{title}}\n\
+      Headline: {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_78
+    reference: jonghyeonkim
+  466b4389-dbc1-4c6a-a3aa-36cbd12d6c47: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 466b4389-dbc1-4c6a-a3aa-36cbd12d6c47
+    jinja: "Title: {{title}} \nHeadline: {{headline}}\n\nWhich of the following topics\
+      \ does the article discuss?\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_79
+    reference: jonghyeonkim
+  f241ed1b-6928-408c-8784-b7ad02d82db1: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: f241ed1b-6928-408c-8784-b7ad02d82db1
+    jinja: "{{title}} - {{headline}}\n\nWhich of the following best describes the subject\
+      \ matter of the article?\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_80
+    reference: jonghyeonkim
+  8048e0fa-ca6e-4fd6-965e-cd6cf86eb74d: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 8048e0fa-ca6e-4fd6-965e-cd6cf86eb74d
+    jinja: "Can you determine the main topic of the following article?\n\nTitle: {{title}}\n\
+      Headline: {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_81
+    reference: jonghyeonkim
+  d49e7209-04eb-404e-ad80-cc764a9d6bd2: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: d49e7209-04eb-404e-ad80-cc764a9d6bd2
+    jinja: "What topic is discussed in the article with the following title and headline?\n\
+      \nTitle: {{title}}\nHeadline: {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_82
+    reference: jonghyeonkim
+  1be06478-c815-49bf-b693-3429e2670bd9: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 1be06478-c815-49bf-b693-3429e2670bd9
+    jinja: "{{title}}\n\nChoose the correct option: {{answer_choices[0]}}, {{answer_choices[1]}},\
+      \ {{answer_choices[2]}} or {{answer_choices[3]}}.\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_83
+    reference: jonghyeonkim
+  ab7ce40f-5916-46d9-8046-8344a3c0e86c: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: ab7ce40f-5916-46d9-8046-8344a3c0e86c
+    jinja: "Title: {{title}}\n\nIs this article about {{answer_choices[0]}}, {{answer_choices[1]}},\
+      \ {{answer_choices[2]}}, or {{answer_choices[3]}}?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_84
+    reference: jonghyeonkim
+  04cf531e-be5b-4bfa-ae55-0966535c5a33: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 04cf531e-be5b-4bfa-ae55-0966535c5a33
+    jinja: "Title: {{title}} \n\nIs this article about {{answer_choices[0]}}, {{answer_choices[1]}},\
+      \ {{answer_choices[2]}} or {{answer_choices[3]}}?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_85
+    reference: jonghyeonkim
+  5036fedd-29ea-4d6d-8a88-ead465d86244: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 5036fedd-29ea-4d6d-8a88-ead465d86244
+    jinja: "Headline: {{headline}}\n\nIs this article about {{answer_choices[0]}}, {{answer_choices[1]}},\
+      \ {{answer_choices[2]}} or {{answer_choices[3]}}?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_86
+    reference: jonghyeonkim
+  8d4450b0-acd1-4e84-a83c-2bfc47bb6257: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 8d4450b0-acd1-4e84-a83c-2bfc47bb6257
+    jinja: "{{title}}\n{{headline}}\n\nSelect the correct option: {{answer_choices[0]}},\
+      \ {{answer_choices[1]}}, {{answer_choices[2]}} or {{answer_choices[3]}}.\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_87
+    reference: jonghyeonkim
+  fa9ce12b-8c71-45ef-9279-111b7855328b: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: fa9ce12b-8c71-45ef-9279-111b7855328b
+    jinja: "{{title}}\n{{headline}}\n\nIdentify the correct topic: {{answer_choices[0]}},\
+      \ {{answer_choices[1]}}, {{answer_choices[2]}} or {{answer_choices[3]}}.\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_88
+    reference: jonghyeonkim
+  4b0972f9-60b2-467c-aa0c-1bbff74d101f: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 4b0972f9-60b2-467c-aa0c-1bbff74d101f
+    jinja: "{{title}}\n{{headline}}\n\nChoose the appropriate option: {{answer_choices[0]}},\
+      \ {{answer_choices[1]}}, {{answer_choices[2]}} or {{answer_choices[3]}}.\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_89
+    reference: jonghyeonkim
+  fe56fdf2-0b73-4891-bb5c-caab62412711: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: fe56fdf2-0b73-4891-bb5c-caab62412711
+    jinja: "Title: {{title}}\n\nWhich topic is the following article about: {{answer_choices[0]}},\
+      \ {{answer_choices[1]}}, {{answer_choices[2]}}, or {{answer_choices[3]}}?\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_90
+    reference: jonghyeonkim
+  cf19a30b-7ed9-470d-87ec-a8963f6493d5: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: cf19a30b-7ed9-470d-87ec-a8963f6493d5
+    jinja: "Title: {{title}} \nHeadline: {{headline}}\n\nIs this article about {{answer_choices[0]}},\
+      \ {{answer_choices[1]}}, {{answer_choices[2]}} or {{answer_choices[3]}}?\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_91
+    reference: jonghyeonkim
+  f56b4da9-ab48-4f50-867a-b516716e52cb: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: f56b4da9-ab48-4f50-867a-b516716e52cb
+    jinja: "Title: {{title}}\n\nWhat is the main subject of the following article: {{answer_choices[0]}},\
+      \ {{answer_choices[1]}}, {{answer_choices[2]}}, or {{answer_choices[3]}}?\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_92
+    reference: jonghyeonkim
+  272226a8-ba22-499a-83a0-1065b2cf6556: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 272226a8-ba22-499a-83a0-1065b2cf6556
+    jinja: "{{title}}\n\n{{headline}}\n\nSelect the appropriate topic from the following:\n\
+      \n{{answer_choices[0]}}, {{answer_choices[1]}}, {{answer_choices[2]}}, {{answer_choices[3]}}\n\
+      \ ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_93
+    reference: jonghyeonkim
+  f0fd8019-8691-413e-a137-e58ee808698b: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: f0fd8019-8691-413e-a137-e58ee808698b
+    jinja: "The following article is about {{answer_choices[0]}}, {{answer_choices[1]}},\
+      \ {{answer_choices[2]}} or {{answer_choices[3]}}.\n\nTitle: {{title}}\nHeadline:\
+      \ {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_94
+    reference: jonghyeonkim
+  ccfa8f96-9cff-4dd5-b787-5af4ee67bb42: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: ccfa8f96-9cff-4dd5-b787-5af4ee67bb42
+    jinja: "Is the following article about {{answer_choices[0]}}, {{answer_choices[1]}},\
+      \ {{answer_choices[2]}} or {{answer_choices[3]}}?\n\nTitle: {{title}} \nHeadline:\
+      \ {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_95
+    reference: jonghyeonkim
+  f87d547a-12f9-4420-8cca-f4131e8941b1: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: f87d547a-12f9-4420-8cca-f4131e8941b1
+    jinja: "Title: {{title}}\n\nWhich of the following topics is the article discussing:\
+      \ {{answer_choices[0]}}, {{answer_choices[1]}}, {{answer_choices[2]}}, or {{answer_choices[3]}}?\n\
+      \ ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_96
+    reference: jonghyeonkim
+  58348e06-70c8-4df2-8ba8-d09919f20046: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 58348e06-70c8-4df2-8ba8-d09919f20046
+    jinja: "Is the following news article about {{answer_choices[0]}}, {{answer_choices[1]}},\
+      \ {{answer_choices[2]}}, or {{answer_choices[3]}}?\n\nTitle: {{title}} \nHeadline:\
+      \ {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_97
+    reference: jonghyeonkim
+  05a08bc6-35f2-48ab-9087-f79d2668e7e0: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: 05a08bc6-35f2-48ab-9087-f79d2668e7e0
+    jinja: "The article with the title and headline below is about {{answer_choices[0]}},\
+      \ {{answer_choices[1]}}, {{answer_choices[2]}} or {{answer_choices[3]}}.\n\nTitle:\
+      \ {{title}} \nHeadline: {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_98
+    reference: jonghyeonkim
+  b2607160-98f2-4aa7-9f3d-34e63a8890b6: !Template
+    answer_choices: Economy ||| Microsoft ||| Obama ||| Palestine
+    id: b2607160-98f2-4aa7-9f3d-34e63a8890b6
+    jinja: 'Title: {{title}}
+
+      Headline: {{headline}}
+
+
+      Which of the following best describes the topic of the article?
+
+
+      A) {{answer_choices[0]}}
+
+      B) {{answer_choices[1]}}
+
+      C) {{answer_choices[2]}}
+
+      D) {{answer_choices[3]}} ||| {{topic|capitalize}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_99
+    reference: jonghyeonkim
+  609b8c3b-1741-43b9-bcd2-9dcaed8c64c1: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 609b8c3b-1741-43b9-bcd2-9dcaed8c64c1
+    jinja: "{{title}}\n{{headline}}\n\nTopic: \n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_00
+    reference: jonghyeonkim
+  2cb4bdd1-6a0b-44cb-9f80-cfeb52064301: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 2cb4bdd1-6a0b-44cb-9f80-cfeb52064301
+    jinja: "{{headline}}\n\nWhat is the article about?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_01
+    reference: jonghyeonkim
+  55e68507-e955-458c-a63c-b5038954935a: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 55e68507-e955-458c-a63c-b5038954935a
+    jinja: "{{headline}}\n\nWhat is this article about?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_02
+    reference: jonghyeonkim
+  a381c479-d5d6-4baf-a2ed-3828ffa0d7d3: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: a381c479-d5d6-4baf-a2ed-3828ffa0d7d3
+    jinja: "{{title}}\n\nWhat is the article discussing?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_03
+    reference: jonghyeonkim
+  7bcc938b-d7a1-439a-877c-5206cfb69fda: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 7bcc938b-d7a1-439a-877c-5206cfb69fda
+    jinja: "Title: {{title}}\n\nWhat is the article about?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_04
+    reference: jonghyeonkim
+  1c13de3b-1a09-43b2-a7f8-2596127e3f4f: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 1c13de3b-1a09-43b2-a7f8-2596127e3f4f
+    jinja: "Title: {{title}}\n\nWhat is this article about?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_05
+    reference: jonghyeonkim
+  5b05f822-1333-493e-b4a3-dddfc5919531: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 5b05f822-1333-493e-b4a3-dddfc5919531
+    jinja: "{{title}}\n\nWhat topic does this article cover?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_06
+    reference: jonghyeonkim
+  75104dd1-91bf-4906-9eff-4e51dd0dbc30: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 75104dd1-91bf-4906-9eff-4e51dd0dbc30
+    jinja: "Title: {{title}} \n\nWhat is this article about?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_07
+    reference: jonghyeonkim
+  4bf7e80b-ce36-4a0f-bc53-8875b2821db8: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 4bf7e80b-ce36-4a0f-bc53-8875b2821db8
+    jinja: "{{title}}\n\nWhat is the subject of this article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_08
+    reference: jonghyeonkim
+  9f7da5b3-4c10-43cc-9836-0ea8b5bfb382: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 9f7da5b3-4c10-43cc-9836-0ea8b5bfb382
+    jinja: "{{title}}\n{{headline}}\n\nWhat is the news about?\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_09
+    reference: jonghyeonkim
+  0aab5b4c-9ac3-444d-b621-92236dba1ab6: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 0aab5b4c-9ac3-444d-b621-92236dba1ab6
+    jinja: "{{title}}\n\nWhat is the main focus of the article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_10
+    reference: jonghyeonkim
+  333ddfc6-3908-4fc4-8e13-3b75923b0dd6: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 333ddfc6-3908-4fc4-8e13-3b75923b0dd6
+    jinja: "{{title}}\n{{headline}}\n\nChoose the correct topic:\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_11
+    reference: jonghyeonkim
+  12502ace-9bba-43f4-9a15-de44fbe23746: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 12502ace-9bba-43f4-9a15-de44fbe23746
+    jinja: "Title: {{title}}\n\nWhat is this article discussing?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_12
+    reference: jonghyeonkim
+  49d7e956-8a9f-4873-8a07-837577f1d682: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 49d7e956-8a9f-4873-8a07-837577f1d682
+    jinja: "{{title}}\n\nWhat is the main topic of this article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_13
+    reference: jonghyeonkim
+  424895b2-b151-4be1-b4e9-589eefb337db: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 424895b2-b151-4be1-b4e9-589eefb337db
+    jinja: "{{title}}\n{{headline}}\n\nWhat is this article about?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_14
+    reference: jonghyeonkim
+  ec9f3f66-19a3-4ffe-9669-067bcc211e11: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: ec9f3f66-19a3-4ffe-9669-067bcc211e11
+    jinja: "What is the main topic of {{title}}?\n\n{{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_15
+    reference: jonghyeonkim
+  c013d775-57ea-445d-8396-c7ff75c76a3a: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: c013d775-57ea-445d-8396-c7ff75c76a3a
+    jinja: "What is the topic of the article?\n\nTitle: {{title}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_16
+    reference: jonghyeonkim
+  f2c44aa9-2c0f-4b09-ae6c-ab797364006c: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: f2c44aa9-2c0f-4b09-ae6c-ab797364006c
+    jinja: "{{title}}\n\nWhat is the central topic of this article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_17
+    reference: jonghyeonkim
+  df7d2edd-f09f-4260-96b4-e6629c4d959b: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: df7d2edd-f09f-4260-96b4-e6629c4d959b
+    jinja: "{{title}}\n\nWhat is the topic of the following article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_18
+    reference: jonghyeonkim
+  0cd5028d-b9ee-4c8f-9f33-ab9519985780: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 0cd5028d-b9ee-4c8f-9f33-ab9519985780
+    jinja: "Title: {{title}}\n\nWhat is the subject of this article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_19
+    reference: jonghyeonkim
+  a515e176-e365-4ccb-bf93-c8286a8a2424: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: a515e176-e365-4ccb-bf93-c8286a8a2424
+    jinja: "Title: {{title}}\n\nWhat is the news about?\n\n{{headline}}\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_20
+    reference: jonghyeonkim
+  932f8637-6497-4d16-8326-4c76f66af820: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 932f8637-6497-4d16-8326-4c76f66af820
+    jinja: "Title: {{title}}\n\nWhat is the main idea of the article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_21
+    reference: jonghyeonkim
+  774679e2-202e-4026-b277-c40edfadf235: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 774679e2-202e-4026-b277-c40edfadf235
+    jinja: "Headline: {{headline}}\n\nWhat is the news article about?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_22
+    reference: jonghyeonkim
+  d18a662b-1815-4d4b-99d2-e18a46e19a86: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: d18a662b-1815-4d4b-99d2-e18a46e19a86
+    jinja: "{{title}}\n\nWhat is the article discussing?\n\n{{headline}}\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_23
+    reference: jonghyeonkim
+  7a960c96-451d-4bdf-a779-d30280d473be: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 7a960c96-451d-4bdf-a779-d30280d473be
+    jinja: "{{title}}\n\n{{headline}}\n\nWhat is the article discussing?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_24
+    reference: jonghyeonkim
+  dae784b4-4e64-4838-bced-060ed515df53: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: dae784b4-4e64-4838-bced-060ed515df53
+    jinja: "Title: {{title}}\n\nWhat is the main idea of this article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_25
+    reference: jonghyeonkim
+  cceac483-c97c-4048-b5cd-276ee27bc143: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: cceac483-c97c-4048-b5cd-276ee27bc143
+    jinja: "{{title}}\n{{headline}}\n\nWhat is this article discussing?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_26
+    reference: jonghyeonkim
+  c0351ffd-4153-4ed4-aa3c-220cef798b1d: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: c0351ffd-4153-4ed4-aa3c-220cef798b1d
+    jinja: "Headline: {{headline}}\n\nWhich topic is the article about?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_27
+    reference: jonghyeonkim
+  f0b9d1ab-c2df-48b8-80ef-cf71a2e38d33: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: f0b9d1ab-c2df-48b8-80ef-cf71a2e38d33
+    jinja: "Title: {{title}}\n\nWhat is the main focus of this article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_28
+    reference: jonghyeonkim
+  af26378c-f085-4fc2-ad96-de06d7f4843c: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: af26378c-f085-4fc2-ad96-de06d7f4843c
+    jinja: "Headline: {{headline}}\n\nWhat is the focus of this article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_29
+    reference: jonghyeonkim
+  e92d31ab-0cfd-4676-a303-03fafcd4c6ea: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: e92d31ab-0cfd-4676-a303-03fafcd4c6ea
+    jinja: "Title: {{title}}\n\nWhat is the article about?\n\n{{headline}}\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_30
+    reference: jonghyeonkim
+  19a22675-1f9d-4b2c-b514-a5b20173663f: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 19a22675-1f9d-4b2c-b514-a5b20173663f
+    jinja: "{{title}}\n{{headline}}\n\nWhat is the topic of this article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_31
+    reference: jonghyeonkim
+  234ca57e-3aba-4e11-889a-17bb85fae334: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 234ca57e-3aba-4e11-889a-17bb85fae334
+    jinja: "{{title}}\n{{headline}}\n\nWhat is the focus of this article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_32
+    reference: jonghyeonkim
+  f9e4cafb-d4df-4948-a257-72d6b394c778: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: f9e4cafb-d4df-4948-a257-72d6b394c778
+    jinja: "Headline: {{headline}}\n\nWhich topic is the article about?\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_33
+    reference: jonghyeonkim
+  cf9e84ea-729c-4bca-86cc-af8cf46bfbb2: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: cf9e84ea-729c-4bca-86cc-af8cf46bfbb2
+    jinja: "Title: {{title}}\n\nWhat is the subject matter of the article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_34
+    reference: jonghyeonkim
+  3d0189c5-eb15-41a3-8669-0b3d23560889: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 3d0189c5-eb15-41a3-8669-0b3d23560889
+    jinja: "What is the following article about?\n\n{{title}}\n\n{{headline}}\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_35
+    reference: jonghyeonkim
+  1aa0fb21-f821-422b-bcf7-dfcd763453db: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 1aa0fb21-f821-422b-bcf7-dfcd763453db
+    jinja: "{{title}} - {{headline}}\n\nWhat is the topic of this article?\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_36
+    reference: jonghyeonkim
+  8fc1c782-24cd-442d-b00b-6a2645dc9ad6: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 8fc1c782-24cd-442d-b00b-6a2645dc9ad6
+    jinja: "Headline: {{headline}}\n\nWhich topic is covered in the article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_37
+    reference: jonghyeonkim
+  e9f7091c-68e8-4126-9b61-c916aeb934cb: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: e9f7091c-68e8-4126-9b61-c916aeb934cb
+    jinja: "Identify the subject of this article:\n\n{{title}}\n\n{{headline}}\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_38
+    reference: jonghyeonkim
+  036a1d0b-4981-4231-a557-8ce95eb32b55: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 036a1d0b-4981-4231-a557-8ce95eb32b55
+    jinja: "{{title}}\n{{headline}}\n\nWhat is the main topic of the article?\n\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_39
+    reference: jonghyeonkim
+  cad091ea-b7e3-43bf-bfa2-47801ec18a1e: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: cad091ea-b7e3-43bf-bfa2-47801ec18a1e
+    jinja: "{{headline}}\n\nWhat is the main focus of the article?\n\n{{title}}\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_40
+    reference: jonghyeonkim
+  f1b7adef-fc3a-45c3-bcc6-fb5481f47c69: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: f1b7adef-fc3a-45c3-bcc6-fb5481f47c69
+    jinja: "Which topic does this article discuss?\n\n{{title}}\n\n{{headline}}\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_41
+    reference: jonghyeonkim
+  6cb6d30b-8c44-414e-afa3-1e76ec60d593: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 6cb6d30b-8c44-414e-afa3-1e76ec60d593
+    jinja: "{{title}}\n{{headline}}\n\nWhat is the topic of this news article?\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_42
+    reference: jonghyeonkim
+  e17814e1-b2ee-4fd7-b2c9-68506cc1d35a: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: e17814e1-b2ee-4fd7-b2c9-68506cc1d35a
+    jinja: "{{title}}\n\nWhat is the main topic of this article?\n\n{{headline}}\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_43
+    reference: jonghyeonkim
+  c3c5ed32-d18f-4437-80f4-fbd30bbf06c5: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: c3c5ed32-d18f-4437-80f4-fbd30bbf06c5
+    jinja: "Headline: {{headline}}\n\nWhat is the main subject of the article?\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_44
+    reference: jonghyeonkim
+  eefe7900-8a75-43dd-a2eb-c10838df4eb1: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: eefe7900-8a75-43dd-a2eb-c10838df4eb1
+    jinja: "{{title}}\n\nWhat is the following article discussing?\n\n{{headline}}\n\
+      \ ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_45
+    reference: jonghyeonkim
+  ee981304-6f28-4469-b607-de029d3722cb: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: ee981304-6f28-4469-b607-de029d3722cb
+    jinja: "Title: {{title}} \nHeadline: {{headline}}\n\nWhat is this news about?\n\
+      \ ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_46
+    reference: jonghyeonkim
+  f97ae133-7651-4a61-b6e0-47f1666b2886: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: f97ae133-7651-4a61-b6e0-47f1666b2886
+    jinja: "Title: {{title}} \nHeadline: {{headline}}\n\nWhat is the article about?\n\
+      \ ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_47
+    reference: jonghyeonkim
+  19ce3f42-4501-4444-b97e-21a9d7aae2c5: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 19ce3f42-4501-4444-b97e-21a9d7aae2c5
+    jinja: "Title: {{title}} \nHeadline: {{headline}}\n\nChoose the correct topic:\n\
+      \n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_48
+    reference: jonghyeonkim
+  2eb4a51a-25f4-418e-9e18-1dd1faec09c6: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 2eb4a51a-25f4-418e-9e18-1dd1faec09c6
+    jinja: "What is the article about?\n\nTitle: {{title}}\nHeadline: {{headline}}\n\
+      \n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_49
+    reference: jonghyeonkim
+  0cf2c106-ef9f-4505-8486-fdc25266f4ad: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 0cf2c106-ef9f-4505-8486-fdc25266f4ad
+    jinja: "{{title}}\n\nCan you determine the topic of the article?\n\n{{headline}}\n\
+      \ ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_50
+    reference: jonghyeonkim
+  7ad6acfc-c3cb-4054-9626-fda9da19b122: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 7ad6acfc-c3cb-4054-9626-fda9da19b122
+    jinja: "Can you identify the topic of this article?\n\n{{title}}\n\n{{headline}}\n\
+      \ ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_51
+    reference: jonghyeonkim
+  71104efb-42b7-4e99-98e9-f28fbae6db4c: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 71104efb-42b7-4e99-98e9-f28fbae6db4c
+    jinja: "What is the article about?\n\nTitle: {{title}} \nHeadline: {{headline}}\n\
+      \n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_52
+    reference: jonghyeonkim
+  27c9afe4-7254-4fd5-b54a-2be0eb2b4061: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 27c9afe4-7254-4fd5-b54a-2be0eb2b4061
+    jinja: "Title: {{title}} \n\nWhich of the following topics is the article about?\n\
+      \n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_53
+    reference: jonghyeonkim
+  ac866604-769b-4096-ae6c-b9654ec19b4a: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: ac866604-769b-4096-ae6c-b9654ec19b4a
+    jinja: "Title: {{title}}\nHeadline: {{headline}}\n\nWhat is the article discussing?\n\
+      \ ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_54
+    reference: jonghyeonkim
+  911a9e32-9d08-46b6-9ef3-7180e577cd96: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 911a9e32-9d08-46b6-9ef3-7180e577cd96
+    jinja: "Title: {{title}}\n\nWhat is the topic of the following news?\n\n{{headline}}\n\
+      \ ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_55
+    reference: jonghyeonkim
+  6a2b6166-27d2-4963-b17e-d225dd09dfcf: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 6a2b6166-27d2-4963-b17e-d225dd09dfcf
+    jinja: "Title: {{title}} \nHeadline: {{headline}}\n\nWhat is this article discussing?\n\
+      \ ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_56
+    reference: jonghyeonkim
+  97a94837-4447-4495-9ab8-4d32b905501b: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 97a94837-4447-4495-9ab8-4d32b905501b
+    jinja: "What is this news article about?\n\nTitle: {{title}} \nHeadline: {{headline}}\n\
+      \n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_57
+    reference: jonghyeonkim
+  ab29f00b-186c-4a91-ade3-3299da1073c0: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: ab29f00b-186c-4a91-ade3-3299da1073c0
+    jinja: "{{headline}}\n\nWhat is the main subject of the following article?\n\n{{title}}\n\
+      \ ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_58
+    reference: jonghyeonkim
+  6e58cc68-0202-448b-8243-110061fe73f4: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 6e58cc68-0202-448b-8243-110061fe73f4
+    jinja: "What is the topic of this article?\n\nTitle: {{title}}\nHeadline: {{headline}}\n\
+      \n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_59
+    reference: jonghyeonkim
+  3fb0408a-bdae-4292-abfa-54f7500641cb: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 3fb0408a-bdae-4292-abfa-54f7500641cb
+    jinja: "{{title}}\n{{headline}}\n\nWhich of the following is the topic of the article?\n\
+      \n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_60
+    reference: jonghyeonkim
+  44e3eeac-2939-40ee-a6a9-543bcbb7330b: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 44e3eeac-2939-40ee-a6a9-543bcbb7330b
+    jinja: "{{title}}\nHeadline: {{headline}}\n\nWhat is the topic of the following\
+      \ article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_61
+    reference: jonghyeonkim
+  486513ca-07e5-439a-9f4c-2f59105d8cb6: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 486513ca-07e5-439a-9f4c-2f59105d8cb6
+    jinja: "{{title}}\n{{headline}}\n\nWhich of the following is the topic of this article?\n\
+      \n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_62
+    reference: jonghyeonkim
+  65b2edfe-1ca8-4a7f-82cd-1d0b0765d06b: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 65b2edfe-1ca8-4a7f-82cd-1d0b0765d06b
+    jinja: "What is the following article about?\n\nTitle: {{title}}\nHeadline: {{headline}}\n\
+      \n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_63
+    reference: jonghyeonkim
+  a1dfd4ba-20d4-4e7b-a23b-f7e271c94226: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: a1dfd4ba-20d4-4e7b-a23b-f7e271c94226
+    jinja: "What is the following article about?\n\nTitle: {{title}} \nHeadline: {{headline}}\n\
+      \n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_64
+    reference: jonghyeonkim
+  fbedfca1-c232-4c42-9162-d1ac68a78a7a: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: fbedfca1-c232-4c42-9162-d1ac68a78a7a
+    jinja: "Title: {{title}}\nHeadline: {{headline}}\n\nWhat is the main subject of\
+      \ the article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_65
+    reference: jonghyeonkim
+  3a5b2f46-a0e4-444b-81a1-1e18781e929c: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 3a5b2f46-a0e4-444b-81a1-1e18781e929c
+    jinja: "Title: {{title}} \nHeadline: {{headline}}\n\nWhat is the main focus of this\
+      \ article?\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_66
+    reference: jonghyeonkim
+  cd8c684f-ff90-44ac-9ec5-e6b7d9a95b35: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: cd8c684f-ff90-44ac-9ec5-e6b7d9a95b35
+    jinja: "{{title}}\n\nCan you identify the most suitable topic for this article?\n\
+      \n{{headline}}\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_67
+    reference: jonghyeonkim
+  e41f2992-036e-434a-808d-50ab089f599d: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: e41f2992-036e-434a-808d-50ab089f599d
+    jinja: "What is the main subject of this article?\n\nTitle: {{title}} \nHeadline:\
+      \ {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_68
+    reference: jonghyeonkim
+  bcef8cbf-e81c-4558-90da-4e1d4e0777ab: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: bcef8cbf-e81c-4558-90da-4e1d4e0777ab
+    jinja: "Choose the correct topic for this article:\n\nTitle: {{title}}\nHeadline:\
+      \ {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_69
+    reference: jonghyeonkim
+  51f25af4-ec4d-4459-a2b7-5eb9759e41f4: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 51f25af4-ec4d-4459-a2b7-5eb9759e41f4
+    jinja: "What is the focus of the following article?\n\nTitle: {{title}} \nHeadline:\
+      \ {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_70
+    reference: jonghyeonkim
+  a561765a-7953-46f7-9c39-b167323c2e6f: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: a561765a-7953-46f7-9c39-b167323c2e6f
+    jinja: "Title: {{title}}\n\nWhich of the following best describes the article's\
+      \ topic?\n\n{{headline}}\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_71
+    reference: jonghyeonkim
+  249ae438-0b54-44de-9076-71d9f4270285: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 249ae438-0b54-44de-9076-71d9f4270285
+    jinja: "What is the main topic of the following article?\n\nTitle: {{title}}\nHeadline:\
+      \ {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_72
+    reference: jonghyeonkim
+  93072947-3df2-4c17-aad5-9be6d09bdece: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 93072947-3df2-4c17-aad5-9be6d09bdece
+    jinja: "What is the main subject of the following article?\n\nTitle: {{title}}\n\
+      Headline: {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_73
+    reference: jonghyeonkim
+  9898616d-43e5-43b6-ab7a-60a320c70d8e: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 9898616d-43e5-43b6-ab7a-60a320c70d8e
+    jinja: "Please identify the topic of the following article.\n\nTitle: {{title}}\n\
+      Headline: {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_74
+    reference: jonghyeonkim
+  4dda371d-0395-4153-8dd4-3ee17407a87f: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 4dda371d-0395-4153-8dd4-3ee17407a87f
+    jinja: "What is the subject matter of the following article?\n\nTitle: {{title}}\n\
+      Headline: {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_75
+    reference: jonghyeonkim
+  57ddbc87-ff3f-4e11-9fb2-9950b6b5f8e2: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 57ddbc87-ff3f-4e11-9fb2-9950b6b5f8e2
+    jinja: "What is the main topic of the following news article?\n\nTitle: {{title}}\n\
+      Headline: {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_76
+    reference: jonghyeonkim
+  8ad9407e-af7e-43ec-a36f-45e21a304818: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 8ad9407e-af7e-43ec-a36f-45e21a304818
+    jinja: "Headline: {{headline}}\n\nChoose the correct topic:\n\nA. commercialism\nB. microsoft\n\
+      C. obama\nD. palestine\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_77
+    reference: jonghyeonkim
+  7ed51d0b-2f1b-4ce9-9338-5730a8990dc5: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 7ed51d0b-2f1b-4ce9-9338-5730a8990dc5
+    jinja: "Can you determine the subject of the following article?\n\nTitle: {{title}}\n\
+      Headline: {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_78
+    reference: jonghyeonkim
+  d920afd2-0d99-4d64-9a1d-35a1a9450335: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: d920afd2-0d99-4d64-9a1d-35a1a9450335
+    jinja: "Title: {{title}} \nHeadline: {{headline}}\n\nWhich of the following topics\
+      \ does the article discuss?\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_79
+    reference: jonghyeonkim
+  f98c1e92-3a68-474e-b40c-b9385e516a48: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: f98c1e92-3a68-474e-b40c-b9385e516a48
+    jinja: "{{title}} - {{headline}}\n\nWhich of the following best describes the subject\
+      \ matter of the article?\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_80
+    reference: jonghyeonkim
+  11532649-155c-4683-90e2-abb938d90c3f: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 11532649-155c-4683-90e2-abb938d90c3f
+    jinja: "Can you determine the main topic of the following article?\n\nTitle: {{title}}\n\
+      Headline: {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_81
+    reference: jonghyeonkim
+  62e71d4b-3d7f-4b9d-82c5-df5fdcc4447f: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 62e71d4b-3d7f-4b9d-82c5-df5fdcc4447f
+    jinja: "What topic is discussed in the article with the following title and headline?\n\
+      \nTitle: {{title}}\nHeadline: {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_82
+    reference: jonghyeonkim
+  b0fbbb3a-fb9b-4cbf-af4d-0ac5913007b5: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: b0fbbb3a-fb9b-4cbf-af4d-0ac5913007b5
+    jinja: "{{title}}\n\nChoose the correct option: {{answer_choices[0]}}, {{answer_choices[1]}},\
+      \ {{answer_choices[2]}} or {{answer_choices[3]}}.\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_83
+    reference: jonghyeonkim
+  8743c100-2394-46d7-9c6f-43ea1e27b69b: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 8743c100-2394-46d7-9c6f-43ea1e27b69b
+    jinja: "Title: {{title}}\n\nIs this article about {{answer_choices[0]}}, {{answer_choices[1]}},\
+      \ {{answer_choices[2]}}, or {{answer_choices[3]}}?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_84
+    reference: jonghyeonkim
+  fc2cf2d9-e737-42ff-b6ba-79fe630fc8fe: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: fc2cf2d9-e737-42ff-b6ba-79fe630fc8fe
+    jinja: "Title: {{title}} \n\nIs this article about {{answer_choices[0]}}, {{answer_choices[1]}},\
+      \ {{answer_choices[2]}} or {{answer_choices[3]}}?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_85
+    reference: jonghyeonkim
+  782e2d8a-aae3-445f-afde-7d73ced1f260: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 782e2d8a-aae3-445f-afde-7d73ced1f260
+    jinja: "Headline: {{headline}}\n\nIs this article about {{answer_choices[0]}}, {{answer_choices[1]}},\
+      \ {{answer_choices[2]}} or {{answer_choices[3]}}?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_86
+    reference: jonghyeonkim
+  5ed3aad3-83fb-4d04-ab76-25d456228ead: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 5ed3aad3-83fb-4d04-ab76-25d456228ead
+    jinja: "{{title}}\n{{headline}}\n\nSelect the correct option: {{answer_choices[0]}},\
+      \ {{answer_choices[1]}}, {{answer_choices[2]}} or {{answer_choices[3]}}.\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_87
+    reference: jonghyeonkim
+  fffe211d-f574-4a34-ae7c-df38ead10c7f: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: fffe211d-f574-4a34-ae7c-df38ead10c7f
+    jinja: "{{title}}\n{{headline}}\n\nIdentify the correct topic: {{answer_choices[0]}},\
+      \ {{answer_choices[1]}}, {{answer_choices[2]}} or {{answer_choices[3]}}.\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_88
+    reference: jonghyeonkim
+  71c21be4-05b5-494d-afab-d8b7e03e486c: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 71c21be4-05b5-494d-afab-d8b7e03e486c
+    jinja: "{{title}}\n{{headline}}\n\nChoose the appropriate option: {{answer_choices[0]}},\
+      \ {{answer_choices[1]}}, {{answer_choices[2]}} or {{answer_choices[3]}}.\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_89
+    reference: jonghyeonkim
+  56da5d30-30cf-4861-8799-728bc2234f0b: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 56da5d30-30cf-4861-8799-728bc2234f0b
+    jinja: "Title: {{title}}\n\nWhich topic is the following article about: {{answer_choices[0]}},\
+      \ {{answer_choices[1]}}, {{answer_choices[2]}}, or {{answer_choices[3]}}?\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_90
+    reference: jonghyeonkim
+  4e99c41e-6d34-42bc-aef8-1b25aa712881: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 4e99c41e-6d34-42bc-aef8-1b25aa712881
+    jinja: "Title: {{title}} \nHeadline: {{headline}}\n\nIs this article about {{answer_choices[0]}},\
+      \ {{answer_choices[1]}}, {{answer_choices[2]}} or {{answer_choices[3]}}?\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_91
+    reference: jonghyeonkim
+  d83dfe5d-3c2f-4b80-8984-ae00d13adf43: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: d83dfe5d-3c2f-4b80-8984-ae00d13adf43
+    jinja: "Title: {{title}}\n\nWhat is the main subject of the following article: {{answer_choices[0]}},\
+      \ {{answer_choices[1]}}, {{answer_choices[2]}}, or {{answer_choices[3]}}?\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_92
+    reference: jonghyeonkim
+  25f20321-c105-4cd7-996e-7f4617d44428: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 25f20321-c105-4cd7-996e-7f4617d44428
+    jinja: "{{title}}\n\n{{headline}}\n\nSelect the appropriate topic from the following:\n\
+      \n{{answer_choices[0]}}, {{answer_choices[1]}}, {{answer_choices[2]}}, {{answer_choices[3]}}\n\
+      \ ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_93
+    reference: jonghyeonkim
+  f4a55155-a5be-4929-b7be-a8a685bebd7a: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: f4a55155-a5be-4929-b7be-a8a685bebd7a
+    jinja: "The following article is about {{answer_choices[0]}}, {{answer_choices[1]}},\
+      \ {{answer_choices[2]}} or {{answer_choices[3]}}.\n\nTitle: {{title}}\nHeadline:\
+      \ {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_94
+    reference: jonghyeonkim
+  d23e1c57-55c2-46be-9bbe-a541e9c074b3: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: d23e1c57-55c2-46be-9bbe-a541e9c074b3
+    jinja: "Is the following article about {{answer_choices[0]}}, {{answer_choices[1]}},\
+      \ {{answer_choices[2]}} or {{answer_choices[3]}}?\n\nTitle: {{title}} \nHeadline:\
+      \ {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_95
+    reference: jonghyeonkim
+  be7498a0-fa89-4984-8059-cfe8e3eb7f34: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: be7498a0-fa89-4984-8059-cfe8e3eb7f34
+    jinja: "Title: {{title}}\n\nWhich of the following topics is the article discussing:\
+      \ {{answer_choices[0]}}, {{answer_choices[1]}}, {{answer_choices[2]}}, or {{answer_choices[3]}}?\n\
+      \ ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_96
+    reference: jonghyeonkim
+  5c63f406-471e-4c07-9793-779a44cdf02b: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 5c63f406-471e-4c07-9793-779a44cdf02b
+    jinja: "Is the following news article about {{answer_choices[0]}}, {{answer_choices[1]}},\
+      \ {{answer_choices[2]}}, or {{answer_choices[3]}}?\n\nTitle: {{title}} \nHeadline:\
+      \ {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_97
+    reference: jonghyeonkim
+  f188348d-b503-45c8-abb4-a8f4cea5286a: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: f188348d-b503-45c8-abb4-a8f4cea5286a
+    jinja: "The article with the title and headline below is about {{answer_choices[0]}},\
+      \ {{answer_choices[1]}}, {{answer_choices[2]}} or {{answer_choices[3]}}.\n\nTitle:\
+      \ {{title}} \nHeadline: {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_98
+    reference: jonghyeonkim
+  4a429008-cd32-40ba-bfd6-f07636476f7e: !Template
+    answer_choices: commercialism ||| microsoft ||| obama ||| palestine
+    id: 4a429008-cd32-40ba-bfd6-f07636476f7e
+    jinja: 'Title: {{title}}
+
+      Headline: {{headline}}
+
+
+      Which of the following best describes the topic of the article?
+
+
+      A) {{answer_choices[0]}}
+
+      B) {{answer_choices[1]}}
+
+      C) {{answer_choices[2]}}
+
+      D) {{answer_choices[3]}} ||| {{topic|capitalize}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_99
+    reference: jonghyeonkim
+  31357fbd-5f99-4df0-94cc-3741d452e07b: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 31357fbd-5f99-4df0-94cc-3741d452e07b
+    jinja: "{{title}}\n{{headline}}\n\nTopic: \n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_00
+    reference: jonghyeonkim
+  6d5e8d4b-1f07-4be1-81eb-64a49816f9af: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 6d5e8d4b-1f07-4be1-81eb-64a49816f9af
+    jinja: "{{headline}}\n\nWhat is the article about?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_01
+    reference: jonghyeonkim
+  1eeff192-48e5-4ea7-8639-c39bf6486b97: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 1eeff192-48e5-4ea7-8639-c39bf6486b97
+    jinja: "{{headline}}\n\nWhat is this article about?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_02
+    reference: jonghyeonkim
+  6744f2f4-0992-41cf-b601-203fe24aa515: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 6744f2f4-0992-41cf-b601-203fe24aa515
+    jinja: "{{title}}\n\nWhat is the article discussing?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_03
+    reference: jonghyeonkim
+  09bfdb9b-285d-4b50-bcec-ae0cdedcd243: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 09bfdb9b-285d-4b50-bcec-ae0cdedcd243
+    jinja: "Title: {{title}}\n\nWhat is the article about?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_04
+    reference: jonghyeonkim
+  99307028-42ac-4e5a-82de-c9f825162894: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 99307028-42ac-4e5a-82de-c9f825162894
+    jinja: "Title: {{title}}\n\nWhat is this article about?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_05
+    reference: jonghyeonkim
+  e5053224-f4b0-4bf6-bfd0-ffaf920177c6: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: e5053224-f4b0-4bf6-bfd0-ffaf920177c6
+    jinja: "{{title}}\n\nWhat topic does this article cover?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_06
+    reference: jonghyeonkim
+  76b45e28-f0df-4631-bdab-ea32c06a9e27: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 76b45e28-f0df-4631-bdab-ea32c06a9e27
+    jinja: "Title: {{title}} \n\nWhat is this article about?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_07
+    reference: jonghyeonkim
+  d7762bb5-cb36-491e-a3be-b874f4ec5013: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: d7762bb5-cb36-491e-a3be-b874f4ec5013
+    jinja: "{{title}}\n\nWhat is the subject of this article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_08
+    reference: jonghyeonkim
+  f8b6cdcf-0975-464e-bca6-ca973b855e66: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: f8b6cdcf-0975-464e-bca6-ca973b855e66
+    jinja: "{{title}}\n{{headline}}\n\nWhat is the news about?\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_09
+    reference: jonghyeonkim
+  ba2c3c55-a8d4-43c9-bbfd-ec0ea4a13514: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: ba2c3c55-a8d4-43c9-bbfd-ec0ea4a13514
+    jinja: "{{title}}\n\nWhat is the main focus of the article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_10
+    reference: jonghyeonkim
+  65781173-e0fd-4788-b0a5-bc78c5debc7f: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 65781173-e0fd-4788-b0a5-bc78c5debc7f
+    jinja: "{{title}}\n{{headline}}\n\nChoose the correct topic:\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_11
+    reference: jonghyeonkim
+  f355acd6-c9de-4ab4-9cfb-3c1e1d3d3e30: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: f355acd6-c9de-4ab4-9cfb-3c1e1d3d3e30
+    jinja: "Title: {{title}}\n\nWhat is this article discussing?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_12
+    reference: jonghyeonkim
+  cdf632d1-cb77-4a77-bdf8-b46988ab4600: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: cdf632d1-cb77-4a77-bdf8-b46988ab4600
+    jinja: "{{title}}\n\nWhat is the main topic of this article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_13
+    reference: jonghyeonkim
+  962d9c69-b47b-439e-975a-afeceab19e2c: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 962d9c69-b47b-439e-975a-afeceab19e2c
+    jinja: "{{title}}\n{{headline}}\n\nWhat is this article about?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_14
+    reference: jonghyeonkim
+  494795a9-a405-4f9c-9f92-6fe38148e5bc: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 494795a9-a405-4f9c-9f92-6fe38148e5bc
+    jinja: "What is the main topic of {{title}}?\n\n{{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_15
+    reference: jonghyeonkim
+  7d089d17-66d4-435f-8894-c1cd748d29e3: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 7d089d17-66d4-435f-8894-c1cd748d29e3
+    jinja: "What is the topic of the article?\n\nTitle: {{title}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_16
+    reference: jonghyeonkim
+  7cd6cf39-6d36-43ec-a0d8-64a692d53ab5: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 7cd6cf39-6d36-43ec-a0d8-64a692d53ab5
+    jinja: "{{title}}\n\nWhat is the central topic of this article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_17
+    reference: jonghyeonkim
+  c751d779-ecd0-42d6-b9b4-b60563fc772f: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: c751d779-ecd0-42d6-b9b4-b60563fc772f
+    jinja: "{{title}}\n\nWhat is the topic of the following article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_18
+    reference: jonghyeonkim
+  199b30ce-f8c3-44f7-bfe6-7ac37d8d2c51: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 199b30ce-f8c3-44f7-bfe6-7ac37d8d2c51
+    jinja: "Title: {{title}}\n\nWhat is the subject of this article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_19
+    reference: jonghyeonkim
+  9e9446fb-6c86-4a3d-98b7-d9aae10cff25: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 9e9446fb-6c86-4a3d-98b7-d9aae10cff25
+    jinja: "Title: {{title}}\n\nWhat is the news about?\n\n{{headline}}\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_20
+    reference: jonghyeonkim
+  904db02d-2312-48d0-91ab-93245d31dcbe: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 904db02d-2312-48d0-91ab-93245d31dcbe
+    jinja: "Title: {{title}}\n\nWhat is the main idea of the article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_21
+    reference: jonghyeonkim
+  bf636d45-2d24-45e3-bb0e-8f99da46ca5a: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: bf636d45-2d24-45e3-bb0e-8f99da46ca5a
+    jinja: "Headline: {{headline}}\n\nWhat is the news article about?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_22
+    reference: jonghyeonkim
+  ea373c54-1594-4b26-a6a6-1bd5ea6ec8ff: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: ea373c54-1594-4b26-a6a6-1bd5ea6ec8ff
+    jinja: "{{title}}\n\nWhat is the article discussing?\n\n{{headline}}\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_23
+    reference: jonghyeonkim
+  799beb33-e30b-4b46-8903-f28022666231: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 799beb33-e30b-4b46-8903-f28022666231
+    jinja: "{{title}}\n\n{{headline}}\n\nWhat is the article discussing?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_24
+    reference: jonghyeonkim
+  237ce781-f223-49c4-b468-6bc7ad58e92f: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 237ce781-f223-49c4-b468-6bc7ad58e92f
+    jinja: "Title: {{title}}\n\nWhat is the main idea of this article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_25
+    reference: jonghyeonkim
+  446ce173-31d4-45eb-a723-c0558a2fab65: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 446ce173-31d4-45eb-a723-c0558a2fab65
+    jinja: "{{title}}\n{{headline}}\n\nWhat is this article discussing?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_26
+    reference: jonghyeonkim
+  4f9633fa-a5ae-4a36-8d53-ef20ecb72a82: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 4f9633fa-a5ae-4a36-8d53-ef20ecb72a82
+    jinja: "Headline: {{headline}}\n\nWhich topic is the article about?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_27
+    reference: jonghyeonkim
+  03810247-1948-4493-a846-237323ab2c30: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 03810247-1948-4493-a846-237323ab2c30
+    jinja: "Title: {{title}}\n\nWhat is the main focus of this article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_28
+    reference: jonghyeonkim
+  94603832-64f1-458a-aa21-a26f3388baaa: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 94603832-64f1-458a-aa21-a26f3388baaa
+    jinja: "Headline: {{headline}}\n\nWhat is the focus of this article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_29
+    reference: jonghyeonkim
+  d4e43563-5136-496c-ab22-b12493089d55: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: d4e43563-5136-496c-ab22-b12493089d55
+    jinja: "Title: {{title}}\n\nWhat is the article about?\n\n{{headline}}\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_30
+    reference: jonghyeonkim
+  391cd523-d814-41aa-87c5-d4508b33f705: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 391cd523-d814-41aa-87c5-d4508b33f705
+    jinja: "{{title}}\n{{headline}}\n\nWhat is the topic of this article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_31
+    reference: jonghyeonkim
+  25395ea2-8021-4595-83cd-29d28b9c3e7a: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 25395ea2-8021-4595-83cd-29d28b9c3e7a
+    jinja: "{{title}}\n{{headline}}\n\nWhat is the focus of this article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_32
+    reference: jonghyeonkim
+  e3448335-b5d4-43b5-949a-eaa56a77378b: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: e3448335-b5d4-43b5-949a-eaa56a77378b
+    jinja: "Headline: {{headline}}\n\nWhich topic is the article about?\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_33
+    reference: jonghyeonkim
+  f234b574-d844-4e3c-b516-c5f59a25c893: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: f234b574-d844-4e3c-b516-c5f59a25c893
+    jinja: "Title: {{title}}\n\nWhat is the subject matter of the article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_34
+    reference: jonghyeonkim
+  a8898201-7861-4802-98ab-d5bcb8c6472c: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: a8898201-7861-4802-98ab-d5bcb8c6472c
+    jinja: "What is the following article about?\n\n{{title}}\n\n{{headline}}\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_35
+    reference: jonghyeonkim
+  e863f53d-8d28-4612-8c3d-f79fb35996cb: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: e863f53d-8d28-4612-8c3d-f79fb35996cb
+    jinja: "{{title}} - {{headline}}\n\nWhat is the topic of this article?\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_36
+    reference: jonghyeonkim
+  b7008dfa-5bb8-47bf-b0ab-8b2708a6b06b: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: b7008dfa-5bb8-47bf-b0ab-8b2708a6b06b
+    jinja: "Headline: {{headline}}\n\nWhich topic is covered in the article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_37
+    reference: jonghyeonkim
+  a485f43f-95e6-4f5a-a17f-1922614326a6: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: a485f43f-95e6-4f5a-a17f-1922614326a6
+    jinja: "Identify the subject of this article:\n\n{{title}}\n\n{{headline}}\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_38
+    reference: jonghyeonkim
+  16bc4c59-895d-4b3b-912e-f1c5817db328: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 16bc4c59-895d-4b3b-912e-f1c5817db328
+    jinja: "{{title}}\n{{headline}}\n\nWhat is the main topic of the article?\n\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_39
+    reference: jonghyeonkim
+  3ea95d2e-3d20-4ade-8251-3dc07b75bd69: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 3ea95d2e-3d20-4ade-8251-3dc07b75bd69
+    jinja: "{{headline}}\n\nWhat is the main focus of the article?\n\n{{title}}\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_40
+    reference: jonghyeonkim
+  1d6aa06c-60f4-4bbf-a6e1-88fc36a231c0: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 1d6aa06c-60f4-4bbf-a6e1-88fc36a231c0
+    jinja: "Which topic does this article discuss?\n\n{{title}}\n\n{{headline}}\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_41
+    reference: jonghyeonkim
+  1450f925-6da0-4fa8-bbaf-044441f695a0: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 1450f925-6da0-4fa8-bbaf-044441f695a0
+    jinja: "{{title}}\n{{headline}}\n\nWhat is the topic of this news article?\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_42
+    reference: jonghyeonkim
+  b964f49d-3e1c-4514-b20e-1cf0357f7634: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: b964f49d-3e1c-4514-b20e-1cf0357f7634
+    jinja: "{{title}}\n\nWhat is the main topic of this article?\n\n{{headline}}\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_43
+    reference: jonghyeonkim
+  751d3b1e-e002-4928-bbf5-8dcff459700e: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 751d3b1e-e002-4928-bbf5-8dcff459700e
+    jinja: "Headline: {{headline}}\n\nWhat is the main subject of the article?\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_44
+    reference: jonghyeonkim
+  ea8c5332-6458-4d7f-b3f5-475140ecffdd: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: ea8c5332-6458-4d7f-b3f5-475140ecffdd
+    jinja: "{{title}}\n\nWhat is the following article discussing?\n\n{{headline}}\n\
+      \ ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_45
+    reference: jonghyeonkim
+  16e994f1-18d0-480c-81a2-17cae6e5e39d: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 16e994f1-18d0-480c-81a2-17cae6e5e39d
+    jinja: "Title: {{title}} \nHeadline: {{headline}}\n\nWhat is this news about?\n\
+      \ ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_46
+    reference: jonghyeonkim
+  6dcdb1c4-e80d-4332-94b7-cba5fdb5339b: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 6dcdb1c4-e80d-4332-94b7-cba5fdb5339b
+    jinja: "Title: {{title}} \nHeadline: {{headline}}\n\nWhat is the article about?\n\
+      \ ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_47
+    reference: jonghyeonkim
+  30bed8a2-918b-4b27-a41e-f7383f4e1cf4: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 30bed8a2-918b-4b27-a41e-f7383f4e1cf4
+    jinja: "Title: {{title}} \nHeadline: {{headline}}\n\nChoose the correct topic:\n\
+      \n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_48
+    reference: jonghyeonkim
+  b5dea2e7-0295-469c-9165-e405b97c7945: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: b5dea2e7-0295-469c-9165-e405b97c7945
+    jinja: "What is the article about?\n\nTitle: {{title}}\nHeadline: {{headline}}\n\
+      \n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_49
+    reference: jonghyeonkim
+  c17e8dc3-5298-4587-920c-15c7ec733003: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: c17e8dc3-5298-4587-920c-15c7ec733003
+    jinja: "{{title}}\n\nCan you determine the topic of the article?\n\n{{headline}}\n\
+      \ ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_50
+    reference: jonghyeonkim
+  21a66e9f-3f9c-462d-ac51-f1ec0b490a1c: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 21a66e9f-3f9c-462d-ac51-f1ec0b490a1c
+    jinja: "Can you identify the topic of this article?\n\n{{title}}\n\n{{headline}}\n\
+      \ ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_51
+    reference: jonghyeonkim
+  fceee272-1a98-49f2-b1a0-4aef192665ae: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: fceee272-1a98-49f2-b1a0-4aef192665ae
+    jinja: "What is the article about?\n\nTitle: {{title}} \nHeadline: {{headline}}\n\
+      \n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_52
+    reference: jonghyeonkim
+  82b06ef6-c7a0-4d51-9b53-7e84af18260a: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 82b06ef6-c7a0-4d51-9b53-7e84af18260a
+    jinja: "Title: {{title}} \n\nWhich of the following topics is the article about?\n\
+      \n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_53
+    reference: jonghyeonkim
+  eec72000-f1a9-46cc-9048-0acc75f2dd97: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: eec72000-f1a9-46cc-9048-0acc75f2dd97
+    jinja: "Title: {{title}}\nHeadline: {{headline}}\n\nWhat is the article discussing?\n\
+      \ ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_54
+    reference: jonghyeonkim
+  4d4a1f35-2195-4d9d-9091-e6926049a355: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 4d4a1f35-2195-4d9d-9091-e6926049a355
+    jinja: "Title: {{title}}\n\nWhat is the topic of the following news?\n\n{{headline}}\n\
+      \ ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_55
+    reference: jonghyeonkim
+  56ef83c0-23d9-42ae-a102-1de3fd5680f9: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 56ef83c0-23d9-42ae-a102-1de3fd5680f9
+    jinja: "Title: {{title}} \nHeadline: {{headline}}\n\nWhat is this article discussing?\n\
+      \ ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_56
+    reference: jonghyeonkim
+  d1d955a9-bb50-475b-bb74-6a94dad16f13: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: d1d955a9-bb50-475b-bb74-6a94dad16f13
+    jinja: "What is this news article about?\n\nTitle: {{title}} \nHeadline: {{headline}}\n\
+      \n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_57
+    reference: jonghyeonkim
+  55a495a7-3b97-4ce5-84d0-a912b5826179: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 55a495a7-3b97-4ce5-84d0-a912b5826179
+    jinja: "{{headline}}\n\nWhat is the main subject of the following article?\n\n{{title}}\n\
+      \ ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_58
+    reference: jonghyeonkim
+  7a232b85-a720-4478-a490-a1ed87d24ceb: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 7a232b85-a720-4478-a490-a1ed87d24ceb
+    jinja: "What is the topic of this article?\n\nTitle: {{title}}\nHeadline: {{headline}}\n\
+      \n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_59
+    reference: jonghyeonkim
+  6eb3edcc-275a-4ee8-a831-e38e2543d6a9: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 6eb3edcc-275a-4ee8-a831-e38e2543d6a9
+    jinja: "{{title}}\n{{headline}}\n\nWhich of the following is the topic of the article?\n\
+      \n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_60
+    reference: jonghyeonkim
+  f5653a38-9405-4567-9cc7-9fb9711eca33: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: f5653a38-9405-4567-9cc7-9fb9711eca33
+    jinja: "{{title}}\nHeadline: {{headline}}\n\nWhat is the topic of the following\
+      \ article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_61
+    reference: jonghyeonkim
+  7aab89b7-196e-4960-8998-cb8a7d527b63: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 7aab89b7-196e-4960-8998-cb8a7d527b63
+    jinja: "{{title}}\n{{headline}}\n\nWhich of the following is the topic of this article?\n\
+      \n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_62
+    reference: jonghyeonkim
+  05c59e95-b3e9-444c-990a-e978af8f7ad6: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 05c59e95-b3e9-444c-990a-e978af8f7ad6
+    jinja: "What is the following article about?\n\nTitle: {{title}}\nHeadline: {{headline}}\n\
+      \n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_63
+    reference: jonghyeonkim
+  e041a3ae-5c46-4a70-a921-ac6ab7ca71fc: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: e041a3ae-5c46-4a70-a921-ac6ab7ca71fc
+    jinja: "What is the following article about?\n\nTitle: {{title}} \nHeadline: {{headline}}\n\
+      \n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_64
+    reference: jonghyeonkim
+  6b3edd4c-8c10-49f3-8912-fb2bed883f73: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 6b3edd4c-8c10-49f3-8912-fb2bed883f73
+    jinja: "Title: {{title}}\nHeadline: {{headline}}\n\nWhat is the main subject of\
+      \ the article?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_65
+    reference: jonghyeonkim
+  21b71137-9cff-4504-a155-0c8094625b1d: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 21b71137-9cff-4504-a155-0c8094625b1d
+    jinja: "Title: {{title}} \nHeadline: {{headline}}\n\nWhat is the main focus of this\
+      \ article?\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_66
+    reference: jonghyeonkim
+  f98d36b3-48e7-427f-9349-4e3a26c492b6: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: f98d36b3-48e7-427f-9349-4e3a26c492b6
+    jinja: "{{title}}\n\nCan you identify the most suitable topic for this article?\n\
+      \n{{headline}}\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_67
+    reference: jonghyeonkim
+  7462d377-1eec-41ec-a94c-cce839ebc275: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 7462d377-1eec-41ec-a94c-cce839ebc275
+    jinja: "What is the main subject of this article?\n\nTitle: {{title}} \nHeadline:\
+      \ {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_68
+    reference: jonghyeonkim
+  4bbc709f-eba0-4255-9bf5-3c3d3584bfd7: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 4bbc709f-eba0-4255-9bf5-3c3d3584bfd7
+    jinja: "Choose the correct topic for this article:\n\nTitle: {{title}}\nHeadline:\
+      \ {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_69
+    reference: jonghyeonkim
+  dc03ba98-3057-44ae-86ef-06e77b0e4cdc: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: dc03ba98-3057-44ae-86ef-06e77b0e4cdc
+    jinja: "What is the focus of the following article?\n\nTitle: {{title}} \nHeadline:\
+      \ {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_70
+    reference: jonghyeonkim
+  0cd74c51-a500-4d0d-9487-2e12119a7e37: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 0cd74c51-a500-4d0d-9487-2e12119a7e37
+    jinja: "Title: {{title}}\n\nWhich of the following best describes the article's\
+      \ topic?\n\n{{headline}}\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_71
+    reference: jonghyeonkim
+  837ea76e-2f07-4f5e-9ec5-7acc167d6b34: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 837ea76e-2f07-4f5e-9ec5-7acc167d6b34
+    jinja: "What is the main topic of the following article?\n\nTitle: {{title}}\nHeadline:\
+      \ {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_72
+    reference: jonghyeonkim
+  153a74b2-ef85-40b9-8137-862a2b969dd3: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 153a74b2-ef85-40b9-8137-862a2b969dd3
+    jinja: "What is the main subject of the following article?\n\nTitle: {{title}}\n\
+      Headline: {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_73
+    reference: jonghyeonkim
+  b5e4f7e9-7912-405f-9ec9-31a44e4416e2: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: b5e4f7e9-7912-405f-9ec9-31a44e4416e2
+    jinja: "Please identify the topic of the following article.\n\nTitle: {{title}}\n\
+      Headline: {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_74
+    reference: jonghyeonkim
+  2d62b346-22c6-43ef-b4b1-16392b7f89f9: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 2d62b346-22c6-43ef-b4b1-16392b7f89f9
+    jinja: "What is the subject matter of the following article?\n\nTitle: {{title}}\n\
+      Headline: {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_75
+    reference: jonghyeonkim
+  e8b48988-a96b-487f-a32e-365133a423dd: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: e8b48988-a96b-487f-a32e-365133a423dd
+    jinja: "What is the main topic of the following news article?\n\nTitle: {{title}}\n\
+      Headline: {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_76
+    reference: jonghyeonkim
+  63fe42d7-d912-4756-accc-b99d55504463: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 63fe42d7-d912-4756-accc-b99d55504463
+    jinja: "Headline: {{headline}}\n\nChoose the correct topic:\n\nA. commercialism\n\
+      B. microsoft\nC. Obama\nD. Palestine\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_77
+    reference: jonghyeonkim
+  0e4e29b3-f563-4875-8ac3-63fab01d37be: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 0e4e29b3-f563-4875-8ac3-63fab01d37be
+    jinja: "Can you determine the subject of the following article?\n\nTitle: {{title}}\n\
+      Headline: {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_78
+    reference: jonghyeonkim
+  3e198f88-18f7-4a26-b7cb-9a18ec85b41f: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 3e198f88-18f7-4a26-b7cb-9a18ec85b41f
+    jinja: "Title: {{title}} \nHeadline: {{headline}}\n\nWhich of the following topics\
+      \ does the article discuss?\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_79
+    reference: jonghyeonkim
+  ee21bd5d-ada1-4581-a8ce-3d34672d7613: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: ee21bd5d-ada1-4581-a8ce-3d34672d7613
+    jinja: "{{title}} - {{headline}}\n\nWhich of the following best describes the subject\
+      \ matter of the article?\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_80
+    reference: jonghyeonkim
+  3db0b2b2-4cd3-422a-9457-54053efaa924: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 3db0b2b2-4cd3-422a-9457-54053efaa924
+    jinja: "Can you determine the main topic of the following article?\n\nTitle: {{title}}\n\
+      Headline: {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_81
+    reference: jonghyeonkim
+  01b6762d-8bb0-4d3e-a2e9-962669887d80: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 01b6762d-8bb0-4d3e-a2e9-962669887d80
+    jinja: "What topic is discussed in the article with the following title and headline?\n\
+      \nTitle: {{title}}\nHeadline: {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_82
+    reference: jonghyeonkim
+  0dd4d755-e072-43a8-835a-56bb112612f5: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 0dd4d755-e072-43a8-835a-56bb112612f5
+    jinja: "{{title}}\n\nChoose the correct option: {{answer_choices[0]}}, {{answer_choices[1]}},\
+      \ {{answer_choices[2]}} or {{answer_choices[3]}}.\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_83
+    reference: jonghyeonkim
+  f1cc4567-5a16-4786-a58d-a99753bd507f: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: f1cc4567-5a16-4786-a58d-a99753bd507f
+    jinja: "Title: {{title}}\n\nIs this article about {{answer_choices[0]}}, {{answer_choices[1]}},\
+      \ {{answer_choices[2]}}, or {{answer_choices[3]}}?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_84
+    reference: jonghyeonkim
+  1a9a0c35-eec6-48be-a0eb-8ea20e7ded02: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 1a9a0c35-eec6-48be-a0eb-8ea20e7ded02
+    jinja: "Title: {{title}} \n\nIs this article about {{answer_choices[0]}}, {{answer_choices[1]}},\
+      \ {{answer_choices[2]}} or {{answer_choices[3]}}?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_85
+    reference: jonghyeonkim
+  2442d300-ab60-4d6d-82c6-31d18bc0306e: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 2442d300-ab60-4d6d-82c6-31d18bc0306e
+    jinja: "Headline: {{headline}}\n\nIs this article about {{answer_choices[0]}}, {{answer_choices[1]}},\
+      \ {{answer_choices[2]}} or {{answer_choices[3]}}?\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_86
+    reference: jonghyeonkim
+  adf3cd32-7b56-4425-8e22-1999f38eedc8: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: adf3cd32-7b56-4425-8e22-1999f38eedc8
+    jinja: "{{title}}\n{{headline}}\n\nSelect the correct option: {{answer_choices[0]}},\
+      \ {{answer_choices[1]}}, {{answer_choices[2]}} or {{answer_choices[3]}}.\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_87
+    reference: jonghyeonkim
+  2ec1031d-76ef-4448-bf84-0ad000942889: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 2ec1031d-76ef-4448-bf84-0ad000942889
+    jinja: "{{title}}\n{{headline}}\n\nIdentify the correct topic: {{answer_choices[0]}},\
+      \ {{answer_choices[1]}}, {{answer_choices[2]}} or {{answer_choices[3]}}.\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_88
+    reference: jonghyeonkim
+  f1c3f57b-6c57-46f0-b856-0b63787fbd20: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: f1c3f57b-6c57-46f0-b856-0b63787fbd20
+    jinja: "{{title}}\n{{headline}}\n\nChoose the appropriate option: {{answer_choices[0]}},\
+      \ {{answer_choices[1]}}, {{answer_choices[2]}} or {{answer_choices[3]}}.\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_89
+    reference: jonghyeonkim
+  b0588ca0-a825-4fcc-9b6c-d3e59e17aae7: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: b0588ca0-a825-4fcc-9b6c-d3e59e17aae7
+    jinja: "Title: {{title}}\n\nWhich topic is the following article about: {{answer_choices[0]}},\
+      \ {{answer_choices[1]}}, {{answer_choices[2]}}, or {{answer_choices[3]}}?\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_90
+    reference: jonghyeonkim
+  ebf4d3ac-46c2-4e26-a962-cf1a839769fe: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: ebf4d3ac-46c2-4e26-a962-cf1a839769fe
+    jinja: "Title: {{title}} \nHeadline: {{headline}}\n\nIs this article about {{answer_choices[0]}},\
+      \ {{answer_choices[1]}}, {{answer_choices[2]}} or {{answer_choices[3]}}?\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_91
+    reference: jonghyeonkim
+  c368b84f-0a94-43e5-b346-03089812058e: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: c368b84f-0a94-43e5-b346-03089812058e
+    jinja: "Title: {{title}}\n\nWhat is the main subject of the following article: {{answer_choices[0]}},\
+      \ {{answer_choices[1]}}, {{answer_choices[2]}}, or {{answer_choices[3]}}?\n |||\
+      \ {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_92
+    reference: jonghyeonkim
+  1c477808-3332-4f74-9971-2ad12e6f8c01: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 1c477808-3332-4f74-9971-2ad12e6f8c01
+    jinja: "{{title}}\n\n{{headline}}\n\nSelect the appropriate topic from the following:\n\
+      \n{{answer_choices[0]}}, {{answer_choices[1]}}, {{answer_choices[2]}}, {{answer_choices[3]}}\n\
+      \ ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_93
+    reference: jonghyeonkim
+  3d63ce02-9a70-4048-ab55-2aa4740916c6: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 3d63ce02-9a70-4048-ab55-2aa4740916c6
+    jinja: "The following article is about {{answer_choices[0]}}, {{answer_choices[1]}},\
+      \ {{answer_choices[2]}} or {{answer_choices[3]}}.\n\nTitle: {{title}}\nHeadline:\
+      \ {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_94
+    reference: jonghyeonkim
+  1245090a-0c0d-4f0e-87b2-25cc6ea417ee: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 1245090a-0c0d-4f0e-87b2-25cc6ea417ee
+    jinja: "Is the following article about {{answer_choices[0]}}, {{answer_choices[1]}},\
+      \ {{answer_choices[2]}} or {{answer_choices[3]}}?\n\nTitle: {{title}} \nHeadline:\
+      \ {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_95
+    reference: jonghyeonkim
+  d91cb83a-b78f-4104-8b9a-d8d8b16a517b: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: d91cb83a-b78f-4104-8b9a-d8d8b16a517b
+    jinja: "Title: {{title}}\n\nWhich of the following topics is the article discussing:\
+      \ {{answer_choices[0]}}, {{answer_choices[1]}}, {{answer_choices[2]}}, or {{answer_choices[3]}}?\n\
+      \ ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_96
+    reference: jonghyeonkim
+  ec95757b-2cf7-4d76-abac-5aa318259512: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: ec95757b-2cf7-4d76-abac-5aa318259512
+    jinja: "Is the following news article about {{answer_choices[0]}}, {{answer_choices[1]}},\
+      \ {{answer_choices[2]}}, or {{answer_choices[3]}}?\n\nTitle: {{title}} \nHeadline:\
+      \ {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_97
+    reference: jonghyeonkim
+  72347937-6275-4a52-867a-3c316b044fb1: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 72347937-6275-4a52-867a-3c316b044fb1
+    jinja: "The article with the title and headline below is about {{answer_choices[0]}},\
+      \ {{answer_choices[1]}}, {{answer_choices[2]}} or {{answer_choices[3]}}.\n\nTitle:\
+      \ {{title}} \nHeadline: {{headline}}\n\n ||| {{topic|capitalize}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_98
+    reference: jonghyeonkim
+  564adf24-d11e-4cca-bb28-77b66976ed0f: !Template
+    answer_choices: commercialism ||| microsoft ||| Obama ||| Palestine
+    id: 564adf24-d11e-4cca-bb28-77b66976ed0f
+    jinja: 'Title: {{title}}
+
+      Headline: {{headline}}
+
+
+      Which of the following best describes the topic of the article?
+
+
+      A) {{answer_choices[0]}}
+
+      B) {{answer_choices[1]}}
+
+      C) {{answer_choices[2]}}
+
+      D) {{answer_choices[3]}} ||| {{topic|capitalize}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_99
+    reference: jonghyeonkim

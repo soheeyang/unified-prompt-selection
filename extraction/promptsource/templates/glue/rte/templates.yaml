@@ -1,0 +1,3825 @@
+dataset: glue
+subset: rte
+templates:
+  03a7ae07-5ddd-46c4-92f3-2152223d44ec: !Template
+    answer_choices: yes ||| no
+    id: 03a7ae07-5ddd-46c4-92f3-2152223d44ec
+    jinja: '{{sentence1}}
+
+      Does this mean that "{{sentence2}}" is true? {{"A) yes or B) no."}}
+
+      |||
+
+      {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: mean
+    reference: ''
+  4ee6ff27-de63-4e7b-a9d4-82a17eba407a: !Template
+    answer_choices: yes ||| no
+    id: 4ee6ff27-de63-4e7b-a9d4-82a17eba407a
+    jinja: 'Does the claim "{{sentence2}}" follow from the fact that "{{sentence1}}"?
+      Please answer either {{"yes"}} or {{"no"}}.
+
+      |||
+
+      {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: does the claim follow the fact
+    reference: ''
+  9e2b4267-ec23-44c8-b82a-107e2c890fec: !Template
+    answer_choices: entailment ||| not entailment
+    id: 9e2b4267-ec23-44c8-b82a-107e2c890fec
+    jinja: 'We say that one sentence "{{"entails"}}" another sentence when the first
+      sentence implies the second sentence. Consider the following two sentences:
+
+      {{sentence1}}
+
+      {{sentence2}}
+
+      Is the relationship from the first to the second sentence "{{"entailment"}}"
+      or "{{"not entailment"}}"?
+
+      |||
+
+      {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: entailment explained
+    reference: ''
+  c8dfc879-40f2-412d-be1e-4cd70107f6e6: !Template
+    answer_choices: yes ||| no
+    id: c8dfc879-40f2-412d-be1e-4cd70107f6e6
+    jinja: 'Does "{{sentence1}}" imply that "{{sentence2}}"? Please answer either
+      {{"yes"}} or {{"no"}}.
+
+      |||
+
+      {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: imply
+    reference: ''
+  f56ffced-9b16-431a-8a17-501e63cddf73: !Template
+    answer_choices: yes ||| no
+    id: f56ffced-9b16-431a-8a17-501e63cddf73
+    jinja: '{{sentence1}}
+
+      Does this imply
+
+      {{sentence2}}
+
+      Please answer {{"A) yes or B) no."}}
+
+      |||
+
+      {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: imply separated
+    reference: ''
+  f872e3ac-2416-47c7-98da-0ae71db8313a: !Template
+    answer_choices: Yes ||| No
+    id: f872e3ac-2416-47c7-98da-0ae71db8313a
+    jinja: '{{sentence1}}
+
+      Question: {{sentence2}} Yes or No?
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: fewshot
+    reference: jonghyeonkim
+  ff8eb0c7-a0a4-4d7a-b773-9a716e96c415: !Template
+    answer_choices: Yes ||| No
+    id: ff8eb0c7-a0a4-4d7a-b773-9a716e96c415
+    jinja: '{{sentence1}}
+
+      Does this imply
+
+      {{sentence2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_00
+    reference: jonghyeonkim
+  55ba8e3b-ef56-428f-8cfd-f1ca20d53b82: !Template
+    answer_choices: yes ||| no
+    id: 55ba8e3b-ef56-428f-8cfd-f1ca20d53b82
+    jinja: Given "{{sentence1}}", is "{{sentence2}}" true? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_01
+    reference: jonghyeonkim
+  0fa86c5e-8fe1-4e80-970a-d0399a7b6f68: !Template
+    answer_choices: yes ||| no
+    id: 0fa86c5e-8fe1-4e80-970a-d0399a7b6f68
+    jinja: Does "{{sentence1}}" imply that "{{sentence2}}"? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_02
+    reference: jonghyeonkim
+  a6ca4221-abc8-4b2b-a8f0-9b4daae3343d: !Template
+    answer_choices: yes ||| no
+    id: a6ca4221-abc8-4b2b-a8f0-9b4daae3343d
+    jinja: '{{sentence1}}
+
+      Does this mean that "{{sentence2}}"? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_03
+    reference: jonghyeonkim
+  56e9601b-7e9d-4810-a8e4-046b73c5179a: !Template
+    answer_choices: yes ||| no
+    id: 56e9601b-7e9d-4810-a8e4-046b73c5179a
+    jinja: '''{{sentence1}}''
+
+      Does this imply that ''{{sentence2}}''? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_04
+    reference: jonghyeonkim
+  23cc3bc3-8e98-4539-93a5-dd6c34d181d2: !Template
+    answer_choices: no ||| yes
+    id: 23cc3bc3-8e98-4539-93a5-dd6c34d181d2
+    jinja: '''{{sentence1}}''
+
+      Does this contradict ''{{sentence2}}''? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_05
+    reference: jonghyeonkim
+  3b95f159-a37e-41cb-a6c6-5fca6b518fe2: !Template
+    answer_choices: yes ||| no
+    id: 3b95f159-a37e-41cb-a6c6-5fca6b518fe2
+    jinja: '''{{sentence1}}''
+
+      Does this mean that ''{{sentence2}}'' is true? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_06
+    reference: jonghyeonkim
+  359382ce-349d-4873-8c15-d9e785c1c7e6: !Template
+    answer_choices: no ||| yes
+    id: 359382ce-349d-4873-8c15-d9e785c1c7e6
+    jinja: Does {{sentence1}} entail that {{sentence2}} is false? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_07
+    reference: jonghyeonkim
+  6f01b00c-c160-4b4c-9a73-d74e67dac6e9: !Template
+    answer_choices: yes ||| no
+    id: 6f01b00c-c160-4b4c-9a73-d74e67dac6e9
+    jinja: If "{{sentence1}}", does it follow that "{{sentence2}}"? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_08
+    reference: jonghyeonkim
+  d80d9878-fe07-472b-acd0-b696c6be49be: !Template
+    answer_choices: yes ||| no
+    id: d80d9878-fe07-472b-acd0-b696c6be49be
+    jinja: Can we conclude that {{sentence1}} entails {{sentence2}}? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_09
+    reference: jonghyeonkim
+  aa548567-4ff1-49a5-8f4a-692781e8505b: !Template
+    answer_choices: no ||| yes
+    id: aa548567-4ff1-49a5-8f4a-692781e8505b
+    jinja: '{{sentence1}}
+
+      Does this mean that "{{sentence2}}" is false? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_10
+    reference: jonghyeonkim
+  8af62913-08c3-4819-b4f8-8c3ca0e1dd34: !Template
+    answer_choices: no ||| yes
+    id: 8af62913-08c3-4819-b4f8-8c3ca0e1dd34
+    jinja: Can we deduce from {{sentence1}} that {{sentence2}} is false? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_11
+    reference: jonghyeonkim
+  1c25c98a-55f6-4626-a67c-3006905f2afc: !Template
+    answer_choices: yes ||| no
+    id: 1c25c98a-55f6-4626-a67c-3006905f2afc
+    jinja: Do "{{sentence1}}" and "{{sentence2}}" have the same meaning? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_12
+    reference: jonghyeonkim
+  1897d4d7-4b89-4ceb-bde2-a4f08323bb8a: !Template
+    answer_choices: yes ||| no
+    id: 1897d4d7-4b89-4ceb-bde2-a4f08323bb8a
+    jinja: Based on {{sentence1}}, can we infer that {{sentence2}} is true? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_13
+    reference: jonghyeonkim
+  bc04f354-a383-4e54-bbed-18fabd3028d7: !Template
+    answer_choices: yes ||| no
+    id: bc04f354-a383-4e54-bbed-18fabd3028d7
+    jinja: Are the statements "{{sentence1}}" and "{{sentence2}}" equivalent? ||| {{
+      answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_14
+    reference: jonghyeonkim
+  25309130-46a3-402f-9633-405f642b822c: !Template
+    answer_choices: Yes ||| No
+    id: 25309130-46a3-402f-9633-405f642b822c
+    jinja: "{{\"Yes\"}} or {{\"No\"}}: \"{{sentence1}}\" implies \"{{sentence2}}\"\
+      .\n ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_15
+    reference: jonghyeonkim
+  7623b4d8-30ba-454d-8c3f-e64e15dfa9be: !Template
+    answer_choices: yes ||| no
+    id: 7623b4d8-30ba-454d-8c3f-e64e15dfa9be
+    jinja: Do you think that "{{sentence1}}" logically entails "{{sentence2}}"? |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_16
+    reference: jonghyeonkim
+  b2caaf99-b9f7-4aa7-82e8-265ac29ccd71: !Template
+    answer_choices: yes ||| no
+    id: b2caaf99-b9f7-4aa7-82e8-265ac29ccd71
+    jinja: Can we conclude that {{sentence1}} and {{sentence2}} are equivalent? |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_17
+    reference: jonghyeonkim
+  2a6ba874-e627-4605-9c6a-fb7ab0931526: !Template
+    answer_choices: yes ||| no
+    id: 2a6ba874-e627-4605-9c6a-fb7ab0931526
+    jinja: Does the sentence "{{sentence1}}" imply the sentence "{{sentence2}}"? |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_18
+    reference: jonghyeonkim
+  2282a7a6-931a-4872-8106-729fcc70b0c9: !Template
+    answer_choices: no ||| yes
+    id: 2282a7a6-931a-4872-8106-729fcc70b0c9
+    jinja: Is it possible that {{sentence1}} is true and {{sentence2}} is false? |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_19
+    reference: jonghyeonkim
+  727d4b8c-00c0-4b84-b4a0-f29ed620e72f: !Template
+    answer_choices: yes ||| no
+    id: 727d4b8c-00c0-4b84-b4a0-f29ed620e72f
+    jinja: '{{sentence1}} is true. Is it possible that {{sentence2}} is also true? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_20
+    reference: jonghyeonkim
+  eb6b5774-3562-4655-b9af-c94048762d38: !Template
+    answer_choices: yes ||| no
+    id: eb6b5774-3562-4655-b9af-c94048762d38
+    jinja: '{{sentence1}}
+
+      Does this necessarily imply that "{{sentence2}}" is true? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_21
+    reference: jonghyeonkim
+  41ace411-742f-473e-ac30-d1fa4ead238d: !Template
+    answer_choices: yes ||| no
+    id: 41ace411-742f-473e-ac30-d1fa4ead238d
+    jinja: '{{sentence1}}
+
+      Is the following statement true?
+
+      ''{{sentence2}}'' ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_22
+    reference: jonghyeonkim
+  87bb6906-5a8d-49e0-90b6-58f3ce292164: !Template
+    answer_choices: yes ||| no
+    id: 87bb6906-5a8d-49e0-90b6-58f3ce292164
+    jinja: '{{sentence1}} is true. Can we conclude that {{sentence2}} is also true?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_23
+    reference: jonghyeonkim
+  8a2e461c-17f5-43dc-ae18-5c72438333d9: !Template
+    answer_choices: yes ||| no
+    id: 8a2e461c-17f5-43dc-ae18-5c72438333d9
+    jinja: '{{sentence1}}
+
+      Does this necessarily entail that "{{sentence2}}" is true? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_24
+    reference: jonghyeonkim
+  66fc7b7e-f14f-4e26-8f97-7071719ab459: !Template
+    answer_choices: yes ||| no
+    id: 66fc7b7e-f14f-4e26-8f97-7071719ab459
+    jinja: Does the claim "{{sentence2}}" follow from the fact that "{{sentence1}}"?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_25
+    reference: jonghyeonkim
+  e234f68b-ff11-45e5-a396-86ed1a213b5e: !Template
+    answer_choices: yes ||| no
+    id: e234f68b-ff11-45e5-a396-86ed1a213b5e
+    jinja: If {{sentence1}} is true, is it possible that {{sentence2}} is also true?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_26
+    reference: jonghyeonkim
+  51fe9c13-e726-4f5b-82bb-1798075841dc: !Template
+    answer_choices: yes ||| no
+    id: 51fe9c13-e726-4f5b-82bb-1798075841dc
+    jinja: 'Are the two sentences saying the same thing?
+
+
+      {{sentence1}}
+
+      {{sentence2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_27
+    reference: jonghyeonkim
+  8205a8cd-aee4-404e-b0a6-9f0aa2b3255c: !Template
+    answer_choices: yes ||| no
+    id: 8205a8cd-aee4-404e-b0a6-9f0aa2b3255c
+    jinja: If {{sentence1}} is true, can we conclude that {{sentence2}} is also true?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_28
+    reference: jonghyeonkim
+  53c4d7be-9bd5-4af5-a343-a7bcfbe07270: !Template
+    answer_choices: yes ||| no
+    id: 53c4d7be-9bd5-4af5-a343-a7bcfbe07270
+    jinja: If {{sentence1}} is false, can we conclude that {{sentence2}} is also false?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_29
+    reference: jonghyeonkim
+  ff91d4f0-1a34-47a1-bcf1-1c389b389a99: !Template
+    answer_choices: yes ||| no
+    id: ff91d4f0-1a34-47a1-bcf1-1c389b389a99
+    jinja: 'Consider the sentence: {{sentence1}}. Is it correct to say that {{sentence2}}?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_30
+    reference: jonghyeonkim
+  ea8a9beb-3337-4d4f-aab1-9b897aa74998: !Template
+    answer_choices: yes ||| no
+    id: ea8a9beb-3337-4d4f-aab1-9b897aa74998
+    jinja: '{{sentence1}} is not true. Is it possible that {{sentence2}} is also not
+      true? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_31
+    reference: jonghyeonkim
+  af9deb01-d81f-4f3d-bdb3-59e0158258f6: !Template
+    answer_choices: no ||| yes
+    id: af9deb01-d81f-4f3d-bdb3-59e0158258f6
+    jinja: Is it possible for "{{sentence1}}" to be true and "{{sentence2}}" to be false?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_32
+    reference: jonghyeonkim
+  be5b0db3-a9d9-44f1-8025-7cc7494aeae1: !Template
+    answer_choices: A) yes ||| B) no
+    id: be5b0db3-a9d9-44f1-8025-7cc7494aeae1
+    jinja: '{{sentence1}}
+
+      Does this imply
+
+      {{sentence2}}
+
+      Please answer {{"A) yes or B) no."}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_33
+    reference: jonghyeonkim
+  e152508f-918d-4d69-ba30-a313b25d1f88: !Template
+    answer_choices: A) yes ||| B) no
+    id: e152508f-918d-4d69-ba30-a313b25d1f88
+    jinja: '{{sentence1}}
+
+      Does this mean that "{{sentence2}}" is true? {{"A) yes or B) no."}} ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_34
+    reference: jonghyeonkim
+  f425292e-2fe6-44a2-98df-a3d998277d3e: !Template
+    answer_choices: yes ||| no
+    id: f425292e-2fe6-44a2-98df-a3d998277d3e
+    jinja: Given that {{sentence1}} is false, can we infer that {{sentence2}} is also
+      false? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_35
+    reference: jonghyeonkim
+  476905e2-8f90-4eb5-ba01-8e280dda9053: !Template
+    answer_choices: yes ||| no
+    id: 476905e2-8f90-4eb5-ba01-8e280dda9053
+    jinja: '{{sentence1}} is true. Does this necessarily mean that {{sentence2}} is
+      also true? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_36
+    reference: jonghyeonkim
+  cd70d5df-fc3d-465e-9c62-89a0bb63265d: !Template
+    answer_choices: yes ||| no
+    id: cd70d5df-fc3d-465e-9c62-89a0bb63265d
+    jinja: '{{sentence1}} is false. Does this necessarily mean that {{sentence2}} is
+      also false? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_37
+    reference: jonghyeonkim
+  9ba3080e-4aea-4e58-9524-005d0e8e51d6: !Template
+    answer_choices: yes ||| no
+    id: 9ba3080e-4aea-4e58-9524-005d0e8e51d6
+    jinja: '{{sentence1}} and {{sentence2}} are related. Does this mean that they are
+      equivalent? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_38
+    reference: jonghyeonkim
+  1102cf09-e927-40e4-ac80-e79382f44cc6: !Template
+    answer_choices: yes ||| no
+    id: 1102cf09-e927-40e4-ac80-e79382f44cc6
+    jinja: Please determine if the sentence "{{sentence1}}" entails the sentence "{{sentence2}}".
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_39
+    reference: jonghyeonkim
+  d698bc26-c6af-4f1b-bd59-3575ddc391c1: !Template
+    answer_choices: yes ||| no
+    id: d698bc26-c6af-4f1b-bd59-3575ddc391c1
+    jinja: Suppose that "{{sentence1}}". Does this necessarily mean that "{{sentence2}}"
+      is true? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_40
+    reference: jonghyeonkim
+  d1a327d8-af09-433a-b4b1-ef3e11ce3d25: !Template
+    answer_choices: yes ||| no
+    id: d1a327d8-af09-433a-b4b1-ef3e11ce3d25
+    jinja: Given "{{sentence1}}" and "{{sentence2}}", does "{{sentence1}}" entail "{{sentence2}}"?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_41
+    reference: jonghyeonkim
+  46987aee-70ab-4046-81a7-2a0df463d00e: !Template
+    answer_choices: yes ||| no
+    id: 46987aee-70ab-4046-81a7-2a0df463d00e
+    jinja: If "{{sentence1}}" is true, does this necessarily mean that "{{sentence2}}"
+      is also true? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_42
+    reference: jonghyeonkim
+  80683b51-903c-4710-bf2f-86b495ffe3c2: !Template
+    answer_choices: yes ||| no
+    id: 80683b51-903c-4710-bf2f-86b495ffe3c2
+    jinja: '{{sentence1}}
+
+      Do the contents of the statement "{{sentence2}}" necessarily follow from it? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_43
+    reference: jonghyeonkim
+  61c2f12a-ab57-4235-a675-ce4c0587c58e: !Template
+    answer_choices: yes ||| no
+    id: 61c2f12a-ab57-4235-a675-ce4c0587c58e
+    jinja: Does "{{sentence1}}" imply that "{{sentence2}}"? Please answer either {{"yes"}}
+      or {{"no"}}. ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_44
+    reference: jonghyeonkim
+  0db1c77f-8bcc-4a3c-9821-7250a472109d: !Template
+    answer_choices: yes ||| no
+    id: 0db1c77f-8bcc-4a3c-9821-7250a472109d
+    jinja: '{{sentence1}} is not true. Does this necessarily mean that {{sentence2}}
+      is not true either? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_45
+    reference: jonghyeonkim
+  ff9a440b-e0df-422b-a4a4-b8ff9ad4eabd: !Template
+    answer_choices: yes ||| no
+    id: ff9a440b-e0df-422b-a4a4-b8ff9ad4eabd
+    jinja: '{{sentence1}} and {{sentence2}} are not related. Does this mean that they
+      are not both true? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_46
+    reference: jonghyeonkim
+  5fd3ccd0-39d8-4935-ba8c-af39010a824e: !Template
+    answer_choices: yes ||| no
+    id: 5fd3ccd0-39d8-4935-ba8c-af39010a824e
+    jinja: '{{sentence1}} implies {{sentence2}}. Does this mean that {{sentence2}} implies
+      {{sentence1}}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_47
+    reference: jonghyeonkim
+  175d40c3-8c50-418c-8c54-f1db57ee819d: !Template
+    answer_choices: yes ||| no
+    id: 175d40c3-8c50-418c-8c54-f1db57ee819d
+    jinja: Given the statement "{{sentence1}}", does it necessarily follow that "{{sentence2}}"
+      is true? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_48
+    reference: jonghyeonkim
+  63028739-7a71-4551-a166-a1785d3ee94c: !Template
+    answer_choices: yes ||| no
+    id: 63028739-7a71-4551-a166-a1785d3ee94c
+    jinja: '{{sentence1}} and {{sentence2}} are not related. is this true? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_49
+    reference: jonghyeonkim
+  b8cc4b8b-4f29-4ac3-b7d6-5dc57498d8fa: !Template
+    answer_choices: yes ||| no
+    id: b8cc4b8b-4f29-4ac3-b7d6-5dc57498d8fa
+    jinja: 'Consider the sentences:
+
+      {{sentence1}}
+
+      {{sentence2}}
+
+      Does "{{sentence1}}" imply "{{sentence2}}"? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_50
+    reference: jonghyeonkim
+  4e53e0f6-864b-431c-8fe1-b8784eb6d503: !Template
+    answer_choices: yes ||| no
+    id: 4e53e0f6-864b-431c-8fe1-b8784eb6d503
+    jinja: '{{sentence1}} and {{sentence2}}
+    
+      Does this mean that they have the same meaning? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_51
+    reference: jonghyeonkim
+  5734064c-f6b9-4782-8da2-a7de81d2f01e: !Template
+    answer_choices: yes ||| no
+    id: 5734064c-f6b9-4782-8da2-a7de81d2f01e
+    jinja: Can we conclude that {{sentence1}} is not true based on the fact that {{sentence2}}
+      is not true? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_52
+    reference: jonghyeonkim
+  a9b89b71-30d5-49a9-8dce-02bb0c9dd569: !Template
+    answer_choices: A) yes ||| B) no
+    id: a9b89b71-30d5-49a9-8dce-02bb0c9dd569
+    jinja: '{{sentence1}}
+
+      Do you think that "{{sentence2}}" logically follows from it? {{"A) yes or B) no."}}
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_53
+    reference: jonghyeonkim
+  e123584d-c558-4ce6-84c2-0ada19cd78bf: !Template
+    answer_choices: yes ||| no
+    id: e123584d-c558-4ce6-84c2-0ada19cd78bf
+    jinja: 'Regarding the sentences:
+
+      {{sentence1}}
+
+      {{sentence2}}
+
+      Does "{{sentence1}}" entail "{{sentence2}}"? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_54
+    reference: jonghyeonkim
+  a98b8559-cd7d-4d9e-ac86-730c7317fe22: !Template
+    answer_choices: yes ||| no
+    id: a98b8559-cd7d-4d9e-ac86-730c7317fe22
+    jinja: Can "{{sentence2}}" be inferred from "{{sentence1}}"? Please answer either
+      {{"yes"}} or {{"no"}}. ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_55
+    reference: jonghyeonkim
+  db8a000c-ee6a-416b-a6f8-5b604b5fd3e4: !Template
+    answer_choices: A) Yes ||| B) No
+    id: db8a000c-ee6a-416b-a6f8-5b604b5fd3e4
+    jinja: Given "{{sentence1}}", is "{{sentence2}}" true? Please choose either {{"A)
+      Yes"}} or {{"B) No"}}. ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_56
+    reference: jonghyeonkim
+  dec4cb01-8ee5-4720-bd3c-9dab6f8c40e9: !Template
+    answer_choices: yes ||| no
+    id: dec4cb01-8ee5-4720-bd3c-9dab6f8c40e9
+    jinja: '{{sentence1}}
+
+      Does the information in "{{sentence2}}" necessarily follow from the given statement?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_57
+    reference: jonghyeonkim
+  5f3cc793-51f0-4ddc-8f84-4f2746d5e1cf: !Template
+    answer_choices: yes ||| no
+    id: 5f3cc793-51f0-4ddc-8f84-4f2746d5e1cf
+    jinja: '{{sentence1}}
+
+      {{sentence2}}
+
+      Is it correct to say that the first sentence entails the second sentence? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_58
+    reference: jonghyeonkim
+  3bc92b3b-5802-4fa6-bd97-5b2ebfcb1832: !Template
+    answer_choices: A) Yes ||| B) No
+    id: 3bc92b3b-5802-4fa6-bd97-5b2ebfcb1832
+    jinja: '{{sentence1}}
+
+      Does this mean that "{{sentence2}}"?
+
+      Please choose either {{"A) Yes" }} or {{"B) No" }}. ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_59
+    reference: jonghyeonkim
+  6d3dfddd-c96d-4614-b3d6-d762669bf017: !Template
+    answer_choices: yes ||| no
+    id: 6d3dfddd-c96d-4614-b3d6-d762669bf017
+    jinja: 'Determine whether the following statement is {{"true"}} or {{"false"}}:
+      "{{sentence1}}".
+
+      {{sentence2}}
+      
+      Answer yes if true, or no if not. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_60
+    reference: jonghyeonkim
+  f050a2f8-2cf7-418b-90cf-d8a8050a57b5: !Template
+    answer_choices: yes ||| no
+    id: f050a2f8-2cf7-418b-90cf-d8a8050a57b5
+    jinja: '{{sentence1}}
+
+      Does this imply that "{{sentence2}}" is true? Please answer either {{"yes"}} or
+      {{"no"}}. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_61
+    reference: jonghyeonkim
+  b130b135-37b7-48ed-aa02-2f5889e44ff5: !Template
+    answer_choices: yes ||| no
+    id: b130b135-37b7-48ed-aa02-2f5889e44ff5
+    jinja: '{{sentence1}} implies {{sentence2}}. Does this mean that {{sentence1}} and
+      {{sentence2}} are equivalent? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_62
+    reference: jonghyeonkim
+  07c2da20-91b4-4bd9-84a7-107770cf379c: !Template
+    answer_choices: yes ||| no
+    id: 07c2da20-91b4-4bd9-84a7-107770cf379c
+    jinja: '{{sentence1}}
+
+      Does this suggest that "{{sentence2}}" is true? Please answer either {{"yes"}}
+      or {{"no"}}. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_63
+    reference: jonghyeonkim
+  ad715c03-d7b8-49be-97e0-cbaac3c21882: !Template
+    answer_choices: yes ||| no
+    id: ad715c03-d7b8-49be-97e0-cbaac3c21882
+    jinja: '{{sentence1}} does not imply {{sentence2}}. Does this mean that {{sentence2}}
+      does not imply {{sentence1}}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_64
+    reference: jonghyeonkim
+  1e95da6d-63ad-4214-bcd6-ce7a213e87a9: !Template
+    answer_choices: A) Yes ||| B) No
+    id: 1e95da6d-63ad-4214-bcd6-ce7a213e87a9
+    jinja: 'If "{{sentence1}}", does it follow that "{{sentence2}}"?
+
+      Please answer either {{"A) Yes" }} or {{"B) No" }}. ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_65
+    reference: jonghyeonkim
+  3f0768b8-26fe-47a9-886d-1ebb2bca71b4: !Template
+    answer_choices: A) Yes ||| B) No
+    id: 3f0768b8-26fe-47a9-886d-1ebb2bca71b4
+    jinja: Do you think that "{{sentence1}}" logically entails "{{sentence2}}"? Please
+      choose from {{"A) yes or B) no."}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_66
+    reference: jonghyeonkim
+  e4ad86ef-ba8b-44b9-852f-50d3755b6645: !Template
+    answer_choices: yes ||| no
+    id: e4ad86ef-ba8b-44b9-852f-50d3755b6645
+    jinja: Is it correct to say that "{{sentence1}}" implies "{{sentence2}}"? Please
+      answer either {{"yes"}} or {{"no"}}. ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_67
+    reference: jonghyeonkim
+  1c26db27-d992-46b4-b117-449915aaa555: !Template
+    answer_choices: yes ||| no
+    id: 1c26db27-d992-46b4-b117-449915aaa555
+    jinja: '{{sentence1}}
+
+      Can we infer from this that "{{sentence2}}" is true? Please answer either {{"yes"}}
+      or {{"no"}}. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_68
+    reference: jonghyeonkim
+  fcf7a9c3-a5a2-4793-8f0c-10cc7e39530d: !Template
+    answer_choices: Yes ||| No
+    id: fcf7a9c3-a5a2-4793-8f0c-10cc7e39530d
+    jinja: 'Which of the following best describes the relationship between the two sentences?
+
+      {{sentence1}}
+
+      {{sentence2}}
+      
+      - Entailment: Yes
+      - Contradiction: No ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_69
+    reference: jonghyeonkim
+  6288c207-8f29-4050-8c40-5861f0e9a88c: !Template
+    answer_choices: yes ||| no
+    id: 6288c207-8f29-4050-8c40-5861f0e9a88c
+    jinja: Do the sentences "{{sentence1}}" and "{{sentence2}}" have the relationship
+      of "entailment" or "not entailment"?  Answer no if not entailment, or yes if not. ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_70
+    reference: jonghyeonkim
+  5702277d-12dc-47bc-9629-2c1c4b6d414c: !Template
+    answer_choices: yes ||| no
+    id: 5702277d-12dc-47bc-9629-2c1c4b6d414c
+    jinja: Does the sentence "{{sentence1}}" necessarily mean "{{sentence2}}"? Please
+      answer either {{"yes"}} or {{"no"}}. ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_71
+    reference: jonghyeonkim
+  686cab35-a5ec-4b48-94ea-6aca8d857df8: !Template
+    answer_choices: yes ||| no
+    id: 686cab35-a5ec-4b48-94ea-6aca8d857df8
+    jinja: '{{sentence1}} is true. Does this mean that {{sentence2}} is a necessary
+      condition for {{sentence1}} to be true? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_72
+    reference: jonghyeonkim
+  1356811e-149e-4473-bd28-9cd5196b10a2: !Template
+    answer_choices: A) Yes ||| B) No
+    id: 1356811e-149e-4473-bd28-9cd5196b10a2
+    jinja: Do "{{sentence1}}" and "{{sentence2}}" have the same meaning? Please choose
+      either {{"A) Yes"}} or {{"B) No"}}. ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_73
+    reference: jonghyeonkim
+  b1271f93-0b5e-47d4-b155-766dec14bf9b: !Template
+    answer_choices: yes ||| no
+    id: b1271f93-0b5e-47d4-b155-766dec14bf9b
+    jinja: 'Based on the information in the two sentences, can we conclude that {{sentence2}}?
+
+
+      {{sentence1}}
+
+      {{sentence2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_74
+    reference: jonghyeonkim
+  b80b92f8-40ab-4d28-910c-d9c2563167c4: !Template
+    answer_choices: A) yes ||| B) no
+    id: b80b92f8-40ab-4d28-910c-d9c2563167c4
+    jinja: '{{sentence1}}
+
+      Do the contents of the statement "{{sentence2}}" necessarily follow from it? {{"A)
+      yes or B) no."}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_75
+    reference: jonghyeonkim
+  6915ecd5-f8de-4f3b-a0b8-a03c58e48805: !Template
+    answer_choices: yes ||| no
+    id: 6915ecd5-f8de-4f3b-a0b8-a03c58e48805
+    jinja: '{{sentence1}} and {{sentence2}} are related. Is {{sentence1}} a necessary
+      condition for {{sentence2}} to be true? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_76
+    reference: jonghyeonkim
+  867c312d-f873-4709-bf06-3fdc8255f153: !Template
+    answer_choices: A) yes ||| B) no
+    id: 867c312d-f873-4709-bf06-3fdc8255f153
+    jinja: '{{sentence1}}
+
+      Does this necessarily imply that "{{sentence2}}" is true? Please choose from {{"A)
+      yes or B) no."}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_77
+    reference: jonghyeonkim
+  b89cb785-3ca8-4866-b704-bf287efc7ecb: !Template
+    answer_choices: A) yes ||| B) no
+    id: b89cb785-3ca8-4866-b704-bf287efc7ecb
+    jinja: '{{sentence1}}
+
+      Does this necessarily entail that "{{sentence2}}" is true? Please choose from
+      {{"A) yes or B) no."}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_78
+    reference: jonghyeonkim
+  6d5b1d18-77f2-48ec-96ca-2c393e141b33: !Template
+    answer_choices: Yes ||| No
+    id: 6d5b1d18-77f2-48ec-96ca-2c393e141b33
+    jinja: 'Can the truth of the first sentence be used to infer the truth of the second
+      sentence?
+
+
+      {{sentence1}}
+
+      {{sentence2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_79
+    reference: jonghyeonkim
+  46b19635-f353-4612-a69a-7de354ca93b5: !Template
+    answer_choices: A) Yes ||| B) No
+    id: 46b19635-f353-4612-a69a-7de354ca93b5
+    jinja: Are the statements "{{sentence1}}" and "{{sentence2}}" equivalent? Please
+      choose either {{"A) Yes"}} or {{"B) No"}}. ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_80
+    reference: jonghyeonkim
+  993a8d4f-face-4d9b-92a3-dec7d20c3b54: !Template
+    answer_choices: yes ||| no
+    id: 993a8d4f-face-4d9b-92a3-dec7d20c3b54
+    jinja: 'Does the claim "{{sentence2}}" follow from the fact that "{{sentence1}}"?
+
+      Please answer either {{"yes"}} or {{"no"}}. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_81
+    reference: jonghyeonkim
+  e4f83b53-da3a-4e7d-81af-10368abeb933: !Template
+    answer_choices: A) yes ||| B) no
+    id: e4f83b53-da3a-4e7d-81af-10368abeb933
+    jinja: '{{sentence1}}
+
+      Does the information in "{{sentence2}}" necessarily follow from the given statement?
+      {{"A) yes or B) no."}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_82
+    reference: jonghyeonkim
+  5b582ab3-5b0e-409c-8da3-0762e7f8d03e: !Template
+    answer_choices: A) Yes ||| B) No
+    id: 5b582ab3-5b0e-409c-8da3-0762e7f8d03e
+    jinja: 'Does the sentence "{{sentence1}}" imply the sentence "{{sentence2}}"?
+
+      Please answer either {{"A) Yes" }} or {{"B) No" }}. ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_83
+    reference: jonghyeonkim
+  60c4b7db-d1cc-4518-bf75-d3521e06b246: !Template
+    answer_choices: yes ||| no
+    id: 60c4b7db-d1cc-4518-bf75-d3521e06b246
+    jinja: If "{{sentence1}}" is true, does that mean "{{sentence2}}" must also be true?
+      Please answer either {{"yes"}} or {{"no"}}. ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_84
+    reference: jonghyeonkim
+  9cb1ffa3-168e-4d75-8411-8350792f7ed8: !Template
+    answer_choices: yes ||| no
+    id: 9cb1ffa3-168e-4d75-8411-8350792f7ed8
+    jinja: 'Which of the following statements best describes the relationship between
+      the two sentences?
+
+
+      {{sentence1}}
+
+      {{sentence2}}
+      
+      is entailment? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_85
+    reference: jonghyeonkim
+  b60879c4-664f-418a-8b1d-05ad68f07850: !Template
+    answer_choices: yes ||| no
+    id: b60879c4-664f-418a-8b1d-05ad68f07850
+    jinja: '{{sentence1}} implies {{sentence2}}. Does this mean that {{sentence2}} is
+      a sufficient condition for {{sentence1}} to be true? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_86
+    reference: jonghyeonkim
+  5beec675-4691-4cef-b767-47aaf8b8c683: !Template
+    answer_choices: yes ||| no
+    id: 5beec675-4691-4cef-b767-47aaf8b8c683
+    jinja: '{{sentence1}}
+
+      Can we conclude that "{{sentence2}}" follows from the first sentence? Please answer
+      either {{"yes"}} or {{"no"}}. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_87
+    reference: jonghyeonkim
+  1b9d968d-b55a-4667-be75-be610914d828: !Template
+    answer_choices: A) Yes ||| B) No
+    id: 1b9d968d-b55a-4667-be75-be610914d828
+    jinja: Is it possible for "{{sentence1}}" to be true and "{{sentence2}}" to be false?
+      Please choose either {{"A) Yes"}} or {{"B) No"}}. ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_88
+    reference: jonghyeonkim
+  2b565623-efb3-48bc-a433-abb1ca698954: !Template
+    answer_choices: yes ||| no
+    id: 2b565623-efb3-48bc-a433-abb1ca698954
+    jinja: Suppose that "{{sentence1}}". Does this necessarily mean that "{{sentence2}}"
+      is true? Please answer either {{"yes"}} or {{"no"}}. ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_89
+    reference: jonghyeonkim
+  91a9c44e-8efc-44a3-925d-285b6e9161ac: !Template
+    answer_choices: yes ||| no
+    id: 91a9c44e-8efc-44a3-925d-285b6e9161ac
+    jinja: 'Consider the following statements:
+
+      {{sentence1}}
+
+      {{sentence2}}
+
+      Is it the case that "{{sentence1}}" logically implies "{{sentence2}}"? ||| {{
+      answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_90
+    reference: jonghyeonkim
+  67e8c7ed-2abc-4608-b712-d877c8147648: !Template
+    answer_choices: yes ||| no
+    id: 67e8c7ed-2abc-4608-b712-d877c8147648
+    jinja: Given the statement "{{sentence1}}", does it necessarily follow that "{{sentence2}}"
+      is true? Please answer either {{"yes"}} or {{"no"}}. ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_91
+    reference: jonghyeonkim
+  0d35047b-61a3-42a3-8309-c3fd12f9d972: !Template
+    answer_choices: A) Yes ||| B) No
+    id: 0d35047b-61a3-42a3-8309-c3fd12f9d972
+    jinja: 'Please determine if the sentence "{{sentence1}}" entails the sentence "{{sentence2}}".
+
+      Please answer either {{"A) Yes" }} or {{"B) No" }}. ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_92
+    reference: jonghyeonkim
+  b710e3f9-df48-4863-99a2-c9f638a7673e: !Template
+    answer_choices: A) Yes ||| B) No
+    id: b710e3f9-df48-4863-99a2-c9f638a7673e
+    jinja: 'Given "{{sentence1}}" and "{{sentence2}}", does "{{sentence1}}" entail "{{sentence2}}"?
+
+      Please answer either {{"A) Yes" }} or {{"B) No" }}. ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_93
+    reference: jonghyeonkim
+  468d0e2e-f127-4b04-a4e8-91a1d60ee60f: !Template
+    answer_choices: A) Yes ||| B) No
+    id: 468d0e2e-f127-4b04-a4e8-91a1d60ee60f
+    jinja: If "{{sentence1}}" is true, does this necessarily mean that "{{sentence2}}"
+      is also true? Please choose either {{"A) Yes"}} or {{"B) No"}}. ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_94
+    reference: jonghyeonkim
+  3c7a3e4a-dd48-4b6f-9396-99976951921d: !Template
+    answer_choices: A) yes ||| B) no
+    id: 3c7a3e4a-dd48-4b6f-9396-99976951921d
+    jinja: '{{sentence1}}
+
+      {{sentence2}}
+
+      Is it correct to say that the first sentence entails the second sentence? Please
+      choose from {{"A) yes or B) no."}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_95
+    reference: jonghyeonkim
+  a395500c-c2af-4686-a499-be82e9653251: !Template
+    answer_choices: yes ||| no
+    id: a395500c-c2af-4686-a499-be82e9653251
+    jinja: '{{sentence1}}
+
+      Is it correct to say that "{{sentence2}}" is a logical consequence of the first
+      sentence? Please answer either {{"yes"}} or {{"no"}}. ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_96
+    reference: jonghyeonkim
+  00c56fcf-ba06-4dfb-a808-489f0dd2e76a: !Template
+    answer_choices: yes ||| no
+    id: 00c56fcf-ba06-4dfb-a808-489f0dd2e76a
+    jinja: '{{sentence1}} is a sufficient condition for {{sentence2}} to be true. Does
+      this mean that {{sentence2}} is a necessary condition for {{sentence1}} to be
+      true? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_97
+    reference: jonghyeonkim
+  ebe3c67c-1478-4920-a05d-bffa335269ca: !Template
+    answer_choices: no ||| yes
+    id: ebe3c67c-1478-4920-a05d-bffa335269ca
+    jinja: 'Consider the following sentences:
+
+      {{sentence1}}
+
+      {{sentence2}}
+
+      Do you think the relationship between the two sentences is not entailment? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_98
+    reference: jonghyeonkim
+  87ee836e-d1ab-4c2e-b02e-134b925fe512: !Template
+    answer_choices: yes ||| no
+    id: 87ee836e-d1ab-4c2e-b02e-134b925fe512
+    jinja: 'We say that one sentence "{{"entails"}}" another sentence when the first
+      sentence implies the second sentence. Consider the following two sentences:
+
+      {{sentence1}}
+
+      {{sentence2}}
+
+      Is the relationship from the first to the second sentence "entailment"? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_99
+    reference: jonghyeonkim
+  f391956e-f1d4-4ab6-83e6-50265df013b3: !Template
+    answer_choices: Of course ||| No way
+    id: f391956e-f1d4-4ab6-83e6-50265df013b3
+    jinja: '{{sentence1}}
+
+      Does this imply
+
+      {{sentence2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_00
+    reference: jonghyeonkim
+  c8947851-8d48-44d5-bfd2-6ad3f1c71aa7: !Template
+    answer_choices: Of course ||| No way
+    id: c8947851-8d48-44d5-bfd2-6ad3f1c71aa7
+    jinja: Given "{{sentence1}}", is "{{sentence2}}" true? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_01
+    reference: jonghyeonkim
+  e57d790f-37f1-46fd-9ea8-ce2de2669886: !Template
+    answer_choices: Of course ||| No way
+    id: e57d790f-37f1-46fd-9ea8-ce2de2669886
+    jinja: Does "{{sentence1}}" imply that "{{sentence2}}"? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_02
+    reference: jonghyeonkim
+  53c6cee2-a18d-46c2-a069-bd47ca345e0b: !Template
+    answer_choices: Of course ||| No way
+    id: 53c6cee2-a18d-46c2-a069-bd47ca345e0b
+    jinja: '{{sentence1}}
+
+      Does this mean that "{{sentence2}}"? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_03
+    reference: jonghyeonkim
+  6a7115d9-45fa-4f45-92f1-77477d432386: !Template
+    answer_choices: Of course ||| No way
+    id: 6a7115d9-45fa-4f45-92f1-77477d432386
+    jinja: '''{{sentence1}}''
+
+      Does this imply that ''{{sentence2}}''? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_04
+    reference: jonghyeonkim
+  1ed1a73d-eb9a-4a4d-98b7-b37fe7219bc1: !Template
+    answer_choices: No way ||| Of course
+    id: 1ed1a73d-eb9a-4a4d-98b7-b37fe7219bc1
+    jinja: '''{{sentence1}}''
+
+      Does this contradict ''{{sentence2}}''? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_05
+    reference: jonghyeonkim
+  39f77a22-c695-4bcb-a40e-d363cd551d29: !Template
+    answer_choices: Of course ||| No way
+    id: 39f77a22-c695-4bcb-a40e-d363cd551d29
+    jinja: '''{{sentence1}}''
+
+      Does this mean that ''{{sentence2}}'' is true? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_06
+    reference: jonghyeonkim
+  8e39958a-aabf-44b7-b484-a5a24e2b9342: !Template
+    answer_choices: No way ||| Of course
+    id: 8e39958a-aabf-44b7-b484-a5a24e2b9342
+    jinja: Does {{sentence1}} entail that {{sentence2}} is false? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_07
+    reference: jonghyeonkim
+  e4e9328d-496c-4c97-9253-5ce5c163e945: !Template
+    answer_choices: Of course ||| No way
+    id: e4e9328d-496c-4c97-9253-5ce5c163e945
+    jinja: If "{{sentence1}}", does it follow that "{{sentence2}}"? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_08
+    reference: jonghyeonkim
+  9df6a8a7-5457-4170-ad7c-ea44cb5a788e: !Template
+    answer_choices: Of course ||| No way
+    id: 9df6a8a7-5457-4170-ad7c-ea44cb5a788e
+    jinja: Can we conclude that {{sentence1}} entails {{sentence2}}? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_09
+    reference: jonghyeonkim
+  227eedac-1fd0-4da7-9779-48c291a6dadc: !Template
+    answer_choices: No way ||| Of course
+    id: 227eedac-1fd0-4da7-9779-48c291a6dadc
+    jinja: '{{sentence1}}
+
+      Does this mean that "{{sentence2}}" is false? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_10
+    reference: jonghyeonkim
+  615fff4b-e6c4-45a6-b7bd-ee769fd29dbb: !Template
+    answer_choices: No way ||| Of course
+    id: 615fff4b-e6c4-45a6-b7bd-ee769fd29dbb
+    jinja: Can we deduce from {{sentence1}} that {{sentence2}} is false? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_11
+    reference: jonghyeonkim
+  4ac3dd7d-ee38-4fce-ac35-29b22112d21c: !Template
+    answer_choices: Of course ||| No way
+    id: 4ac3dd7d-ee38-4fce-ac35-29b22112d21c
+    jinja: Do "{{sentence1}}" and "{{sentence2}}" have the same meaning? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_12
+    reference: jonghyeonkim
+  4cdef906-1912-45ac-9585-db54352ff83e: !Template
+    answer_choices: Of course ||| No way
+    id: 4cdef906-1912-45ac-9585-db54352ff83e
+    jinja: Based on {{sentence1}}, can we infer that {{sentence2}} is true? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_13
+    reference: jonghyeonkim
+  11ca86e3-8212-474e-a6df-2bebf1d76b7e: !Template
+    answer_choices: Of course ||| No way
+    id: 11ca86e3-8212-474e-a6df-2bebf1d76b7e
+    jinja: Are the statements "{{sentence1}}" and "{{sentence2}}" equivalent? ||| {{
+      answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_14
+    reference: jonghyeonkim
+  d4bfd16b-3e8c-4856-89e9-2549b5b8e777: !Template
+    answer_choices: Of course ||| No way
+    id: d4bfd16b-3e8c-4856-89e9-2549b5b8e777
+    jinja: "{{\"Of course\"}} or {{\"No way\"}}: \"{{sentence1}}\" implies \"{{sentence2}}\"\
+      .\n ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_15
+    reference: jonghyeonkim
+  88af1d34-4a2c-4e1e-ae1d-89f826322246: !Template
+    answer_choices: Of course ||| No way
+    id: 88af1d34-4a2c-4e1e-ae1d-89f826322246
+    jinja: Do you think that "{{sentence1}}" logically entails "{{sentence2}}"? |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_16
+    reference: jonghyeonkim
+  5f845bce-7fa1-4abc-a632-ebe628bab301: !Template
+    answer_choices: Of course ||| No way
+    id: 5f845bce-7fa1-4abc-a632-ebe628bab301
+    jinja: Can we conclude that {{sentence1}} and {{sentence2}} are equivalent? |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_17
+    reference: jonghyeonkim
+  dbb0b65e-c240-4143-83e6-9a63182107b7: !Template
+    answer_choices: Of course ||| No way
+    id: dbb0b65e-c240-4143-83e6-9a63182107b7
+    jinja: Does the sentence "{{sentence1}}" imply the sentence "{{sentence2}}"? |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_18
+    reference: jonghyeonkim
+  da8fe9a0-ea99-4ae9-b151-8c0fb19b5c07: !Template
+    answer_choices: No way ||| Of course
+    id: da8fe9a0-ea99-4ae9-b151-8c0fb19b5c07
+    jinja: Is it possible that {{sentence1}} is true and {{sentence2}} is false? |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_19
+    reference: jonghyeonkim
+  e8a34b79-c022-4cc9-b520-c698869b32bf: !Template
+    answer_choices: Of course ||| No way
+    id: e8a34b79-c022-4cc9-b520-c698869b32bf
+    jinja: '{{sentence1}} is true. Is it possible that {{sentence2}} is also true? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_20
+    reference: jonghyeonkim
+  46afaa37-fa41-472f-8e8c-fb345ade7f91: !Template
+    answer_choices: Of course ||| No way
+    id: 46afaa37-fa41-472f-8e8c-fb345ade7f91
+    jinja: '{{sentence1}}
+
+      Does this necessarily imply that "{{sentence2}}" is true? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_21
+    reference: jonghyeonkim
+  9a06a76a-3cba-4c32-a414-6ef5e37671aa: !Template
+    answer_choices: Of course ||| No way
+    id: 9a06a76a-3cba-4c32-a414-6ef5e37671aa
+    jinja: '{{sentence1}}
+
+      Is the following statement true?
+
+      ''{{sentence2}}'' ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_22
+    reference: jonghyeonkim
+  48f501a3-4b5a-4691-9f83-40fba2f15488: !Template
+    answer_choices: Of course ||| No way
+    id: 48f501a3-4b5a-4691-9f83-40fba2f15488
+    jinja: '{{sentence1}} is true. Can we conclude that {{sentence2}} is also true?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_23
+    reference: jonghyeonkim
+  c3fee75c-b28d-457a-8795-f1ecc9bc8cdf: !Template
+    answer_choices: Of course ||| No way
+    id: c3fee75c-b28d-457a-8795-f1ecc9bc8cdf
+    jinja: '{{sentence1}}
+
+      Does this necessarily entail that "{{sentence2}}" is true? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_24
+    reference: jonghyeonkim
+  b71fcf71-22a1-4658-aa49-f1b2eef0f3fe: !Template
+    answer_choices: Of course ||| No way
+    id: b71fcf71-22a1-4658-aa49-f1b2eef0f3fe
+    jinja: Does the claim "{{sentence2}}" follow from the fact that "{{sentence1}}"?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_25
+    reference: jonghyeonkim
+  ef41c9e2-260f-41e3-bf38-2b757652505b: !Template
+    answer_choices: Of course ||| No way
+    id: ef41c9e2-260f-41e3-bf38-2b757652505b
+    jinja: If {{sentence1}} is true, is it possible that {{sentence2}} is also true?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_26
+    reference: jonghyeonkim
+  293c6916-efd1-485c-8aec-13377cb1270b: !Template
+    answer_choices: Of course ||| No way
+    id: 293c6916-efd1-485c-8aec-13377cb1270b
+    jinja: 'Are the two sentences saying the same thing?
+
+
+      {{sentence1}}
+
+      {{sentence2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_27
+    reference: jonghyeonkim
+  f4381e93-146e-44ee-ba3a-567d21bdbaad: !Template
+    answer_choices: Of course ||| No way
+    id: f4381e93-146e-44ee-ba3a-567d21bdbaad
+    jinja: If {{sentence1}} is true, can we conclude that {{sentence2}} is also true?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_28
+    reference: jonghyeonkim
+  7e516dce-457b-4f3d-aee8-1045931ea23c: !Template
+    answer_choices: Of course ||| No way
+    id: 7e516dce-457b-4f3d-aee8-1045931ea23c
+    jinja: If {{sentence1}} is false, can we conclude that {{sentence2}} is also false?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_29
+    reference: jonghyeonkim
+  3138fe46-a48d-44ab-b481-79eeb838129a: !Template
+    answer_choices: Of course ||| No way
+    id: 3138fe46-a48d-44ab-b481-79eeb838129a
+    jinja: 'Consider the sentence: {{sentence1}}. Is it correct to say that {{sentence2}}?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_30
+    reference: jonghyeonkim
+  99f87d60-c369-462a-ad0c-cae163abab1c: !Template
+    answer_choices: Of course ||| No way
+    id: 99f87d60-c369-462a-ad0c-cae163abab1c
+    jinja: '{{sentence1}} is not true. Is it possible that {{sentence2}} is also not
+      true? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_31
+    reference: jonghyeonkim
+  3a3469d3-bda1-4e8f-bcb8-d7d22d8a38a4: !Template
+    answer_choices: No way ||| Of course
+    id: 3a3469d3-bda1-4e8f-bcb8-d7d22d8a38a4
+    jinja: Is it possible for "{{sentence1}}" to be true and "{{sentence2}}" to be false?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_32
+    reference: jonghyeonkim
+  b6b0ce39-6467-4e75-b2fc-bb60938860ee: !Template
+    answer_choices: Of course ||| No way
+    id: b6b0ce39-6467-4e75-b2fc-bb60938860ee
+    jinja: '{{sentence1}}
+
+      Does this imply
+
+      {{sentence2}}
+
+      Please answer {{"A) Of course or B) No way."}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_33
+    reference: jonghyeonkim
+  816b087e-13c6-401d-b9cc-8793323797c3: !Template
+    answer_choices: Of course ||| No way
+    id: 816b087e-13c6-401d-b9cc-8793323797c3
+    jinja: '{{sentence1}}
+
+      Does this mean that "{{sentence2}}" is true? {{"A) Of course or B) No way."}}
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_34
+    reference: jonghyeonkim
+  692e25c0-7a31-4bb6-abd6-93ea0222fba5: !Template
+    answer_choices: Of course ||| No way
+    id: 692e25c0-7a31-4bb6-abd6-93ea0222fba5
+    jinja: Given that {{sentence1}} is false, can we infer that {{sentence2}} is also
+      false? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_35
+    reference: jonghyeonkim
+  d05216d2-f831-4dda-b678-7d2bce3df9fa: !Template
+    answer_choices: Of course ||| No way
+    id: d05216d2-f831-4dda-b678-7d2bce3df9fa
+    jinja: '{{sentence1}} is true. Does this necessarily mean that {{sentence2}} is
+      also true? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_36
+    reference: jonghyeonkim
+  79fe52b7-384c-4ce2-a110-981d9e0caa15: !Template
+    answer_choices: Of course ||| No way
+    id: 79fe52b7-384c-4ce2-a110-981d9e0caa15
+    jinja: '{{sentence1}} is false. Does this necessarily mean that {{sentence2}} is
+      also false? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_37
+    reference: jonghyeonkim
+  92de7e86-4f42-4779-9e1f-57ad3210ee22: !Template
+    answer_choices: Of course ||| No way
+    id: 92de7e86-4f42-4779-9e1f-57ad3210ee22
+    jinja: '{{sentence1}} and {{sentence2}} are related. Does this mean that they are
+      equivalent? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_38
+    reference: jonghyeonkim
+  7adffcf5-d79e-4aae-89c9-66b236fd5563: !Template
+    answer_choices: Of course ||| No way
+    id: 7adffcf5-d79e-4aae-89c9-66b236fd5563
+    jinja: Please determine if the sentence "{{sentence1}}" entails the sentence "{{sentence2}}".
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_39
+    reference: jonghyeonkim
+  5f381ae7-ba39-46d2-abeb-4fec4fe9aeff: !Template
+    answer_choices: Of course ||| No way
+    id: 5f381ae7-ba39-46d2-abeb-4fec4fe9aeff
+    jinja: Suppose that "{{sentence1}}". Does this necessarily mean that "{{sentence2}}"
+      is true? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_40
+    reference: jonghyeonkim
+  4262ecda-4a5a-46b4-af97-02836a20efb5: !Template
+    answer_choices: Of course ||| No way
+    id: 4262ecda-4a5a-46b4-af97-02836a20efb5
+    jinja: Given "{{sentence1}}" and "{{sentence2}}", does "{{sentence1}}" entail "{{sentence2}}"?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_41
+    reference: jonghyeonkim
+  7cc44663-eebd-4191-bcc7-4818c0702c20: !Template
+    answer_choices: Of course ||| No way
+    id: 7cc44663-eebd-4191-bcc7-4818c0702c20
+    jinja: If "{{sentence1}}" is true, does this necessarily mean that "{{sentence2}}"
+      is also true? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_42
+    reference: jonghyeonkim
+  b5a435a7-821a-41f8-b27b-8d41822d9ff5: !Template
+    answer_choices: Of course ||| No way
+    id: b5a435a7-821a-41f8-b27b-8d41822d9ff5
+    jinja: '{{sentence1}}
+
+      Do the contents of the statement "{{sentence2}}" necessarily follow from it? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_43
+    reference: jonghyeonkim
+  b3b5c077-c7e2-4dce-892a-1daea35decb3: !Template
+    answer_choices: Of course ||| No way
+    id: b3b5c077-c7e2-4dce-892a-1daea35decb3
+    jinja: Does "{{sentence1}}" imply that "{{sentence2}}"? Please answer either {{"Of
+      course"}} or {{"No way"}}. ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_44
+    reference: jonghyeonkim
+  142ca568-71c7-46e8-8ce2-8c5bad5c2eb6: !Template
+    answer_choices: Of course ||| No way
+    id: 142ca568-71c7-46e8-8ce2-8c5bad5c2eb6
+    jinja: '{{sentence1}} is not true. Does this necessarily mean that {{sentence2}}
+      is not true either? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_45
+    reference: jonghyeonkim
+  45b1336f-12fb-4773-abd6-9e22ef3cdbdb: !Template
+    answer_choices: Of course ||| No way
+    id: 45b1336f-12fb-4773-abd6-9e22ef3cdbdb
+    jinja: '{{sentence1}} and {{sentence2}} are not related. Does this mean that they
+      are not both true? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_46
+    reference: jonghyeonkim
+  bdc534b6-41a1-4e79-b7b6-1753bd46c7bb: !Template
+    answer_choices: Of course ||| No way
+    id: bdc534b6-41a1-4e79-b7b6-1753bd46c7bb
+    jinja: '{{sentence1}} implies {{sentence2}}. Does this mean that {{sentence2}} implies
+      {{sentence1}}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_47
+    reference: jonghyeonkim
+  469209fc-4b06-4bbb-947f-7464d9922243: !Template
+    answer_choices: Of course ||| No way
+    id: 469209fc-4b06-4bbb-947f-7464d9922243
+    jinja: Given the statement "{{sentence1}}", does it necessarily follow that "{{sentence2}}"
+      is true? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_48
+    reference: jonghyeonkim
+  4e3bb75a-b0dd-4e80-8054-f0aed9c70ef9: !Template
+    answer_choices: Of course ||| No way
+    id: 4e3bb75a-b0dd-4e80-8054-f0aed9c70ef9
+    jinja: '{{sentence1}} and {{sentence2}} are not related. is this true? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_49
+    reference: jonghyeonkim
+  e688f8b9-845a-491a-a0e4-6a9c307f6053: !Template
+    answer_choices: Of course ||| No way
+    id: e688f8b9-845a-491a-a0e4-6a9c307f6053
+    jinja: 'Consider the sentences:
+
+      {{sentence1}}
+
+      {{sentence2}}
+
+      Does "{{sentence1}}" imply "{{sentence2}}"? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_50
+    reference: jonghyeonkim
+  019bf472-4c03-446e-86aa-b01c59cbf58c: !Template
+    answer_choices: Of course ||| No way
+    id: 019bf472-4c03-446e-86aa-b01c59cbf58c
+    jinja: '{{sentence1}} and {{sentence2}}
+
+      Does this mean that they have the same meaning? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_51
+    reference: jonghyeonkim
+  e904ff5a-058f-4c4f-8154-0213145cd781: !Template
+    answer_choices: Of course ||| No way
+    id: e904ff5a-058f-4c4f-8154-0213145cd781
+    jinja: Can we conclude that {{sentence1}} is not true based on the fact that {{sentence2}}
+      is not true? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_52
+    reference: jonghyeonkim
+  9a1d1e7f-5ed0-433b-bec8-becf090f9662: !Template
+    answer_choices: Of course ||| No way
+    id: 9a1d1e7f-5ed0-433b-bec8-becf090f9662
+    jinja: '{{sentence1}}
+
+      Do you think that "{{sentence2}}" logically follows from it? {{"A) Of course or
+      B) No way."}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_53
+    reference: jonghyeonkim
+  fb334b18-04b9-4df4-9252-d2e258b45964: !Template
+    answer_choices: Of course ||| No way
+    id: fb334b18-04b9-4df4-9252-d2e258b45964
+    jinja: 'Regarding the sentences:
+
+      {{sentence1}}
+
+      {{sentence2}}
+
+      Does "{{sentence1}}" entail "{{sentence2}}"? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_54
+    reference: jonghyeonkim
+  564151a7-a4c0-46e8-8b3d-5cc69491d1ed: !Template
+    answer_choices: Of course ||| No way
+    id: 564151a7-a4c0-46e8-8b3d-5cc69491d1ed
+    jinja: Can "{{sentence2}}" be inferred from "{{sentence1}}"? Please answer either
+      {{"Of course"}} or {{"No way"}}. ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_55
+    reference: jonghyeonkim
+  54240329-a72b-43b4-9ccc-f90876d6514f: !Template
+    answer_choices: Of course ||| No way
+    id: 54240329-a72b-43b4-9ccc-f90876d6514f
+    jinja: Given "{{sentence1}}", is "{{sentence2}}" true? Please choose either {{"A)
+      Of course"}} or {{"B) No way"}}. ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_56
+    reference: jonghyeonkim
+  7f1a1e5d-4f18-4b18-83c9-f5335828bfb1: !Template
+    answer_choices: Of course ||| No way
+    id: 7f1a1e5d-4f18-4b18-83c9-f5335828bfb1
+    jinja: '{{sentence1}}
+
+      Does the information in "{{sentence2}}" necessarily follow from the given statement?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_57
+    reference: jonghyeonkim
+  a3f10e2d-79b1-4621-b610-fbd814b8df46: !Template
+    answer_choices: Of course ||| No way
+    id: a3f10e2d-79b1-4621-b610-fbd814b8df46
+    jinja: '{{sentence1}}
+
+      {{sentence2}}
+
+      Is it correct to say that the first sentence entails the second sentence? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_58
+    reference: jonghyeonkim
+  b6e56dbc-9c81-4818-8058-bacf1fbb9f51: !Template
+    answer_choices: Of course ||| No way
+    id: b6e56dbc-9c81-4818-8058-bacf1fbb9f51
+    jinja: '{{sentence1}}
+
+      Does this mean that "{{sentence2}}"?
+
+      Please choose either {{"A) Of course" }} or {{"B) No way" }}. ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_59
+    reference: jonghyeonkim
+  d25f2528-4afe-4c3e-9e48-307f2b510609: !Template
+    answer_choices: Of course ||| No way
+    id: d25f2528-4afe-4c3e-9e48-307f2b510609
+    jinja: 'Determine whether the following statement is {{"true"}} or {{"false"}}:
+      "{{sentence1}}".
+
+      {{sentence2}}
+
+      Answer Of course if true, or No way if not. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_60
+    reference: jonghyeonkim
+  2d79fa3f-8758-4e0c-8a52-1a5f4e7ad8a8: !Template
+    answer_choices: Of course ||| No way
+    id: 2d79fa3f-8758-4e0c-8a52-1a5f4e7ad8a8
+    jinja: '{{sentence1}}
+
+      Does this imply that "{{sentence2}}" is true? Please answer either {{"Of course"}}
+      or {{"No way"}}. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_61
+    reference: jonghyeonkim
+  ed92b113-e6de-42a0-83f1-4aef470038ad: !Template
+    answer_choices: Of course ||| No way
+    id: ed92b113-e6de-42a0-83f1-4aef470038ad
+    jinja: '{{sentence1}} implies {{sentence2}}. Does this mean that {{sentence1}} and
+      {{sentence2}} are equivalent? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_62
+    reference: jonghyeonkim
+  f519f858-bf50-40a0-8291-6871d5f5a2fa: !Template
+    answer_choices: Of course ||| No way
+    id: f519f858-bf50-40a0-8291-6871d5f5a2fa
+    jinja: '{{sentence1}}
+
+      Does this suggest that "{{sentence2}}" is true? Please answer either {{"Of course"}}
+      or {{"No way"}}. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_63
+    reference: jonghyeonkim
+  ab2b3111-49bb-4fc2-8fdc-815c33874713: !Template
+    answer_choices: Of course ||| No way
+    id: ab2b3111-49bb-4fc2-8fdc-815c33874713
+    jinja: '{{sentence1}} does not imply {{sentence2}}. Does this mean that {{sentence2}}
+      does not imply {{sentence1}}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_64
+    reference: jonghyeonkim
+  c0d17a7b-c5fe-4bc2-bbcc-9e59b3bbaff6: !Template
+    answer_choices: Of course ||| No way
+    id: c0d17a7b-c5fe-4bc2-bbcc-9e59b3bbaff6
+    jinja: 'If "{{sentence1}}", does it follow that "{{sentence2}}"?
+
+      Please answer either {{"A) Of course" }} or {{"B) No way" }}. ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_65
+    reference: jonghyeonkim
+  d52fa7b8-6405-4480-8071-917184411ed6: !Template
+    answer_choices: Of course ||| No way
+    id: d52fa7b8-6405-4480-8071-917184411ed6
+    jinja: Do you think that "{{sentence1}}" logically entails "{{sentence2}}"? Please
+      choose from {{"A) Of course or B) No way."}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_66
+    reference: jonghyeonkim
+  8e96d295-0b24-4410-8870-42af349b6b21: !Template
+    answer_choices: Of course ||| No way
+    id: 8e96d295-0b24-4410-8870-42af349b6b21
+    jinja: Is it correct to say that "{{sentence1}}" implies "{{sentence2}}"? Please
+      answer either {{"Of course"}} or {{"No way"}}. ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_67
+    reference: jonghyeonkim
+  694565e1-8cdc-4957-8d90-03c3e0049dfd: !Template
+    answer_choices: Of course ||| No way
+    id: 694565e1-8cdc-4957-8d90-03c3e0049dfd
+    jinja: '{{sentence1}}
+
+      Can we infer from this that "{{sentence2}}" is true? Please answer either {{"Of
+      course"}} or {{"No way"}}. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_68
+    reference: jonghyeonkim
+  c83fca6a-43a3-47f4-94a6-81f94744984d: !Template
+    answer_choices: Of course ||| No way
+    id: c83fca6a-43a3-47f4-94a6-81f94744984d
+    jinja: 'Which of the following best describes the relationship between the two sentences?
+
+      {{sentence1}}
+
+      {{sentence2}}
+
+      - Entailment: Of course - Contradiction: No way ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_69
+    reference: jonghyeonkim
+  d702bc3c-c9cd-425a-8de4-11abb7832384: !Template
+    answer_choices: Of course ||| No way
+    id: d702bc3c-c9cd-425a-8de4-11abb7832384
+    jinja: Do the sentences "{{sentence1}}" and "{{sentence2}}" have the relationship
+      of "entailment" or "not entailment"?  Answer No way if not entailment, or Of course
+      if not. ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_70
+    reference: jonghyeonkim
+  1832795c-143f-4504-9e95-82c299435522: !Template
+    answer_choices: Of course ||| No way
+    id: 1832795c-143f-4504-9e95-82c299435522
+    jinja: Does the sentence "{{sentence1}}" necessarily mean "{{sentence2}}"? Please
+      answer either {{"Of course"}} or {{"No way"}}. ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_71
+    reference: jonghyeonkim
+  1b3d14fb-1148-42ce-9d7f-5934e8a698e4: !Template
+    answer_choices: Of course ||| No way
+    id: 1b3d14fb-1148-42ce-9d7f-5934e8a698e4
+    jinja: '{{sentence1}} is true. Does this mean that {{sentence2}} is a necessary
+      condition for {{sentence1}} to be true? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_72
+    reference: jonghyeonkim
+  e40574a1-1039-4b9d-bd00-4ae7d0dffe58: !Template
+    answer_choices: Of course ||| No way
+    id: e40574a1-1039-4b9d-bd00-4ae7d0dffe58
+    jinja: Do "{{sentence1}}" and "{{sentence2}}" have the same meaning? Please choose
+      either {{"A) Of course"}} or {{"B) No way"}}. ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_73
+    reference: jonghyeonkim
+  a9a9a520-869f-4e7b-84d4-3eb7585f9d44: !Template
+    answer_choices: Of course ||| No way
+    id: a9a9a520-869f-4e7b-84d4-3eb7585f9d44
+    jinja: 'Based on the information in the two sentences, can we conclude that {{sentence2}}?
+
+
+      {{sentence1}}
+
+      {{sentence2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_74
+    reference: jonghyeonkim
+  e97abc23-7847-4009-b712-a46b3c168dc3: !Template
+    answer_choices: Of course ||| No way
+    id: e97abc23-7847-4009-b712-a46b3c168dc3
+    jinja: '{{sentence1}}
+
+      Do the contents of the statement "{{sentence2}}" necessarily follow from it? {{"A)
+      Of course or B) No way."}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_75
+    reference: jonghyeonkim
+  66ee5a26-0a0f-4223-ba89-797a3edbd59c: !Template
+    answer_choices: Of course ||| No way
+    id: 66ee5a26-0a0f-4223-ba89-797a3edbd59c
+    jinja: '{{sentence1}} and {{sentence2}} are related. Is {{sentence1}} a necessary
+      condition for {{sentence2}} to be true? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_76
+    reference: jonghyeonkim
+  f081f694-068b-41e4-8678-148fd125e8db: !Template
+    answer_choices: Of course ||| No way
+    id: f081f694-068b-41e4-8678-148fd125e8db
+    jinja: '{{sentence1}}
+
+      Does this necessarily imply that "{{sentence2}}" is true? Please choose from {{"A)
+      Of course or B) No way."}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_77
+    reference: jonghyeonkim
+  b3eb1cf4-58c9-4aa7-807e-98c7e97299f3: !Template
+    answer_choices: Of course ||| No way
+    id: b3eb1cf4-58c9-4aa7-807e-98c7e97299f3
+    jinja: '{{sentence1}}
+
+      Does this necessarily entail that "{{sentence2}}" is true? Please choose from
+      {{"A) Of course or B) No way."}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_78
+    reference: jonghyeonkim
+  f9247752-40b2-4e14-aaa4-ea7a0d67e04c: !Template
+    answer_choices: Of course ||| No way
+    id: f9247752-40b2-4e14-aaa4-ea7a0d67e04c
+    jinja: 'Can the truth of the first sentence be used to infer the truth of the second
+      sentence?
+
+
+      {{sentence1}}
+
+      {{sentence2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_79
+    reference: jonghyeonkim
+  15999e75-1d72-42a4-9fc0-1bab6d32a8c1: !Template
+    answer_choices: Of course ||| No way
+    id: 15999e75-1d72-42a4-9fc0-1bab6d32a8c1
+    jinja: Are the statements "{{sentence1}}" and "{{sentence2}}" equivalent? Please
+      choose either {{"A) Of course"}} or {{"B) No way"}}. ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_80
+    reference: jonghyeonkim
+  baf156a2-13f1-4f41-8dff-c8ba9a20a611: !Template
+    answer_choices: Of course ||| No way
+    id: baf156a2-13f1-4f41-8dff-c8ba9a20a611
+    jinja: 'Does the claim "{{sentence2}}" follow from the fact that "{{sentence1}}"?
+
+      Please answer either {{"Of course"}} or {{"No way"}}. ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_81
+    reference: jonghyeonkim
+  164774bc-3668-43ae-8efc-724891f7f4d0: !Template
+    answer_choices: Of course ||| No way
+    id: 164774bc-3668-43ae-8efc-724891f7f4d0
+    jinja: '{{sentence1}}
+
+      Does the information in "{{sentence2}}" necessarily follow from the given statement?
+      {{"A) Of course or B) No way."}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_82
+    reference: jonghyeonkim
+  f959764c-0e96-4e27-9ed2-97858013e0cd: !Template
+    answer_choices: Of course ||| No way
+    id: f959764c-0e96-4e27-9ed2-97858013e0cd
+    jinja: 'Does the sentence "{{sentence1}}" imply the sentence "{{sentence2}}"?
+
+      Please answer either {{"A) Of course" }} or {{"B) No way" }}. ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_83
+    reference: jonghyeonkim
+  9a35a58e-0914-41cc-98fc-4b588014ff39: !Template
+    answer_choices: Of course ||| No way
+    id: 9a35a58e-0914-41cc-98fc-4b588014ff39
+    jinja: If "{{sentence1}}" is true, does that mean "{{sentence2}}" must also be true?
+      Please answer either {{"Of course"}} or {{"No way"}}. ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_84
+    reference: jonghyeonkim
+  ef706627-af66-48de-9eba-69545b32fe5e: !Template
+    answer_choices: Of course ||| No way
+    id: ef706627-af66-48de-9eba-69545b32fe5e
+    jinja: 'Which of the following statements best describes the relationship between
+      the two sentences?
+
+
+      {{sentence1}}
+
+      {{sentence2}}
+
+      is entailment? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_85
+    reference: jonghyeonkim
+  58641ba3-9946-4917-81e4-d1bf3e49bb3e: !Template
+    answer_choices: Of course ||| No way
+    id: 58641ba3-9946-4917-81e4-d1bf3e49bb3e
+    jinja: '{{sentence1}} implies {{sentence2}}. Does this mean that {{sentence2}} is
+      a sufficient condition for {{sentence1}} to be true? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_86
+    reference: jonghyeonkim
+  748179b3-c4b7-4f2a-96b7-6c789202c010: !Template
+    answer_choices: Of course ||| No way
+    id: 748179b3-c4b7-4f2a-96b7-6c789202c010
+    jinja: '{{sentence1}}
+
+      Can we conclude that "{{sentence2}}" follows from the first sentence? Please answer
+      either {{"Of course"}} or {{"No way"}}. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_87
+    reference: jonghyeonkim
+  e89cde1f-465a-4b13-a6ec-cfa2b40a5282: !Template
+    answer_choices: Of course ||| No way
+    id: e89cde1f-465a-4b13-a6ec-cfa2b40a5282
+    jinja: Is it possible for "{{sentence1}}" to be true and "{{sentence2}}" to be false?
+      Please choose either {{"A) Of course"}} or {{"B) No way"}}. ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_88
+    reference: jonghyeonkim
+  f9251f38-2179-401a-a246-dafa5e46c462: !Template
+    answer_choices: Of course ||| No way
+    id: f9251f38-2179-401a-a246-dafa5e46c462
+    jinja: Suppose that "{{sentence1}}". Does this necessarily mean that "{{sentence2}}"
+      is true? Please answer either {{"Of course"}} or {{"No way"}}. ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_89
+    reference: jonghyeonkim
+  5cae83a3-8bd1-4dbe-9898-c4ea2425b8b6: !Template
+    answer_choices: Of course ||| No way
+    id: 5cae83a3-8bd1-4dbe-9898-c4ea2425b8b6
+    jinja: 'Consider the following statements:
+
+      {{sentence1}}
+
+      {{sentence2}}
+
+      Is it the case that "{{sentence1}}" logically implies "{{sentence2}}"? ||| {{
+      answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_90
+    reference: jonghyeonkim
+  6edfede2-6412-4b57-8349-98cfeea30909: !Template
+    answer_choices: Of course ||| No way
+    id: 6edfede2-6412-4b57-8349-98cfeea30909
+    jinja: Given the statement "{{sentence1}}", does it necessarily follow that "{{sentence2}}"
+      is true? Please answer either {{"Of course"}} or {{"No way"}}. ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_91
+    reference: jonghyeonkim
+  7736d8db-96a6-46e1-a909-534bffee59cc: !Template
+    answer_choices: Of course ||| No way
+    id: 7736d8db-96a6-46e1-a909-534bffee59cc
+    jinja: 'Please determine if the sentence "{{sentence1}}" entails the sentence "{{sentence2}}".
+
+      Please answer either {{"A) Of course" }} or {{"B) No way" }}. ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_92
+    reference: jonghyeonkim
+  2af2e4d2-285a-40b8-ad48-4b48e8958f4e: !Template
+    answer_choices: Of course ||| No way
+    id: 2af2e4d2-285a-40b8-ad48-4b48e8958f4e
+    jinja: 'Given "{{sentence1}}" and "{{sentence2}}", does "{{sentence1}}" entail "{{sentence2}}"?
+
+      Please answer either {{"A) Of course" }} or {{"B) No way" }}. ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_93
+    reference: jonghyeonkim
+  a0e4ff44-edf6-45df-a941-decb15e6320b: !Template
+    answer_choices: Of course ||| No way
+    id: a0e4ff44-edf6-45df-a941-decb15e6320b
+    jinja: If "{{sentence1}}" is true, does this necessarily mean that "{{sentence2}}"
+      is also true? Please choose either {{"A) Of course"}} or {{"B) No way"}}. |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_94
+    reference: jonghyeonkim
+  50476293-79d7-4f6c-8918-c768799532ca: !Template
+    answer_choices: Of course ||| No way
+    id: 50476293-79d7-4f6c-8918-c768799532ca
+    jinja: '{{sentence1}}
+
+      {{sentence2}}
+
+      Is it correct to say that the first sentence entails the second sentence? Please
+      choose from {{"A) Of course or B) No way."}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_95
+    reference: jonghyeonkim
+  c1c3ef4a-416a-4d98-a35b-f9fcca9b2e57: !Template
+    answer_choices: Of course ||| No way
+    id: c1c3ef4a-416a-4d98-a35b-f9fcca9b2e57
+    jinja: '{{sentence1}}
+
+      Is it correct to say that "{{sentence2}}" is a logical consequence of the first
+      sentence? Please answer either {{"Of course"}} or {{"No way"}}. ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_96
+    reference: jonghyeonkim
+  d44c8eee-f38e-41cf-858b-33049274a1d5: !Template
+    answer_choices: Of course ||| No way
+    id: d44c8eee-f38e-41cf-858b-33049274a1d5
+    jinja: '{{sentence1}} is a sufficient condition for {{sentence2}} to be true. Does
+      this mean that {{sentence2}} is a necessary condition for {{sentence1}} to be
+      true? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_97
+    reference: jonghyeonkim
+  544c5699-6c0b-4d01-85fa-97c9ca2abf8b: !Template
+    answer_choices: No way ||| Of course
+    id: 544c5699-6c0b-4d01-85fa-97c9ca2abf8b
+    jinja: 'Consider the following sentences:
+
+      {{sentence1}}
+
+      {{sentence2}}
+
+      Do you think the relationship between the two sentences is not entailment? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_98
+    reference: jonghyeonkim
+  b9f0343b-13e0-4a05-a174-fc2a961010c1: !Template
+    answer_choices: Of course ||| No way
+    id: b9f0343b-13e0-4a05-a174-fc2a961010c1
+    jinja: 'We say that one sentence "{{"entails"}}" another sentence when the first
+      sentence implies the second sentence. Consider the following two sentences:
+
+      {{sentence1}}
+
+      {{sentence2}}
+
+      Is the relationship from the first to the second sentence "entailment"? ||| {{
+      answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_99
+    reference: jonghyeonkim
+  989f9d78-ede0-4b3f-972b-b70f06a4d0a2: !Template
+    answer_choices: Of course ||| No
+    id: 989f9d78-ede0-4b3f-972b-b70f06a4d0a2
+    jinja: '{{sentence1}}
+
+      Does this imply
+
+      {{sentence2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_00
+    reference: jonghyeonkim
+  6136da0d-1be2-4dbd-8914-5cf246fcaef4: !Template
+    answer_choices: Of course ||| No
+    id: 6136da0d-1be2-4dbd-8914-5cf246fcaef4
+    jinja: Given "{{sentence1}}", is "{{sentence2}}" true? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_01
+    reference: jonghyeonkim
+  69b9cb06-4227-4d48-808a-7298489dc533: !Template
+    answer_choices: Of course ||| No
+    id: 69b9cb06-4227-4d48-808a-7298489dc533
+    jinja: Does "{{sentence1}}" imply that "{{sentence2}}"? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_02
+    reference: jonghyeonkim
+  3127b318-883a-4ed0-be7d-b484771347cb: !Template
+    answer_choices: Of course ||| No
+    id: 3127b318-883a-4ed0-be7d-b484771347cb
+    jinja: '{{sentence1}}
+
+      Does this mean that "{{sentence2}}"? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_03
+    reference: jonghyeonkim
+  5fad0223-3d14-4790-9d05-30fcdccf0ce2: !Template
+    answer_choices: Of course ||| No
+    id: 5fad0223-3d14-4790-9d05-30fcdccf0ce2
+    jinja: '''{{sentence1}}''
+
+      Does this imply that ''{{sentence2}}''? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_04
+    reference: jonghyeonkim
+  133ef054-a185-4663-9d26-c1366be93826: !Template
+    answer_choices: No ||| Of course
+    id: 133ef054-a185-4663-9d26-c1366be93826
+    jinja: '''{{sentence1}}''
+
+      Does this contradict ''{{sentence2}}''? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_05
+    reference: jonghyeonkim
+  82103517-18eb-4f88-9be3-42f688c1b036: !Template
+    answer_choices: Of course ||| No
+    id: 82103517-18eb-4f88-9be3-42f688c1b036
+    jinja: '''{{sentence1}}''
+
+      Does this mean that ''{{sentence2}}'' is true? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_06
+    reference: jonghyeonkim
+  9204cd8d-c6ed-4e5d-9b41-c5a02ed80035: !Template
+    answer_choices: No ||| Of course
+    id: 9204cd8d-c6ed-4e5d-9b41-c5a02ed80035
+    jinja: Does {{sentence1}} entail that {{sentence2}} is false? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_07
+    reference: jonghyeonkim
+  d32c3266-ac86-4844-8c94-35e6f7ae44b0: !Template
+    answer_choices: Of course ||| No
+    id: d32c3266-ac86-4844-8c94-35e6f7ae44b0
+    jinja: If "{{sentence1}}", does it follow that "{{sentence2}}"? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_08
+    reference: jonghyeonkim
+  4e29ceee-ca43-4dc3-8e81-db004a5d2510: !Template
+    answer_choices: Of course ||| No
+    id: 4e29ceee-ca43-4dc3-8e81-db004a5d2510
+    jinja: Can we conclude that {{sentence1}} entails {{sentence2}}? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_09
+    reference: jonghyeonkim
+  6848166b-5071-4571-b1b3-421d67653dec: !Template
+    answer_choices: No ||| Of course
+    id: 6848166b-5071-4571-b1b3-421d67653dec
+    jinja: '{{sentence1}}
+
+      Does this mean that "{{sentence2}}" is false? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_10
+    reference: jonghyeonkim
+  26f45a40-2802-4feb-9d93-8ef23eecaf81: !Template
+    answer_choices: No ||| Of course
+    id: 26f45a40-2802-4feb-9d93-8ef23eecaf81
+    jinja: Can we deduce from {{sentence1}} that {{sentence2}} is false? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_11
+    reference: jonghyeonkim
+  910c145c-546c-4d43-b1e7-d4dbfb8eb815: !Template
+    answer_choices: Of course ||| No
+    id: 910c145c-546c-4d43-b1e7-d4dbfb8eb815
+    jinja: Do "{{sentence1}}" and "{{sentence2}}" have the same meaning? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_12
+    reference: jonghyeonkim
+  67b503e7-d017-422e-bd57-431361bde474: !Template
+    answer_choices: Of course ||| No
+    id: 67b503e7-d017-422e-bd57-431361bde474
+    jinja: Based on {{sentence1}}, can we infer that {{sentence2}} is true? ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_13
+    reference: jonghyeonkim
+  81711538-26b6-41d6-8d61-d0daf839060b: !Template
+    answer_choices: Of course ||| No
+    id: 81711538-26b6-41d6-8d61-d0daf839060b
+    jinja: Are the statements "{{sentence1}}" and "{{sentence2}}" equivalent? ||| {{
+      answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_14
+    reference: jonghyeonkim
+  85c4150d-39e1-44ae-a180-0c3c4c79262a: !Template
+    answer_choices: Of course ||| No
+    id: 85c4150d-39e1-44ae-a180-0c3c4c79262a
+    jinja: "{{\"Of course\"}} or {{\"No\"}}: \"{{sentence1}}\" implies \"{{sentence2}}\"\
+      .\n ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_15
+    reference: jonghyeonkim
+  03b02b5b-8dcd-4831-be09-242febdd4c53: !Template
+    answer_choices: Of course ||| No
+    id: 03b02b5b-8dcd-4831-be09-242febdd4c53
+    jinja: Do you think that "{{sentence1}}" logically entails "{{sentence2}}"? |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_16
+    reference: jonghyeonkim
+  e430d20d-e4d4-43b4-a5ec-ed5186fef816: !Template
+    answer_choices: Of course ||| No
+    id: e430d20d-e4d4-43b4-a5ec-ed5186fef816
+    jinja: Can we conclude that {{sentence1}} and {{sentence2}} are equivalent? |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_17
+    reference: jonghyeonkim
+  aff92b7e-58a1-416c-93f8-6d6b56e4ace7: !Template
+    answer_choices: Of course ||| No
+    id: aff92b7e-58a1-416c-93f8-6d6b56e4ace7
+    jinja: Does the sentence "{{sentence1}}" imply the sentence "{{sentence2}}"? |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_18
+    reference: jonghyeonkim
+  0c3bad91-b39f-4a31-ac76-398a7dec56b7: !Template
+    answer_choices: No ||| Of course
+    id: 0c3bad91-b39f-4a31-ac76-398a7dec56b7
+    jinja: Is it possible that {{sentence1}} is true and {{sentence2}} is false? |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_19
+    reference: jonghyeonkim
+  2a7c545b-24ab-44df-958a-0c852ab97326: !Template
+    answer_choices: Of course ||| No
+    id: 2a7c545b-24ab-44df-958a-0c852ab97326
+    jinja: '{{sentence1}} is true. Is it possible that {{sentence2}} is also true? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_20
+    reference: jonghyeonkim
+  c8693b46-2b73-4b61-acd0-2b6ad66cc825: !Template
+    answer_choices: Of course ||| No
+    id: c8693b46-2b73-4b61-acd0-2b6ad66cc825
+    jinja: '{{sentence1}}
+
+      Does this necessarily imply that "{{sentence2}}" is true? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_21
+    reference: jonghyeonkim
+  55bc0ff5-2c19-46dd-a5f7-d4b2d3c9c0fe: !Template
+    answer_choices: Of course ||| No
+    id: 55bc0ff5-2c19-46dd-a5f7-d4b2d3c9c0fe
+    jinja: '{{sentence1}}
+
+      Is the following statement true?
+
+      ''{{sentence2}}'' ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_22
+    reference: jonghyeonkim
+  cd91f61e-9ce8-47c2-9da0-68d4f8d7db14: !Template
+    answer_choices: Of course ||| No
+    id: cd91f61e-9ce8-47c2-9da0-68d4f8d7db14
+    jinja: '{{sentence1}} is true. Can we conclude that {{sentence2}} is also true?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_23
+    reference: jonghyeonkim
+  4cbd1e4e-4797-4616-89af-d60384fb37a8: !Template
+    answer_choices: Of course ||| No
+    id: 4cbd1e4e-4797-4616-89af-d60384fb37a8
+    jinja: '{{sentence1}}
+
+      Does this necessarily entail that "{{sentence2}}" is true? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_24
+    reference: jonghyeonkim
+  f0d26c69-5793-4c5a-9d5c-075241d888c1: !Template
+    answer_choices: Of course ||| No
+    id: f0d26c69-5793-4c5a-9d5c-075241d888c1
+    jinja: Does the claim "{{sentence2}}" follow from the fact that "{{sentence1}}"?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_25
+    reference: jonghyeonkim
+  f1ea7819-2b55-4b14-8b11-61b1d2d892d4: !Template
+    answer_choices: Of course ||| No
+    id: f1ea7819-2b55-4b14-8b11-61b1d2d892d4
+    jinja: If {{sentence1}} is true, is it possible that {{sentence2}} is also true?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_26
+    reference: jonghyeonkim
+  5ec8f6d2-cbf0-4c1e-914a-e1cabaad7985: !Template
+    answer_choices: Of course ||| No
+    id: 5ec8f6d2-cbf0-4c1e-914a-e1cabaad7985
+    jinja: 'Are the two sentences saying the same thing?
+
+
+      {{sentence1}}
+
+      {{sentence2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_27
+    reference: jonghyeonkim
+  98c365e2-2040-4587-bfd3-dfa90589f3ce: !Template
+    answer_choices: Of course ||| No
+    id: 98c365e2-2040-4587-bfd3-dfa90589f3ce
+    jinja: If {{sentence1}} is true, can we conclude that {{sentence2}} is also true?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_28
+    reference: jonghyeonkim
+  06cdd355-5c51-4eae-9b78-1aecdc60097a: !Template
+    answer_choices: Of course ||| No
+    id: 06cdd355-5c51-4eae-9b78-1aecdc60097a
+    jinja: If {{sentence1}} is false, can we conclude that {{sentence2}} is also false?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_29
+    reference: jonghyeonkim
+  e95372c0-f702-4610-a571-63418c1600b2: !Template
+    answer_choices: Of course ||| No
+    id: e95372c0-f702-4610-a571-63418c1600b2
+    jinja: 'Consider the sentence: {{sentence1}}. Is it correct to say that {{sentence2}}?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_30
+    reference: jonghyeonkim
+  8687c67e-513e-4f02-9ffb-469364fc2d6f: !Template
+    answer_choices: Of course ||| No
+    id: 8687c67e-513e-4f02-9ffb-469364fc2d6f
+    jinja: '{{sentence1}} is not true. Is it possible that {{sentence2}} is also not
+      true? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_31
+    reference: jonghyeonkim
+  1c9f4487-7d78-4844-bc91-bf0b3cb5ce62: !Template
+    answer_choices: No ||| Of course
+    id: 1c9f4487-7d78-4844-bc91-bf0b3cb5ce62
+    jinja: Is it possible for "{{sentence1}}" to be true and "{{sentence2}}" to be false?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_32
+    reference: jonghyeonkim
+  c972ee73-4a3a-492c-9752-a5afe01fe5a5: !Template
+    answer_choices: Of course ||| No
+    id: c972ee73-4a3a-492c-9752-a5afe01fe5a5
+    jinja: '{{sentence1}}
+
+      Does this imply
+
+      {{sentence2}}
+
+      Please answer {{"A) Of course or B) No."}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_33
+    reference: jonghyeonkim
+  f5875ca5-aa66-4b44-b2db-634ff8dc5210: !Template
+    answer_choices: Of course ||| No
+    id: f5875ca5-aa66-4b44-b2db-634ff8dc5210
+    jinja: '{{sentence1}}
+
+      Does this mean that "{{sentence2}}" is true? {{"A) Of course or B) No."}} |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_34
+    reference: jonghyeonkim
+  a2f21a8d-98be-4cb8-b950-6166b5ff225b: !Template
+    answer_choices: Of course ||| No
+    id: a2f21a8d-98be-4cb8-b950-6166b5ff225b
+    jinja: Given that {{sentence1}} is false, can we infer that {{sentence2}} is also
+      false? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_35
+    reference: jonghyeonkim
+  85e1da97-a1f7-4267-8c83-61a6c20352b7: !Template
+    answer_choices: Of course ||| No
+    id: 85e1da97-a1f7-4267-8c83-61a6c20352b7
+    jinja: '{{sentence1}} is true. Does this necessarily mean that {{sentence2}} is
+      also true? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_36
+    reference: jonghyeonkim
+  6b3adcc4-f648-4a97-ae86-29d3144329fc: !Template
+    answer_choices: Of course ||| No
+    id: 6b3adcc4-f648-4a97-ae86-29d3144329fc
+    jinja: '{{sentence1}} is false. Does this necessarily mean that {{sentence2}} is
+      also false? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_37
+    reference: jonghyeonkim
+  178aa4ae-f675-4f17-ba50-ec6f9d30493f: !Template
+    answer_choices: Of course ||| No
+    id: 178aa4ae-f675-4f17-ba50-ec6f9d30493f
+    jinja: '{{sentence1}} and {{sentence2}} are related. Does this mean that they are
+      equivalent? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_38
+    reference: jonghyeonkim
+  747f7fab-b85a-400a-ae8e-0ad2b0cf6ff3: !Template
+    answer_choices: Of course ||| No
+    id: 747f7fab-b85a-400a-ae8e-0ad2b0cf6ff3
+    jinja: Please determine if the sentence "{{sentence1}}" entails the sentence "{{sentence2}}".
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_39
+    reference: jonghyeonkim
+  b502396e-a998-4e0e-98d6-95bc8664dc59: !Template
+    answer_choices: Of course ||| No
+    id: b502396e-a998-4e0e-98d6-95bc8664dc59
+    jinja: Suppose that "{{sentence1}}". Does this necessarily mean that "{{sentence2}}"
+      is true? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_40
+    reference: jonghyeonkim
+  aadef675-b4d2-41b7-8bee-e558cadd7f2c: !Template
+    answer_choices: Of course ||| No
+    id: aadef675-b4d2-41b7-8bee-e558cadd7f2c
+    jinja: Given "{{sentence1}}" and "{{sentence2}}", does "{{sentence1}}" entail "{{sentence2}}"?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_41
+    reference: jonghyeonkim
+  5d68a4f7-79b5-4d4d-a5a1-f4d0aafb1d2b: !Template
+    answer_choices: Of course ||| No
+    id: 5d68a4f7-79b5-4d4d-a5a1-f4d0aafb1d2b
+    jinja: If "{{sentence1}}" is true, does this necessarily mean that "{{sentence2}}"
+      is also true? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_42
+    reference: jonghyeonkim
+  e3668705-14e0-4754-ab53-c5a36445c007: !Template
+    answer_choices: Of course ||| No
+    id: e3668705-14e0-4754-ab53-c5a36445c007
+    jinja: '{{sentence1}}
+
+      Do the contents of the statement "{{sentence2}}" necessarily follow from it? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_43
+    reference: jonghyeonkim
+  8a401e50-9db7-4e33-8bdd-6c8868c64051: !Template
+    answer_choices: Of course ||| No
+    id: 8a401e50-9db7-4e33-8bdd-6c8868c64051
+    jinja: Does "{{sentence1}}" imply that "{{sentence2}}"? Please answer either {{"Of
+      course"}} or {{"No"}}. ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_44
+    reference: jonghyeonkim
+  40d218ae-a270-4fc7-a6b2-504f6e8fa994: !Template
+    answer_choices: Of course ||| No
+    id: 40d218ae-a270-4fc7-a6b2-504f6e8fa994
+    jinja: '{{sentence1}} is not true. Does this necessarily mean that {{sentence2}}
+      is not true either? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_45
+    reference: jonghyeonkim
+  fd2f9316-feb6-4f81-bb4a-1cf4cfca858d: !Template
+    answer_choices: Of course ||| No
+    id: fd2f9316-feb6-4f81-bb4a-1cf4cfca858d
+    jinja: '{{sentence1}} and {{sentence2}} are not related. Does this mean that they
+      are not both true? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_46
+    reference: jonghyeonkim
+  528b3345-82f7-4f8d-965c-8f7b514afec6: !Template
+    answer_choices: Of course ||| No
+    id: 528b3345-82f7-4f8d-965c-8f7b514afec6
+    jinja: '{{sentence1}} implies {{sentence2}}. Does this mean that {{sentence2}} implies
+      {{sentence1}}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_47
+    reference: jonghyeonkim
+  0c283af3-6063-487a-b81c-9b1f42e92ab6: !Template
+    answer_choices: Of course ||| No
+    id: 0c283af3-6063-487a-b81c-9b1f42e92ab6
+    jinja: Given the statement "{{sentence1}}", does it necessarily follow that "{{sentence2}}"
+      is true? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_48
+    reference: jonghyeonkim
+  edd42e70-0896-42c4-8e96-7efa64042128: !Template
+    answer_choices: Of course ||| No
+    id: edd42e70-0896-42c4-8e96-7efa64042128
+    jinja: '{{sentence1}} and {{sentence2}} are not related. is this true? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_49
+    reference: jonghyeonkim
+  ff0fb0d0-1f7a-407f-bcae-3a001d0a1cdd: !Template
+    answer_choices: Of course ||| No
+    id: ff0fb0d0-1f7a-407f-bcae-3a001d0a1cdd
+    jinja: 'Consider the sentences:
+
+      {{sentence1}}
+
+      {{sentence2}}
+
+      Does "{{sentence1}}" imply "{{sentence2}}"? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_50
+    reference: jonghyeonkim
+  4d26a785-7a05-4793-a6db-c51cd7f3f11b: !Template
+    answer_choices: Of course ||| No
+    id: 4d26a785-7a05-4793-a6db-c51cd7f3f11b
+    jinja: '{{sentence1}} and {{sentence2}}
+
+      Does this mean that they have the same meaning? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_51
+    reference: jonghyeonkim
+  44ad9009-0d7f-4bfd-a61c-3ed29416ce03: !Template
+    answer_choices: Of course ||| No
+    id: 44ad9009-0d7f-4bfd-a61c-3ed29416ce03
+    jinja: Can we conclude that {{sentence1}} is not true based on the fact that {{sentence2}}
+      is not true? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_52
+    reference: jonghyeonkim
+  ca4db9cd-0555-42ac-ae8f-8ce92af5bdfc: !Template
+    answer_choices: Of course ||| No
+    id: ca4db9cd-0555-42ac-ae8f-8ce92af5bdfc
+    jinja: '{{sentence1}}
+
+      Do you think that "{{sentence2}}" logically follows from it? {{"A) Of course or
+      B) No."}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_53
+    reference: jonghyeonkim
+  7496b219-c138-40aa-9dc9-6f64c2a56f44: !Template
+    answer_choices: Of course ||| No
+    id: 7496b219-c138-40aa-9dc9-6f64c2a56f44
+    jinja: 'Regarding the sentences:
+
+      {{sentence1}}
+
+      {{sentence2}}
+
+      Does "{{sentence1}}" entail "{{sentence2}}"? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_54
+    reference: jonghyeonkim
+  bcaf91a0-2009-4596-8ede-d02a3852ba03: !Template
+    answer_choices: Of course ||| No
+    id: bcaf91a0-2009-4596-8ede-d02a3852ba03
+    jinja: Can "{{sentence2}}" be inferred from "{{sentence1}}"? Please answer either
+      {{"Of course"}} or {{"No"}}. ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_55
+    reference: jonghyeonkim
+  4f6d6f2a-1379-4c5f-9028-b0a0568f6b26: !Template
+    answer_choices: Of course ||| No
+    id: 4f6d6f2a-1379-4c5f-9028-b0a0568f6b26
+    jinja: Given "{{sentence1}}", is "{{sentence2}}" true? Please choose either {{"A)
+      Of course"}} or {{"B) No"}}. ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_56
+    reference: jonghyeonkim
+  7188c4b1-7e17-402b-acd8-e7b62c07d8a8: !Template
+    answer_choices: Of course ||| No
+    id: 7188c4b1-7e17-402b-acd8-e7b62c07d8a8
+    jinja: '{{sentence1}}
+
+      Does the information in "{{sentence2}}" necessarily follow from the given statement?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_57
+    reference: jonghyeonkim
+  d0ebe0e1-3760-4e76-a8f6-896c1b49fac7: !Template
+    answer_choices: Of course ||| No
+    id: d0ebe0e1-3760-4e76-a8f6-896c1b49fac7
+    jinja: '{{sentence1}}
+
+      {{sentence2}}
+
+      Is it correct to say that the first sentence entails the second sentence? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_58
+    reference: jonghyeonkim
+  d8369fb3-b554-48d8-8520-2b8be3952869: !Template
+    answer_choices: Of course ||| No
+    id: d8369fb3-b554-48d8-8520-2b8be3952869
+    jinja: '{{sentence1}}
+
+      Does this mean that "{{sentence2}}"?
+
+      Please choose either {{"A) Of course" }} or {{"B) No" }}. ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_59
+    reference: jonghyeonkim
+  5de23ecf-6fd0-49aa-a8a7-a66e1671f69a: !Template
+    answer_choices: Of course ||| No
+    id: 5de23ecf-6fd0-49aa-a8a7-a66e1671f69a
+    jinja: 'Determine whether the following statement is {{"true"}} or {{"false"}}:
+      "{{sentence1}}".
+
+      {{sentence2}}
+
+      Answer Of course if true, or No if not. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_60
+    reference: jonghyeonkim
+  8a46a716-c8c7-4868-8aa6-b93567956072: !Template
+    answer_choices: Of course ||| No
+    id: 8a46a716-c8c7-4868-8aa6-b93567956072
+    jinja: '{{sentence1}}
+
+      Does this imply that "{{sentence2}}" is true? Please answer either {{"Of course"}}
+      or {{"No"}}. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_61
+    reference: jonghyeonkim
+  c355c4b1-f9a2-4adc-b5c1-1aa0a073b4ef: !Template
+    answer_choices: Of course ||| No
+    id: c355c4b1-f9a2-4adc-b5c1-1aa0a073b4ef
+    jinja: '{{sentence1}} implies {{sentence2}}. Does this mean that {{sentence1}} and
+      {{sentence2}} are equivalent? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_62
+    reference: jonghyeonkim
+  a51345df-6ac5-4603-9e1f-4c611103f614: !Template
+    answer_choices: Of course ||| No
+    id: a51345df-6ac5-4603-9e1f-4c611103f614
+    jinja: '{{sentence1}}
+
+      Does this suggest that "{{sentence2}}" is true? Please answer either {{"Of course"}}
+      or {{"No"}}. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_63
+    reference: jonghyeonkim
+  c27ff372-1c14-41a4-b64c-87f48498d9d0: !Template
+    answer_choices: Of course ||| No
+    id: c27ff372-1c14-41a4-b64c-87f48498d9d0
+    jinja: '{{sentence1}} does not imply {{sentence2}}. Does this mean that {{sentence2}}
+      does not imply {{sentence1}}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_64
+    reference: jonghyeonkim
+  2cfcd5b9-8389-4ff1-913a-5af33d532d11: !Template
+    answer_choices: Of course ||| No
+    id: 2cfcd5b9-8389-4ff1-913a-5af33d532d11
+    jinja: 'If "{{sentence1}}", does it follow that "{{sentence2}}"?
+
+      Please answer either {{"A) Of course" }} or {{"B) No" }}. ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_65
+    reference: jonghyeonkim
+  2c1bddb4-0c74-4f04-a9b2-22fd7c8cb0e8: !Template
+    answer_choices: Of course ||| No
+    id: 2c1bddb4-0c74-4f04-a9b2-22fd7c8cb0e8
+    jinja: Do you think that "{{sentence1}}" logically entails "{{sentence2}}"? Please
+      choose from {{"A) Of course or B) No."}} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_66
+    reference: jonghyeonkim
+  403a8c84-416c-4d7a-8d78-f46d5f453bb6: !Template
+    answer_choices: Of course ||| No
+    id: 403a8c84-416c-4d7a-8d78-f46d5f453bb6
+    jinja: Is it correct to say that "{{sentence1}}" implies "{{sentence2}}"? Please
+      answer either {{"Of course"}} or {{"No"}}. ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_67
+    reference: jonghyeonkim
+  3cfcb808-d83f-48dd-a18d-3cc663a13a12: !Template
+    answer_choices: Of course ||| No
+    id: 3cfcb808-d83f-48dd-a18d-3cc663a13a12
+    jinja: '{{sentence1}}
+
+      Can we infer from this that "{{sentence2}}" is true? Please answer either {{"Of
+      course"}} or {{"No"}}. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_68
+    reference: jonghyeonkim
+  7d7b604e-75dc-4959-91de-f76726565a84: !Template
+    answer_choices: Of course ||| No
+    id: 7d7b604e-75dc-4959-91de-f76726565a84
+    jinja: 'Which of the following best describes the relationship between the two sentences?
+
+      {{sentence1}}
+
+      {{sentence2}}
+
+      - Entailment: Of course - Contradiction: No ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_69
+    reference: jonghyeonkim
+  98ab8e87-2e28-4bd6-a616-5f0bb8e3e512: !Template
+    answer_choices: Of course ||| No
+    id: 98ab8e87-2e28-4bd6-a616-5f0bb8e3e512
+    jinja: Do the sentences "{{sentence1}}" and "{{sentence2}}" have the relationship
+      of "entailment" or "not entailment"?  Answer No if not entailment, or Of course
+      if not. ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_70
+    reference: jonghyeonkim
+  86c9f360-1dce-4a37-95ca-a9938c5381ff: !Template
+    answer_choices: Of course ||| No
+    id: 86c9f360-1dce-4a37-95ca-a9938c5381ff
+    jinja: Does the sentence "{{sentence1}}" necessarily mean "{{sentence2}}"? Please
+      answer either {{"Of course"}} or {{"No"}}. ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_71
+    reference: jonghyeonkim
+  a5cb18cb-1175-49ca-9532-b677a5e3ad71: !Template
+    answer_choices: Of course ||| No
+    id: a5cb18cb-1175-49ca-9532-b677a5e3ad71
+    jinja: '{{sentence1}} is true. Does this mean that {{sentence2}} is a necessary
+      condition for {{sentence1}} to be true? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_72
+    reference: jonghyeonkim
+  b5c20c07-a23d-4a25-b33f-c3061ba8316c: !Template
+    answer_choices: Of course ||| No
+    id: b5c20c07-a23d-4a25-b33f-c3061ba8316c
+    jinja: Do "{{sentence1}}" and "{{sentence2}}" have the same meaning? Please choose
+      either {{"A) Of course"}} or {{"B) No"}}. ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_73
+    reference: jonghyeonkim
+  433b30f4-4712-4267-9f9b-13afa70e30f6: !Template
+    answer_choices: Of course ||| No
+    id: 433b30f4-4712-4267-9f9b-13afa70e30f6
+    jinja: 'Based on the information in the two sentences, can we conclude that {{sentence2}}?
+
+
+      {{sentence1}}
+
+      {{sentence2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_74
+    reference: jonghyeonkim
+  984d1b8d-50de-4bea-9ea7-d5c3e74f1a0d: !Template
+    answer_choices: Of course ||| No
+    id: 984d1b8d-50de-4bea-9ea7-d5c3e74f1a0d
+    jinja: '{{sentence1}}
+
+      Do the contents of the statement "{{sentence2}}" necessarily follow from it? {{"A)
+      Of course or B) No."}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_75
+    reference: jonghyeonkim
+  53883a2b-e59d-4960-a8ad-23283bf585c4: !Template
+    answer_choices: Of course ||| No
+    id: 53883a2b-e59d-4960-a8ad-23283bf585c4
+    jinja: '{{sentence1}} and {{sentence2}} are related. Is {{sentence1}} a necessary
+      condition for {{sentence2}} to be true? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_76
+    reference: jonghyeonkim
+  9279f843-ab74-477c-9c8f-dc849a2f5a8b: !Template
+    answer_choices: Of course ||| No
+    id: 9279f843-ab74-477c-9c8f-dc849a2f5a8b
+    jinja: '{{sentence1}}
+
+      Does this necessarily imply that "{{sentence2}}" is true? Please choose from {{"A)
+      Of course or B) No."}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_77
+    reference: jonghyeonkim
+  687e859f-9789-430c-b09c-3bf610170419: !Template
+    answer_choices: Of course ||| No
+    id: 687e859f-9789-430c-b09c-3bf610170419
+    jinja: '{{sentence1}}
+
+      Does this necessarily entail that "{{sentence2}}" is true? Please choose from
+      {{"A) Of course or B) No."}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_78
+    reference: jonghyeonkim
+  93f2e181-f37a-4d2a-bdd8-2af1f09a0ef2: !Template
+    answer_choices: Of course ||| No
+    id: 93f2e181-f37a-4d2a-bdd8-2af1f09a0ef2
+    jinja: 'Can the truth of the first sentence be used to infer the truth of the second
+      sentence?
+
+
+      {{sentence1}}
+
+      {{sentence2}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_79
+    reference: jonghyeonkim
+  107be101-b574-4f6a-a513-71272cfe105e: !Template
+    answer_choices: Of course ||| No
+    id: 107be101-b574-4f6a-a513-71272cfe105e
+    jinja: Are the statements "{{sentence1}}" and "{{sentence2}}" equivalent? Please
+      choose either {{"A) Of course"}} or {{"B) No"}}. ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_80
+    reference: jonghyeonkim
+  f1b902ed-5b79-4e4b-961c-b4715be74dbd: !Template
+    answer_choices: Of course ||| No
+    id: f1b902ed-5b79-4e4b-961c-b4715be74dbd
+    jinja: 'Does the claim "{{sentence2}}" follow from the fact that "{{sentence1}}"?
+
+      Please answer either {{"Of course"}} or {{"No"}}. ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_81
+    reference: jonghyeonkim
+  0c6dd890-7644-4a2d-b0b5-580b9f48ea47: !Template
+    answer_choices: Of course ||| No
+    id: 0c6dd890-7644-4a2d-b0b5-580b9f48ea47
+    jinja: '{{sentence1}}
+
+      Does the information in "{{sentence2}}" necessarily follow from the given statement?
+      {{"A) Of course or B) No."}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_82
+    reference: jonghyeonkim
+  0b9df28a-c166-4006-9b84-04b9415d4777: !Template
+    answer_choices: Of course ||| No
+    id: 0b9df28a-c166-4006-9b84-04b9415d4777
+    jinja: 'Does the sentence "{{sentence1}}" imply the sentence "{{sentence2}}"?
+
+      Please answer either {{"A) Of course" }} or {{"B) No" }}. ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_83
+    reference: jonghyeonkim
+  77e8e00e-0152-43c1-aa52-145d5b80b87d: !Template
+    answer_choices: Of course ||| No
+    id: 77e8e00e-0152-43c1-aa52-145d5b80b87d
+    jinja: If "{{sentence1}}" is true, does that mean "{{sentence2}}" must also be true?
+      Please answer either {{"Of course"}} or {{"No"}}. ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_84
+    reference: jonghyeonkim
+  b2437623-0d75-46e2-ae24-863e4133ad09: !Template
+    answer_choices: Of course ||| No
+    id: b2437623-0d75-46e2-ae24-863e4133ad09
+    jinja: 'Which of the following statements best describes the relationship between
+      the two sentences?
+
+
+      {{sentence1}}
+
+      {{sentence2}}
+
+      is entailment? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_85
+    reference: jonghyeonkim
+  64b136ac-d9e2-461b-b415-a1795d788ec8: !Template
+    answer_choices: Of course ||| No
+    id: 64b136ac-d9e2-461b-b415-a1795d788ec8
+    jinja: '{{sentence1}} implies {{sentence2}}. Does this mean that {{sentence2}} is
+      a sufficient condition for {{sentence1}} to be true? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_86
+    reference: jonghyeonkim
+  a4fbb8d9-02f5-428d-b54f-ad1b483cb74a: !Template
+    answer_choices: Of course ||| No
+    id: a4fbb8d9-02f5-428d-b54f-ad1b483cb74a
+    jinja: '{{sentence1}}
+
+      Can we conclude that "{{sentence2}}" follows from the first sentence? Please answer
+      either {{"Of course"}} or {{"No"}}. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_87
+    reference: jonghyeonkim
+  195ca5b2-1203-4dbd-8fe8-0916ac799688: !Template
+    answer_choices: Of course ||| No
+    id: 195ca5b2-1203-4dbd-8fe8-0916ac799688
+    jinja: Is it possible for "{{sentence1}}" to be true and "{{sentence2}}" to be false?
+      Please choose either {{"A) Of course"}} or {{"B) No"}}. ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_88
+    reference: jonghyeonkim
+  d3309d59-a3cd-4d08-b790-de315998eae2: !Template
+    answer_choices: Of course ||| No
+    id: d3309d59-a3cd-4d08-b790-de315998eae2
+    jinja: Suppose that "{{sentence1}}". Does this necessarily mean that "{{sentence2}}"
+      is true? Please answer either {{"Of course"}} or {{"No"}}. ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_89
+    reference: jonghyeonkim
+  8772cc00-d4c8-432b-8988-31d475d8cd0b: !Template
+    answer_choices: Of course ||| No
+    id: 8772cc00-d4c8-432b-8988-31d475d8cd0b
+    jinja: 'Consider the following statements:
+
+      {{sentence1}}
+
+      {{sentence2}}
+
+      Is it the case that "{{sentence1}}" logically implies "{{sentence2}}"? ||| {{
+      answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_90
+    reference: jonghyeonkim
+  cd7107b3-5e9d-40ba-9e94-93e651d81f78: !Template
+    answer_choices: Of course ||| No
+    id: cd7107b3-5e9d-40ba-9e94-93e651d81f78
+    jinja: Given the statement "{{sentence1}}", does it necessarily follow that "{{sentence2}}"
+      is true? Please answer either {{"Of course"}} or {{"No"}}. ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_91
+    reference: jonghyeonkim
+  6183c498-9865-4358-81c9-1ae16c6c7cbf: !Template
+    answer_choices: Of course ||| No
+    id: 6183c498-9865-4358-81c9-1ae16c6c7cbf
+    jinja: 'Please determine if the sentence "{{sentence1}}" entails the sentence "{{sentence2}}".
+
+      Please answer either {{"A) Of course" }} or {{"B) No" }}. ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_92
+    reference: jonghyeonkim
+  1109a5c4-1460-418c-86d0-f980e41bd846: !Template
+    answer_choices: Of course ||| No
+    id: 1109a5c4-1460-418c-86d0-f980e41bd846
+    jinja: 'Given "{{sentence1}}" and "{{sentence2}}", does "{{sentence1}}" entail "{{sentence2}}"?
+
+      Please answer either {{"A) Of course" }} or {{"B) No" }}. ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_93
+    reference: jonghyeonkim
+  91e30e07-073c-450c-b99f-7374054c8ee9: !Template
+    answer_choices: Of course ||| No
+    id: 91e30e07-073c-450c-b99f-7374054c8ee9
+    jinja: If "{{sentence1}}" is true, does this necessarily mean that "{{sentence2}}"
+      is also true? Please choose either {{"A) Of course"}} or {{"B) No"}}. ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_94
+    reference: jonghyeonkim
+  66ed898d-a424-42a6-b636-4895321fe508: !Template
+    answer_choices: Of course ||| No
+    id: 66ed898d-a424-42a6-b636-4895321fe508
+    jinja: '{{sentence1}}
+
+      {{sentence2}}
+
+      Is it correct to say that the first sentence entails the second sentence? Please
+      choose from {{"A) Of course or B) No."}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_95
+    reference: jonghyeonkim
+  9bc23286-89e9-4e7b-a060-d3e891474761: !Template
+    answer_choices: Of course ||| No
+    id: 9bc23286-89e9-4e7b-a060-d3e891474761
+    jinja: '{{sentence1}}
+
+      Is it correct to say that "{{sentence2}}" is a logical consequence of the first
+      sentence? Please answer either {{"Of course"}} or {{"No"}}. ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_96
+    reference: jonghyeonkim
+  fa8ef88e-4299-4338-be57-78b7f1a82a13: !Template
+    answer_choices: Of course ||| No
+    id: fa8ef88e-4299-4338-be57-78b7f1a82a13
+    jinja: '{{sentence1}} is a sufficient condition for {{sentence2}} to be true. Does
+      this mean that {{sentence2}} is a necessary condition for {{sentence1}} to be
+      true? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_97
+    reference: jonghyeonkim
+  4e1676e4-53d8-488e-b54c-39633941d26d: !Template
+    answer_choices: No ||| Of course
+    id: 4e1676e4-53d8-488e-b54c-39633941d26d
+    jinja: 'Consider the following sentences:
+
+      {{sentence1}}
+
+      {{sentence2}}
+
+      Do you think the relationship between the two sentences is not entailment? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_98
+    reference: jonghyeonkim
+  f3dc2015-2963-46f0-9de4-e1c60ec0bfeb: !Template
+    answer_choices: Of course ||| No
+    id: f3dc2015-2963-46f0-9de4-e1c60ec0bfeb
+    jinja: 'We say that one sentence "{{"entails"}}" another sentence when the first
+      sentence implies the second sentence. Consider the following two sentences:
+
+      {{sentence1}}
+
+      {{sentence2}}
+
+      Is the relationship from the first to the second sentence "entailment"? ||| {{
+      answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_99
+    reference: jonghyeonkim

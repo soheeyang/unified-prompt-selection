@@ -1,0 +1,1513 @@
+dataset: story_cloze
+subset: '2016'
+templates:
+  1a4946f9-a0e2-4fbb-aee8-b26ead2cf6b8: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 1a4946f9-a0e2-4fbb-aee8-b26ead2cf6b8
+    jinja: '{{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}
+      What is a possible continuation for the story given the following options ?
+      - {{answer_choices | join("\n- ")}} ||| {{answer_choices[answer_right_ending
+      -1]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Answer Given options
+    reference: ''
+  1a9d53bc-eb77-4e7c-af6e-3d15b79d6cf1: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 1a9d53bc-eb77-4e7c-af6e-3d15b79d6cf1
+    jinja: "Read the following story :\n\n{{input_sentence_1}}\n{{input_sentence_2}}\n\
+      {{input_sentence_3}}\n{{input_sentence_4}}\n\nChoose a possible ending for the\
+      \ previous story from the following options: \n- {{answer_choices | join(\"\\\
+      n- \")}}\n|||\n\n{{answer_choices[answer_right_ending -1]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Choose Story Ending
+    reference: ''
+  9dab69d1-cad0-4d2f-a7cc-120df233571c: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 9dab69d1-cad0-4d2f-a7cc-120df233571c
+    jinja: 'Yesterday, I watched a movie. Here''s what happened: {{input_sentence_1}}
+      {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}} What happens
+      next? - {{answer_choices | join("\n- ")}} ||| {{answer_choices[answer_right_ending
+      -1]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Movie What Happens Next
+    reference: ''
+  b5c8445f-2d3a-4691-bdd5-58956816702f: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: b5c8445f-2d3a-4691-bdd5-58956816702f
+    jinja: "What is a possible continuation for the following story ? \n\n{{input_sentence_1}}\n\
+      {{input_sentence_2}}\n{{input_sentence_3}}\n{{input_sentence_4}}\n\nChoose from\
+      \ the following options:\n- {{answer_choices | join(\"\\n- \")}}\n|||\n\n{{answer_choices[answer_right_ending\
+      \ -1]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Story Continuation and Options
+    reference: ''
+  baffa716-43cf-4954-a35c-655d775321e6: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: baffa716-43cf-4954-a35c-655d775321e6
+    jinja: 'Generate a possible ending for the following story: {{input_sentence_1}}
+      {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}} ||| {{answer_choices[answer_right_ending
+      -1]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: Generate Ending
+    reference: ''
+  c6f3d802-4f97-449f-a911-03470d418f7d: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: c6f3d802-4f97-449f-a911-03470d418f7d
+    jinja: 'I read the following novel: {{input_sentence_1}} {{input_sentence_2}}
+      {{input_sentence_3}} {{input_sentence_4}} What do you think is the most probable
+      ending? You can choose from the following options: - {{answer_choices | join("\n-
+      ")}} ||| {{answer_choices[answer_right_ending -1]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Novel Correct Ending
+    reference: ''
+  4d2076aa-61fa-4d35-bf0d-33618ef2d906: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 4d2076aa-61fa-4d35-bf0d-33618ef2d906
+    jinja: '{{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}
+      ||| {{ answer_choices[answer_right_ending | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: fewshot
+    reference: jonghyeonkim
+  64ff9ae1-2c87-425f-b1da-c0b3c0576594: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 64ff9ae1-2c87-425f-b1da-c0b3c0576594
+    jinja: Continue the story that begins with '{{input_sentence_1}} {{input_sentence_2}}
+      {{input_sentence_3}} {{input_sentence_4}}'. ||| {{ answer_choices[answer_right_ending
+      | int() -1] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_00
+    reference: jonghyeonkim
+  cba47090-3649-4332-a939-dcda02a752b5: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: cba47090-3649-4332-a939-dcda02a752b5
+    jinja: Write a possible climax for the story '{{input_sentence_1}} {{input_sentence_2}}
+      {{input_sentence_3}} {{input_sentence_4}}'. ||| {{ answer_choices[answer_right_ending
+      | int() -1] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_01
+    reference: jonghyeonkim
+  1157b6f4-a5c3-4c33-b3fa-7aab27701136: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 1157b6f4-a5c3-4c33-b3fa-7aab27701136
+    jinja: "{{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}\n\
+      Write an alternate ending to the story.\n ||| {{ answer_choices[answer_right_ending\
+      \ | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_02
+    reference: jonghyeonkim
+  3c214d43-1304-4bc6-b512-9f5334e66eec: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 3c214d43-1304-4bc6-b512-9f5334e66eec
+    jinja: "{{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}\n\
+      What is a possible ending to this story?\n ||| {{ answer_choices[answer_right_ending\
+      \ | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_03
+    reference: jonghyeonkim
+  9c3eb6c6-94f6-49af-9db8-5243657ca337: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 9c3eb6c6-94f6-49af-9db8-5243657ca337
+    jinja: "Provide a plausible ending for this story:\n{{input_sentence_1}} {{input_sentence_2}}\
+      \ {{input_sentence_3}} {{input_sentence_4}}\n ||| {{ answer_choices[answer_right_ending\
+      \ | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_04
+    reference: jonghyeonkim
+  4c46316a-f151-43bc-9d54-4e0b7680a3f4: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 4c46316a-f151-43bc-9d54-4e0b7680a3f4
+    jinja: "Provide a logical conclusion to this story:\n{{input_sentence_1}} {{input_sentence_2}}\
+      \ {{input_sentence_3}} {{input_sentence_4}}\n ||| {{ answer_choices[answer_right_ending\
+      \ | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_05
+    reference: jonghyeonkim
+  d6085118-e707-4dab-849c-bd853552f9f6: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: d6085118-e707-4dab-849c-bd853552f9f6
+    jinja: '{{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}
+
+      What do you think happens next in this story? ||| {{ answer_choices[answer_right_ending
+      | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_06
+    reference: jonghyeonkim
+  a1b5e22a-6c3e-4eae-b7fd-486c8bdef935: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: a1b5e22a-6c3e-4eae-b7fd-486c8bdef935
+    jinja: '{{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}
+
+      Please write a possible ending for the story. ||| {{ answer_choices[answer_right_ending
+      | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_07
+    reference: jonghyeonkim
+  b29f07dc-c293-4caf-bae6-aa6d04afa19c: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: b29f07dc-c293-4caf-bae6-aa6d04afa19c
+    jinja: '{{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}
+
+      What could be a potential ending for this story? ||| {{ answer_choices[answer_right_ending
+      | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_08
+    reference: jonghyeonkim
+  0bce48dd-05be-49b3-81ad-adb5c4813829: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 0bce48dd-05be-49b3-81ad-adb5c4813829
+    jinja: "Imagine a possible ending for the following story: {{input_sentence_1}}\
+      \ {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}\n ||| {{ answer_choices[answer_right_ending\
+      \ | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_09
+    reference: jonghyeonkim
+  1376b611-37d1-4b07-893e-f33c2bd8d705: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 1376b611-37d1-4b07-893e-f33c2bd8d705
+    jinja: "Provide a plausible ending to the following story: {{input_sentence_1}}\
+      \ {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}\n ||| {{ answer_choices[answer_right_ending\
+      \ | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_10
+    reference: jonghyeonkim
+  23c2b703-be7b-4b6b-bfe5-60e0f021424d: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 23c2b703-be7b-4b6b-bfe5-60e0f021424d
+    jinja: "Write a reasonable ending for the following story: {{input_sentence_1}}\
+      \ {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}\n ||| {{ answer_choices[answer_right_ending\
+      \ | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_11
+    reference: jonghyeonkim
+  fd87361f-5382-478f-8041-16d61b43eed0: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: fd87361f-5382-478f-8041-16d61b43eed0
+    jinja: "Complete the following story with a possible ending: {{input_sentence_1}}\
+      \ {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}\n ||| {{ answer_choices[answer_right_ending\
+      \ | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_12
+    reference: jonghyeonkim
+  0a80b181-83d4-4c24-8766-a650e5f3994a: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 0a80b181-83d4-4c24-8766-a650e5f3994a
+    jinja: 'Write a possible ending to this story: "{{input_sentence_1}}", "{{input_sentence_2}}",
+      "{{input_sentence_3}}", and "{{input_sentence_4}}". ||| {{ answer_choices[answer_right_ending
+      | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_13
+    reference: jonghyeonkim
+  b4770703-b6ed-4f6a-8552-f94a8298ebc3: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: b4770703-b6ed-4f6a-8552-f94a8298ebc3
+    jinja: 'Write a story that starts with the following sentences: {{input_sentence_1}}
+      {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}} ||| {{ answer_choices[answer_right_ending
+      | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_14
+    reference: jonghyeonkim
+  fc160edb-1d38-4095-8fea-1a924e9f4908: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: fc160edb-1d38-4095-8fea-1a924e9f4908
+    jinja: 'Finish the story with the following sentence: {{input_sentence_4}} Here
+      are two possible endings:
+
+      - {{sentence_quiz1}}
+
+      - {{sentence_quiz2}} ||| {{ answer_choices[answer_right_ending | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_15
+    reference: jonghyeonkim
+  d6f47396-f2dc-4fcc-9df6-81224218cc67: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: d6f47396-f2dc-4fcc-9df6-81224218cc67
+    jinja: Imagine you are {{input_sentence_1}} in the story '{{input_sentence_2}} {{input_sentence_3}}
+      {{input_sentence_4}}'. What would you do next? ||| {{ answer_choices[answer_right_ending
+      | int() -1] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_16
+    reference: jonghyeonkim
+  bee0239a-2a51-4d96-a4f9-7071e35735cd: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: bee0239a-2a51-4d96-a4f9-7071e35735cd
+    jinja: Write an alternate ending for the story that starts with '{{input_sentence_1}}
+      {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}'. ||| {{ answer_choices[answer_right_ending
+      | int() -1] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_17
+    reference: jonghyeonkim
+  fbe411bd-4d8f-4c49-9c34-5d19b1d0b7a1: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: fbe411bd-4d8f-4c49-9c34-5d19b1d0b7a1
+    jinja: "Please generate a possible ending for the following story: {{input_sentence_1}}\
+      \ {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}\n ||| {{ answer_choices[answer_right_ending\
+      \ | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_18
+    reference: jonghyeonkim
+  2bc1704d-7e7e-4b26-8de6-eddcdec78891: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 2bc1704d-7e7e-4b26-8de6-eddcdec78891
+    jinja: "Provide an ending for the story that makes the most sense:\n{{input_sentence_1}}\
+      \ {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}\n ||| {{ answer_choices[answer_right_ending\
+      \ | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_19
+    reference: jonghyeonkim
+  c71f5ae4-c283-4cb9-b3ab-a22bfaef65ab: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: c71f5ae4-c283-4cb9-b3ab-a22bfaef65ab
+    jinja: "What would be a logical conclusion to the following story: {{input_sentence_1}}\
+      \ {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}\n ||| {{ answer_choices[answer_right_ending\
+      \ | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_20
+    reference: jonghyeonkim
+  87bc3c33-48b8-4db6-8c3a-c42c40015872: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 87bc3c33-48b8-4db6-8c3a-c42c40015872
+    jinja: Write a possible continuation of the story starting with '{{input_sentence_1}}
+      {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}'. ||| {{ answer_choices[answer_right_ending
+      | int() -1] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_21
+    reference: jonghyeonkim
+  ebc74b04-f153-4009-b038-839d22df9f3e: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: ebc74b04-f153-4009-b038-839d22df9f3e
+    jinja: "Based on this passage, what do you think will happen next?\n\n{{input_sentence_1}}\
+      \ {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}\n ||| {{ answer_choices[answer_right_ending\
+      \ | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_22
+    reference: jonghyeonkim
+  230095ca-9bd9-41cd-9720-49a594413e8e: !Template
+    answer_choices: A) {{sentence_quiz1}} ||| B) {{sentence_quiz2}}
+    id: 230095ca-9bd9-41cd-9720-49a594413e8e
+    jinja: '{{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}
+
+      What happens next?
+
+
+      A) {{sentence_quiz1}}
+
+      B) {{sentence_quiz2}} ||| {{ answer_choices[answer_right_ending | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_23
+    reference: jonghyeonkim
+  4e515aa7-07c0-4c2a-a3a2-5fe940a63e35: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 4e515aa7-07c0-4c2a-a3a2-5fe940a63e35
+    jinja: "Please provide a possible continuation for the following story: {{input_sentence_1}}\
+      \ {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}\n ||| {{ answer_choices[answer_right_ending\
+      \ | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_24
+    reference: jonghyeonkim
+  35c6731a-90a2-4d03-896d-e485d29022a3: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 35c6731a-90a2-4d03-896d-e485d29022a3
+    jinja: "Based on the given information, what do you think happened next? {{input_sentence_1}}\
+      \ {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}\n ||| {{ answer_choices[answer_right_ending\
+      \ | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_25
+    reference: jonghyeonkim
+  51b52eea-ee33-4998-984c-3f1110309767: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 51b52eea-ee33-4998-984c-3f1110309767
+    jinja: "Can you complete the following story? {{input_sentence_1}} {{input_sentence_2}}\
+      \ {{input_sentence_3}} {{input_sentence_4}} Please provide a possible ending:\n\
+      \ ||| {{ answer_choices[answer_right_ending | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_26
+    reference: jonghyeonkim
+  4dee67d8-d7f3-4100-b838-0c4bfc3bd3f7: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 4dee67d8-d7f3-4100-b838-0c4bfc3bd3f7
+    jinja: '{{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}
+
+      Please select a possible ending:
+
+      - {{sentence_quiz1}}
+
+      - {{sentence_quiz2}} ||| {{ answer_choices[answer_right_ending | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_27
+    reference: jonghyeonkim
+  051f4c86-9c3d-416a-a164-44fad0412d15: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 051f4c86-9c3d-416a-a164-44fad0412d15
+    jinja: "After reading this excerpt, what could be a possible ending to the story?\n\
+      \n{{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}\n\
+      \ ||| {{ answer_choices[answer_right_ending | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_28
+    reference: jonghyeonkim
+  e06c5bb2-8ee0-41af-9ec0-0ebf093c9202: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: e06c5bb2-8ee0-41af-9ec0-0ebf093c9202
+    jinja: "Here is a story:\n{{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}}\
+      \ {{input_sentence_4}}\nWhat happens next?\n- {{sentence_quiz1}}\n- {{sentence_quiz2}}\n\
+      \ ||| {{ answer_choices[answer_right_ending | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_29
+    reference: jonghyeonkim
+  06c54c77-c445-4970-9c33-7a6e7903d1d3: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 06c54c77-c445-4970-9c33-7a6e7903d1d3
+    jinja: Imagine that you are a character in the story '{{input_sentence_1}} {{input_sentence_2}}
+      {{input_sentence_3}} {{input_sentence_4}}'. What would you say or do next? |||
+      {{ answer_choices[answer_right_ending | int() -1] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_30
+    reference: jonghyeonkim
+  1cfd6866-dc69-443a-925a-8bcff985a9a6: !Template
+    answer_choices: A. {{sentence_quiz1}} ||| B. {{sentence_quiz2}}
+    id: 1cfd6866-dc69-443a-925a-8bcff985a9a6
+    jinja: "{{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}\n\
+      Choose the best ending for this story:\nA. {{sentence_quiz1}}\nB. {{sentence_quiz2}}\n\
+      \ ||| {{ answer_choices[answer_right_ending | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_31
+    reference: jonghyeonkim
+  a4774d99-d8f6-44d0-9761-3cf9ecd66c71: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: a4774d99-d8f6-44d0-9761-3cf9ecd66c71
+    jinja: "Here are the opening sentences of a story: {{input_sentence_1}} {{input_sentence_2}}\
+      \ {{input_sentence_3}} {{input_sentence_4}}. What do you think is the most likely\
+      \ ending?\n ||| {{ answer_choices[answer_right_ending | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_32
+    reference: jonghyeonkim
+  336caae5-9f6a-43d4-9c63-02c257707061: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 336caae5-9f6a-43d4-9c63-02c257707061
+    jinja: '{{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}
+
+      What could be a plausible ending to this story?
+
+      - {{sentence_quiz1}}
+
+      - {{sentence_quiz2}} ||| {{ answer_choices[answer_right_ending | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_33
+    reference: jonghyeonkim
+  56780dc6-0b43-4c16-bdbf-305e32cf9a9d: !Template
+    answer_choices: A) {{sentence_quiz1}} ||| B) {{sentence_quiz2}}
+    id: 56780dc6-0b43-4c16-bdbf-305e32cf9a9d
+    jinja: 'Consider the story: {{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}}
+      {{input_sentence_4}}
+
+      What is a possible ending?
+
+
+      A) {{sentence_quiz1}}
+
+      B) {{sentence_quiz2}} ||| {{ answer_choices[answer_right_ending | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_34
+    reference: jonghyeonkim
+  4882b9fd-beb5-4c8f-8842-6d8628c24183: !Template
+    answer_choices: A) {{sentence_quiz1}} ||| B) {{sentence_quiz2}}
+    id: 4882b9fd-beb5-4c8f-8842-6d8628c24183
+    jinja: 'Choose the best ending to the following story: {{input_sentence_1}} {{input_sentence_2}}
+      {{input_sentence_3}} {{input_sentence_4}}
+
+
+      A) {{sentence_quiz1}}
+
+      B) {{sentence_quiz2}} ||| {{ answer_choices[answer_right_ending | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_35
+    reference: jonghyeonkim
+  64a952b5-ebde-4a9d-ad57-beb87b32494f: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 64a952b5-ebde-4a9d-ad57-beb87b32494f
+    jinja: 'Choose the best option to complete the sentence ''{{input_sentence_1}} {{input_sentence_2}}
+      {{input_sentence_3}} {{input_sentence_4}}'':
+
+      - {{sentence_quiz1}}
+
+      - {{sentence_quiz2}} ||| {{ answer_choices[answer_right_ending | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_36
+    reference: jonghyeonkim
+  a1f1f928-6c26-4aba-bf71-e48d0f40e6bc: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: a1f1f928-6c26-4aba-bf71-e48d0f40e6bc
+    jinja: "Here is a beginning of a story: {{input_sentence_1}} {{input_sentence_2}}\
+      \ {{input_sentence_3}} {{input_sentence_4}} What happens next?\n- {{sentence_quiz1}}\n\
+      - {{sentence_quiz2}}\n\n ||| {{ answer_choices[answer_right_ending | int() -1]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_37
+    reference: jonghyeonkim
+  4430a87e-aab0-428e-a6c7-c373d251b2d3: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 4430a87e-aab0-428e-a6c7-c373d251b2d3
+    jinja: '{{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}
+
+      What would be a satisfying way to conclude this story?
+
+      - {{sentence_quiz1}}
+
+      - {{sentence_quiz2}} ||| {{ answer_choices[answer_right_ending | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_38
+    reference: jonghyeonkim
+  66e7a4b9-cca9-443e-a57c-115c1954ca9e: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 66e7a4b9-cca9-443e-a57c-115c1954ca9e
+    jinja: 'Choose the most suitable ending for the following story:
+
+      {{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}
+
+      - {{sentence_quiz1}}
+
+      - {{sentence_quiz2}} ||| {{ answer_choices[answer_right_ending | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_39
+    reference: jonghyeonkim
+  19fa6435-92d7-43d8-9a4b-399c8a9a6b26: !Template
+    answer_choices: A. {{sentence_quiz1}} ||| B. {{sentence_quiz2}}
+    id: 19fa6435-92d7-43d8-9a4b-399c8a9a6b26
+    jinja: "Choose the most likely ending for the following story:\n{{input_sentence_1}}\
+      \ {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}\nA. {{sentence_quiz1}}\n\
+      B. {{sentence_quiz2}}\n ||| {{ answer_choices[answer_right_ending | int() -1]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_40
+    reference: jonghyeonkim
+  0aa55f6a-86b6-4504-a8d3-7af21262f0ba: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 0aa55f6a-86b6-4504-a8d3-7af21262f0ba
+    jinja: "Choose the most likely ending for the following story:\n\n{{input_sentence_1}}\
+      \ {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}\n\n- {{sentence_quiz1}}\n\
+      - {{sentence_quiz2}}\n ||| {{ answer_choices[answer_right_ending | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_41
+    reference: jonghyeonkim
+  322c9f43-da53-469b-9da5-4fc45f2e1dc5: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 322c9f43-da53-469b-9da5-4fc45f2e1dc5
+    jinja: 'What do you think happens after ''{{input_sentence_1}} {{input_sentence_2}}
+      {{input_sentence_3}} {{input_sentence_4}}''? Choose the best option:
+
+      - {{sentence_quiz1}}
+
+      - {{sentence_quiz2}} ||| {{ answer_choices[answer_right_ending | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_42
+    reference: jonghyeonkim
+  f12c301d-4f78-4c21-9aa3-20216a739dd4: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: f12c301d-4f78-4c21-9aa3-20216a739dd4
+    jinja: 'Which of the following is a reasonable ending for the story: {{input_sentence_1}}
+      {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}
+
+      - {{sentence_quiz1}}
+
+      - {{sentence_quiz2}} ||| {{ answer_choices[answer_right_ending | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_43
+    reference: jonghyeonkim
+  4464cebd-687a-406a-a373-bc11126bd88a: !Template
+    answer_choices: A) {{sentence_quiz1}} ||| B) {{sentence_quiz2}}
+    id: 4464cebd-687a-406a-a373-bc11126bd88a
+    jinja: '{{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}
+
+      Select the most probable ending from the following options:
+
+
+      A) {{sentence_quiz1}}
+
+      B) {{sentence_quiz2}} ||| {{ answer_choices[answer_right_ending | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_44
+    reference: jonghyeonkim
+  38dcf555-3b94-4f9f-b1fe-e3d5dbe3bbb7: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 38dcf555-3b94-4f9f-b1fe-e3d5dbe3bbb7
+    jinja: "Based on the following story: {{input_sentence_1}} {{input_sentence_2}}\
+      \ {{input_sentence_3}} {{input_sentence_4}}, choose the best possible ending:\n\
+      - {{sentence_quiz1}}\n- {{sentence_quiz2}}\n ||| {{ answer_choices[answer_right_ending\
+      \ | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_45
+    reference: jonghyeonkim
+  55e7e794-e061-4343-886e-f6ebaab7df12: !Template
+    answer_choices: A. {{sentence_quiz1}} ||| B. {{sentence_quiz2}}
+    id: 55e7e794-e061-4343-886e-f6ebaab7df12
+    jinja: "What could happen next in this story?\n{{input_sentence_1}} {{input_sentence_2}}\
+      \ {{input_sentence_3}} {{input_sentence_4}}\nChoose the best option:\nA. {{sentence_quiz1}}\n\
+      B. {{sentence_quiz2}}\n ||| {{ answer_choices[answer_right_ending | int() -1]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_46
+    reference: jonghyeonkim
+  cc99f38e-b784-467f-8d9f-9cf953b55189: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: cc99f38e-b784-467f-8d9f-9cf953b55189
+    jinja: "{{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}\n\
+      What would be a reasonable way to finish this story? Choose from:\n- {{sentence_quiz1}}\n\
+      - {{sentence_quiz2}}\n ||| {{ answer_choices[answer_right_ending | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_47
+    reference: jonghyeonkim
+  afd38ca2-d85b-4de6-91bf-d3234ebcdcac: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: afd38ca2-d85b-4de6-91bf-d3234ebcdcac
+    jinja: "{{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}\n\
+      What is the most plausible continuation of the story? Choose from:\n- {{sentence_quiz1}}\n\
+      - {{sentence_quiz2}}\n ||| {{ answer_choices[answer_right_ending | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_48
+    reference: jonghyeonkim
+  139bff21-f8d0-4ebe-a9bf-b4090580af28: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 139bff21-f8d0-4ebe-a9bf-b4090580af28
+    jinja: "{{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}\n\
+      How would you conclude the story? Pick from the following options:\n- {{sentence_quiz1}}\n\
+      - {{sentence_quiz2}}\n ||| {{ answer_choices[answer_right_ending | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_49
+    reference: jonghyeonkim
+  b85dd26b-2f8b-4370-b74e-21bf5333730d: !Template
+    answer_choices: A. {{sentence_quiz1}} ||| B. {{sentence_quiz2}}
+    id: b85dd26b-2f8b-4370-b74e-21bf5333730d
+    jinja: "Read the following story and then choose the most likely ending:\n{{input_sentence_1}}\n\
+      {{input_sentence_2}}\n{{input_sentence_3}}\n{{input_sentence_4}}\nA. {{sentence_quiz1}}\n\
+      B. {{sentence_quiz2}}\n ||| {{ answer_choices[answer_right_ending | int() -1]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_50
+    reference: jonghyeonkim
+  f086a6d1-5103-45be-8f88-d91579976645: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: f086a6d1-5103-45be-8f88-d91579976645
+    jinja: '{{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}
+
+      What do you think happened next? Choose from the following options:
+
+      - {{sentence_quiz1}}
+
+      - {{sentence_quiz2}} ||| {{ answer_choices[answer_right_ending | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_51
+    reference: jonghyeonkim
+  58d8e199-cd6c-49aa-b3fc-91cefcfcc6c8: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 58d8e199-cd6c-49aa-b3fc-91cefcfcc6c8
+    jinja: "Given the following story:\n\n{{input_sentence_1}}\n{{input_sentence_2}}\n\
+      {{input_sentence_3}}\n{{input_sentence_4}}\n\nWhat is a likely ending to the story?\n\
+      \n- {{sentence_quiz1}}\n- {{sentence_quiz2}}\n ||| {{ answer_choices[answer_right_ending\
+      \ | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_52
+    reference: jonghyeonkim
+  c082c7f3-7072-462b-b885-919702acc7d1: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: c082c7f3-7072-462b-b885-919702acc7d1
+    jinja: "Which of the following sentences best continues the following story?\n{{input_sentence_1}}\
+      \ {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}\n- {{sentence_quiz1}}\n\
+      - {{sentence_quiz2}}\n ||| {{ answer_choices[answer_right_ending | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_53
+    reference: jonghyeonkim
+  d862ba14-8fd3-491c-b498-f0fc4a06b951: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: d862ba14-8fd3-491c-b498-f0fc4a06b951
+    jinja: 'Imagine a story that begins with the following four sentences:
+
+      - {{input_sentence_1}}
+
+      - {{input_sentence_2}}
+
+      - {{input_sentence_3}}
+
+      - {{input_sentence_4}}
+
+      What is a possible ending for this story? ||| {{ answer_choices[answer_right_ending
+      | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_54
+    reference: jonghyeonkim
+  63456a4a-745a-48c6-a1ce-3af022be4c92: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 63456a4a-745a-48c6-a1ce-3af022be4c92
+    jinja: "Choose the most appropriate sentence to describe the following scene: {{input_sentence_1}}\
+      \ {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}\n- {{sentence_quiz1}}\n\
+      - {{sentence_quiz2}}\n ||| {{ answer_choices[answer_right_ending | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_55
+    reference: jonghyeonkim
+  6f202329-2472-4d71-94a1-5f94e4e44a63: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 6f202329-2472-4d71-94a1-5f94e4e44a63
+    jinja: "{{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}\n\
+      What do you think will happen next? Choose from the following options:\n- {{sentence_quiz1}}\n\
+      - {{sentence_quiz2}}\n ||| {{ answer_choices[answer_right_ending | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_56
+    reference: jonghyeonkim
+  f2a4ac08-0ccb-4110-9a5a-f865fdb62986: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: f2a4ac08-0ccb-4110-9a5a-f865fdb62986
+    jinja: 'Finish the story that starts with ''{{input_sentence_1}} {{input_sentence_2}}
+      {{input_sentence_3}} {{input_sentence_4}}''.
+
+      Choose one of the following endings:
+
+      - {{sentence_quiz1}}
+
+      - {{sentence_quiz2}} ||| {{ answer_choices[answer_right_ending | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_57
+    reference: jonghyeonkim
+  d0ee41ae-50ad-4537-91e6-5c005e78475f: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: d0ee41ae-50ad-4537-91e6-5c005e78475f
+    jinja: 'Imagine a story that starts with the following sequence of sentences: {{input_sentence_1}}
+      {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}
+
+      What could be a possible ending for this story? ||| {{ answer_choices[answer_right_ending
+      | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_58
+    reference: jonghyeonkim
+  2ab029e1-37ce-495a-850d-8ec37d37bb8b: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 2ab029e1-37ce-495a-850d-8ec37d37bb8b
+    jinja: "{{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}\n\
+      What is the most probable next sentence? Choose from the following options:\n\
+      - {{sentence_quiz1}}\n- {{sentence_quiz2}}\n ||| {{ answer_choices[answer_right_ending\
+      \ | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_59
+    reference: jonghyeonkim
+  e5a4dc48-1b72-414e-b0f3-e8cec22fa265: !Template
+    answer_choices: A. {{sentence_quiz1}} ||| B. {{sentence_quiz2}}
+    id: e5a4dc48-1b72-414e-b0f3-e8cec22fa265
+    jinja: "What is the best way to conclude this story?\n{{input_sentence_1}} {{input_sentence_2}}\
+      \ {{input_sentence_3}} {{input_sentence_4}}\nChoose one of the following:\nA.\
+      \ {{sentence_quiz1}}\nB. {{sentence_quiz2}}\n ||| {{ answer_choices[answer_right_ending\
+      \ | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_60
+    reference: jonghyeonkim
+  298df7b0-1743-403d-babf-16a093d367af: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 298df7b0-1743-403d-babf-16a093d367af
+    jinja: "What could be a potential conclusion to this story? You have two choices:\n\
+      \n{{input_sentence_1}}\n{{input_sentence_2}}\n{{input_sentence_3}}\n{{input_sentence_4}}\n\
+      \n- {{sentence_quiz1}}\n- {{sentence_quiz2}}\n ||| {{ answer_choices[answer_right_ending\
+      \ | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_61
+    reference: jonghyeonkim
+  cbedd393-d6f4-4c6c-b641-0e5c7e2ac35d: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: cbedd393-d6f4-4c6c-b641-0e5c7e2ac35d
+    jinja: "You just walked into a haunted house. Here is what you see: {{input_sentence_1}}\
+      \ {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}} What do you do?\n\
+      - {{sentence_quiz1}}\n- {{sentence_quiz2}}\n ||| {{ answer_choices[answer_right_ending\
+      \ | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_62
+    reference: jonghyeonkim
+  a4c826ee-2f79-457c-be80-28780f95c27f: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: a4c826ee-2f79-457c-be80-28780f95c27f
+    jinja: "{{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}\n\
+      What is the most plausible next sentence? Choose from the following options:\n\
+      - {{sentence_quiz1}}\n- {{sentence_quiz2}}\n ||| {{ answer_choices[answer_right_ending\
+      \ | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_63
+    reference: jonghyeonkim
+  f9444a8d-54ed-423a-99a2-e739dc596a3c: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: f9444a8d-54ed-423a-99a2-e739dc596a3c
+    jinja: 'The following sentences describe a character. Can you guess what happens
+      next?
+
+      {{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}
+
+      - {{sentence_quiz1}}
+
+      - {{sentence_quiz2}} ||| {{ answer_choices[answer_right_ending | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_64
+    reference: jonghyeonkim
+  c7f43397-41ae-476d-8945-e9f7b3095989: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: c7f43397-41ae-476d-8945-e9f7b3095989
+    jinja: "{{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}\n\
+      What is a possible next event in the story? Choose from the following options:\n\
+      - {{sentence_quiz1}}\n- {{sentence_quiz2}}\n ||| {{ answer_choices[answer_right_ending\
+      \ | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_65
+    reference: jonghyeonkim
+  03d2e0a6-e78a-4ae7-bb35-5165ab8747d9: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 03d2e0a6-e78a-4ae7-bb35-5165ab8747d9
+    jinja: "Imagine you are the author of this story. How would you like to conclude\
+      \ it?\n\n{{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}\n\
+      \n- {{sentence_quiz1}}\n- {{sentence_quiz2}}\n ||| {{ answer_choices[answer_right_ending\
+      \ | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_66
+    reference: jonghyeonkim
+  ed0428af-1c3b-4123-96cf-99f3639872e7: !Template
+    answer_choices: 'A) {{sentence_quiz1}} ||| B) {{sentence_quiz2}}'
+    id: ed0428af-1c3b-4123-96cf-99f3639872e7
+    jinja: "The following story is missing its ending. Can you choose the correct one?\n\
+      \n{{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}\n\
+      \nA) {{sentence_quiz1}}\nB) {{sentence_quiz2}}\n ||| {{ answer_choices[answer_right_ending\
+      \ | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_67
+    reference: jonghyeonkim
+  d6d55556-1723-4818-a9a3-2ac9834f1fa8: !Template
+    answer_choices: A. {{sentence_quiz1}} ||| B. {{sentence_quiz2}}
+    id: d6d55556-1723-4818-a9a3-2ac9834f1fa8
+    jinja: "Imagine what happens next in the story:\n{{input_sentence_1}} {{input_sentence_2}}\
+      \ {{input_sentence_3}} {{input_sentence_4}}\nWhich of these endings is most likely?\n\
+      A. {{sentence_quiz1}}\nB. {{sentence_quiz2}}\n ||| {{ answer_choices[answer_right_ending\
+      \ | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_68
+    reference: jonghyeonkim
+  887b823c-b85d-46c6-8c5a-96212f89b6d7: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 887b823c-b85d-46c6-8c5a-96212f89b6d7
+    jinja: 'What could be a possible ending to the story? {{input_sentence_1}} {{input_sentence_2}}
+      {{input_sentence_3}} {{input_sentence_4}} Choose one of the following options:
+
+      - {{sentence_quiz1}}
+
+      - {{sentence_quiz2}} ||| {{ answer_choices[answer_right_ending | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_69
+    reference: jonghyeonkim
+  d4623466-bcb5-40ad-b69f-c592bacf8936: !Template
+    answer_choices: A) {{sentence_quiz1}} ||| B) {{sentence_quiz2}}
+    id: d4623466-bcb5-40ad-b69f-c592bacf8936
+    jinja: 'Read the story and select the most plausible ending from the following options:
+
+
+      {{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}
+
+
+      A) {{sentence_quiz1}}
+
+      B) {{sentence_quiz2}} ||| {{ answer_choices[answer_right_ending | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_70
+    reference: jonghyeonkim
+  72b6e4ae-f76e-4749-8213-dc4f283b2eca: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 72b6e4ae-f76e-4749-8213-dc4f283b2eca
+    jinja: "The following four sentences are the beginning of a story:\n- {{input_sentence_1}}\n\
+      - {{input_sentence_2}}\n- {{input_sentence_3}}\n- {{input_sentence_4}}\nWrite\
+      \ the next few sentences that would continue the story.\n ||| {{ answer_choices[answer_right_ending\
+      \ | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_71
+    reference: jonghyeonkim
+  d9289354-cf53-47ea-883e-e9b21d3beb4d: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: d9289354-cf53-47ea-883e-e9b21d3beb4d
+    jinja: '{{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}
+
+      Which of the following sentences would make the most interesting ending to the
+      story?
+
+      - {{sentence_quiz1}}
+
+      - {{sentence_quiz2}} ||| {{ answer_choices[answer_right_ending | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_72
+    reference: jonghyeonkim
+  bc905958-30f1-4774-86c2-ca16082d8d17: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: bc905958-30f1-4774-86c2-ca16082d8d17
+    jinja: 'Write a possible continuation for the following story: {{input_sentence_1}}
+      {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}
+
+      Choose the most fitting ending:
+
+      - {{sentence_quiz1}}
+
+      - {{sentence_quiz2}} ||| {{ answer_choices[answer_right_ending | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_73
+    reference: jonghyeonkim
+  fd5cb7f2-616a-4824-9be9-5724f68379bb: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: fd5cb7f2-616a-4824-9be9-5724f68379bb
+    jinja: 'Read the following narrative: {{input_sentence_1}} {{input_sentence_2}}
+      {{input_sentence_3}} {{input_sentence_4}}
+
+      Choose one of the following options as a plausible ending:
+
+      - {{sentence_quiz1}}
+
+      - {{sentence_quiz2}} ||| {{ answer_choices[answer_right_ending | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_74
+    reference: jonghyeonkim
+  6e1095f6-0633-4d6e-ab7f-50a7e83784ac: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 6e1095f6-0633-4d6e-ab7f-50a7e83784ac
+    jinja: "You just read the following passage:\n\n{{input_sentence_1}}\n{{input_sentence_2}}\n\
+      {{input_sentence_3}}\n{{input_sentence_4}}\n\nWhat do you think will happen next?\
+      \ Choose from:\n- {{sentence_quiz1}}\n- {{sentence_quiz2}}\n ||| {{ answer_choices[answer_right_ending\
+      \ | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_75
+    reference: jonghyeonkim
+  a865cecd-d5c1-4fbc-9b6f-9367cdc96258: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: a865cecd-d5c1-4fbc-9b6f-9367cdc96258
+    jinja: 'Which of the following sentences could be the next line of the story that
+      starts with ''{{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}''?
+
+      - {{sentence_quiz1}}
+
+      - {{sentence_quiz2}} ||| {{ answer_choices[answer_right_ending | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_76
+    reference: jonghyeonkim
+  fba65d8c-afed-4bb9-924f-fc59ab685fd5: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: fba65d8c-afed-4bb9-924f-fc59ab685fd5
+    jinja: 'Read the following scenario: {{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}}
+      {{input_sentence_4}}
+
+      Which of the following is a reasonable ending for this story?
+
+      - {{sentence_quiz1}}
+
+      - {{sentence_quiz2}} ||| {{ answer_choices[answer_right_ending | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_77
+    reference: jonghyeonkim
+  ce447e23-a6e9-4e3e-bfaa-db28e800a5dc: !Template
+    answer_choices: A) {{sentence_quiz1}} ||| B) {{sentence_quiz2}}
+    id: ce447e23-a6e9-4e3e-bfaa-db28e800a5dc
+    jinja: 'After reading this story, what is the most likely conclusion based on the
+      details given?
+
+
+      {{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}
+
+
+      A) {{sentence_quiz1}}
+
+      B) {{sentence_quiz2}} ||| {{ answer_choices[answer_right_ending | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_78
+    reference: jonghyeonkim
+  d8137f4b-5abc-49f8-908f-4ee2aaebb413: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: d8137f4b-5abc-49f8-908f-4ee2aaebb413
+    jinja: "From the following options, which ending do you think fits best with the\
+      \ story given below?\n\n{{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}}\
+      \ {{input_sentence_4}}\n\n- {{sentence_quiz1}}\n- {{sentence_quiz2}}\n ||| {{\
+      \ answer_choices[answer_right_ending | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_79
+    reference: jonghyeonkim
+  6b7be841-6ef6-4f42-99e7-5ab6d35db848: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 6b7be841-6ef6-4f42-99e7-5ab6d35db848
+    jinja: 'What would be the most logical conclusion to the following story? {{input_sentence_1}}
+      {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}} Choose one of the
+      following:
+
+      - {{sentence_quiz1}}
+
+      - {{sentence_quiz2}} ||| {{ answer_choices[answer_right_ending | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_80
+    reference: jonghyeonkim
+  dff6e0ca-04fb-4157-9fd8-6cbb276b03d2: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: dff6e0ca-04fb-4157-9fd8-6cbb276b03d2
+    jinja: 'Please write a story with the following sentences in order: {{input_sentence_1}},
+      {{input_sentence_2}}, {{input_sentence_3}}, {{input_sentence_4}}. What is the
+      most likely ending?
+
+      - {{sentence_quiz1}}
+
+      - {{sentence_quiz2}} ||| {{ answer_choices[answer_right_ending | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_81
+    reference: jonghyeonkim
+  8b031eb0-2203-421c-a2f3-b43d7197198d: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 8b031eb0-2203-421c-a2f3-b43d7197198d
+    jinja: 'Please write a story using the following sentences in order: {{input_sentence_1}},
+      {{input_sentence_2}}, {{input_sentence_3}}, {{input_sentence_4}}. What do you
+      think happens next?
+
+      - {{sentence_quiz1}}
+
+      - {{sentence_quiz2}} ||| {{ answer_choices[answer_right_ending | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_82
+    reference: jonghyeonkim
+  bc3236b2-456c-4881-962b-170e5032c7da: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: bc3236b2-456c-4881-962b-170e5032c7da
+    jinja: "Imagine that you are writing a novel. The following sentences are the opening\
+      \ lines of a chapter. Please write a possible ending for the chapter: {{input_sentence_1}}\
+      \ {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}\n ||| {{ answer_choices[answer_right_ending\
+      \ | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_83
+    reference: jonghyeonkim
+  af442707-463a-4d85-9ae4-eef1413eabda: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: af442707-463a-4d85-9ae4-eef1413eabda
+    jinja: 'Imagine that you are writing a short story. The opening sentence is "{{input_sentence_1}}".
+      Please continue the story by writing the next three sentences: "{{input_sentence_2}}",
+      "{{input_sentence_3}}", and "{{input_sentence_4}}". ||| {{ answer_choices[answer_right_ending
+      | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_84
+    reference: jonghyeonkim
+  9a93c24e-6615-47f1-a09f-c7724d993b57: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 9a93c24e-6615-47f1-a09f-c7724d993b57
+    jinja: "Given the story that started with {{input_sentence_1}} {{input_sentence_2}}\
+      \ {{input_sentence_3}} {{input_sentence_4}}, what is the most plausible ending?\
+      \ Choose from the following options:\n- {{sentence_quiz1}}\n- {{sentence_quiz2}}\n\
+      \ ||| {{ answer_choices[answer_right_ending | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_85
+    reference: jonghyeonkim
+  eb6078e6-dc12-4e93-99d0-6ded8c1409d8: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: eb6078e6-dc12-4e93-99d0-6ded8c1409d8
+    jinja: 'Consider the following story:
+
+      {{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}
+
+      What could be a reasonable next sentence? Choose from the following options:
+
+      - {{sentence_quiz1}}
+
+      - {{sentence_quiz2}} ||| {{ answer_choices[answer_right_ending | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_86
+    reference: jonghyeonkim
+  493345fe-42f6-4375-a666-4a2776a82f28: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 493345fe-42f6-4375-a666-4a2776a82f28
+    jinja: 'Based on the given sentences, what is the likely conclusion of the story?
+      {{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}
+      Choose the most probable ending:
+
+      - {{sentence_quiz1}}
+
+      - {{sentence_quiz2}} ||| {{ answer_choices[answer_right_ending | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_87
+    reference: jonghyeonkim
+  13ed476f-bb0b-4493-a76a-026801eef288: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 13ed476f-bb0b-4493-a76a-026801eef288
+    jinja: 'Provide an ending to a story that starts with: {{input_sentence_1}} {{input_sentence_2}}
+      {{input_sentence_3}} {{input_sentence_4}}
+
+      Choose the most appropriate ending from the following options:
+
+      - {{sentence_quiz1}}
+
+      - {{sentence_quiz2}} ||| {{ answer_choices[answer_right_ending | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_88
+    reference: jonghyeonkim
+  e83f476b-ae5d-4ba7-9797-df6fc2b48a7e: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: e83f476b-ae5d-4ba7-9797-df6fc2b48a7e
+    jinja: 'You are given the beginning of a story: {{input_sentence_1}} {{input_sentence_2}}
+      {{input_sentence_3}} {{input_sentence_4}}
+
+      What could be a reasonable ending? Choose from the following options:
+
+      - {{sentence_quiz1}}
+
+      - {{sentence_quiz2}} ||| {{ answer_choices[answer_right_ending | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_89
+    reference: jonghyeonkim
+  7fbf4ac9-bab1-4a65-89f1-b00f0cb8653d: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 7fbf4ac9-bab1-4a65-89f1-b00f0cb8653d
+    jinja: "If you were the author of the story that started with {{input_sentence_1}}\
+      \ {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}, how would you\
+      \ end it? Choose from the following options:\n- {{sentence_quiz1}}\n- {{sentence_quiz2}}\n\
+      \ ||| {{ answer_choices[answer_right_ending | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_90
+    reference: jonghyeonkim
+  1627cf0f-8a4f-456a-99a5-101a03159990: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 1627cf0f-8a4f-456a-99a5-101a03159990
+    jinja: "After reading the following story: {{input_sentence_1}} {{input_sentence_2}}\
+      \ {{input_sentence_3}} {{input_sentence_4}}, what do you think is the most likely\
+      \ ending? Choose from the following options:\n- {{sentence_quiz1}}\n- {{sentence_quiz2}}\n\
+      \ ||| {{ answer_choices[answer_right_ending | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_91
+    reference: jonghyeonkim
+  892eba65-bb58-464c-a307-95265088ce71: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 892eba65-bb58-464c-a307-95265088ce71
+    jinja: 'Consider the following story: {{input_sentence_1}} {{input_sentence_2}}
+      {{input_sentence_3}} {{input_sentence_4}}
+
+      What might be a plausible ending to this story? Please choose from the following
+      options:
+
+      - {{sentence_quiz1}}
+
+      - {{sentence_quiz2}} ||| {{ answer_choices[answer_right_ending | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_92
+    reference: jonghyeonkim
+  b7b5bae8-2c2d-4c3c-9f23-4c12512adf21: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: b7b5bae8-2c2d-4c3c-9f23-4c12512adf21
+    jinja: "Imagine you are a character in the story that started with the following:\
+      \ {{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}.\
+      \ What would you do next? Choose from the following options:\n- {{sentence_quiz1}}\n\
+      - {{sentence_quiz2}}\n ||| {{ answer_choices[answer_right_ending | int() -1] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_93
+    reference: jonghyeonkim
+  34099823-bb97-4330-87d5-baebec5bebd4: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 34099823-bb97-4330-87d5-baebec5bebd4
+    jinja: 'Create a story using the following elements: "{{input_sentence_1}}", "{{input_sentence_2}}",
+      "{{input_sentence_3}}", and "{{input_sentence_4}}". Which of the following would
+      be the most fitting conclusion for the story?
+
+      - {{sentence_quiz1}}
+
+      - {{sentence_quiz2}} ||| {{ answer_choices[answer_right_ending | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_94
+    reference: jonghyeonkim
+  15107a49-4443-4d72-9efe-b4908a0e9769: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 15107a49-4443-4d72-9efe-b4908a0e9769
+    jinja: 'Imagine a story that could start with the following sentence: {{input_sentence_1}}
+      {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}
+
+      What is a possible ending for this story? Choose from the following options:
+
+      - {{sentence_quiz1}}
+
+      - {{sentence_quiz2}} ||| {{ answer_choices[answer_right_ending | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_95
+    reference: jonghyeonkim
+  54078d8c-4514-4c2e-9523-0de151258acd: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 54078d8c-4514-4c2e-9523-0de151258acd
+    jinja: 'Using "{{input_sentence_1}}", "{{input_sentence_2}}", "{{input_sentence_3}}",
+      and "{{input_sentence_4}}" as a starting point, create a short story with a twist
+      ending. Which of the following would be the best twist ending?
+
+      - {{sentence_quiz1}}
+
+      - {{sentence_quiz2}} ||| {{ answer_choices[answer_right_ending | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_96
+    reference: jonghyeonkim
+  323e7431-451f-4951-aae1-405c259e743e: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 323e7431-451f-4951-aae1-405c259e743e
+    jinja: 'Your task is to write a story using the following elements: "{{input_sentence_1}}",
+      "{{input_sentence_2}}", "{{input_sentence_3}}", and "{{input_sentence_4}}". Which
+      of the following would be the most satisfying ending for the story?
+
+      - {{sentence_quiz1}}
+
+      - {{sentence_quiz2}} ||| {{ answer_choices[answer_right_ending | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_97
+    reference: jonghyeonkim
+  afe85d84-9526-4d08-9c9b-a34bd04a4e3a: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: afe85d84-9526-4d08-9c9b-a34bd04a4e3a
+    jinja: 'Your friend has written a short story that ends with the following sentences:
+      {{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}}.
+      Which of the following endings do you think would be the most fitting?
+
+      - {{sentence_quiz1}}
+
+      - {{sentence_quiz2}} ||| {{ answer_choices[answer_right_ending | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_98
+    reference: jonghyeonkim
+  28d90b3c-38f1-4fa4-8b95-5103ce46b450: !Template
+    answer_choices: '{{sentence_quiz1}} ||| {{sentence_quiz2}}'
+    id: 28d90b3c-38f1-4fa4-8b95-5103ce46b450
+    jinja: 'You are the author of a short story that starts with "{{input_sentence_1}}".
+      The story also includes the sentences "{{input_sentence_2}}", "{{input_sentence_3}}",
+      and "{{input_sentence_4}}". Which of the following would be the most effective
+      ending for the story?
+
+      - {{sentence_quiz1}}
+
+      - {{sentence_quiz2}} ||| {{ answer_choices[answer_right_ending | int() -1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_99
+    reference: jonghyeonkim

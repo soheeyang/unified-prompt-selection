@@ -1,0 +1,368 @@
+dataset: lambada
+templates:
+  3747e80a-4182-44eb-944b-dee40095bb17: !Template
+    answer_choices: '{{ text.split()[:-1] | unique | join('' ||| '') }}'
+    id: 3747e80a-4182-44eb-944b-dee40095bb17
+    jinja: 'Please predict the next word after the following chunk of text.
+
+
+      {{ text.split()[:-1] | join('' '') }} ||| {{ text.split()[-1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: please next word
+    reference: ''
+  506765b8-17c0-4946-bbb0-b28288caacb3: !Template
+    answer_choices: '{{ text.split()[:-1] | unique | join('' ||| '') }}'
+    id: 506765b8-17c0-4946-bbb0-b28288caacb3
+    jinja: '{{ text.split()[:-1] | join('' '') }} ____.
+
+
+      Fill in the ____: ||| {{ text.split()[-1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: fill in the ____
+    reference: ''
+  948664d5-2ea2-4245-b656-9283948dd5cd: !Template
+    answer_choices: '{{ text.split()[:-1] | unique | join('' ||| '') }}'
+    id: 948664d5-2ea2-4245-b656-9283948dd5cd
+    jinja: '{{ text.split()[:-1] | join('' '') }}...
+
+
+      What comes after the ellipses? ||| {{ text.split()[-1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: ellipses
+    reference: ''
+  acfe374c-60ce-4354-b285-e7b0717cffe5: !Template
+    answer_choices: '{{ text.split()[:-1] | unique | join('' ||| '') }}'
+    id: acfe374c-60ce-4354-b285-e7b0717cffe5
+    jinja: 'This story got cut short. What comes next?
+
+
+      {{ text.split()[:-1] | join('' '') }} ||| {{ text.split()[-1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: what comes next
+    reference: ''
+  d5707bd9-d3cc-4535-b4c1-5c2aee8cb8c7: !Template
+    answer_choices: '{{ text.split()[:-1] | unique | join('' ||| '') }}'
+    id: d5707bd9-d3cc-4535-b4c1-5c2aee8cb8c7
+    jinja: 'Fill in the blank:
+
+
+      {{ text.split()[:-1] | join('' '') }} ____. ||| {{ text.split()[-1] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: GPT-3 style
+    reference: Brown et al.
+  2802ef3d-7e9f-4bda-9791-922fb7db2336: !Template
+     answer_choices: '{{ text.split()[:-1] | unique | join('' ||| '') }}'
+     id: 2802ef3d-7e9f-4bda-9791-922fb7db2336
+     jinja: '{{ text.split()[:-1] | join('' '') }} A summary of the main points of a text in your own words. ||| {{ text.split()[-1] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_00
+     reference: 'sohee'
+  5e48b776-f2ab-4ae7-82e2-b649d3cca697: !Template
+     answer_choices: '{{ text.split()[:-1] | unique | join('' ||| '') }}'
+     id: 5e48b776-f2ab-4ae7-82e2-b649d3cca697
+     jinja: '{{ text.split()[:-1] | join('' '') }} ____. Fill in the ____: ||| {{ text.split()[-1] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_01
+     reference: 'sohee'
+  ced941a7-17da-4984-89ba-d7e4ca5feddc: !Template
+     answer_choices: '{{ text.split()[:-1] | unique | join('' ||| '') }}'
+     id: ced941a7-17da-4984-89ba-d7e4ca5feddc
+     jinja: '{{ text.split()[:-1] | join('' '') }} ____. Fill in the blank: ||| {{ text.split()[-1] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_02
+     reference: 'sohee'
+  67e6814d-d482-433f-8f0b-15be7f0b5f7b: !Template
+     answer_choices: '{{ text.split()[:-1] | unique | join('' ||| '') }}'
+     id: 67e6814d-d482-433f-8f0b-15be7f0b5f7b
+     jinja: '{{ text.split()[:-1] | join('' '') }} ____. Fill in the blanks. ||| {{ text.split()[-1] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_03
+     reference: 'sohee'
+  1f270e96-762a-4aa3-ba93-20e4234684a8: !Template
+     answer_choices: '{{ text.split()[:-1] | unique | join('' ||| '') }}'
+     id: 1f270e96-762a-4aa3-ba93-20e4234684a8
+     jinja: 'Please predict the next word after the following chunk of text. {{ text.split()[:-1] | join('' '') }} ||| {{ text.split()[-1] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_04
+     reference: 'sohee'
+  da706491-b94f-4353-a71d-e2e976b945da: !Template
+     answer_choices: '{{ text.split()[:-1] | unique | join('' ||| '') }}'
+     id: da706491-b94f-4353-a71d-e2e976b945da
+     jinja: 'Please predict the next word after the following piece of text. {{ text.split()[:-1] | join('' '') }} ||| {{ text.split()[-1] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_05
+     reference: 'sohee'
+  12aaf5e5-3ee1-4dbb-9126-390bb1c108dc: !Template
+     answer_choices: '{{ text.split()[:-1] | unique | join('' ||| '') }}'
+     id: 12aaf5e5-3ee1-4dbb-9126-390bb1c108dc
+     jinja: '{{ text.split()[:-1] | join('' '') }} The following ||| {{ text.split()[-1] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_06
+     reference: 'sohee'
+  525e3544-12f3-4105-90d2-d3a9e24ca92b: !Template
+     answer_choices: '{{ text.split()[:-1] | unique | join('' ||| '') }}'
+     id: 525e3544-12f3-4105-90d2-d3a9e24ca92b
+     jinja: '{{ text.split()[:-1] | join('' '') }} The next thing that happens is ||| {{ text.split()[-1] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_07
+     reference: 'sohee'
+  059ebe1b-e803-45c2-bf3e-215e67671683: !Template
+     answer_choices: '{{ text.split()[:-1] | unique | join('' ||| '') }}'
+     id: 059ebe1b-e803-45c2-bf3e-215e67671683
+     jinja: '{{ text.split()[:-1] | join('' '') }} The speaker is saying that ____ ||| {{ text.split()[-1] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_08
+     reference: 'sohee'
+  aa7584d0-fcaf-4c12-bdd9-1f89ab6c26b0: !Template
+     answer_choices: '{{ text.split()[:-1] | unique | join('' ||| '') }}'
+     id: aa7584d0-fcaf-4c12-bdd9-1f89ab6c26b0
+     jinja: '{{ text.split()[:-1] | join('' '') }} The story was cut abruptly and I would like to know what happens next. ||| {{ text.split()[-1] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_09
+     reference: 'sohee'
+  4d2beedb-3fb0-4eaf-9390-9430c4a9a093: !Template
+     answer_choices: '{{ text.split()[:-1] | unique | join('' ||| '') }}'
+     id: 4d2beedb-3fb0-4eaf-9390-9430c4a9a093
+     jinja: '{{ text.split()[:-1] | join('' '') }} The story was cut off abruptly and I would like to know what happens next. ||| {{ text.split()[-1] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_10
+     reference: 'sohee'
+  61e2b8c3-daa7-4216-a452-6e67798aac0a: !Template
+     answer_choices: '{{ text.split()[:-1] | unique | join('' ||| '') }}'
+     id: 61e2b8c3-daa7-4216-a452-6e67798aac0a
+     jinja: '{{ text.split()[:-1] | join('' '') }} The story was cut off abruptly and there is no continuation. ||| {{ text.split()[-1] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_11
+     reference: 'sohee'
+  8ba3ea86-b674-4298-9b53-e641aa8e490c: !Template
+     answer_choices: '{{ text.split()[:-1] | unique | join('' ||| '') }}'
+     id: 8ba3ea86-b674-4298-9b53-e641aa8e490c
+     jinja: '{{ text.split()[:-1] | join('' '') }} The story was cut off abruptly. ||| {{ text.split()[-1] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_12
+     reference: 'sohee'
+  7d8a6864-b6f7-4ef8-b2ad-e00f3b2f0b05: !Template
+     answer_choices: '{{ text.split()[:-1] | unique | join('' ||| '') }}'
+     id: 7d8a6864-b6f7-4ef8-b2ad-e00f3b2f0b05
+     jinja: '{{ text.split()[:-1] | join('' '') }} The story was cut off abruptly. What happens next? ||| {{ text.split()[-1] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_13
+     reference: 'sohee'
+  08294b3a-1678-46c4-beaf-a7dc780b5df1: !Template
+     answer_choices: '{{ text.split()[:-1] | unique | join('' ||| '') }}'
+     id: 08294b3a-1678-46c4-beaf-a7dc780b5df1
+     jinja: '{{ text.split()[:-1] | join('' '') }} The story was cut off abruptly. What is the next part of the story? ||| {{ text.split()[-1] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_14
+     reference: 'sohee'
+  a66a8928-18dc-4757-a139-047813470f53: !Template
+     answer_choices: '{{ text.split()[:-1] | unique | join('' ||| '') }}'
+     id: a66a8928-18dc-4757-a139-047813470f53
+     jinja: '{{ text.split()[:-1] | join('' '') }} The story was cut off, what happened next? ||| {{ text.split()[-1] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_15
+     reference: 'sohee'
+  3347d23a-c474-46ba-9386-8760bfbf30d9: !Template
+     answer_choices: '{{ text.split()[:-1] | unique | join('' ||| '') }}'
+     id: 3347d23a-c474-46ba-9386-8760bfbf30d9
+     jinja: '{{ text.split()[:-1] | join('' '') }} The story was cut short, what happens next? ||| {{ text.split()[-1] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_16
+     reference: 'sohee'
+  5381fe67-18e5-4494-982e-42a1a05b3c3d: !Template
+     answer_choices: '{{ text.split()[:-1] | unique | join('' ||| '') }}'
+     id: 5381fe67-18e5-4494-982e-42a1a05b3c3d
+     jinja: '{{ text.split()[:-1] | join('' '') }} The story was cut short. What happens next? ||| {{ text.split()[-1] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_17
+     reference: 'sohee'
+  fcf85835-ed13-44a6-8662-f781f4ae29c0: !Template
+     answer_choices: '{{ text.split()[:-1] | unique | join('' ||| '') }}'
+     id: fcf85835-ed13-44a6-8662-f781f4ae29c0
+     jinja: '{{ text.split()[:-1] | join('' '') }} This story got cut short. ||| {{ text.split()[-1] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_18
+     reference: 'sohee'
+  be9d8f7d-fa08-4488-84a0-6c340bc7a8a9: !Template
+     answer_choices: '{{ text.split()[:-1] | unique | join('' ||| '') }}'
+     id: be9d8f7d-fa08-4488-84a0-6c340bc7a8a9
+     jinja: '{{ text.split()[:-1] | join('' '') }} This story got cut short. What comes next? ||| {{ text.split()[-1] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_19
+     reference: 'sohee'
+  5f81f710-f820-42c3-ac93-b625cf242289: !Template
+     answer_choices: '{{ text.split()[:-1] | unique | join('' ||| '') }}'
+     id: 5f81f710-f820-42c3-ac93-b625cf242289
+     jinja: '{{ text.split()[:-1] | join('' '') }}... What comes after the ellipses? ||| {{ text.split()[-1] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_20
+     reference: 'sohee'
+  30b29f9e-946b-4292-97af-4e7a4b0055a7: !Template
+     answer_choices: '{{ text.split()[:-1] | unique | join('' ||| '') }}'
+     id: 30b29f9e-946b-4292-97af-4e7a4b0055a7
+     jinja: '{{ text.split()[:-1] | join('' '') }} ______ ||| {{ text.split()[-1] }}'
+     metadata: !TemplateMetadata
+       choices_in_prompt: false
+       languages:
+       - en
+       metrics:
+       - Accuracy
+       original_task: true
+     name: template_21
+     reference: 'sohee'

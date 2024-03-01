@@ -1,0 +1,2 @@
+defaults:
+  - dataset: ag_news

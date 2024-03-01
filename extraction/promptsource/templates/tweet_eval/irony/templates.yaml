@@ -1,0 +1,4125 @@
+dataset: tweet_eval
+subset: irony
+templates:
+  c45095f1-9be1-4e83-8daa-68805b6ece39: !Template
+    answer_choices: no ||| yes
+    id: c45095f1-9be1-4e83-8daa-68805b6ece39
+    jinja: "Is this tweet is ironic? \n\n{{text}} |||\n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: irony_question
+    reference: ''
+  cd2ed852-c6fa-431a-b0f1-06f0240d74a0: !Template
+    answer_choices: no ||| yes
+    id: cd2ed852-c6fa-431a-b0f1-06f0240d74a0
+    jinja: "Is this tweet ironic? Answer with either yes or no. \n\n{{text}} |||\n\
+      {{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: irony_yes_no
+    reference: ''
+  cef39e97-09f2-430c-ad1f-5fd9d05c876b: !Template
+    answer_choices: no ||| yes
+    id: cef39e97-09f2-430c-ad1f-5fd9d05c876b
+    jinja: "In this test, you need to answer with either yes or no. \n\nQ: Is this\
+      \ an ironic tweet? \n{{text}}\n\nA: \n|||\n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: irony_exam
+    reference: exam style prompt
+  e7cff075-9388-48de-af51-fe185b654217: !Template
+    answer_choices: non-irony ||| irony
+    id: e7cff075-9388-48de-af51-fe185b654217
+    jinja: 'Does this tweet contain {{"irony"}} or {{"non-irony"}}?
+
+
+      {{text}} |||
+
+      {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: irony_option
+    reference: ''
+  f8361684-dad1-4c2c-9f22-1128f3096c20: !Template
+    answer_choices: no|||yes
+    id: f8361684-dad1-4c2c-9f22-1128f3096c20
+    jinja: 'Does this tweet convey the author''s irony towards something or someone?
+
+
+      {{text}}
+
+      |||
+
+      {{answer_choices[label]}}
+
+      '
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: irony_author
+    reference: ''
+  640d3d9e-67b9-44bd-bdc0-f619f4343cb5: !Template
+    answer_choices: no ||| yes
+    id: 640d3d9e-67b9-44bd-bdc0-f619f4343cb5
+    jinja: "Question: Does this tweet contain irony? \n\n{{text}}
+
+      \nAnswer: ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: fewshot
+    reference: jonghyeonkim
+  e3beb889-e424-42c0-a733-b0c6e61cb11c: !Template
+    answer_choices: no ||| yes
+    id: e3beb889-e424-42c0-a733-b0c6e61cb11c
+    jinja: '{{text}}
+
+
+      Is it ironic? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_00
+    reference: jonghyeonkim
+  fc604947-e0eb-48ce-9245-2dc1500be5ee: !Template
+    answer_choices: no ||| yes
+    id: fc604947-e0eb-48ce-9245-2dc1500be5ee
+    jinja: '{{text}}
+
+
+      Is this tweet ironic? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_01
+    reference: jonghyeonkim
+  0e591360-4522-4517-8320-fdc1476fae17: !Template
+    answer_choices: no ||| yes
+    id: 0e591360-4522-4517-8320-fdc1476fae17
+    jinja: "Is this tweet ironic? \n\n{{text}} ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_02
+    reference: jonghyeonkim
+  fd5fd7ec-2226-4f08-8961-dbec351efce0: !Template
+    answer_choices: no ||| yes
+    id: fd5fd7ec-2226-4f08-8961-dbec351efce0
+    jinja: "text: \"{{text}}\"\n The text is irony? ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_03
+    reference: jonghyeonkim
+  55f2dcb5-682f-4e67-a582-f0b150db5264: !Template
+    answer_choices: no ||| yes
+    id: 55f2dcb5-682f-4e67-a582-f0b150db5264
+    jinja: "Is this tweet ironic or not? \n\n{{text}} ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_04
+    reference: jonghyeonkim
+  07e266c0-bc69-426a-94b3-e8b29b82eb25: !Template
+    answer_choices: no ||| yes
+    id: 07e266c0-bc69-426a-94b3-e8b29b82eb25
+    jinja: "Does this tweet convey irony? \n\n{{text}} ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_05
+    reference: jonghyeonkim
+  b0ac0e65-4f8e-41fb-b9a2-81132366f3fb: !Template
+    answer_choices: no ||| yes
+    id: b0ac0e65-4f8e-41fb-b9a2-81132366f3fb
+    jinja: '{{text}}
+
+
+      Does this tweet contain irony? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_06
+    reference: jonghyeonkim
+  d2d710ad-dc31-44ab-924b-0fc2e6bc03bc: !Template
+    answer_choices: no ||| yes
+    id: d2d710ad-dc31-44ab-924b-0fc2e6bc03bc
+    jinja: "Does this tweet contain irony? \n\n{{text}} ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_07
+    reference: jonghyeonkim
+  9eb03e24-aea5-45b2-92aa-93bcf1dd4562: !Template
+    answer_choices: no ||| yes
+    id: 9eb03e24-aea5-45b2-92aa-93bcf1dd4562
+    jinja: "{{text}}\n\n Is this tweet is irony?\nAnswer: ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_08
+    reference: jonghyeonkim
+  a04520c9-ddfb-4fc2-9b4f-e6ac7c8b4266: !Template
+    answer_choices: no ||| yes
+    id: a04520c9-ddfb-4fc2-9b4f-e6ac7c8b4266
+    jinja: "Tell us if this tweet is ironic. \n\n{{text}} ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_09
+    reference: jonghyeonkim
+  0dc145a2-1fc3-4e5c-8ad8-2fecf1b8b84c: !Template
+    answer_choices: no ||| yes
+    id: 0dc145a2-1fc3-4e5c-8ad8-2fecf1b8b84c
+    jinja: 'Do you think this tweet: "{{text}}"
+
+      is irony? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_10
+    reference: jonghyeonkim
+  4c82c23e-50d8-45b3-8db6-eabd1deb9142: !Template
+    answer_choices: no ||| yes
+    id: 4c82c23e-50d8-45b3-8db6-eabd1deb9142
+    jinja: '{{text}} - is this tweet an example of irony? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_11
+    reference: jonghyeonkim
+  80f67181-09b9-4dcc-b1d2-a61ee6b02958: !Template
+    answer_choices: no ||| yes
+    id: 80f67181-09b9-4dcc-b1d2-a61ee6b02958
+    jinja: '{{text}}: Is the meaning of this tweet ironic? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_12
+    reference: jonghyeonkim
+  ed10cfe2-e68b-49c7-81c1-9f4e4872fd90: !Template
+    answer_choices: no ||| yes
+    id: ed10cfe2-e68b-49c7-81c1-9f4e4872fd90
+    jinja: '{{text}}
+
+
+      Is it ironic? Answer with yes or no: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_13
+    reference: jonghyeonkim
+  5172852e-951d-407c-82e6-677dc217b139: !Template
+    answer_choices: no ||| yes
+    id: 5172852e-951d-407c-82e6-677dc217b139
+    jinja: "Please indicate if the tweet is ironic. \n\n{{text}} ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_14
+    reference: jonghyeonkim
+  edc4b868-c318-4d5e-b1b8-cd2e25209009: !Template
+    answer_choices: no ||| yes
+    id: edc4b868-c318-4d5e-b1b8-cd2e25209009
+    jinja: "Determine if the tweet is ironic or not. \n\n{{text}} ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_15
+    reference: jonghyeonkim
+  953acd32-0731-472f-b9b1-46bacc97fbd0: !Template
+    answer_choices: no ||| yes
+    id: 953acd32-0731-472f-b9b1-46bacc97fbd0
+    jinja: "Answer yes or no if this tweet is ironic. \n\n{{text}} ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_16
+    reference: jonghyeonkim
+  079424f0-194f-4768-9d1c-b11d1e822ad7: !Template
+    answer_choices: no ||| yes
+    id: 079424f0-194f-4768-9d1c-b11d1e822ad7
+    jinja: "Is the following tweet an example of irony? \n\n{{text}} ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_17
+    reference: jonghyeonkim
+  cb4ca0c2-cb13-4be9-850e-83fc8b05e140: !Template
+    answer_choices: no ||| yes
+    id: cb4ca0c2-cb13-4be9-850e-83fc8b05e140
+    jinja: "Indicate whether this tweet is ironic or not. \n\n{{text}} ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_18
+    reference: jonghyeonkim
+  1d5620d6-3005-4c2c-85ba-3a0db90c8c12: !Template
+    answer_choices: no ||| yes
+    id: 1d5620d6-3005-4c2c-85ba-3a0db90c8c12
+    jinja: "Determine if the tweet is intended to be ironic. \n\n{{text}} ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_19
+    reference: jonghyeonkim
+  bfdc49e2-a84b-430d-b3ba-dfe839e9b64c: !Template
+    answer_choices: no ||| yes
+    id: bfdc49e2-a84b-430d-b3ba-dfe839e9b64c
+    jinja: "Tell us if the following tweet is ironic or not. \n\n{{text}} ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_20
+    reference: jonghyeonkim
+  021445c9-eb89-4e6c-9097-d018474b525c: !Template
+    answer_choices: no ||| yes
+    id: 021445c9-eb89-4e6c-9097-d018474b525c
+    jinja: "Please indicate if the following tweet is ironic. \n\n{{text}} ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_21
+    reference: jonghyeonkim
+  a9995ac9-6ecb-4ffa-89eb-54ef1d117f2a: !Template
+    answer_choices: no ||| yes
+    id: a9995ac9-6ecb-4ffa-89eb-54ef1d117f2a
+    jinja: "Please determine if the following tweet is ironic. \n\n{{text}} ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_22
+    reference: jonghyeonkim
+  e9931e49-4e0f-40e3-b133-0795e7ce30b4: !Template
+    answer_choices: no ||| yes
+    id: e9931e49-4e0f-40e3-b133-0795e7ce30b4
+    jinja: "Indicate whether the following tweet is ironic or not. \n\n{{text}} |||\
+      \ {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_23
+    reference: jonghyeonkim
+  4aa067d4-90a1-4339-bd7a-9a348d816f61: !Template
+    answer_choices: no ||| yes
+    id: 4aa067d4-90a1-4339-bd7a-9a348d816f61
+    jinja: '{{text}}
+
+
+      Is the following tweet ironic or not? Answer yes or no. ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_24
+    reference: jonghyeonkim
+  b8784b95-4660-40b3-a34b-35984d246194: !Template
+    answer_choices: no ||| yes
+    id: b8784b95-4660-40b3-a34b-35984d246194
+    jinja: '{{text}}
+
+
+      Classify this tweet as ironic or not. Answer yes or no. ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_25
+    reference: jonghyeonkim
+  7213c1af-e5c0-406a-a7f9-aef3b87772cc: !Template
+    answer_choices: No ||| Yes
+    id: 7213c1af-e5c0-406a-a7f9-aef3b87772cc
+    jinja: 'Classify if the tweet below is ironic. Answer yes or no.
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_26
+    reference: jonghyeonkim
+  5fa1289b-d789-4061-bf12-ce4c07d4044d: !Template
+    answer_choices: no ||| yes
+    id: 5fa1289b-d789-4061-bf12-ce4c07d4044d
+    jinja: "Answer yes or no if this tweet is intended to be ironic. \n\n{{text}} |||\
+      \ {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_27
+    reference: jonghyeonkim
+  f0ab9544-91d1-46a7-8a2b-a26373f4d295: !Template
+    answer_choices: no ||| yes
+    id: f0ab9544-91d1-46a7-8a2b-a26373f4d295
+    jinja: '{{text}}
+
+
+      Decide whether this tweet is ironic or not. Answer yes or no. ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_28
+    reference: jonghyeonkim
+  5b1c0faf-1556-4547-a1aa-3540f4240a0d: !Template
+    answer_choices: no ||| yes
+    id: 5b1c0faf-1556-4547-a1aa-3540f4240a0d
+    jinja: '{{text}}
+
+
+      Can you tell if this tweet is ironic or not? Answer yes or no. ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_29
+    reference: jonghyeonkim
+  b68a6b34-a962-47d7-8b00-124d90d0973e: !Template
+    answer_choices: no ||| yes
+    id: b68a6b34-a962-47d7-8b00-124d90d0973e
+    jinja: 'Is the following tweet ironic or not?
+
+
+      {{text}}
+
+
+      Please answer yes or no: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_30
+    reference: jonghyeonkim
+  3627a973-4204-4dd2-943c-e9f459cb21a7: !Template
+    answer_choices: No ||| Yes
+    id: 3627a973-4204-4dd2-943c-e9f459cb21a7
+    jinja: 'Determine if the tweet below is ironic or not. Answer yes or no.
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_31
+    reference: jonghyeonkim
+  a828b155-ae26-4914-8d55-1c70c4eb2716: !Template
+    answer_choices: no ||| yes
+    id: a828b155-ae26-4914-8d55-1c70c4eb2716
+    jinja: '{{text}}
+
+
+      Is this tweet an instance of irony? Please choose ''yes'' or ''no''. ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_32
+    reference: jonghyeonkim
+  12f60e21-d851-4009-bcfc-d0213907265f: !Template
+    answer_choices: no ||| yes
+    id: 12f60e21-d851-4009-bcfc-d0213907265f
+    jinja: '{{text}} - determine if the tweet is ironic or not ironic. Answer yes or
+      no ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_33
+    reference: jonghyeonkim
+  aebc9f6b-4b37-4c41-8e44-92e4eb14e039: !Template
+    answer_choices: No ||| Yes
+    id: aebc9f6b-4b37-4c41-8e44-92e4eb14e039
+    jinja: 'Label whether the tweet below is ironic or not. Answer yes or no.
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_34
+    reference: jonghyeonkim
+  69d107f4-b4a0-4834-967e-a4837d159562: !Template
+    answer_choices: no ||| yes
+    id: 69d107f4-b4a0-4834-967e-a4837d159562
+    jinja: "Here's a tweet. Is it ironic? \n\n{{text}}\n\nAnswer with either 'yes' or\
+      \ 'no'. ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_35
+    reference: jonghyeonkim
+  faa5d1fb-3338-4a64-9485-da9f1be76644: !Template
+    answer_choices: No ||| Yes
+    id: faa5d1fb-3338-4a64-9485-da9f1be76644
+    jinja: 'Identify if the following tweet is ironic or not. Answer yes or no.
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_36
+    reference: jonghyeonkim
+  8e4d0618-d2c0-4341-a957-7b2093852983: !Template
+    answer_choices: no ||| yes
+    id: 8e4d0618-d2c0-4341-a957-7b2093852983
+    jinja: '{{text}}
+
+
+      Is this tweet an example of irony or not? Please select ''yes'' or ''no''. |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_37
+    reference: jonghyeonkim
+  7e48c08a-ebfd-4878-9304-6f05d74c12ac: !Template
+    answer_choices: no ||| yes
+    id: 7e48c08a-ebfd-4878-9304-6f05d74c12ac
+    jinja: 'Identify if this tweet is ironic or not:
+
+
+      {{text}}
+
+
+      Answer with either yes or no. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_38
+    reference: jonghyeonkim
+  ed9f7787-e421-497e-920b-aad52a1394e5: !Template
+    answer_choices: no ||| yes
+    id: ed9f7787-e421-497e-920b-aad52a1394e5
+    jinja: "Is the following tweet ironic? \n\n{{text}} \n\nPlease respond with either\
+      \ yes or no. ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_39
+    reference: jonghyeonkim
+  4f2122d5-f80b-4487-be20-e1059ea49f36: !Template
+    answer_choices: no ||| yes
+    id: 4f2122d5-f80b-4487-be20-e1059ea49f36
+    jinja: 'Classify the following tweet as ironic or not:
+
+
+      {{text}}
+
+
+      Select either yes or no: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_40
+    reference: jonghyeonkim
+  81dde017-3914-4148-a056-e2f0902f38f7: !Template
+    answer_choices: no ||| yes
+    id: 81dde017-3914-4148-a056-e2f0902f38f7
+    jinja: 'Is the tweet below an example of irony or not?
+
+
+      {{text}}
+
+
+      Please answer yes or no: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_41
+    reference: jonghyeonkim
+  22455fbd-c7e4-4ac6-b404-4bf725ef5b0a: !Template
+    answer_choices: No ||| Yes
+    id: 22455fbd-c7e4-4ac6-b404-4bf725ef5b0a
+    jinja: 'Please classify the tweet below as ironic or not ironic. Answer yes or no.
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_42
+    reference: jonghyeonkim
+  3d3d1064-14ff-457b-9f9c-19567608b99f: !Template
+    answer_choices: No ||| Yes
+    id: 3d3d1064-14ff-457b-9f9c-19567608b99f
+    jinja: 'Categorize whether the following tweet is ironic or not. Answer yes or no.
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_43
+    reference: jonghyeonkim
+  40d91177-7dd2-4545-9b71-c4b26c1b275e: !Template
+    answer_choices: no ||| yes
+    id: 40d91177-7dd2-4545-9b71-c4b26c1b275e
+    jinja: '{{text}}
+
+
+      Judge whether this tweet is intended to be ironic or not. Answer yes or no. |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_44
+    reference: jonghyeonkim
+  ab7477e5-eab2-47e4-83b5-dfd5bc03bde6: !Template
+    answer_choices: no ||| yes
+    id: ab7477e5-eab2-47e4-83b5-dfd5bc03bde6
+    jinja: '{{text}}
+
+
+      Determine if this tweet is an example of irony. Respond with "yes" or "no". |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_45
+    reference: jonghyeonkim
+  77bcc510-3e94-4187-938c-5a32a13d3754: !Template
+    answer_choices: no ||| yes
+    id: 77bcc510-3e94-4187-938c-5a32a13d3754
+    jinja: 'Indicate whether this tweet is meant to be ironic or not. Answer yes or
+      no.
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_46
+    reference: jonghyeonkim
+  10025cf6-e015-4fad-8c01-ee0d119625e9: !Template
+    answer_choices: no ||| yes
+    id: 10025cf6-e015-4fad-8c01-ee0d119625e9
+    jinja: 'Tweet: {{text}}
+
+
+      Please indicate if the tweet is ironic or not by selecting yes or no. ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_47
+    reference: jonghyeonkim
+  c4948397-7e86-4df8-9cc8-799142fdaef6: !Template
+    answer_choices: no ||| yes
+    id: c4948397-7e86-4df8-9cc8-799142fdaef6
+    jinja: 'Is the following tweet an example of irony or not?
+
+
+      {{text}}
+
+
+      Please answer yes or no: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_48
+    reference: jonghyeonkim
+  b2f9d7fc-6fec-450a-a7fa-dc52f1db2fe3: !Template
+    answer_choices: no ||| yes
+    id: b2f9d7fc-6fec-450a-a7fa-dc52f1db2fe3
+    jinja: 'Please determine if the tweet below is ironic or not:
+
+
+      {{text}}
+
+
+      Enter either yes or no: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_49
+    reference: jonghyeonkim
+  5502ef6f-2653-4672-9c81-42956888ea98: !Template
+    answer_choices: no ||| yes
+    id: 5502ef6f-2653-4672-9c81-42956888ea98
+    jinja: 'Identify if the tweet below is ironic or not:
+
+
+      {{text}}
+
+
+      Choose yes or no as your answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_50
+    reference: jonghyeonkim
+  061caae4-630b-44de-9970-c8440922d9db: !Template
+    answer_choices: no ||| yes
+    id: 061caae4-630b-44de-9970-c8440922d9db
+    jinja: "Please indicate if the following tweet is ironic. \n\n{{text}}\n\nSelect\
+      \ either 'yes' or 'no'. ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_51
+    reference: jonghyeonkim
+  ddd99d99-7d32-496d-ab9f-7ce9c33c99cf: !Template
+    answer_choices: no ||| yes
+    id: ddd99d99-7d32-496d-ab9f-7ce9c33c99cf
+    jinja: 'Decide whether the tweet below is ironic or not:
+
+
+      {{text}}
+
+
+      Type yes or no as your answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_52
+    reference: jonghyeonkim
+  889ae921-432f-4cf0-9d1c-f0e0c3a81e8a: !Template
+    answer_choices: no ||| yes
+    id: 889ae921-432f-4cf0-9d1c-f0e0c3a81e8a
+    jinja: "Is the following tweet meant to be ironic? \n\n{{text}}\n\nPlease choose\
+      \ either 'yes' or 'no'. ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_53
+    reference: jonghyeonkim
+  b97548bb-73b4-4d54-a4ab-ffeb92bdb7b6: !Template
+    answer_choices: no ||| yes
+    id: b97548bb-73b4-4d54-a4ab-ffeb92bdb7b6
+    jinja: "Is the following tweet an example of irony or not? \n\n{{text}}\n\nPlease\
+      \ choose 'yes' or 'no'. ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_54
+    reference: jonghyeonkim
+  9db3a201-77d1-419f-b20b-44ca3d04fe1e: !Template
+    answer_choices: no ||| yes
+    id: 9db3a201-77d1-419f-b20b-44ca3d04fe1e
+    jinja: 'Please determine if the following tweet is ironic or not:
+
+
+      {{text}}
+
+
+      Enter either yes or no: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_55
+    reference: jonghyeonkim
+  eca53fe7-c095-44df-9c41-fae1ba017c54: !Template
+    answer_choices: no ||| yes
+    id: eca53fe7-c095-44df-9c41-fae1ba017c54
+    jinja: '{{text}}
+
+
+      Do you think the author is being ironic in this tweet? Please select ''yes'' or
+      ''no''. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_56
+    reference: jonghyeonkim
+  21eb34d4-6ef9-4850-abfc-0eb9e0d382d0: !Template
+    answer_choices: no ||| yes
+    id: 21eb34d4-6ef9-4850-abfc-0eb9e0d382d0
+    jinja: 'Classify the tweet below as ironic or not:
+
+
+      {{text}}
+
+
+      Select either yes or no as your answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_57
+    reference: jonghyeonkim
+  16eaba8a-57c6-403d-aedc-a2b5955477a7: !Template
+    answer_choices: no ||| yes
+    id: 16eaba8a-57c6-403d-aedc-a2b5955477a7
+    jinja: 'Decide whether the following tweet is ironic or not:
+
+
+      {{text}}
+
+
+      Type yes or no as your answer. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_58
+    reference: jonghyeonkim
+  d5cf91af-8567-43b7-adfa-f13057571bab: !Template
+    answer_choices: no ||| yes
+    id: d5cf91af-8567-43b7-adfa-f13057571bab
+    jinja: "Please determine if the following tweet is ironic. \n\n{{text}} \n\nRespond\
+      \ with either yes or no. ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_59
+    reference: jonghyeonkim
+  e2880f04-d34b-4a5a-a0fc-7fcdfc6369de: !Template
+    answer_choices: no ||| yes
+    id: e2880f04-d34b-4a5a-a0fc-7fcdfc6369de
+    jinja: 'Please determine if the tweet below is ironic or not:
+
+
+      {{text}}
+
+
+      Answer with either yes or no: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_60
+    reference: jonghyeonkim
+  0f894268-3e17-40b2-b45a-e62f72dff0f6: !Template
+    answer_choices: no ||| yes
+    id: 0f894268-3e17-40b2-b45a-e62f72dff0f6
+    jinja: "Please indicate if the following tweet is ironic. \n\n{{text}}\n\nAnswer\
+      \ with either 'yes' or 'no'. ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_61
+    reference: jonghyeonkim
+  d5fa9dd1-d9e5-4320-9650-b0feeaf3da44: !Template
+    answer_choices: no ||| yes
+    id: d5fa9dd1-d9e5-4320-9650-b0feeaf3da44
+    jinja: "Does the following tweet contain irony? \n\n{{text}} \n\nPlease indicate\
+      \ your answer with yes or no. ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_62
+    reference: jonghyeonkim
+  167a39af-1ebd-4242-879e-1b41b63e4767: !Template
+    answer_choices: no ||| yes
+    id: 167a39af-1ebd-4242-879e-1b41b63e4767
+    jinja: '{{text}}
+
+
+      Determine whether this tweet is meant to be ironic or not. Please select ''yes''
+      or ''no''. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_63
+    reference: jonghyeonkim
+  de3afb72-f713-4eb5-a5c7-8c32356ca4e5: !Template
+    answer_choices: no ||| yes
+    id: de3afb72-f713-4eb5-a5c7-8c32356ca4e5
+    jinja: "Decide whether the following tweet is meant to be ironic. \n\n{{text}}\n\
+      \nChoose either 'yes' or 'no'. ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_64
+    reference: jonghyeonkim
+  bcef7f22-555e-41df-b0f2-810864c4cfcd: !Template
+    answer_choices: no ||| yes
+    id: bcef7f22-555e-41df-b0f2-810864c4cfcd
+    jinja: "Decide whether the following tweet is meant to be ironic. \n\n{{text}}\n\
+      \nPlease select 'yes' or 'no'. ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_65
+    reference: jonghyeonkim
+  6735beab-fb1f-4f7d-bc1a-9048d5afeece: !Template
+    answer_choices: no ||| yes
+    id: 6735beab-fb1f-4f7d-bc1a-9048d5afeece
+    jinja: "Is the meaning of the following tweet ironic or not? \n\n{{text}}\n\nAnswer\
+      \ with either 'yes' or 'no'. ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_66
+    reference: jonghyeonkim
+  96a6db6d-b673-416d-b25e-60c2a7969da0: !Template
+    answer_choices: no ||| yes
+    id: 96a6db6d-b673-416d-b25e-60c2a7969da0
+    jinja: "Do you think the following tweet is ironic or not? \n\n{{text}}\n\nChoose\
+      \ 'yes' or 'no' as your answer. ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_67
+    reference: jonghyeonkim
+  5243da0a-fc25-456b-b9b1-fb5eb7828ce5: !Template
+    answer_choices: no ||| yes
+    id: 5243da0a-fc25-456b-b9b1-fb5eb7828ce5
+    jinja: 'tweet: {{text}}
+
+
+      Classify whether the tweet is an example of irony or not. Please answer yes or
+      no: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_68
+    reference: jonghyeonkim
+  2464d6fa-ae3f-4dd0-be0a-5d924dbf1a80: !Template
+    answer_choices: no ||| yes
+    id: 2464d6fa-ae3f-4dd0-be0a-5d924dbf1a80
+    jinja: 'Please read the tweet below and indicate if it is ironic or not.
+
+
+      {{text}}
+
+
+      Type your answer below: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_69
+    reference: jonghyeonkim
+  552e99c5-011b-495c-b85d-4648678922fc: !Template
+    answer_choices: no ||| yes
+    id: 552e99c5-011b-495c-b85d-4648678922fc
+    jinja: "Please decide if the following tweet is meant to be ironic. \n\n{{text}}\n\
+      \nSelect either 'yes' or 'no'. ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_70
+    reference: jonghyeonkim
+  49d5a4be-87d8-46c9-a109-34c3874d351a: !Template
+    answer_choices: no ||| yes
+    id: 49d5a4be-87d8-46c9-a109-34c3874d351a
+    jinja: "Is the meaning of the following tweet ironic or not? \n\n{{text}}\n\nPlease\
+      \ select either 'yes' or 'no'. ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_71
+    reference: jonghyeonkim
+  91c6b28a-1e96-4776-af35-be181f86d5f9: !Template
+    answer_choices: No ||| Yes
+    id: 91c6b28a-1e96-4776-af35-be181f86d5f9
+    jinja: 'Please read the tweet below and indicate if you think it is ironic or not.
+      Answer yes or no.
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_72
+    reference: jonghyeonkim
+  4969fafc-43e1-4a85-9a01-fba52a7200f5: !Template
+    answer_choices: no ||| yes
+    id: 4969fafc-43e1-4a85-9a01-fba52a7200f5
+    jinja: "Can you determine whether this tweet is ironic or not? \n\n{{text}}\n\n\
+      Choose 'yes' or 'no' as your answer. ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_73
+    reference: jonghyeonkim
+  3f4aceaa-b6e4-4496-bc96-b155d48eb867: !Template
+    answer_choices: no ||| yes
+    id: 3f4aceaa-b6e4-4496-bc96-b155d48eb867
+    jinja: '{{text}}
+
+
+      Can you identify whether this tweet is ironic or not? Please respond with either
+      "yes" or "no". ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_74
+    reference: jonghyeonkim
+  23cf1cb3-1488-4aa3-a2fb-6be11e5342a5: !Template
+    answer_choices: no ||| yes
+    id: 23cf1cb3-1488-4aa3-a2fb-6be11e5342a5
+    jinja: 'Can you tell if the following tweet is ironic or not?
+
+
+      {{text}}
+
+
+      Please answer with either "yes" or "no": ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_75
+    reference: jonghyeonkim
+  dfea2477-a6ed-4e04-be23-89bbfa0dc349: !Template
+    answer_choices: no ||| yes
+    id: dfea2477-a6ed-4e04-be23-89bbfa0dc349
+    jinja: "Please determine if the following tweet is ironic or not. \n\n{{text}}\n\
+      \nSelect 'yes' or 'no' as your answer. ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_76
+    reference: jonghyeonkim
+  f3df0790-fe6e-46be-8762-9e02eed93660: !Template
+    answer_choices: no ||| yes
+    id: f3df0790-fe6e-46be-8762-9e02eed93660
+    jinja: "Please indicate whether the following tweet is meant to be ironic. \n\n\
+      {{text}}\n\nSelect either 'yes' or 'no'. ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_77
+    reference: jonghyeonkim
+  56b2a7f0-e2a3-438a-97a7-62ac6ccdbf93: !Template
+    answer_choices: no ||| yes
+    id: 56b2a7f0-e2a3-438a-97a7-62ac6ccdbf93
+    jinja: "Please determine if the following tweet is ironic. \n\n{{text}} \n\nIndicate\
+      \ your answer by writing either yes or no. ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_78
+    reference: jonghyeonkim
+  91020c65-f055-42cb-8b25-cb79d98a1f56: !Template
+    answer_choices: no ||| yes
+    id: 91020c65-f055-42cb-8b25-cb79d98a1f56
+    jinja: "In this question, you need to determine whether the tweet is ironic or not.\
+      \ \n\n{{text}}\n\nPlease choose 'yes' or 'no'. ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_79
+    reference: jonghyeonkim
+  c3eb3dc0-4fdd-4ab8-8d0a-3809fbd91d94: !Template
+    answer_choices: no ||| yes
+    id: c3eb3dc0-4fdd-4ab8-8d0a-3809fbd91d94
+    jinja: "Please read the following tweet and classify whether it is ironic or not.\
+      \ \n\n{{text}} \n\nPlease answer with yes or no. ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_80
+    reference: jonghyeonkim
+  153fb94e-70d2-4763-a536-b6b83b6ba614: !Template
+    answer_choices: no ||| yes
+    id: 153fb94e-70d2-4763-a536-b6b83b6ba614
+    jinja: 'Consider the following tweet:
+
+      {{text}}
+
+
+      Is it meant to be taken at face value, or is it ironic? Choose ''yes'' or ''no''.
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_81
+    reference: jonghyeonkim
+  2a01aa2e-eab3-4d63-82ec-60001e7b1399: !Template
+    answer_choices: no ||| yes
+    id: 2a01aa2e-eab3-4d63-82ec-60001e7b1399
+    jinja: "The following tweet may or may not be ironic. Please classify it. \n\n{{text}}\
+      \ \n\nPlease choose yes or no as your answer. ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_82
+    reference: jonghyeonkim
+  d7f807be-9d03-48e7-bd0e-c4bed4942528: !Template
+    answer_choices: no ||| yes
+    id: d7f807be-9d03-48e7-bd0e-c4bed4942528
+    jinja: 'Let''s see if you can detect irony in the following tweet.
+
+
+      {{text}}
+
+
+      Type "yes" if it is ironic, and "no" if it is not: ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_83
+    reference: jonghyeonkim
+  1e1cc70e-bb73-4824-921e-723fc8c64153: !Template
+    answer_choices: no ||| yes
+    id: 1e1cc70e-bb73-4824-921e-723fc8c64153
+    jinja: "In this question, you need to determine if the tweet is ironic or not. \n\
+      \n{{text}}\n\nSelect 'yes' or 'no' as your answer. ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_84
+    reference: jonghyeonkim
+  1f4463a1-66b6-4761-b10c-d8fc916828be: !Template
+    answer_choices: no ||| yes
+    id: 1f4463a1-66b6-4761-b10c-d8fc916828be
+    jinja: "Consider the following tweet and decide whether it is ironic or not. \n\n\
+      {{text}} \n\nChoose your answer between yes and no. ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_85
+    reference: jonghyeonkim
+  f6e4af96-d339-4361-a530-57166fa7688b: !Template
+    answer_choices: no ||| yes
+    id: f6e4af96-d339-4361-a530-57166fa7688b
+    jinja: 'Please analyze the following tweet and determine whether it is ironic or
+      not.
+
+
+      {{text}}
+
+
+      Your options are "yes" or "no". ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_86
+    reference: jonghyeonkim
+  7fde1535-9f96-4273-8eb8-cdc0b21d302c: !Template
+    answer_choices: no ||| yes
+    id: 7fde1535-9f96-4273-8eb8-cdc0b21d302c
+    jinja: 'Here is a tweet for you to read. Can you tell if it is ironic or not?
+
+
+      {{text}}
+
+
+      Please answer with either "yes" or "no": ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_87
+    reference: jonghyeonkim
+  d6287df2-3ae8-4047-9914-6ea4b8a29dbf: !Template
+    answer_choices: no ||| yes
+    id: d6287df2-3ae8-4047-9914-6ea4b8a29dbf
+    jinja: "The following tweet may contain irony. Please read it and decide whether\
+      \ it is ironic or not. \n\n{{text}} \n\nAnswer with yes or no. ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_88
+    reference: jonghyeonkim
+  7cc7a198-1ff5-44fd-befd-c8e6b70045f7: !Template
+    answer_choices: no ||| yes
+    id: 7cc7a198-1ff5-44fd-befd-c8e6b70045f7
+    jinja: 'I would like you to read this tweet: {{text}}
+
+
+      Can you determine if it is ironic or not? Please respond with either "yes" or
+      "no". ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_89
+    reference: jonghyeonkim
+  c735ece4-52fa-4838-bedf-8bd426ce6f90: !Template
+    answer_choices: no ||| yes
+    id: c735ece4-52fa-4838-bedf-8bd426ce6f90
+    jinja: 'Please read the following tweet: {{text}}
+
+
+      Can you identify whether it is an ironic statement or not? Type "yes" or "no"
+      as your answer. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_90
+    reference: jonghyeonkim
+  fdd4bfa8-9a78-44b0-a7f4-2615e759427b: !Template
+    answer_choices: no ||| yes
+    id: fdd4bfa8-9a78-44b0-a7f4-2615e759427b
+    jinja: 'I want you to read the following tweet: {{text}}
+
+
+      Can you tell me if it is an example of irony or not? Please respond with "yes"
+      or "no". ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_91
+    reference: jonghyeonkim
+  917a013b-88fd-4036-a409-2f1586c682b0: !Template
+    answer_choices: no ||| yes
+    id: 917a013b-88fd-4036-a409-2f1586c682b0
+    jinja: 'The following tweet is either ironic or not. Can you determine which one
+      is it?
+
+
+      {{text}}
+
+
+      Type "yes" if it is ironic and "no" if it is not: ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_92
+    reference: jonghyeonkim
+  0192d483-b7a7-42ff-8a84-ce5b9741ba8c: !Template
+    answer_choices: no ||| yes
+    id: 0192d483-b7a7-42ff-8a84-ce5b9741ba8c
+    jinja: 'The following tweet may or may not be ironic.
+
+
+      {{text}}
+
+
+      Can you determine if it is ironic or not? Please type "yes" or "no" as your answer.
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_93
+    reference: jonghyeonkim
+  d232113f-2fae-4a34-ad89-d9b609300952: !Template
+    answer_choices: no ||| yes
+    id: d232113f-2fae-4a34-ad89-d9b609300952
+    jinja: 'You will be presented with a tweet. Please determine whether the tweet is
+      ironic or not.
+
+
+      {{text}}
+
+
+      Please answer with either "yes" or "no". ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_94
+    reference: jonghyeonkim
+  e1021798-6dd6-4e35-92b6-f1535d88e348: !Template
+    answer_choices: no ||| yes
+    id: e1021798-6dd6-4e35-92b6-f1535d88e348
+    jinja: 'The following tweet may or may not be ironic. Please read it carefully and
+      indicate your answer.
+
+
+      {{text}}
+
+
+      Is it ironic? Answer with "yes" or "no": ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_95
+    reference: jonghyeonkim
+  0c4adb56-e1f0-4aaa-a729-f5f77adf9da5: !Template
+    answer_choices: no ||| yes
+    id: 0c4adb56-e1f0-4aaa-a729-f5f77adf9da5
+    jinja: In the following tweet, {{text}}, there may or may not be irony present.
+      Can you determine if it is ironic or not? Please type "yes" or "no" as your answer.
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_96
+    reference: jonghyeonkim
+  09a34227-75fb-45e9-93eb-3183ebf95a25: !Template
+    answer_choices: no ||| yes
+    id: 09a34227-75fb-45e9-93eb-3183ebf95a25
+    jinja: 'Irony can be a tricky thing to detect. Please read the following tweet and
+      indicate whether it is ironic or not.
+
+
+      {{text}}
+
+
+      Answer with either "yes" or "no": ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_97
+    reference: jonghyeonkim
+  818cc10f-b047-4ed0-ac37-23a959f6f6c7: !Template
+    answer_choices: no ||| yes
+    id: 818cc10f-b047-4ed0-ac37-23a959f6f6c7
+    jinja: 'We want to know if the following tweet is ironic or not. Please read it
+      carefully and choose your answer.
+
+
+      {{text}}
+
+
+      Is it ironic? Answer with either "yes" or "no": ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_98
+    reference: jonghyeonkim
+  d03d7776-7962-4607-9c1d-4da3572141f9: !Template
+    answer_choices: no ||| yes
+    id: d03d7776-7962-4607-9c1d-4da3572141f9
+    jinja: 'Irony is a common form of expression on social media. Read the following
+      tweet and indicate whether it is ironic or not.
+
+
+      {{text}}
+
+
+      Type "yes" if it is ironic and "no" if it is not: ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_99
+    reference: jonghyeonkim
+  46f6ff82-d409-47b2-9325-102e48f53452: !Template
+    answer_choices: Of course ||| No way
+    id: 46f6ff82-d409-47b2-9325-102e48f53452
+    jinja: '{{text}}
+
+
+      Is it ironic? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_00
+    reference: jonghyeonkim
+  be95e1b8-bf12-4307-880c-f6926e2e08e1: !Template
+    answer_choices: Of course ||| No way
+    id: be95e1b8-bf12-4307-880c-f6926e2e08e1
+    jinja: '{{text}}
+
+
+      Is this tweet ironic? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_01
+    reference: jonghyeonkim
+  fcbc0494-bfa7-4043-9c46-03239269c260: !Template
+    answer_choices: Of course ||| No way
+    id: fcbc0494-bfa7-4043-9c46-03239269c260
+    jinja: "Is this tweet ironic? \n\n{{text}} ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_02
+    reference: jonghyeonkim
+  c9600a79-13ba-4b99-a405-7baf4f758ed2: !Template
+    answer_choices: Of course ||| No way
+    id: c9600a79-13ba-4b99-a405-7baf4f758ed2
+    jinja: "text: \"{{text}}\"\n The text is irony? ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_03
+    reference: jonghyeonkim
+  e68dbb82-00be-4789-85b5-8e69964098f7: !Template
+    answer_choices: Of course ||| No way
+    id: e68dbb82-00be-4789-85b5-8e69964098f7
+    jinja: "Is this tweet ironic or not? \n\n{{text}} ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_04
+    reference: jonghyeonkim
+  f4f57822-53c3-4481-b804-ec122c2fead8: !Template
+    answer_choices: Of course ||| No way
+    id: f4f57822-53c3-4481-b804-ec122c2fead8
+    jinja: "Does this tweet convey irony? \n\n{{text}} ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_05
+    reference: jonghyeonkim
+  b353a741-3fa5-4311-925e-d9ee9e1a870c: !Template
+    answer_choices: Of course ||| No way
+    id: b353a741-3fa5-4311-925e-d9ee9e1a870c
+    jinja: '{{text}}
+
+
+      Does this tweet contain irony? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_06
+    reference: jonghyeonkim
+  2f2d1e31-3b86-4481-b925-77185f25adf5: !Template
+    answer_choices: Of course ||| No way
+    id: 2f2d1e31-3b86-4481-b925-77185f25adf5
+    jinja: "Does this tweet contain irony? \n\n{{text}} ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_07
+    reference: jonghyeonkim
+  3d5463b1-6e3f-46ff-9b59-c86889c9304b: !Template
+    answer_choices: Of course ||| No way
+    id: 3d5463b1-6e3f-46ff-9b59-c86889c9304b
+    jinja: "{{text}}\n\n Is this tweet is irony?\nAnswer: ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_08
+    reference: jonghyeonkim
+  1ab50afc-8bc6-4899-8dcd-24218d779d55: !Template
+    answer_choices: Of course ||| No way
+    id: 1ab50afc-8bc6-4899-8dcd-24218d779d55
+    jinja: "Tell us if this tweet is ironic. \n\n{{text}} ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_09
+    reference: jonghyeonkim
+  06d1c2bb-c491-480a-a41d-60ec5d485ada: !Template
+    answer_choices: Of course ||| No way
+    id: 06d1c2bb-c491-480a-a41d-60ec5d485ada
+    jinja: 'Do you think this tweet: "{{text}}"
+
+      is irony? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_10
+    reference: jonghyeonkim
+  e4bc8379-b12e-4f75-b681-14ff330931c6: !Template
+    answer_choices: Of course ||| No way
+    id: e4bc8379-b12e-4f75-b681-14ff330931c6
+    jinja: '{{text}} - is this tweet an example of irony? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_11
+    reference: jonghyeonkim
+  2fed46e6-3148-4dd3-9b2f-6bf043f0a64d: !Template
+    answer_choices: Of course ||| No way
+    id: 2fed46e6-3148-4dd3-9b2f-6bf043f0a64d
+    jinja: '{{text}}: Is the meaning of this tweet ironic? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_12
+    reference: jonghyeonkim
+  c90f85ad-2d86-4ee3-ae1a-8529b0d81d46: !Template
+    answer_choices: Of course ||| No way
+    id: c90f85ad-2d86-4ee3-ae1a-8529b0d81d46
+    jinja: '{{text}}
+
+
+      Is it ironic? Answer with {{answer_choices[0]}} or {{answer_choices[1]}}: |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_13
+    reference: jonghyeonkim
+  dc4dd502-8e4b-477c-a61c-fc12ad3abd45: !Template
+    answer_choices: Of course ||| No way
+    id: dc4dd502-8e4b-477c-a61c-fc12ad3abd45
+    jinja: "Please indicate if the tweet is ironic. \n\n{{text}} ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_14
+    reference: jonghyeonkim
+  e66f3684-6e7a-4fc2-a658-9bae2d76604a: !Template
+    answer_choices: Of course ||| No way
+    id: e66f3684-6e7a-4fc2-a658-9bae2d76604a
+    jinja: "Determine if the tweet is ironic or not. \n\n{{text}} ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_15
+    reference: jonghyeonkim
+  ac63dcc5-2341-4146-abfd-54aab806953f: !Template
+    answer_choices: Of course ||| No way
+    id: ac63dcc5-2341-4146-abfd-54aab806953f
+    jinja: "Answer {{answer_choices[0]}} or {{answer_choices[1]}} if this tweet is ironic.\
+      \ \n\n{{text}} ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_16
+    reference: jonghyeonkim
+  c3695dab-dadc-4042-a61f-469784ee5492: !Template
+    answer_choices: Of course ||| No way
+    id: c3695dab-dadc-4042-a61f-469784ee5492
+    jinja: "Is the following tweet an example of irony? \n\n{{text}} ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_17
+    reference: jonghyeonkim
+  ab30d9d0-dd12-4c24-b67d-47b88e900472: !Template
+    answer_choices: Of course ||| No way
+    id: ab30d9d0-dd12-4c24-b67d-47b88e900472
+    jinja: "Indicate whether this tweet is ironic or not. \n\n{{text}} ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_18
+    reference: jonghyeonkim
+  20e105e9-7873-4f47-9b3b-73142d0fbb02: !Template
+    answer_choices: Of course ||| No way
+    id: 20e105e9-7873-4f47-9b3b-73142d0fbb02
+    jinja: "Determine if the tweet is intended to be ironic. \n\n{{text}} ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_19
+    reference: jonghyeonkim
+  28d11fd9-f880-4c09-a2a5-70c3493900be: !Template
+    answer_choices: Of course ||| No way
+    id: 28d11fd9-f880-4c09-a2a5-70c3493900be
+    jinja: "Tell us if the following tweet is ironic or not. \n\n{{text}} ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_20
+    reference: jonghyeonkim
+  e46871f7-d523-4f85-818b-c52b4a50989d: !Template
+    answer_choices: Of course ||| No way
+    id: e46871f7-d523-4f85-818b-c52b4a50989d
+    jinja: "Please indicate if the following tweet is ironic. \n\n{{text}} ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_21
+    reference: jonghyeonkim
+  de7bb937-99c9-4170-a9e0-37d4965b8028: !Template
+    answer_choices: Of course ||| No way
+    id: de7bb937-99c9-4170-a9e0-37d4965b8028
+    jinja: "Please determine if the following tweet is ironic. \n\n{{text}} ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_22
+    reference: jonghyeonkim
+  1843eab4-284b-4651-b91c-fd527e82c691: !Template
+    answer_choices: Of course ||| No way
+    id: 1843eab4-284b-4651-b91c-fd527e82c691
+    jinja: "Indicate whether the following tweet is ironic or not. \n\n{{text}} |||\
+      \ {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_23
+    reference: jonghyeonkim
+  1fa2afdb-d54f-429e-beef-71dfcceb83f0: !Template
+    answer_choices: Of course ||| No way
+    id: 1fa2afdb-d54f-429e-beef-71dfcceb83f0
+    jinja: '{{text}}
+
+
+      Is the following tweet ironic or not? Answer {{answer_choices[0]}} or {{answer_choices[1]}}.
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_24
+    reference: jonghyeonkim
+  ae6b12e5-239a-421b-bf5b-d71566a20ed5: !Template
+    answer_choices: Of course ||| No way
+    id: ae6b12e5-239a-421b-bf5b-d71566a20ed5
+    jinja: '{{text}}
+
+
+      Classify this tweet as ironic or not. Answer {{answer_choices[0]}} or {{answer_choices[1]}}.
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_25
+    reference: jonghyeonkim
+  4d11dbef-9c6c-4166-af39-79f4299c71c3: !Template
+    answer_choices: Of course ||| No way
+    id: 4d11dbef-9c6c-4166-af39-79f4299c71c3
+    jinja: 'Classify if the tweet below is ironic. Answer {{answer_choices[0]}} or {{answer_choices[1]}}.
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_26
+    reference: jonghyeonkim
+  ab81591b-8acd-42de-85e4-2e42ca01b1bc: !Template
+    answer_choices: Of course ||| No way
+    id: ab81591b-8acd-42de-85e4-2e42ca01b1bc
+    jinja: "Answer {{answer_choices[0]}} or {{answer_choices[1]}} if this tweet is intended\
+      \ to be ironic. \n\n{{text}} ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_27
+    reference: jonghyeonkim
+  41b9c4dd-7c57-4bae-aa66-bc0ae5dcf1bf: !Template
+    answer_choices: Of course ||| No way
+    id: 41b9c4dd-7c57-4bae-aa66-bc0ae5dcf1bf
+    jinja: '{{text}}
+
+
+      Decide whether this tweet is ironic or not. Answer {{answer_choices[0]}} or {{answer_choices[1]}}.
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_28
+    reference: jonghyeonkim
+  096a92c5-3bf5-42f4-a1ac-7695f435d6e5: !Template
+    answer_choices: Of course ||| No way
+    id: 096a92c5-3bf5-42f4-a1ac-7695f435d6e5
+    jinja: '{{text}}
+
+
+      Can you tell if this tweet is ironic or not? Answer {{answer_choices[0]}} or {{answer_choices[1]}}.
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_29
+    reference: jonghyeonkim
+  a244dd82-8325-4050-b75d-af92a3973271: !Template
+    answer_choices: Of course ||| No way
+    id: a244dd82-8325-4050-b75d-af92a3973271
+    jinja: 'Is the following tweet ironic or not?
+
+
+      {{text}}
+
+
+      Please answer {{answer_choices[0]}} or {{answer_choices[1]}}: ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_30
+    reference: jonghyeonkim
+  3d38d526-ea4a-4dc1-9fea-6539d4f6511b: !Template
+    answer_choices: Of course ||| No way
+    id: 3d38d526-ea4a-4dc1-9fea-6539d4f6511b
+    jinja: 'Determine if the tweet below is ironic or not. Answer {{answer_choices[0]}}
+      or {{answer_choices[1]}}.
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_31
+    reference: jonghyeonkim
+  65c7aeae-4bbd-4e9e-9911-fb5f922f445f: !Template
+    answer_choices: Of course ||| No way
+    id: 65c7aeae-4bbd-4e9e-9911-fb5f922f445f
+    jinja: '{{text}}
+
+
+      Is this tweet an instance of irony? Please choose ''{{answer_choices[0]}}'' or
+      ''{{answer_choices[1]}}''. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_32
+    reference: jonghyeonkim
+  f471c4a9-a00d-46d7-91b6-f61df775c96b: !Template
+    answer_choices: Of course ||| No way
+    id: f471c4a9-a00d-46d7-91b6-f61df775c96b
+    jinja: '{{text}} - determine if the tweet is ironic or not ironic. Answer {{answer_choices[0]}}
+      or {{answer_choices[1]}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_33
+    reference: jonghyeonkim
+  d040a3ac-c96c-43d5-9ac1-1fbb464894e1: !Template
+    answer_choices: Of course ||| No way
+    id: d040a3ac-c96c-43d5-9ac1-1fbb464894e1
+    jinja: 'Label whether the tweet below is ironic or not. Answer {{answer_choices[0]}}
+      or {{answer_choices[1]}}.
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_34
+    reference: jonghyeonkim
+  faaa07a3-12ac-472c-9ea8-dd977b6ccf7b: !Template
+    answer_choices: Of course ||| No way
+    id: faaa07a3-12ac-472c-9ea8-dd977b6ccf7b
+    jinja: "Here's a tweet. Is it ironic? \n\n{{text}}\n\nAnswer with either '{{answer_choices[0]}}'\
+      \ or '{{answer_choices[1]}}'. ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_35
+    reference: jonghyeonkim
+  e65a9c9d-5c6e-4fa9-9332-6fd77253741c: !Template
+    answer_choices: Of course ||| No way
+    id: e65a9c9d-5c6e-4fa9-9332-6fd77253741c
+    jinja: 'Identify if the following tweet is ironic or not. Answer {{answer_choices[0]}}
+      or {{answer_choices[1]}}.
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_36
+    reference: jonghyeonkim
+  1b0ea53e-22f6-4c1d-aab7-5433fdd15753: !Template
+    answer_choices: Of course ||| No way
+    id: 1b0ea53e-22f6-4c1d-aab7-5433fdd15753
+    jinja: '{{text}}
+
+
+      Is this tweet an example of irony or not? Please select ''{{answer_choices[0]}}''
+      or ''{{answer_choices[1]}}''. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_37
+    reference: jonghyeonkim
+  9ed21c47-0d5e-4b01-895f-8aa38ec00295: !Template
+    answer_choices: Of course ||| No way
+    id: 9ed21c47-0d5e-4b01-895f-8aa38ec00295
+    jinja: 'Identify if this tweet is ironic or not:
+
+
+      {{text}}
+
+
+      Answer with either {{answer_choices[0]}} or {{answer_choices[1]}}. ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_38
+    reference: jonghyeonkim
+  dbb2ba34-06f3-49af-b6e7-24b66a9b53e1: !Template
+    answer_choices: Of course ||| No way
+    id: dbb2ba34-06f3-49af-b6e7-24b66a9b53e1
+    jinja: "Is the following tweet ironic? \n\n{{text}} \n\nPlease respond with either\
+      \ {{answer_choices[0]}} or {{answer_choices[1]}}. ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_39
+    reference: jonghyeonkim
+  53b2b85f-c543-4101-b321-55fc4c0f8b43: !Template
+    answer_choices: Of course ||| No way
+    id: 53b2b85f-c543-4101-b321-55fc4c0f8b43
+    jinja: 'Classify the following tweet as ironic or not:
+
+
+      {{text}}
+
+
+      Select either {{answer_choices[0]}} or {{answer_choices[1]}}: ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_40
+    reference: jonghyeonkim
+  982f67c6-9af6-446b-a77f-bfd74c138b88: !Template
+    answer_choices: Of course ||| No way
+    id: 982f67c6-9af6-446b-a77f-bfd74c138b88
+    jinja: 'Is the tweet below an example of irony or not?
+
+
+      {{text}}
+
+
+      Please answer {{answer_choices[0]}} or {{answer_choices[1]}}: ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_41
+    reference: jonghyeonkim
+  7820cba4-3357-4b54-a664-83f076c8b541: !Template
+    answer_choices: Of course ||| No way
+    id: 7820cba4-3357-4b54-a664-83f076c8b541
+    jinja: 'Please classify the tweet below as ironic or not ironic. Answer {{answer_choices[0]}}
+      or {{answer_choices[1]}}.
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_42
+    reference: jonghyeonkim
+  028a8e26-2420-4f23-ba91-c03c1e014584: !Template
+    answer_choices: Of course ||| No way
+    id: 028a8e26-2420-4f23-ba91-c03c1e014584
+    jinja: 'Categorize whether the following tweet is ironic or not. Answer {{answer_choices[0]}}
+      or {{answer_choices[1]}}.
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_43
+    reference: jonghyeonkim
+  50f94533-3b12-448d-b038-be663d9689e8: !Template
+    answer_choices: Of course ||| No way
+    id: 50f94533-3b12-448d-b038-be663d9689e8
+    jinja: '{{text}}
+
+
+      Judge whether this tweet is intended to be ironic or not. Answer {{answer_choices[0]}}
+      or {{answer_choices[1]}}. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_44
+    reference: jonghyeonkim
+  3a84153d-e5a8-49bb-bb6b-eecf3740afff: !Template
+    answer_choices: Of course ||| No way
+    id: 3a84153d-e5a8-49bb-bb6b-eecf3740afff
+    jinja: '{{text}}
+
+
+      Determine if this tweet is an example of irony. Respond with "{{answer_choices[0]}}"
+      or "{{answer_choices[1]}}". ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_45
+    reference: jonghyeonkim
+  43887370-fcb5-4987-a33d-4a74b1f13986: !Template
+    answer_choices: Of course ||| No way
+    id: 43887370-fcb5-4987-a33d-4a74b1f13986
+    jinja: 'Indicate whether this tweet is meant to be ironic or not. Answer {{answer_choices[0]}}
+      or {{answer_choices[1]}}.
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_46
+    reference: jonghyeonkim
+  c188e2b8-4547-4216-baf2-b2131394373f: !Template
+    answer_choices: Of course ||| No way
+    id: c188e2b8-4547-4216-baf2-b2131394373f
+    jinja: 'Tweet: {{text}}
+
+
+      Please indicate if the tweet is ironic or not by selecting {{answer_choices[0]}}
+      or {{answer_choices[1]}}. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_47
+    reference: jonghyeonkim
+  b19d0ad0-db3b-460c-b0d2-38f4d32440b2: !Template
+    answer_choices: Of course ||| No way
+    id: b19d0ad0-db3b-460c-b0d2-38f4d32440b2
+    jinja: 'Is the following tweet an example of irony or not?
+
+
+      {{text}}
+
+
+      Please answer {{answer_choices[0]}} or {{answer_choices[1]}}: ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_48
+    reference: jonghyeonkim
+  200120d5-1dce-48b7-af4d-610c838a11c0: !Template
+    answer_choices: Of course ||| No way
+    id: 200120d5-1dce-48b7-af4d-610c838a11c0
+    jinja: 'Please determine if the tweet below is ironic or not:
+
+
+      {{text}}
+
+
+      Enter either {{answer_choices[0]}} or {{answer_choices[1]}}: ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_49
+    reference: jonghyeonkim
+  9104b546-17c5-4d5c-8b66-8a63e614b4be: !Template
+    answer_choices: Of course ||| No way
+    id: 9104b546-17c5-4d5c-8b66-8a63e614b4be
+    jinja: 'Identify if the tweet below is ironic or not:
+
+
+      {{text}}
+
+
+      Choose {{answer_choices[0]}} or {{answer_choices[1]}} as your answer: ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_50
+    reference: jonghyeonkim
+  efde4550-749b-4382-bb30-b15655720891: !Template
+    answer_choices: Of course ||| No way
+    id: efde4550-749b-4382-bb30-b15655720891
+    jinja: "Please indicate if the following tweet is ironic. \n\n{{text}}\n\nSelect\
+      \ either '{{answer_choices[0]}}' or '{{answer_choices[1]}}'. ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_51
+    reference: jonghyeonkim
+  f8a75d90-9e9b-4cf3-949f-37354340cb85: !Template
+    answer_choices: Of course ||| No way
+    id: f8a75d90-9e9b-4cf3-949f-37354340cb85
+    jinja: 'Decide whether the tweet below is ironic or not:
+
+
+      {{text}}
+
+
+      Type {{answer_choices[0]}} or {{answer_choices[1]}} as your answer: ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_52
+    reference: jonghyeonkim
+  18badfd3-bc43-4bec-8df2-6b0b8e258bc6: !Template
+    answer_choices: Of course ||| No way
+    id: 18badfd3-bc43-4bec-8df2-6b0b8e258bc6
+    jinja: "Is the following tweet meant to be ironic? \n\n{{text}}\n\nPlease choose\
+      \ either '{{answer_choices[0]}}' or '{{answer_choices[1]}}'. ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_53
+    reference: jonghyeonkim
+  f92e5449-1f2d-4517-9a94-6ec926cd959b: !Template
+    answer_choices: Of course ||| No way
+    id: f92e5449-1f2d-4517-9a94-6ec926cd959b
+    jinja: "Is the following tweet an example of irony or not? \n\n{{text}}\n\nPlease\
+      \ choose '{{answer_choices[0]}}' or '{{answer_choices[1]}}'. ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_54
+    reference: jonghyeonkim
+  3ddf6f1c-1158-42c9-b75e-68a06988b5c3: !Template
+    answer_choices: Of course ||| No way
+    id: 3ddf6f1c-1158-42c9-b75e-68a06988b5c3
+    jinja: 'Please determine if the following tweet is ironic or not:
+
+
+      {{text}}
+
+
+      Enter either {{answer_choices[0]}} or {{answer_choices[1]}}: ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_55
+    reference: jonghyeonkim
+  00dd8f55-98bf-4014-80fd-85ca3e4126b9: !Template
+    answer_choices: Of course ||| No way
+    id: 00dd8f55-98bf-4014-80fd-85ca3e4126b9
+    jinja: '{{text}}
+
+
+      Do you think the author is being ironic in this tweet? Please select ''{{answer_choices[0]}}''
+      or ''{{answer_choices[1]}}''. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_56
+    reference: jonghyeonkim
+  debc2d49-88ca-4bb5-a8e7-1ec309d19797: !Template
+    answer_choices: Of course ||| No way
+    id: debc2d49-88ca-4bb5-a8e7-1ec309d19797
+    jinja: 'Classify the tweet below as ironic or not:
+
+
+      {{text}}
+
+
+      Select either {{answer_choices[0]}} or {{answer_choices[1]}} as your answer: |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_57
+    reference: jonghyeonkim
+  ec481528-e8ff-48c6-8aea-fecbaadd702e: !Template
+    answer_choices: Of course ||| No way
+    id: ec481528-e8ff-48c6-8aea-fecbaadd702e
+    jinja: 'Decide whether the following tweet is ironic or not:
+
+
+      {{text}}
+
+
+      Type {{answer_choices[0]}} or {{answer_choices[1]}} as your answer. ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_58
+    reference: jonghyeonkim
+  2408a462-b630-4798-aa7b-d34e62ba5bfb: !Template
+    answer_choices: Of course ||| No way
+    id: 2408a462-b630-4798-aa7b-d34e62ba5bfb
+    jinja: "Please determine if the following tweet is ironic. \n\n{{text}} \n\nRespond\
+      \ with either {{answer_choices[0]}} or {{answer_choices[1]}}. ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_59
+    reference: jonghyeonkim
+  d2c583db-e431-4fec-8916-7773f3a0df48: !Template
+    answer_choices: Of course ||| No way
+    id: d2c583db-e431-4fec-8916-7773f3a0df48
+    jinja: 'Please determine if the tweet below is ironic or not:
+
+
+      {{text}}
+
+
+      Answer with either {{answer_choices[0]}} or {{answer_choices[1]}}: ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_60
+    reference: jonghyeonkim
+  5cf53f95-f28f-4361-b43c-de90fb4c2ad8: !Template
+    answer_choices: Of course ||| No way
+    id: 5cf53f95-f28f-4361-b43c-de90fb4c2ad8
+    jinja: "Please indicate if the following tweet is ironic. \n\n{{text}}\n\nAnswer\
+      \ with either '{{answer_choices[0]}}' or '{{answer_choices[1]}}'. ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_61
+    reference: jonghyeonkim
+  3627a266-657e-4445-aa52-f61a430d59cd: !Template
+    answer_choices: Of course ||| No way
+    id: 3627a266-657e-4445-aa52-f61a430d59cd
+    jinja: "Does the following tweet contain irony? \n\n{{text}} \n\nPlease indicate\
+      \ your answer with {{answer_choices[0]}} or {{answer_choices[1]}}. ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_62
+    reference: jonghyeonkim
+  efb208bf-63e1-4d00-a755-0cd1f34fc78e: !Template
+    answer_choices: Of course ||| No way
+    id: efb208bf-63e1-4d00-a755-0cd1f34fc78e
+    jinja: '{{text}}
+
+
+      Determine whether this tweet is meant to be ironic or not. Please select ''{{answer_choices[0]}}''
+      or ''{{answer_choices[1]}}''. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_63
+    reference: jonghyeonkim
+  e900cb70-be68-4528-a368-92fb73cc95c6: !Template
+    answer_choices: Of course ||| No way
+    id: e900cb70-be68-4528-a368-92fb73cc95c6
+    jinja: "Decide whether the following tweet is meant to be ironic. \n\n{{text}}\n\
+      \nChoose either '{{answer_choices[0]}}' or '{{answer_choices[1]}}'. ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_64
+    reference: jonghyeonkim
+  3cea568c-6717-46d4-b5a3-56f45101185d: !Template
+    answer_choices: Of course ||| No way
+    id: 3cea568c-6717-46d4-b5a3-56f45101185d
+    jinja: "Decide whether the following tweet is meant to be ironic. \n\n{{text}}\n\
+      \nPlease select '{{answer_choices[0]}}' or '{{answer_choices[1]}}'. ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_65
+    reference: jonghyeonkim
+  eed34302-c2ee-4a92-bd69-b763f6d7fdf2: !Template
+    answer_choices: Of course ||| No way
+    id: eed34302-c2ee-4a92-bd69-b763f6d7fdf2
+    jinja: "Is the meaning of the following tweet ironic or not? \n\n{{text}}\n\nAnswer\
+      \ with either '{{answer_choices[0]}}' or '{{answer_choices[1]}}'. ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_66
+    reference: jonghyeonkim
+  8263c16c-5884-4c01-99a7-80ced646e956: !Template
+    answer_choices: Of course ||| No way
+    id: 8263c16c-5884-4c01-99a7-80ced646e956
+    jinja: "Do you think the following tweet is ironic or not? \n\n{{text}}\n\nChoose\
+      \ '{{answer_choices[0]}}' or '{{answer_choices[1]}}' as your answer. ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_67
+    reference: jonghyeonkim
+  1788146d-fcef-4084-b9fb-f62a3c30d0ff: !Template
+    answer_choices: Of course ||| No way
+    id: 1788146d-fcef-4084-b9fb-f62a3c30d0ff
+    jinja: 'tweet: {{text}}
+
+
+      Classify whether the tweet is an example of irony or not. Please answer {{answer_choices[0]}}
+      or {{answer_choices[1]}}: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_68
+    reference: jonghyeonkim
+  f5748dbf-8562-49d3-bfe5-95551770f6ca: !Template
+    answer_choices: Of course ||| No way
+    id: f5748dbf-8562-49d3-bfe5-95551770f6ca
+    jinja: 'Please read the tweet below and indicate if it is ironic or not.
+
+
+      {{text}}
+
+
+      Type your answer below: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_69
+    reference: jonghyeonkim
+  41a5d45a-ca7a-488e-ac76-9a3c2c27fb17: !Template
+    answer_choices: Of course ||| No way
+    id: 41a5d45a-ca7a-488e-ac76-9a3c2c27fb17
+    jinja: "Please decide if the following tweet is meant to be ironic. \n\n{{text}}\n\
+      \nSelect either '{{answer_choices[0]}}' or '{{answer_choices[1]}}'. ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_70
+    reference: jonghyeonkim
+  45544871-5ef7-4b19-a488-01d2bcf95a9f: !Template
+    answer_choices: Of course ||| No way
+    id: 45544871-5ef7-4b19-a488-01d2bcf95a9f
+    jinja: "Is the meaning of the following tweet ironic or not? \n\n{{text}}\n\nPlease\
+      \ select either '{{answer_choices[0]}}' or '{{answer_choices[1]}}'. ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_71
+    reference: jonghyeonkim
+  fe2ce9db-8f57-484a-b04c-83538c11855d: !Template
+    answer_choices: Of course ||| No way
+    id: fe2ce9db-8f57-484a-b04c-83538c11855d
+    jinja: 'Please read the tweet below and indicate if you think it is ironic or not.
+      Answer {{answer_choices[0]}} or {{answer_choices[1]}}.
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_72
+    reference: jonghyeonkim
+  49d642b9-b91c-428b-a7ff-40750e011a7b: !Template
+    answer_choices: Of course ||| No way
+    id: 49d642b9-b91c-428b-a7ff-40750e011a7b
+    jinja: "Can you determine whether this tweet is ironic or not? \n\n{{text}}\n\n\
+      Choose '{{answer_choices[0]}}' or '{{answer_choices[1]}}' as your answer. |||\
+      \ {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_73
+    reference: jonghyeonkim
+  71ba6bd1-49a3-4cc0-a050-58bddb85d2a0: !Template
+    answer_choices: Of course ||| No way
+    id: 71ba6bd1-49a3-4cc0-a050-58bddb85d2a0
+    jinja: '{{text}}
+
+
+      Can you identify whether this tweet is ironic or not? Please respond with either
+      "{{answer_choices[0]}}" or "{{answer_choices[1]}}". ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_74
+    reference: jonghyeonkim
+  47e6cdaf-0c5f-400b-800c-053cafe94c82: !Template
+    answer_choices: Of course ||| No way
+    id: 47e6cdaf-0c5f-400b-800c-053cafe94c82
+    jinja: 'Can you tell if the following tweet is ironic or not?
+
+
+      {{text}}
+
+
+      Please answer with either "{{answer_choices[0]}}" or "{{answer_choices[1]}}":
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_75
+    reference: jonghyeonkim
+  f8fc25ae-1f80-4994-a3a7-bed3bc9ae704: !Template
+    answer_choices: Of course ||| No way
+    id: f8fc25ae-1f80-4994-a3a7-bed3bc9ae704
+    jinja: "Please determine if the following tweet is ironic or not. \n\n{{text}}\n\
+      \nSelect '{{answer_choices[0]}}' or '{{answer_choices[1]}}' as your answer. |||\
+      \ {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_76
+    reference: jonghyeonkim
+  6ded33dc-6a8f-429a-ba82-d18e037e00ff: !Template
+    answer_choices: Of course ||| No way
+    id: 6ded33dc-6a8f-429a-ba82-d18e037e00ff
+    jinja: "Please indicate whether the following tweet is meant to be ironic. \n\n\
+      {{text}}\n\nSelect either '{{answer_choices[0]}}' or '{{answer_choices[1]}}'.\
+      \ ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_77
+    reference: jonghyeonkim
+  4be41d44-a15e-40c4-8e46-dffc621c1d0b: !Template
+    answer_choices: Of course ||| No way
+    id: 4be41d44-a15e-40c4-8e46-dffc621c1d0b
+    jinja: "Please determine if the following tweet is ironic. \n\n{{text}} \n\nIndicate\
+      \ your answer by writing either {{answer_choices[0]}} or {{answer_choices[1]}}.\
+      \ ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_78
+    reference: jonghyeonkim
+  59b99597-f1b5-4eb8-b515-ab2dda441d33: !Template
+    answer_choices: Of course ||| No way
+    id: 59b99597-f1b5-4eb8-b515-ab2dda441d33
+    jinja: "In this question, you need to determine whether the tweet is ironic or not.\
+      \ \n\n{{text}}\n\nPlease choose '{{answer_choices[0]}}' or '{{answer_choices[1]}}'.\
+      \ ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_79
+    reference: jonghyeonkim
+  cef37e70-ab73-4346-be74-402cfa80abc6: !Template
+    answer_choices: Of course ||| No way
+    id: cef37e70-ab73-4346-be74-402cfa80abc6
+    jinja: "Please read the following tweet and classify whether it is ironic or not.\
+      \ \n\n{{text}} \n\nPlease answer with {{answer_choices[0]}} or {{answer_choices[1]}}.\
+      \ ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_80
+    reference: jonghyeonkim
+  bbea982a-ca69-4a9e-aedf-9d438b5f56b6: !Template
+    answer_choices: Of course ||| No way
+    id: bbea982a-ca69-4a9e-aedf-9d438b5f56b6
+    jinja: 'Consider the following tweet:
+
+      {{text}}
+
+
+      Is it meant to be taken at face value, or is it ironic? Choose ''{{answer_choices[0]}}''
+      or ''{{answer_choices[1]}}''. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_81
+    reference: jonghyeonkim
+  710dc695-9015-4336-abe4-2dd916d89788: !Template
+    answer_choices: Of course ||| No way
+    id: 710dc695-9015-4336-abe4-2dd916d89788
+    jinja: "The following tweet may or may not be ironic. Please classify it. \n\n{{text}}\
+      \ \n\nPlease choose {{answer_choices[0]}} or {{answer_choices[1]}} as your answer.\
+      \ ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_82
+    reference: jonghyeonkim
+  368102d5-b008-4ccd-8643-a3e7b36e7b18: !Template
+    answer_choices: Of course ||| No way
+    id: 368102d5-b008-4ccd-8643-a3e7b36e7b18
+    jinja: 'Let''s see if you can detect irony in the following tweet.
+
+
+      {{text}}
+
+
+      Type "{{answer_choices[0]}}" if it is ironic, and "{{answer_choices[1]}}" if it
+      is not: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_83
+    reference: jonghyeonkim
+  b4e75a90-803e-4ab3-9067-21c1a1db7861: !Template
+    answer_choices: Of course ||| No way
+    id: b4e75a90-803e-4ab3-9067-21c1a1db7861
+    jinja: "In this question, you need to determine if the tweet is ironic or not. \n\
+      \n{{text}}\n\nSelect '{{answer_choices[0]}}' or '{{answer_choices[1]}}' as your\
+      \ answer. ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_84
+    reference: jonghyeonkim
+  832e8fd7-d499-4c40-988e-cd9b46ca8287: !Template
+    answer_choices: Of course ||| No way
+    id: 832e8fd7-d499-4c40-988e-cd9b46ca8287
+    jinja: "Consider the following tweet and decide whether it is ironic or not. \n\n\
+      {{text}} \n\nChoose your answer between {{answer_choices[0]}} and {{answer_choices[1]}}.\
+      \ ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_85
+    reference: jonghyeonkim
+  2656c4c6-a341-4b60-b865-2b4383fa4eb7: !Template
+    answer_choices: Of course ||| No way
+    id: 2656c4c6-a341-4b60-b865-2b4383fa4eb7
+    jinja: 'Please analyze the following tweet and determine whether it is ironic or
+      not.
+
+
+      {{text}}
+
+
+      Your options are "{{answer_choices[0]}}" or "{{answer_choices[1]}}". ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_86
+    reference: jonghyeonkim
+  514d1dcf-66eb-465d-bfeb-e584c65cbe93: !Template
+    answer_choices: Of course ||| No way
+    id: 514d1dcf-66eb-465d-bfeb-e584c65cbe93
+    jinja: 'Here is a tweet for you to read. Can you tell if it is ironic or not?
+
+
+      {{text}}
+
+
+      Please answer with either "{{answer_choices[0]}}" or "{{answer_choices[1]}}":
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_87
+    reference: jonghyeonkim
+  178e9ce1-770c-4aa8-bbf5-b98181fd7c49: !Template
+    answer_choices: Of course ||| No way
+    id: 178e9ce1-770c-4aa8-bbf5-b98181fd7c49
+    jinja: "The following tweet may contain irony. Please read it and decide whether\
+      \ it is ironic or not. \n\n{{text}} \n\nAnswer with {{answer_choices[0]}} or {{answer_choices[1]}}.\
+      \ ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_88
+    reference: jonghyeonkim
+  4a01a101-5593-4376-bb88-65941cb2b0e1: !Template
+    answer_choices: Of course ||| No way
+    id: 4a01a101-5593-4376-bb88-65941cb2b0e1
+    jinja: 'I would like you to read this tweet: {{text}}
+
+
+      Can you determine if it is ironic or not? Please respond with either "{{answer_choices[0]}}"
+      or "{{answer_choices[1]}}". ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_89
+    reference: jonghyeonkim
+  205a2341-66b3-452a-a92a-e15daf27f1b9: !Template
+    answer_choices: Of course ||| No way
+    id: 205a2341-66b3-452a-a92a-e15daf27f1b9
+    jinja: 'Please read the following tweet: {{text}}
+
+
+      Can you identify whether it is an ironic statement or not? Type "{{answer_choices[0]}}"
+      or "{{answer_choices[1]}}" as your answer. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_90
+    reference: jonghyeonkim
+  76e55eb3-c746-4f24-947e-e6513450215d: !Template
+    answer_choices: Of course ||| No way
+    id: 76e55eb3-c746-4f24-947e-e6513450215d
+    jinja: 'I want you to read the following tweet: {{text}}
+
+
+      Can you tell me if it is an example of irony or not? Please respond with "{{answer_choices[0]}}"
+      or "{{answer_choices[1]}}". ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_91
+    reference: jonghyeonkim
+  2d143584-0d94-428a-a900-a6649097ef3e: !Template
+    answer_choices: Of course ||| No way
+    id: 2d143584-0d94-428a-a900-a6649097ef3e
+    jinja: 'The following tweet is either ironic or not. Can you determine which one
+      is it?
+
+
+      {{text}}
+
+
+      Type "{{answer_choices[0]}}" if it is ironic and "{{answer_choices[1]}}" if it
+      is not: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_92
+    reference: jonghyeonkim
+  56f52a02-e16e-457e-b8a8-7feb7bc3da63: !Template
+    answer_choices: Of course ||| No way
+    id: 56f52a02-e16e-457e-b8a8-7feb7bc3da63
+    jinja: 'The following tweet may or may not be ironic.
+
+
+      {{text}}
+
+
+      Can you determine if it is ironic or not? Please type "{{answer_choices[0]}}"
+      or "{{answer_choices[1]}}" as your answer. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_93
+    reference: jonghyeonkim
+  76864811-9fd4-4191-a2cc-25e814970c97: !Template
+    answer_choices: Of course ||| No way
+    id: 76864811-9fd4-4191-a2cc-25e814970c97
+    jinja: 'You will be presented with a tweet. Please determine whether the tweet is
+      ironic or not.
+
+
+      {{text}}
+
+
+      Please answer with either "{{answer_choices[0]}}" or "{{answer_choices[1]}}".
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_94
+    reference: jonghyeonkim
+  02e85f72-be76-4519-a391-17e662290535: !Template
+    answer_choices: Of course ||| No way
+    id: 02e85f72-be76-4519-a391-17e662290535
+    jinja: 'The following tweet may or may not be ironic. Please read it carefully and
+      indicate your answer.
+
+
+      {{text}}
+
+
+      Is it ironic? Answer with "{{answer_choices[0]}}" or "{{answer_choices[1]}}":
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_95
+    reference: jonghyeonkim
+  92605bab-eb06-4e0a-9052-0b4518bf0e51: !Template
+    answer_choices: Of course ||| No way
+    id: 92605bab-eb06-4e0a-9052-0b4518bf0e51
+    jinja: In the following tweet, {{text}}, there may or may not be irony present.
+      Can you determine if it is ironic or not? Please type "{{answer_choices[0]}}"
+      or "{{answer_choices[1]}}" as your answer. ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_96
+    reference: jonghyeonkim
+  7d9f15e5-507d-45bf-9975-2b67eecb9b57: !Template
+    answer_choices: Of course ||| No way
+    id: 7d9f15e5-507d-45bf-9975-2b67eecb9b57
+    jinja: 'Irony can be a tricky thing to detect. Please read the following tweet and
+      indicate whether it is ironic or not.
+
+
+      {{text}}
+
+
+      Answer with either "{{answer_choices[0]}}" or "{{answer_choices[1]}}": ||| {{
+      answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_97
+    reference: jonghyeonkim
+  518aa3e9-baf6-4476-8904-a88c5a3b42f4: !Template
+    answer_choices: Of course ||| No way
+    id: 518aa3e9-baf6-4476-8904-a88c5a3b42f4
+    jinja: 'We want to know if the following tweet is ironic or not. Please read it
+      carefully and choose your answer.
+
+
+      {{text}}
+
+
+      Is it ironic? Answer with either "{{answer_choices[0]}}" or "{{answer_choices[1]}}":
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_98
+    reference: jonghyeonkim
+  03d12978-88a1-47b6-b604-032fe78860bd: !Template
+    answer_choices: Of course ||| No way
+    id: 03d12978-88a1-47b6-b604-032fe78860bd
+    jinja: 'Irony is a common form of expression on social media. Read the following
+      tweet and indicate whether it is ironic or not.
+
+
+      {{text}}
+
+
+      Type "{{answer_choices[0]}}" if it is ironic and "{{answer_choices[1]}}" if it
+      is not: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_99
+    reference: jonghyeonkim
+  1d53e90b-337d-4f04-a3d2-146e7e9abedc: !Template
+    answer_choices: Of course ||| No
+    id: 1d53e90b-337d-4f04-a3d2-146e7e9abedc
+    jinja: '{{text}}
+
+
+      Is it ironic? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_00
+    reference: jonghyeonkim
+  e9403ac2-b6bd-4d59-bdb0-7be6e2b7e532: !Template
+    answer_choices: Of course ||| No
+    id: e9403ac2-b6bd-4d59-bdb0-7be6e2b7e532
+    jinja: '{{text}}
+
+
+      Is this tweet ironic? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_01
+    reference: jonghyeonkim
+  32deed4a-d856-4273-84d2-c02b67c6d0e0: !Template
+    answer_choices: Of course ||| No
+    id: 32deed4a-d856-4273-84d2-c02b67c6d0e0
+    jinja: "Is this tweet ironic? \n\n{{text}} ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_02
+    reference: jonghyeonkim
+  aad4fcf3-8b49-4968-9fda-55b89958341f: !Template
+    answer_choices: Of course ||| No
+    id: aad4fcf3-8b49-4968-9fda-55b89958341f
+    jinja: "text: \"{{text}}\"\n The text is irony? ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_03
+    reference: jonghyeonkim
+  b351c42b-bd87-4743-af5b-f1bb695a0e0c: !Template
+    answer_choices: Of course ||| No
+    id: b351c42b-bd87-4743-af5b-f1bb695a0e0c
+    jinja: "Is this tweet ironic or not? \n\n{{text}} ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_04
+    reference: jonghyeonkim
+  d8fe6d8b-b004-49ef-9c66-8f95d645433c: !Template
+    answer_choices: Of course ||| No
+    id: d8fe6d8b-b004-49ef-9c66-8f95d645433c
+    jinja: "Does this tweet convey irony? \n\n{{text}} ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_05
+    reference: jonghyeonkim
+  d805be68-984b-4944-87ee-24039da6a785: !Template
+    answer_choices: Of course ||| No
+    id: d805be68-984b-4944-87ee-24039da6a785
+    jinja: '{{text}}
+
+
+      Does this tweet contain irony? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_06
+    reference: jonghyeonkim
+  562c95ad-be67-4b95-b2ab-72f3dbc6beea: !Template
+    answer_choices: Of course ||| No
+    id: 562c95ad-be67-4b95-b2ab-72f3dbc6beea
+    jinja: "Does this tweet contain irony? \n\n{{text}} ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_07
+    reference: jonghyeonkim
+  17dae873-60fd-4ae8-98d5-3be947fc4599: !Template
+    answer_choices: Of course ||| No
+    id: 17dae873-60fd-4ae8-98d5-3be947fc4599
+    jinja: "{{text}}\n\n Is this tweet is irony?\nAnswer: ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_08
+    reference: jonghyeonkim
+  38754355-d656-4b9e-9674-ca5fdd38d39b: !Template
+    answer_choices: Of course ||| No
+    id: 38754355-d656-4b9e-9674-ca5fdd38d39b
+    jinja: "Tell us if this tweet is ironic. \n\n{{text}} ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_09
+    reference: jonghyeonkim
+  3fa26090-5429-4c06-bb18-4830be0d6ffe: !Template
+    answer_choices: Of course ||| No
+    id: 3fa26090-5429-4c06-bb18-4830be0d6ffe
+    jinja: 'Do you think this tweet: "{{text}}"
+
+      is irony? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_10
+    reference: jonghyeonkim
+  61d0ae79-0e5b-47c0-8ee1-c0a64c415ac5: !Template
+    answer_choices: Of course ||| No
+    id: 61d0ae79-0e5b-47c0-8ee1-c0a64c415ac5
+    jinja: '{{text}} - is this tweet an example of irony? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_11
+    reference: jonghyeonkim
+  a98dad8d-331f-4d56-b3b2-245b0a85f641: !Template
+    answer_choices: Of course ||| No
+    id: a98dad8d-331f-4d56-b3b2-245b0a85f641
+    jinja: '{{text}}: Is the meaning of this tweet ironic? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_12
+    reference: jonghyeonkim
+  805d5ca8-773f-4886-8b37-7f9bea0ffc08: !Template
+    answer_choices: Of course ||| No
+    id: 805d5ca8-773f-4886-8b37-7f9bea0ffc08
+    jinja: '{{text}}
+
+
+      Is it ironic? Answer with {{answer_choices[0]}} or {{answer_choices[1]}}: |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_13
+    reference: jonghyeonkim
+  a05ad866-031e-42ee-9a0c-0c271f3f23b7: !Template
+    answer_choices: Of course ||| No
+    id: a05ad866-031e-42ee-9a0c-0c271f3f23b7
+    jinja: "Please indicate if the tweet is ironic. \n\n{{text}} ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_14
+    reference: jonghyeonkim
+  d1911fcf-8d6d-4b96-a6ce-f18457cf5bdd: !Template
+    answer_choices: Of course ||| No
+    id: d1911fcf-8d6d-4b96-a6ce-f18457cf5bdd
+    jinja: "Determine if the tweet is ironic or not. \n\n{{text}} ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_15
+    reference: jonghyeonkim
+  e27bd06c-d57c-4f8b-9d19-f107fbfd7a31: !Template
+    answer_choices: Of course ||| No
+    id: e27bd06c-d57c-4f8b-9d19-f107fbfd7a31
+    jinja: "Answer {{answer_choices[0]}} or {{answer_choices[1]}} if this tweet is ironic.\
+      \ \n\n{{text}} ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_16
+    reference: jonghyeonkim
+  96177415-8673-4adf-9db2-e64772db1af1: !Template
+    answer_choices: Of course ||| No
+    id: 96177415-8673-4adf-9db2-e64772db1af1
+    jinja: "Is the following tweet an example of irony? \n\n{{text}} ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_17
+    reference: jonghyeonkim
+  47aedd65-32d1-403c-ab2c-6eb3e350edbd: !Template
+    answer_choices: Of course ||| No
+    id: 47aedd65-32d1-403c-ab2c-6eb3e350edbd
+    jinja: "Indicate whether this tweet is ironic or not. \n\n{{text}} ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_18
+    reference: jonghyeonkim
+  241db741-d85a-419d-bbbb-2defe7c406ea: !Template
+    answer_choices: Of course ||| No
+    id: 241db741-d85a-419d-bbbb-2defe7c406ea
+    jinja: "Determine if the tweet is intended to be ironic. \n\n{{text}} ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_19
+    reference: jonghyeonkim
+  6ab2c1a4-cc39-42d1-9997-d0e192cb6b33: !Template
+    answer_choices: Of course ||| No
+    id: 6ab2c1a4-cc39-42d1-9997-d0e192cb6b33
+    jinja: "Tell us if the following tweet is ironic or not. \n\n{{text}} ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_20
+    reference: jonghyeonkim
+  796ded8a-59cc-4518-905d-c71d04b202cd: !Template
+    answer_choices: Of course ||| No
+    id: 796ded8a-59cc-4518-905d-c71d04b202cd
+    jinja: "Please indicate if the following tweet is ironic. \n\n{{text}} ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_21
+    reference: jonghyeonkim
+  6b4a33ce-3cb5-482f-a3c4-20db6c51ef2f: !Template
+    answer_choices: Of course ||| No
+    id: 6b4a33ce-3cb5-482f-a3c4-20db6c51ef2f
+    jinja: "Please determine if the following tweet is ironic. \n\n{{text}} ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_22
+    reference: jonghyeonkim
+  485e4226-0a93-4f98-b191-5f7792b72ed0: !Template
+    answer_choices: Of course ||| No
+    id: 485e4226-0a93-4f98-b191-5f7792b72ed0
+    jinja: "Indicate whether the following tweet is ironic or not. \n\n{{text}} |||\
+      \ {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_23
+    reference: jonghyeonkim
+  f170c2a1-5ce0-4525-87b1-2cfdeacdf70e: !Template
+    answer_choices: Of course ||| No
+    id: f170c2a1-5ce0-4525-87b1-2cfdeacdf70e
+    jinja: '{{text}}
+
+
+      Is the following tweet ironic or not? Answer {{answer_choices[0]}} or {{answer_choices[1]}}.
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_24
+    reference: jonghyeonkim
+  d7a5fccc-445e-4cbd-a554-22c854982bc6: !Template
+    answer_choices: Of course ||| No
+    id: d7a5fccc-445e-4cbd-a554-22c854982bc6
+    jinja: '{{text}}
+
+
+      Classify this tweet as ironic or not. Answer {{answer_choices[0]}} or {{answer_choices[1]}}.
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_25
+    reference: jonghyeonkim
+  419c3dd4-9b67-48d8-9dfe-a64b2550fda1: !Template
+    answer_choices: Of course ||| No
+    id: 419c3dd4-9b67-48d8-9dfe-a64b2550fda1
+    jinja: 'Classify if the tweet below is ironic. Answer {{answer_choices[0]}} or {{answer_choices[1]}}.
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_26
+    reference: jonghyeonkim
+  da05d8cb-75a7-40a0-bfc9-ec894b207884: !Template
+    answer_choices: Of course ||| No
+    id: da05d8cb-75a7-40a0-bfc9-ec894b207884
+    jinja: "Answer {{answer_choices[0]}} or {{answer_choices[1]}} if this tweet is intended\
+      \ to be ironic. \n\n{{text}} ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_27
+    reference: jonghyeonkim
+  cdd42aa6-c80c-4694-81fd-9aa15ec2197f: !Template
+    answer_choices: Of course ||| No
+    id: cdd42aa6-c80c-4694-81fd-9aa15ec2197f
+    jinja: '{{text}}
+
+
+      Decide whether this tweet is ironic or not. Answer {{answer_choices[0]}} or {{answer_choices[1]}}.
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_28
+    reference: jonghyeonkim
+  b9888beb-f19e-46de-aca5-5b0f331856f5: !Template
+    answer_choices: Of course ||| No
+    id: b9888beb-f19e-46de-aca5-5b0f331856f5
+    jinja: '{{text}}
+
+
+      Can you tell if this tweet is ironic or not? Answer {{answer_choices[0]}} or {{answer_choices[1]}}.
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_29
+    reference: jonghyeonkim
+  ffb8b9b1-bc0b-42d5-ae50-965ef2e903e0: !Template
+    answer_choices: Of course ||| No
+    id: ffb8b9b1-bc0b-42d5-ae50-965ef2e903e0
+    jinja: 'Is the following tweet ironic or not?
+
+
+      {{text}}
+
+
+      Please answer {{answer_choices[0]}} or {{answer_choices[1]}}: ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_30
+    reference: jonghyeonkim
+  bfd37529-4333-414b-9bdf-720ead228b79: !Template
+    answer_choices: Of course ||| No
+    id: bfd37529-4333-414b-9bdf-720ead228b79
+    jinja: 'Determine if the tweet below is ironic or not. Answer {{answer_choices[0]}}
+      or {{answer_choices[1]}}.
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_31
+    reference: jonghyeonkim
+  33b3fb00-910e-44ad-a163-dad799b15161: !Template
+    answer_choices: Of course ||| No
+    id: 33b3fb00-910e-44ad-a163-dad799b15161
+    jinja: '{{text}}
+
+
+      Is this tweet an instance of irony? Please choose ''{{answer_choices[0]}}'' or
+      ''{{answer_choices[1]}}''. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_32
+    reference: jonghyeonkim
+  4af0159c-8283-4934-bdf2-5854764f9943: !Template
+    answer_choices: Of course ||| No
+    id: 4af0159c-8283-4934-bdf2-5854764f9943
+    jinja: '{{text}} - determine if the tweet is ironic or not ironic. Answer {{answer_choices[0]}}
+      or {{answer_choices[1]}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_33
+    reference: jonghyeonkim
+  bda4bdc8-de68-45d6-9bf9-4ae18feb99af: !Template
+    answer_choices: Of course ||| No
+    id: bda4bdc8-de68-45d6-9bf9-4ae18feb99af
+    jinja: 'Label whether the tweet below is ironic or not. Answer {{answer_choices[0]}}
+      or {{answer_choices[1]}}.
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_34
+    reference: jonghyeonkim
+  2fe32efa-257d-474e-b3db-9ed8b9d38ce8: !Template
+    answer_choices: Of course ||| No
+    id: 2fe32efa-257d-474e-b3db-9ed8b9d38ce8
+    jinja: "Here's a tweet. Is it ironic? \n\n{{text}}\n\nAnswer with either '{{answer_choices[0]}}'\
+      \ or '{{answer_choices[1]}}'. ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_35
+    reference: jonghyeonkim
+  50eb96ab-3989-431b-83d7-c0c6f8d9ed12: !Template
+    answer_choices: Of course ||| No
+    id: 50eb96ab-3989-431b-83d7-c0c6f8d9ed12
+    jinja: 'Identify if the following tweet is ironic or not. Answer {{answer_choices[0]}}
+      or {{answer_choices[1]}}.
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_36
+    reference: jonghyeonkim
+  61c4f4c7-832c-4c62-a520-f99f6946474f: !Template
+    answer_choices: Of course ||| No
+    id: 61c4f4c7-832c-4c62-a520-f99f6946474f
+    jinja: '{{text}}
+
+
+      Is this tweet an example of irony or not? Please select ''{{answer_choices[0]}}''
+      or ''{{answer_choices[1]}}''. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_37
+    reference: jonghyeonkim
+  77cd9471-ea4a-4ccd-b0d1-0645b413364c: !Template
+    answer_choices: Of course ||| No
+    id: 77cd9471-ea4a-4ccd-b0d1-0645b413364c
+    jinja: 'Identify if this tweet is ironic or not:
+
+
+      {{text}}
+
+
+      Answer with either {{answer_choices[0]}} or {{answer_choices[1]}}. ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_38
+    reference: jonghyeonkim
+  e551b79d-a7e7-4421-867b-40c9cc660fd5: !Template
+    answer_choices: Of course ||| No
+    id: e551b79d-a7e7-4421-867b-40c9cc660fd5
+    jinja: "Is the following tweet ironic? \n\n{{text}} \n\nPlease respond with either\
+      \ {{answer_choices[0]}} or {{answer_choices[1]}}. ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_39
+    reference: jonghyeonkim
+  842ce22c-13a1-429c-8374-a8616b2058fa: !Template
+    answer_choices: Of course ||| No
+    id: 842ce22c-13a1-429c-8374-a8616b2058fa
+    jinja: 'Classify the following tweet as ironic or not:
+
+
+      {{text}}
+
+
+      Select either {{answer_choices[0]}} or {{answer_choices[1]}}: ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_40
+    reference: jonghyeonkim
+  27cebeb2-bf1e-4002-8887-2922ec784114: !Template
+    answer_choices: Of course ||| No
+    id: 27cebeb2-bf1e-4002-8887-2922ec784114
+    jinja: 'Is the tweet below an example of irony or not?
+
+
+      {{text}}
+
+
+      Please answer {{answer_choices[0]}} or {{answer_choices[1]}}: ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_41
+    reference: jonghyeonkim
+  5643b254-fb34-4cbe-aa99-da645476aa50: !Template
+    answer_choices: Of course ||| No
+    id: 5643b254-fb34-4cbe-aa99-da645476aa50
+    jinja: 'Please classify the tweet below as ironic or not ironic. Answer {{answer_choices[0]}}
+      or {{answer_choices[1]}}.
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_42
+    reference: jonghyeonkim
+  0d9fa4d6-0d17-42a5-b357-6710e38890b8: !Template
+    answer_choices: Of course ||| No
+    id: 0d9fa4d6-0d17-42a5-b357-6710e38890b8
+    jinja: 'Categorize whether the following tweet is ironic or not. Answer {{answer_choices[0]}}
+      or {{answer_choices[1]}}.
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_43
+    reference: jonghyeonkim
+  d2da5776-eabc-4e3e-8674-59fd6ee1484b: !Template
+    answer_choices: Of course ||| No
+    id: d2da5776-eabc-4e3e-8674-59fd6ee1484b
+    jinja: '{{text}}
+
+
+      Judge whether this tweet is intended to be ironic or not. Answer {{answer_choices[0]}}
+      or {{answer_choices[1]}}. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_44
+    reference: jonghyeonkim
+  c674383e-df1b-4c6b-bd50-ac43f3c4e225: !Template
+    answer_choices: Of course ||| No
+    id: c674383e-df1b-4c6b-bd50-ac43f3c4e225
+    jinja: '{{text}}
+
+
+      Determine if this tweet is an example of irony. Respond with "{{answer_choices[0]}}"
+      or "{{answer_choices[1]}}". ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_45
+    reference: jonghyeonkim
+  83b6af09-1dea-49da-9c82-72399c05dbbe: !Template
+    answer_choices: Of course ||| No
+    id: 83b6af09-1dea-49da-9c82-72399c05dbbe
+    jinja: 'Indicate whether this tweet is meant to be ironic or not. Answer {{answer_choices[0]}}
+      or {{answer_choices[1]}}.
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_46
+    reference: jonghyeonkim
+  319d475f-3f77-485e-887b-18465a5419e6: !Template
+    answer_choices: Of course ||| No
+    id: 319d475f-3f77-485e-887b-18465a5419e6
+    jinja: 'Tweet: {{text}}
+
+
+      Please indicate if the tweet is ironic or not by selecting {{answer_choices[0]}}
+      or {{answer_choices[1]}}. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_47
+    reference: jonghyeonkim
+  20abc7b2-33d7-42a2-adf5-0fbf4db7648e: !Template
+    answer_choices: Of course ||| No
+    id: 20abc7b2-33d7-42a2-adf5-0fbf4db7648e
+    jinja: 'Is the following tweet an example of irony or not?
+
+
+      {{text}}
+
+
+      Please answer {{answer_choices[0]}} or {{answer_choices[1]}}: ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_48
+    reference: jonghyeonkim
+  e1093812-35d1-4dca-8474-71b4123baec0: !Template
+    answer_choices: Of course ||| No
+    id: e1093812-35d1-4dca-8474-71b4123baec0
+    jinja: 'Please determine if the tweet below is ironic or not:
+
+
+      {{text}}
+
+
+      Enter either {{answer_choices[0]}} or {{answer_choices[1]}}: ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_49
+    reference: jonghyeonkim
+  b4a94f64-63bf-4ba3-9123-d0ce054094ca: !Template
+    answer_choices: Of course ||| No
+    id: b4a94f64-63bf-4ba3-9123-d0ce054094ca
+    jinja: 'Identify if the tweet below is ironic or not:
+
+
+      {{text}}
+
+
+      Choose {{answer_choices[0]}} or {{answer_choices[1]}} as your answer: ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_50
+    reference: jonghyeonkim
+  5b25b95e-b5ae-4848-bde1-cb46e376e2f2: !Template
+    answer_choices: Of course ||| No
+    id: 5b25b95e-b5ae-4848-bde1-cb46e376e2f2
+    jinja: "Please indicate if the following tweet is ironic. \n\n{{text}}\n\nSelect\
+      \ either '{{answer_choices[0]}}' or '{{answer_choices[1]}}'. ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_51
+    reference: jonghyeonkim
+  0838e330-730f-4197-9090-c41699addf42: !Template
+    answer_choices: Of course ||| No
+    id: 0838e330-730f-4197-9090-c41699addf42
+    jinja: 'Decide whether the tweet below is ironic or not:
+
+
+      {{text}}
+
+
+      Type {{answer_choices[0]}} or {{answer_choices[1]}} as your answer: ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_52
+    reference: jonghyeonkim
+  b1615a4a-15ae-4ba5-802d-577f0dca2d4d: !Template
+    answer_choices: Of course ||| No
+    id: b1615a4a-15ae-4ba5-802d-577f0dca2d4d
+    jinja: "Is the following tweet meant to be ironic? \n\n{{text}}\n\nPlease choose\
+      \ either '{{answer_choices[0]}}' or '{{answer_choices[1]}}'. ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_53
+    reference: jonghyeonkim
+  dc6d3399-4574-46e7-b05c-0333abf8548e: !Template
+    answer_choices: Of course ||| No
+    id: dc6d3399-4574-46e7-b05c-0333abf8548e
+    jinja: "Is the following tweet an example of irony or not? \n\n{{text}}\n\nPlease\
+      \ choose '{{answer_choices[0]}}' or '{{answer_choices[1]}}'. ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_54
+    reference: jonghyeonkim
+  ba04aacb-0e12-4587-a742-28bb1e0d2194: !Template
+    answer_choices: Of course ||| No
+    id: ba04aacb-0e12-4587-a742-28bb1e0d2194
+    jinja: 'Please determine if the following tweet is ironic or not:
+
+
+      {{text}}
+
+
+      Enter either {{answer_choices[0]}} or {{answer_choices[1]}}: ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_55
+    reference: jonghyeonkim
+  61db78d4-97f7-4425-99ed-ecdd8af4d2f5: !Template
+    answer_choices: Of course ||| No
+    id: 61db78d4-97f7-4425-99ed-ecdd8af4d2f5
+    jinja: '{{text}}
+
+
+      Do you think the author is being ironic in this tweet? Please select ''{{answer_choices[0]}}''
+      or ''{{answer_choices[1]}}''. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_56
+    reference: jonghyeonkim
+  6d4bc480-21a5-4871-9afd-45c2cd27d11d: !Template
+    answer_choices: Of course ||| No
+    id: 6d4bc480-21a5-4871-9afd-45c2cd27d11d
+    jinja: 'Classify the tweet below as ironic or not:
+
+
+      {{text}}
+
+
+      Select either {{answer_choices[0]}} or {{answer_choices[1]}} as your answer: |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_57
+    reference: jonghyeonkim
+  a99c338d-e14e-4eda-9404-09612cf5ef43: !Template
+    answer_choices: Of course ||| No
+    id: a99c338d-e14e-4eda-9404-09612cf5ef43
+    jinja: 'Decide whether the following tweet is ironic or not:
+
+
+      {{text}}
+
+
+      Type {{answer_choices[0]}} or {{answer_choices[1]}} as your answer. ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_58
+    reference: jonghyeonkim
+  70a511f8-f94c-479d-a8b3-e5de5a49018f: !Template
+    answer_choices: Of course ||| No
+    id: 70a511f8-f94c-479d-a8b3-e5de5a49018f
+    jinja: "Please determine if the following tweet is ironic. \n\n{{text}} \n\nRespond\
+      \ with either {{answer_choices[0]}} or {{answer_choices[1]}}. ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_59
+    reference: jonghyeonkim
+  68e01d26-e2d4-4a8f-9243-d05dbf6dc6be: !Template
+    answer_choices: Of course ||| No
+    id: 68e01d26-e2d4-4a8f-9243-d05dbf6dc6be
+    jinja: 'Please determine if the tweet below is ironic or not:
+
+
+      {{text}}
+
+
+      Answer with either {{answer_choices[0]}} or {{answer_choices[1]}}: ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_60
+    reference: jonghyeonkim
+  d2f57d13-4824-4195-a5c8-10f0cbaf49ff: !Template
+    answer_choices: Of course ||| No
+    id: d2f57d13-4824-4195-a5c8-10f0cbaf49ff
+    jinja: "Please indicate if the following tweet is ironic. \n\n{{text}}\n\nAnswer\
+      \ with either '{{answer_choices[0]}}' or '{{answer_choices[1]}}'. ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_61
+    reference: jonghyeonkim
+  04e63736-39c2-44e4-90bc-11f6993b8672: !Template
+    answer_choices: Of course ||| No
+    id: 04e63736-39c2-44e4-90bc-11f6993b8672
+    jinja: "Does the following tweet contain irony? \n\n{{text}} \n\nPlease indicate\
+      \ your answer with {{answer_choices[0]}} or {{answer_choices[1]}}. ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_62
+    reference: jonghyeonkim
+  4238586e-0a8f-4622-8211-f1ef4114ecb1: !Template
+    answer_choices: Of course ||| No
+    id: 4238586e-0a8f-4622-8211-f1ef4114ecb1
+    jinja: '{{text}}
+
+
+      Determine whether this tweet is meant to be ironic or not. Please select ''{{answer_choices[0]}}''
+      or ''{{answer_choices[1]}}''. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_63
+    reference: jonghyeonkim
+  a5b56570-7b8b-4da9-a1b2-3e1c56315006: !Template
+    answer_choices: Of course ||| No
+    id: a5b56570-7b8b-4da9-a1b2-3e1c56315006
+    jinja: "Decide whether the following tweet is meant to be ironic. \n\n{{text}}\n\
+      \nChoose either '{{answer_choices[0]}}' or '{{answer_choices[1]}}'. ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_64
+    reference: jonghyeonkim
+  dab7d62c-521e-42e2-a50b-c76496a31d93: !Template
+    answer_choices: Of course ||| No
+    id: dab7d62c-521e-42e2-a50b-c76496a31d93
+    jinja: "Decide whether the following tweet is meant to be ironic. \n\n{{text}}\n\
+      \nPlease select '{{answer_choices[0]}}' or '{{answer_choices[1]}}'. ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_65
+    reference: jonghyeonkim
+  dde27bf7-9c47-4e33-bf50-2d7566a41e92: !Template
+    answer_choices: Of course ||| No
+    id: dde27bf7-9c47-4e33-bf50-2d7566a41e92
+    jinja: "Is the meaning of the following tweet ironic or not? \n\n{{text}}\n\nAnswer\
+      \ with either '{{answer_choices[0]}}' or '{{answer_choices[1]}}'. ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_66
+    reference: jonghyeonkim
+  55ab0747-e4b0-4be7-b76e-0ae22ec4cea1: !Template
+    answer_choices: Of course ||| No
+    id: 55ab0747-e4b0-4be7-b76e-0ae22ec4cea1
+    jinja: "Do you think the following tweet is ironic or not? \n\n{{text}}\n\nChoose\
+      \ '{{answer_choices[0]}}' or '{{answer_choices[1]}}' as your answer. ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_67
+    reference: jonghyeonkim
+  a3138198-4b31-41d8-9e32-9fe135a9bbe9: !Template
+    answer_choices: Of course ||| No
+    id: a3138198-4b31-41d8-9e32-9fe135a9bbe9
+    jinja: 'tweet: {{text}}
+
+
+      Classify whether the tweet is an example of irony or not. Please answer {{answer_choices[0]}}
+      or {{answer_choices[1]}}: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_68
+    reference: jonghyeonkim
+  e83c33d9-cf29-42e7-a8b7-08a1a911d33a: !Template
+    answer_choices: Of course ||| No
+    id: e83c33d9-cf29-42e7-a8b7-08a1a911d33a
+    jinja: 'Please read the tweet below and indicate if it is ironic or not.
+
+
+      {{text}}
+
+
+      Type your answer below: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_69
+    reference: jonghyeonkim
+  60cd920f-108e-479f-a7b3-757c335048dd: !Template
+    answer_choices: Of course ||| No
+    id: 60cd920f-108e-479f-a7b3-757c335048dd
+    jinja: "Please decide if the following tweet is meant to be ironic. \n\n{{text}}\n\
+      \nSelect either '{{answer_choices[0]}}' or '{{answer_choices[1]}}'. ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_70
+    reference: jonghyeonkim
+  b0624483-c32b-4611-9c21-2ca21b22b7cb: !Template
+    answer_choices: Of course ||| No
+    id: b0624483-c32b-4611-9c21-2ca21b22b7cb
+    jinja: "Is the meaning of the following tweet ironic or not? \n\n{{text}}\n\nPlease\
+      \ select either '{{answer_choices[0]}}' or '{{answer_choices[1]}}'. ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_71
+    reference: jonghyeonkim
+  5e8cbc33-e620-416b-863c-7ac7aa7205fb: !Template
+    answer_choices: Of course ||| No
+    id: 5e8cbc33-e620-416b-863c-7ac7aa7205fb
+    jinja: 'Please read the tweet below and indicate if you think it is ironic or not.
+      Answer {{answer_choices[0]}} or {{answer_choices[1]}}.
+
+
+      {{text}} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_72
+    reference: jonghyeonkim
+  a27c90d0-9174-41a1-bf4b-a546207a9813: !Template
+    answer_choices: Of course ||| No
+    id: a27c90d0-9174-41a1-bf4b-a546207a9813
+    jinja: "Can you determine whether this tweet is ironic or not? \n\n{{text}}\n\n\
+      Choose '{{answer_choices[0]}}' or '{{answer_choices[1]}}' as your answer. |||\
+      \ {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_73
+    reference: jonghyeonkim
+  0dedc7de-74d5-41a2-85a5-88a609d03677: !Template
+    answer_choices: Of course ||| No
+    id: 0dedc7de-74d5-41a2-85a5-88a609d03677
+    jinja: '{{text}}
+
+
+      Can you identify whether this tweet is ironic or not? Please respond with either
+      "{{answer_choices[0]}}" or "{{answer_choices[1]}}". ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_74
+    reference: jonghyeonkim
+  8d984091-8220-43d2-8723-929d6f8ecdbc: !Template
+    answer_choices: Of course ||| No
+    id: 8d984091-8220-43d2-8723-929d6f8ecdbc
+    jinja: 'Can you tell if the following tweet is ironic or not?
+
+
+      {{text}}
+
+
+      Please answer with either "{{answer_choices[0]}}" or "{{answer_choices[1]}}":
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_75
+    reference: jonghyeonkim
+  2157b3f2-02b1-45fc-9f41-86de2735c525: !Template
+    answer_choices: Of course ||| No
+    id: 2157b3f2-02b1-45fc-9f41-86de2735c525
+    jinja: "Please determine if the following tweet is ironic or not. \n\n{{text}}\n\
+      \nSelect '{{answer_choices[0]}}' or '{{answer_choices[1]}}' as your answer. |||\
+      \ {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_76
+    reference: jonghyeonkim
+  97c2956d-0b65-4364-ac45-2e91ef50bd30: !Template
+    answer_choices: Of course ||| No
+    id: 97c2956d-0b65-4364-ac45-2e91ef50bd30
+    jinja: "Please indicate whether the following tweet is meant to be ironic. \n\n\
+      {{text}}\n\nSelect either '{{answer_choices[0]}}' or '{{answer_choices[1]}}'.\
+      \ ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_77
+    reference: jonghyeonkim
+  eea438f3-06bc-49eb-8a5e-5e35e625a053: !Template
+    answer_choices: Of course ||| No
+    id: eea438f3-06bc-49eb-8a5e-5e35e625a053
+    jinja: "Please determine if the following tweet is ironic. \n\n{{text}} \n\nIndicate\
+      \ your answer by writing either {{answer_choices[0]}} or {{answer_choices[1]}}.\
+      \ ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_78
+    reference: jonghyeonkim
+  cce02ee0-e251-4198-90e7-3850c5a5603a: !Template
+    answer_choices: Of course ||| No
+    id: cce02ee0-e251-4198-90e7-3850c5a5603a
+    jinja: "In this question, you need to determine whether the tweet is ironic or not.\
+      \ \n\n{{text}}\n\nPlease choose '{{answer_choices[0]}}' or '{{answer_choices[1]}}'.\
+      \ ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_79
+    reference: jonghyeonkim
+  690d0603-9ef8-4027-bc69-fd7d2753ee9e: !Template
+    answer_choices: Of course ||| No
+    id: 690d0603-9ef8-4027-bc69-fd7d2753ee9e
+    jinja: "Please read the following tweet and classify whether it is ironic or not.\
+      \ \n\n{{text}} \n\nPlease answer with {{answer_choices[0]}} or {{answer_choices[1]}}.\
+      \ ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_80
+    reference: jonghyeonkim
+  5e26c998-a66f-477b-b31f-eca5ccb47b32: !Template
+    answer_choices: Of course ||| No
+    id: 5e26c998-a66f-477b-b31f-eca5ccb47b32
+    jinja: 'Consider the following tweet:
+
+      {{text}}
+
+
+      Is it meant to be taken at face value, or is it ironic? Choose ''{{answer_choices[0]}}''
+      or ''{{answer_choices[1]}}''. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_81
+    reference: jonghyeonkim
+  092662a8-0c94-4256-b505-8fed73da7ddb: !Template
+    answer_choices: Of course ||| No
+    id: 092662a8-0c94-4256-b505-8fed73da7ddb
+    jinja: "The following tweet may or may not be ironic. Please classify it. \n\n{{text}}\
+      \ \n\nPlease choose {{answer_choices[0]}} or {{answer_choices[1]}} as your answer.\
+      \ ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_82
+    reference: jonghyeonkim
+  8de2829d-eca1-473b-8995-289545a1df62: !Template
+    answer_choices: Of course ||| No
+    id: 8de2829d-eca1-473b-8995-289545a1df62
+    jinja: 'Let''s see if you can detect irony in the following tweet.
+
+
+      {{text}}
+
+
+      Type "{{answer_choices[0]}}" if it is ironic, and "{{answer_choices[1]}}" if it
+      is not: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_83
+    reference: jonghyeonkim
+  88e19c65-e954-45a0-bbba-14dc801617e3: !Template
+    answer_choices: Of course ||| No
+    id: 88e19c65-e954-45a0-bbba-14dc801617e3
+    jinja: "In this question, you need to determine if the tweet is ironic or not. \n\
+      \n{{text}}\n\nSelect '{{answer_choices[0]}}' or '{{answer_choices[1]}}' as your\
+      \ answer. ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_84
+    reference: jonghyeonkim
+  1698bb9f-2892-4fa9-9e87-912f767ee62c: !Template
+    answer_choices: Of course ||| No
+    id: 1698bb9f-2892-4fa9-9e87-912f767ee62c
+    jinja: "Consider the following tweet and decide whether it is ironic or not. \n\n\
+      {{text}} \n\nChoose your answer between {{answer_choices[0]}} and {{answer_choices[1]}}.\
+      \ ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_85
+    reference: jonghyeonkim
+  78530167-ecb5-4b9c-949b-007d9dd57b02: !Template
+    answer_choices: Of course ||| No
+    id: 78530167-ecb5-4b9c-949b-007d9dd57b02
+    jinja: 'Please analyze the following tweet and determine whether it is ironic or
+      not.
+
+
+      {{text}}
+
+
+      Your options are "{{answer_choices[0]}}" or "{{answer_choices[1]}}". ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_86
+    reference: jonghyeonkim
+  8ffbc88d-c970-4153-80f2-e4dca2f0403f: !Template
+    answer_choices: Of course ||| No
+    id: 8ffbc88d-c970-4153-80f2-e4dca2f0403f
+    jinja: 'Here is a tweet for you to read. Can you tell if it is ironic or not?
+
+
+      {{text}}
+
+
+      Please answer with either "{{answer_choices[0]}}" or "{{answer_choices[1]}}":
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_87
+    reference: jonghyeonkim
+  59e5245d-7ed7-4870-8298-9f2c02fa5023: !Template
+    answer_choices: Of course ||| No
+    id: 59e5245d-7ed7-4870-8298-9f2c02fa5023
+    jinja: "The following tweet may contain irony. Please read it and decide whether\
+      \ it is ironic or not. \n\n{{text}} \n\nAnswer with {{answer_choices[0]}} or {{answer_choices[1]}}.\
+      \ ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_88
+    reference: jonghyeonkim
+  56e20f77-a386-49c1-805c-777eea870a62: !Template
+    answer_choices: Of course ||| No
+    id: 56e20f77-a386-49c1-805c-777eea870a62
+    jinja: 'I would like you to read this tweet: {{text}}
+
+
+      Can you determine if it is ironic or not? Please respond with either "{{answer_choices[0]}}"
+      or "{{answer_choices[1]}}". ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_89
+    reference: jonghyeonkim
+  264d4eec-eb1a-49e0-aa0d-f7b5b407045e: !Template
+    answer_choices: Of course ||| No
+    id: 264d4eec-eb1a-49e0-aa0d-f7b5b407045e
+    jinja: 'Please read the following tweet: {{text}}
+
+
+      Can you identify whether it is an ironic statement or not? Type "{{answer_choices[0]}}"
+      or "{{answer_choices[1]}}" as your answer. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_90
+    reference: jonghyeonkim
+  8b0c5e6e-03cb-4ccc-bb58-5f6f5e4d6cf2: !Template
+    answer_choices: Of course ||| No
+    id: 8b0c5e6e-03cb-4ccc-bb58-5f6f5e4d6cf2
+    jinja: 'I want you to read the following tweet: {{text}}
+
+
+      Can you tell me if it is an example of irony or not? Please respond with "{{answer_choices[0]}}"
+      or "{{answer_choices[1]}}". ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_91
+    reference: jonghyeonkim
+  ef2e3461-96ca-4cbb-a5c5-7440e6003a1d: !Template
+    answer_choices: Of course ||| No
+    id: ef2e3461-96ca-4cbb-a5c5-7440e6003a1d
+    jinja: 'The following tweet is either ironic or not. Can you determine which one
+      is it?
+
+
+      {{text}}
+
+
+      Type "{{answer_choices[0]}}" if it is ironic and "{{answer_choices[1]}}" if it
+      is not: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_92
+    reference: jonghyeonkim
+  75c57d04-6159-422e-90d8-e50ea3684c79: !Template
+    answer_choices: Of course ||| No
+    id: 75c57d04-6159-422e-90d8-e50ea3684c79
+    jinja: 'The following tweet may or may not be ironic.
+
+
+      {{text}}
+
+
+      Can you determine if it is ironic or not? Please type "{{answer_choices[0]}}"
+      or "{{answer_choices[1]}}" as your answer. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_93
+    reference: jonghyeonkim
+  d19ec35d-a0c7-4269-b10d-d9372fc8677a: !Template
+    answer_choices: Of course ||| No
+    id: d19ec35d-a0c7-4269-b10d-d9372fc8677a
+    jinja: 'You will be presented with a tweet. Please determine whether the tweet is
+      ironic or not.
+
+
+      {{text}}
+
+
+      Please answer with either "{{answer_choices[0]}}" or "{{answer_choices[1]}}".
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_94
+    reference: jonghyeonkim
+  0912981c-7d17-4fa3-bf93-c3d1000f9616: !Template
+    answer_choices: Of course ||| No
+    id: 0912981c-7d17-4fa3-bf93-c3d1000f9616
+    jinja: 'The following tweet may or may not be ironic. Please read it carefully and
+      indicate your answer.
+
+
+      {{text}}
+
+
+      Is it ironic? Answer with "{{answer_choices[0]}}" or "{{answer_choices[1]}}":
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_95
+    reference: jonghyeonkim
+  baa0e327-b037-4c73-b282-4d477d1929f8: !Template
+    answer_choices: Of course ||| No
+    id: baa0e327-b037-4c73-b282-4d477d1929f8
+    jinja: In the following tweet, {{text}}, there may or may not be irony present.
+      Can you determine if it is ironic or not? Please type "{{answer_choices[0]}}"
+      or "{{answer_choices[1]}}" as your answer. ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_96
+    reference: jonghyeonkim
+  be15b083-ddb4-4c18-8edc-15579ce86b36: !Template
+    answer_choices: Of course ||| No
+    id: be15b083-ddb4-4c18-8edc-15579ce86b36
+    jinja: 'Irony can be a tricky thing to detect. Please read the following tweet and
+      indicate whether it is ironic or not.
+
+
+      {{text}}
+
+
+      Answer with either "{{answer_choices[0]}}" or "{{answer_choices[1]}}": ||| {{
+      answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_97
+    reference: jonghyeonkim
+  c5cf2150-8eb0-4c01-84ce-4b244aaf5aea: !Template
+    answer_choices: Of course ||| No
+    id: c5cf2150-8eb0-4c01-84ce-4b244aaf5aea
+    jinja: 'We want to know if the following tweet is ironic or not. Please read it
+      carefully and choose your answer.
+
+
+      {{text}}
+
+
+      Is it ironic? Answer with either "{{answer_choices[0]}}" or "{{answer_choices[1]}}":
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_98
+    reference: jonghyeonkim
+  b2f68ed6-db19-4404-842c-2b5a2004e28a: !Template
+    answer_choices: Of course ||| No
+    id: b2f68ed6-db19-4404-842c-2b5a2004e28a
+    jinja: 'Irony is a common form of expression on social media. Read the following
+      tweet and indicate whether it is ironic or not.
+
+
+      {{text}}
+
+
+      Type "{{answer_choices[0]}}" if it is ironic and "{{answer_choices[1]}}" if it
+      is not: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_99
+    reference: jonghyeonkim

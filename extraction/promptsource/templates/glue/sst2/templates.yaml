@@ -1,0 +1,3342 @@
+dataset: glue
+subset: sst2
+templates:
+  ba6f8f83-e74d-4c31-bbf1-f7f8e8491f9a: !Template
+    answer_choices: negative ||| positive
+    id: ba6f8f83-e74d-4c31-bbf1-f7f8e8491f9a
+    jinja: '{{ sentence }}
+
+      Question: Is this sentence positive or negative?
+
+      Answer: ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: fewshot
+    reference: jonghyeonkim
+  a3e95d78-52cf-42b3-bfed-a245fe32731d: !Template
+    answer_choices: negative ||| positive
+    id: a3e95d78-52cf-42b3-bfed-a245fe32731d
+    jinja: '{{ sentence }} The sentiment of this sentence is ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_00
+    reference: soheeyang
+  577222d7-7c23-4c69-b4ee-7ae928e3e6eb: !Template
+    answer_choices: negative ||| positive
+    id: 577222d7-7c23-4c69-b4ee-7ae928e3e6eb
+    jinja: '"{{ sentence }}" What tone does this message convey? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_01
+    reference: soheeyang
+  b6696899-75f8-4c80-a5cf-d0e712082f69: !Template
+    answer_choices: negative ||| positive
+    id: b6696899-75f8-4c80-a5cf-d0e712082f69
+    jinja: This review says, "{{ sentence }}". The sentiment is ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_02
+    reference: soheeyang
+  799052fe-1b46-4dd5-9877-d4ff1423d48c: !Template
+    answer_choices: negative ||| positive
+    id: 799052fe-1b46-4dd5-9877-d4ff1423d48c
+    jinja: 'Read the sentence: "{{ sentence }}". The sentiment is ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_03
+    reference: soheeyang
+  0f52197e-984f-485f-8664-bc55764b0faa: !Template
+    answer_choices: negative ||| positive
+    id: 0f52197e-984f-485f-8664-bc55764b0faa
+    jinja: 'What''s your opinion on the following: "{{ sentence }}" ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_04
+    reference: soheeyang
+  8d51a519-2ab4-469f-9edb-d7efd1dacdfa: !Template
+    answer_choices: negative ||| positive
+    id: 8d51a519-2ab4-469f-9edb-d7efd1dacdfa
+    jinja: '"{{ sentence }}" The sentiment in the given message is: ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_05
+    reference: soheeyang
+  5d7ea238-cd7c-41c7-8f93-8ac73944e4d5: !Template
+    answer_choices: negative ||| positive
+    id: 5d7ea238-cd7c-41c7-8f93-8ac73944e4d5
+    jinja: '"{{ sentence }}" What is the sentiment of this message? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_06
+    reference: soheeyang
+  2228fbc7-4966-42fd-adef-6450191e01a3: !Template
+    answer_choices: negative ||| positive
+    id: 2228fbc7-4966-42fd-adef-6450191e01a3
+    jinja: 'What''s the sentiment of the following: "{{ sentence }}" ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_07
+    reference: soheeyang
+  1e3e8a8d-99a9-49ea-8157-986cb022f9fa: !Template
+    answer_choices: negative ||| positive
+    id: 1e3e8a8d-99a9-49ea-8157-986cb022f9fa
+    jinja: 'Write the sentiment of the following remark: {{ sentence }} ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_08
+    reference: soheeyang
+  61cbdb9d-ebc4-4031-81aa-5b7a0c46a9f2: !Template
+    answer_choices: negative ||| positive
+    id: 61cbdb9d-ebc4-4031-81aa-5b7a0c46a9f2
+    jinja: 'What''s your take on the following message: "{{ sentence }}" ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_09
+    reference: soheeyang
+  7e88a144-4fa4-454f-aa04-696f9cc32224: !Template
+    answer_choices: negative ||| positive
+    id: 7e88a144-4fa4-454f-aa04-696f9cc32224
+    jinja: 'What''s the tone of the following statement: "{{ sentence }}" ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_10
+    reference: soheeyang
+  3e06465d-f10f-458d-b8c6-67b93fd78824: !Template
+    answer_choices: negative ||| positive
+    id: 3e06465d-f10f-458d-b8c6-67b93fd78824
+    jinja: What sentiment does this statement express? "{{ sentence }}" ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_11
+    reference: soheeyang
+  47d97dc3-7f4f-4839-934c-fd286d0abb7f: !Template
+    answer_choices: negative ||| positive
+    id: 47d97dc3-7f4f-4839-934c-fd286d0abb7f
+    jinja: 'What do you think of the following statement: "{{ sentence }}" ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_12
+    reference: soheeyang
+  cfbb024a-654b-40c3-a5ee-caca13bff603: !Template
+    answer_choices: negative ||| positive
+    id: cfbb024a-654b-40c3-a5ee-caca13bff603
+    jinja: What's the sentiment in the following sentence? {{ sentence }} ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_13
+    reference: soheeyang
+  63e710c8-70ec-4475-8af3-66128ef27983: !Template
+    answer_choices: negative ||| positive
+    id: 63e710c8-70ec-4475-8af3-66128ef27983
+    jinja: 'What''s your impression of the following message: "{{ sentence }}" ||| {{
+      answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_14
+    reference: soheeyang
+  a92c8b03-3b5e-45dc-94ae-5de9c4b76b3f: !Template
+    answer_choices: negative ||| positive
+    id: a92c8b03-3b5e-45dc-94ae-5de9c4b76b3f
+    jinja: 'Indicate the sentiment in the following sentence: "{{ sentence }}" ||| {{
+      answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_15
+    reference: soheeyang
+  30544d44-4777-4afa-bb9c-ce2d40eed0a7: !Template
+    answer_choices: negative ||| positive
+    id: 30544d44-4777-4afa-bb9c-ce2d40eed0a7
+    jinja: What is the sentiment of the following statement? "{{ sentence }}" ||| {{
+      answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_16
+    reference: soheeyang
+  4eb253c9-f192-490c-a601-25a91f3985c9: !Template
+    answer_choices: negative ||| positive
+    id: 4eb253c9-f192-490c-a601-25a91f3985c9
+    jinja: 'Determine the sentiment of the following comment: "{{ sentence }}" ||| {{
+      answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_17
+    reference: soheeyang
+  60af907c-8b94-4b30-8dfb-22e0471b7ffc: !Template
+    answer_choices: negative ||| positive
+    id: 60af907c-8b94-4b30-8dfb-22e0471b7ffc
+    jinja: 'Evaluate the sentiment in the following statement: "{{ sentence }}" |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_18
+    reference: soheeyang
+  3bd0955c-4aca-4c6e-aaa5-d4f5d89b564d: !Template
+    answer_choices: negative ||| positive
+    id: 3bd0955c-4aca-4c6e-aaa5-d4f5d89b564d
+    jinja: '{{ sentence }} Is this statement {{ " or ".join(answer_choices) }}? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_19
+    reference: soheeyang
+  2532ba23-4f03-4481-afd9-8d0be5df3cce: !Template
+    answer_choices: negative ||| positive
+    id: 2532ba23-4f03-4481-afd9-8d0be5df3cce
+    jinja: '"{{ sentence }}" What kind of sentiment does this statement express? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_20
+    reference: soheeyang
+  a39cfd68-89b0-4e3a-9953-317a953389ec: !Template
+    answer_choices: negative ||| positive
+    id: a39cfd68-89b0-4e3a-9953-317a953389ec
+    jinja: What do you think the sentiment of this sentence is? "{{ sentence }}" |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_21
+    reference: soheeyang
+  1c8a7304-c31f-4dee-8453-4734fcc02a73: !Template
+    answer_choices: negative ||| positive
+    id: 1c8a7304-c31f-4dee-8453-4734fcc02a73
+    jinja: '{{ sentence }} Is this a {{ " or ".join(answer_choices) }} sentiment? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_22
+    reference: soheeyang
+  9739949e-8a71-42c8-8e89-46e688178737: !Template
+    answer_choices: negative ||| positive
+    id: 9739949e-8a71-42c8-8e89-46e688178737
+    jinja: Is "{{ sentence }}" of a {{ " or ".join(answer_choices) }} sentiment? |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_23
+    reference: soheeyang
+  0b5208e7-3d6f-4395-b123-3fb7eb50ed77: !Template
+    answer_choices: negative ||| positive
+    id: 0b5208e7-3d6f-4395-b123-3fb7eb50ed77
+    jinja: '"{{ sentence }}" Is this statement {{ " or ".join(answer_choices) }}? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_24
+    reference: soheeyang
+  53381104-adec-4893-81f9-ceb3a4a121fa: !Template
+    answer_choices: negative ||| positive
+    id: 53381104-adec-4893-81f9-ceb3a4a121fa
+    jinja: Is this statement {{ " or ".join(answer_choices) }}? "{{ sentence }}" |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_25
+    reference: soheeyang
+  b86d8f3c-94ef-4433-a601-16182c3400a6: !Template
+    answer_choices: negative ||| positive
+    id: b86d8f3c-94ef-4433-a601-16182c3400a6
+    jinja: 'Sentiment: {{ " or ".join(answer_choices) }}. Sentence: {{ sentence }} |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_26
+    reference: soheeyang
+  fcb6395e-c34e-451b-a77a-3caca89cad10: !Template
+    answer_choices: negative ||| positive
+    id: fcb6395e-c34e-451b-a77a-3caca89cad10
+    jinja: 'What sentiment is conveyed in the following statement: "{{ sentence }}"
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_27
+    reference: soheeyang
+  ea4c850d-e2f3-4dee-8259-83a6f8d97dca: !Template
+    answer_choices: negative ||| positive
+    id: ea4c850d-e2f3-4dee-8259-83a6f8d97dca
+    jinja: '"{{ sentence }}" How would you classify the sentiment of this statement?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_28
+    reference: soheeyang
+  19f544e1-4410-4a34-8f34-e312210e5296: !Template
+    answer_choices: negative ||| positive
+    id: 19f544e1-4410-4a34-8f34-e312210e5296
+    jinja: Is the following sentence {{ " or ".join(answer_choices) }}? {{ sentence
+      }} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_29
+    reference: soheeyang
+  44cca48b-d3dc-42e8-9e6e-f464e2e76498: !Template
+    answer_choices: negative ||| positive
+    id: 44cca48b-d3dc-42e8-9e6e-f464e2e76498
+    jinja: 'Classify the sentiment expressed in the following statement: "{{ sentence
+      }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_30
+    reference: soheeyang
+  85b765dd-b05e-47a5-8cf7-940eaa121766: !Template
+    answer_choices: negative ||| positive
+    id: 85b765dd-b05e-47a5-8cf7-940eaa121766
+    jinja: 'The following sentence is {{ " or ".join(answer_choices) }}: "{{ sentence
+      }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_31
+    reference: soheeyang
+  7879f765-dba1-4808-ad5c-9c89371c2d39: !Template
+    answer_choices: negative ||| positive
+    id: 7879f765-dba1-4808-ad5c-9c89371c2d39
+    jinja: 'Is the following statement {{ " or ".join(answer_choices) }}: "{{ sentence
+      }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_32
+    reference: soheeyang
+  0f2af32b-7db8-4df4-9960-d00a689ee57d: !Template
+    answer_choices: negative ||| positive
+    id: 0f2af32b-7db8-4df4-9960-d00a689ee57d
+    jinja: The sentiment of "{{ sentence }}" is {{ " or ".join(answer_choices) }}. Agree?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_33
+    reference: soheeyang
+  b098d51e-7077-4603-af27-a24199f0b326: !Template
+    answer_choices: negative ||| positive
+    id: b098d51e-7077-4603-af27-a24199f0b326
+    jinja: Is the following statement {{ " or ".join(answer_choices) }}? "{{ sentence
+      }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_34
+    reference: soheeyang
+  3351e76c-259e-49d0-b7a4-0877ea6224bd: !Template
+    answer_choices: negative ||| positive
+    id: 3351e76c-259e-49d0-b7a4-0877ea6224bd
+    jinja: 'How do you interpret the sentiment in the following statement: "{{ sentence
+      }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_35
+    reference: soheeyang
+  18d1055a-b7f1-45e5-83f5-b9ac7f5f45da: !Template
+    answer_choices: negative ||| positive
+    id: 18d1055a-b7f1-45e5-83f5-b9ac7f5f45da
+    jinja: '{{ sentence }} Is the sentiment expressed here {{ " or ".join(answer_choices)
+      }}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_36
+    reference: soheeyang
+  a8690c2f-84bc-4a1b-8375-8d18a8cdc5e4: !Template
+    answer_choices: negative ||| positive
+    id: a8690c2f-84bc-4a1b-8375-8d18a8cdc5e4
+    jinja: 'This sentence has a sentiment of {{ " or ".join(answer_choices) }}: {{ sentence
+      }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_37
+    reference: soheeyang
+  8e444fb1-09fc-46de-a596-749b28154666: !Template
+    answer_choices: negative ||| positive
+    id: 8e444fb1-09fc-46de-a596-749b28154666
+    jinja: '"{{ sentence }}" Do you think this has a {{ " or ".join(answer_choices)
+      }} sentiment? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_38
+    reference: soheeyang
+  5fa3b905-8df1-4eb3-9fdb-029ec5ba563f: !Template
+    answer_choices: negative ||| positive
+    id: 5fa3b905-8df1-4eb3-9fdb-029ec5ba563f
+    jinja: 'Do you find the following statement {{ " or ".join(answer_choices) }}: "{{
+      sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_39
+    reference: soheeyang
+  dbc6833c-853f-4c89-8674-f0f15ed232e0: !Template
+    answer_choices: negative ||| positive
+    id: dbc6833c-853f-4c89-8674-f0f15ed232e0
+    jinja: 'Do you consider the following message {{ " or ".join(answer_choices) }}:
+      "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_40
+    reference: soheeyang
+  5a17a7d7-285b-4930-9b86-acc8d8b817c3: !Template
+    answer_choices: negative ||| positive
+    id: 5a17a7d7-285b-4930-9b86-acc8d8b817c3
+    jinja: The statement, "{{ sentence }}", is either {{ " or ".join(answer_choices)
+      }}. Which is it? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_41
+    reference: soheeyang
+  e4686618-e7d7-4c5c-846b-ae9c9253678a: !Template
+    answer_choices: negative ||| positive
+    id: e4686618-e7d7-4c5c-846b-ae9c9253678a
+    jinja: The following text expresses a {{ " or ".join(answer_choices) }} sentiment.
+      {{ sentence }} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_42
+    reference: soheeyang
+  1048e4a5-a99a-4ca0-af01-6800b059b10c: !Template
+    answer_choices: negative ||| positive
+    id: 1048e4a5-a99a-4ca0-af01-6800b059b10c
+    jinja: Is the sentiment of the sentence below {{ " or ".join(answer_choices) }}?
+      "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_43
+    reference: soheeyang
+  7f061ee3-f415-4cec-acd7-fcef7911bfcc: !Template
+    answer_choices: negative ||| positive
+    id: 7f061ee3-f415-4cec-acd7-fcef7911bfcc
+    jinja: 'Determine if the following statement is {{ " or ".join(answer_choices) }}:
+      "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_44
+    reference: soheeyang
+  9b6b8db2-b014-4c1f-bc61-c0c05d55a231: !Template
+    answer_choices: negative ||| positive
+    id: 9b6b8db2-b014-4c1f-bc61-c0c05d55a231
+    jinja: The sentiment of this sentence is either {{ " or ".join(answer_choices) }}.
+      "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_45
+    reference: soheeyang
+  5ce927d0-af6f-4a5b-8f4f-fac1f9d47a18: !Template
+    answer_choices: negative ||| positive
+    id: 5ce927d0-af6f-4a5b-8f4f-fac1f9d47a18
+    jinja: Can you tell if the following sentence is {{ " or ".join(answer_choices)
+      }}? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_46
+    reference: soheeyang
+  09369438-e0b1-48cd-a9c8-f1f5ac743aec: !Template
+    answer_choices: negative ||| positive
+    id: 09369438-e0b1-48cd-a9c8-f1f5ac743aec
+    jinja: Is the sentiment in the following sentence {{ " or ".join(answer_choices)
+      }}? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_47
+    reference: soheeyang
+  3fb9266b-2dcd-4fa6-8594-5b10757204d1: !Template
+    answer_choices: negative ||| positive
+    id: 3fb9266b-2dcd-4fa6-8594-5b10757204d1
+    jinja: Is the sentiment of the following sentence {{ " or ".join(answer_choices)
+      }}? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_48
+    reference: soheeyang
+  db85dfad-b592-40be-b9a0-de1c2c7de9c9: !Template
+    answer_choices: negative ||| positive
+    id: db85dfad-b592-40be-b9a0-de1c2c7de9c9
+    jinja: 'Classify the sentiment of this sentence as {{ " or ".join(answer_choices)
+      }}: "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_49
+    reference: soheeyang
+  9894e0a4-4543-40ec-a206-6a697dbd0740: !Template
+    answer_choices: negative ||| positive
+    id: 9894e0a4-4543-40ec-a206-6a697dbd0740
+    jinja: The following statement has a sentiment of {{ " or ".join(answer_choices)
+      }}. "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_50
+    reference: soheeyang
+  6e25386a-5d49-4d9b-bd3d-a2a9853c3ef1: !Template
+    answer_choices: negative ||| positive
+    id: 6e25386a-5d49-4d9b-bd3d-a2a9853c3ef1
+    jinja: Categorize the sentiment of the following as {{ " or ".join(answer_choices)
+      }}. {{ sentence }} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_51
+    reference: soheeyang
+  822d848a-2f7e-47a0-9574-bafe13543532: !Template
+    answer_choices: negative ||| positive
+    id: 822d848a-2f7e-47a0-9574-bafe13543532
+    jinja: Is the sentiment in the following statement {{ " or ".join(answer_choices)
+      }}? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_52
+    reference: soheeyang
+  bacc4430-9b04-40a2-89e5-809c2de4b4cc: !Template
+    answer_choices: negative ||| positive
+    id: bacc4430-9b04-40a2-89e5-809c2de4b4cc
+    jinja: Is the sentiment of the following statement {{ " or ".join(answer_choices)
+      }}? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_53
+    reference: soheeyang
+  fb6af05c-b8fe-409a-bb44-596f37c35ae7: !Template
+    answer_choices: negative ||| positive
+    jinja: Is the sentiment of the following statement {{ " or ".join(answer_choices)
+      }}? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_53
+    reference: soheeyang
+  fb6af05c-b8fe-409a-bb44-596f37c35ae7: !Template
+    answer_choices: negative ||| positive
+    id: fb6af05c-b8fe-409a-bb44-596f37c35ae7
+    jinja: 'The following message conveys a sentiment of {{ " or ".join(answer_choices)
+      }}: "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_54
+    reference: soheeyang
+  7d51d971-db43-4c83-9b1a-1ddb7bddf27c: !Template
+    answer_choices: negative ||| positive
+    id: 7d51d971-db43-4c83-9b1a-1ddb7bddf27c
+    jinja: Do you think the sentiment of the following is {{ " or ".join(answer_choices)
+      }}? {{ sentence }} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_55
+    reference: soheeyang
+  c49bc650-b785-40ec-91ad-8815cdfef550: !Template
+    answer_choices: negative ||| positive
+    id: c49bc650-b785-40ec-91ad-8815cdfef550
+    jinja: Determine if the sentiment of the following is {{ " or ".join(answer_choices)
+      }}. {{ sentence }} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_56
+    reference: soheeyang
+  2702ffb7-ece3-4df6-9211-ae54cb54a1a1: !Template
+    answer_choices: negative ||| positive
+    id: 2702ffb7-ece3-4df6-9211-ae54cb54a1a1
+    jinja: Can you classify the sentiment of the text as {{ " or ".join(answer_choices)
+      }}? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_57
+    reference: soheeyang
+  79dd30a9-fca8-4e6e-afe8-b5db67ec87fe: !Template
+    answer_choices: negative ||| positive
+    id: 79dd30a9-fca8-4e6e-afe8-b5db67ec87fe
+    jinja: The sentiment of the following text is either {{ " or ".join(answer_choices)
+      }}. "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_58
+    reference: soheeyang
+  d3b088a4-369d-4968-b44c-2d88db6e287b: !Template
+    answer_choices: negative ||| positive
+    id: d3b088a4-369d-4968-b44c-2d88db6e287b
+    jinja: 'Do you think the sentiment of this message is {{ " or ".join(answer_choices)
+      }}: "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_59
+    reference: soheeyang
+  be0f05fa-91ae-47e0-895a-5b578174bdb7: !Template
+    answer_choices: negative ||| positive
+    id: be0f05fa-91ae-47e0-895a-5b578174bdb7
+    jinja: Does the following statement express a {{ " or ".join(answer_choices) }}
+      sentiment? {{ sentence }} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_60
+    reference: soheeyang
+  a1e1264f-9cfd-4fff-97e1-627fec9cf0d9: !Template
+    answer_choices: negative ||| positive
+    id: a1e1264f-9cfd-4fff-97e1-627fec9cf0d9
+    jinja: Do you believe the sentiment in the sentence is {{ " or ".join(answer_choices)
+      }}? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_61
+    reference: soheeyang
+  b019c67c-20ae-48b5-bc0a-60e5e8199c39: !Template
+    answer_choices: negative ||| positive
+    id: b019c67c-20ae-48b5-bc0a-60e5e8199c39
+    jinja: 'Which of the following sentiments does "{{ sentence }}" express: {{ " or
+      ".join(answer_choices) }}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_62
+    reference: soheeyang
+  0da4db01-875c-4c38-93a8-c6816f9742ab: !Template
+    answer_choices: negative ||| positive
+    id: 0da4db01-875c-4c38-93a8-c6816f9742ab
+    jinja: 'Determine the sentiment of the sentence: "{{ sentence }}" - Is it {{ " or
+      ".join(answer_choices) }}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_63
+    reference: soheeyang
+  5db7adf5-87cb-4962-85c1-2b46ccfd5620: !Template
+    answer_choices: negative ||| positive
+    id: 5db7adf5-87cb-4962-85c1-2b46ccfd5620
+    jinja: Is the following sentence expressing a {{ " or ".join(answer_choices) }}
+      sentiment? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_64
+    reference: soheeyang
+  3468bb50-a995-46a7-8ae8-d2a904a85954: !Template
+    answer_choices: negative ||| positive
+    id: 3468bb50-a995-46a7-8ae8-d2a904a85954
+    jinja: Do you believe the sentiment of this sentence is {{ " or ".join(answer_choices)
+      }}? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_65
+    reference: soheeyang
+  6d524aaa-9052-405e-9733-a282ff6fef2a: !Template
+    answer_choices: negative ||| positive
+    id: 6d524aaa-9052-405e-9733-a282ff6fef2a
+    jinja: 'Please classify the sentiment of this sentence as {{ " or ".join(answer_choices)
+      }}: "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_66
+    reference: soheeyang
+  b726e009-65cd-4cfe-ade9-a27069ea3561: !Template
+    answer_choices: negative ||| positive
+    id: b726e009-65cd-4cfe-ade9-a27069ea3561
+    jinja: Based on the following sentence, is the sentiment {{ " or ".join(answer_choices)
+      }}? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_67
+    reference: soheeyang
+  73a958fb-5ad4-4b90-950e-87e124962b85: !Template
+    answer_choices: negative ||| positive
+    id: 73a958fb-5ad4-4b90-950e-87e124962b85
+    jinja: What do you think the sentiment of the sentence "{{ sentence }}" is? {{ "
+      or ".join(answer_choices) }} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_68
+    reference: soheeyang
+  23c82dcc-5026-4be6-9536-17bf7f1a92e5: !Template
+    answer_choices: negative ||| positive
+    id: 23c82dcc-5026-4be6-9536-17bf7f1a92e5
+    jinja: Classify the sentiment of the following statement as {{ " or ".join(answer_choices)
+      }}. {{ sentence }} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_69
+    reference: soheeyang
+  5cbd3095-2076-46e2-bf9c-7acfa1f0ad0a: !Template
+    answer_choices: negative ||| positive
+    id: 5cbd3095-2076-46e2-bf9c-7acfa1f0ad0a
+    jinja: Do you think the following sentence has a {{ " or ".join(answer_choices)
+      }} sentiment? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_70
+    reference: soheeyang
+  61c068f7-343c-4ea8-91e9-d228fedda5e7: !Template
+    answer_choices: negative ||| positive
+    id: 61c068f7-343c-4ea8-91e9-d228fedda5e7
+    jinja: 'Please tell me if you think the following sentence is {{ " or ".join(answer_choices)
+      }}: {{ sentence }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_71
+    reference: soheeyang
+  a3fe0f14-fd7e-4793-9393-5e5b8bd514e9: !Template
+    answer_choices: negative ||| positive
+    id: a3fe0f14-fd7e-4793-9393-5e5b8bd514e9
+    jinja: 'Classify the sentiment of the following sentence as {{ " or ".join(answer_choices)
+      }}: "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_72
+    reference: soheeyang
+  068b02ca-90a0-4dd2-a0af-cfeac0e0a2ce: !Template
+    answer_choices: negative ||| positive
+    id: 068b02ca-90a0-4dd2-a0af-cfeac0e0a2ce
+    jinja: The following statement is {{ " or ".join(answer_choices) }}. What do you
+      think it is? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_73
+    reference: soheeyang
+  884b831f-c340-4e70-ba2d-7688f6dc0dbf: !Template
+    answer_choices: negative ||| positive
+    id: 884b831f-c340-4e70-ba2d-7688f6dc0dbf
+    jinja: Can you identify if the sentiment of the sentence "{{ sentence }}" is {{
+      " or ".join(answer_choices) }}? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_74
+    reference: soheeyang
+  dc2096f3-0f3a-424a-98a7-fe1901c793b4: !Template
+    answer_choices: negative ||| positive
+    id: dc2096f3-0f3a-424a-98a7-fe1901c793b4
+    jinja: What is the sentiment of this sentence? "{{ sentence }}" It is either {{
+      " or ".join(answer_choices) }}. ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_75
+    reference: soheeyang
+  c0fe9594-45af-4ad8-bde3-eff968467ad8: !Template
+    answer_choices: negative ||| positive
+    id: c0fe9594-45af-4ad8-bde3-eff968467ad8
+    jinja: Determine if the following text expresses a {{ " or ".join(answer_choices)
+      }} sentiment. "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_76
+    reference: soheeyang
+  de54e0e2-d3a6-431f-8b7d-5d5f47340975: !Template
+    answer_choices: negative ||| positive
+    id: de54e0e2-d3a6-431f-8b7d-5d5f47340975
+    jinja: 'Put the following statement in either of the categories: {{ " or ".join(answer_choices)
+      }}. "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_77
+    reference: soheeyang
+  c8f11f11-0769-438b-a30c-baa9f9b70601: !Template
+    answer_choices: negative ||| positive
+    id: c8f11f11-0769-438b-a30c-baa9f9b70601
+    jinja: 'Please classify the sentiment in the following statement: {{ " or ".join(answer_choices)
+      }}. "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_78
+    reference: soheeyang
+  f8bf2d57-e958-4153-9087-1f4f9df661d8: !Template
+    answer_choices: negative ||| positive
+    id: f8bf2d57-e958-4153-9087-1f4f9df661d8
+    jinja: '{{ sentence }} The sentiment of this statement is {{ " or ".join(answer_choices)
+      }}. What do you think it is? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_79
+    reference: soheeyang
+  f39d475e-0ac5-445b-87f9-e4f87a9a56b4: !Template
+    answer_choices: negative ||| positive
+    id: f39d475e-0ac5-445b-87f9-e4f87a9a56b4
+    jinja: The following statement's sentiment is {{ " or ".join(answer_choices) }}.
+      What do you think? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_80
+    reference: soheeyang
+  b2c483de-1055-4641-acd1-097499b3b801: !Template
+    answer_choices: negative ||| positive
+    id: b2c483de-1055-4641-acd1-097499b3b801
+    jinja: Do you think the following statement expresses a {{ " or ".join(answer_choices)
+      }} sentiment? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_81
+    reference: soheeyang
+  41955fff-7993-4430-91c4-535e49c3e28e: !Template
+    answer_choices: negative ||| positive
+    id: 41955fff-7993-4430-91c4-535e49c3e28e
+    jinja: 'Please classify the sentiment in the following statement as {{ " or ".join(answer_choices)
+      }}: "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_82
+    reference: soheeyang
+  e80d0be8-c25d-4ff4-ae3a-1025a3cfd21a: !Template
+    answer_choices: negative ||| positive
+    id: e80d0be8-c25d-4ff4-ae3a-1025a3cfd21a
+    jinja: What is the sentiment expressed in the following statement? {{ " or ".join(answer_choices)
+      }}. "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_83
+    reference: soheeyang
+  80b9c645-f57f-46a9-b161-73490cce64ea: !Template
+    answer_choices: negative ||| positive
+    id: 80b9c645-f57f-46a9-b161-73490cce64ea
+    jinja: 'Put the sentiment of the following into one of the categories: {{ " or ".join(answer_choices)
+      }}. {{ sentence }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_84
+    reference: soheeyang
+  2aebf203-89a3-45bb-a5cb-5bb5e17bf8a5: !Template
+    answer_choices: negative ||| positive
+    id: 2aebf203-89a3-45bb-a5cb-5bb5e17bf8a5
+    jinja: The sentiment of the statement is either {{ " or ".join(answer_choices) }}.
+      Can you classify it? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_85
+    reference: soheeyang
+  5a7c55f4-0d25-4927-b40f-e500671c2572: !Template
+    answer_choices: negative ||| positive
+    id: 5a7c55f4-0d25-4927-b40f-e500671c2572
+    jinja: Please categorize the sentiment of the following statement as {{ " or ".join(answer_choices)
+      }}. "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_86
+    reference: soheeyang
+  4d20a8bc-30a5-46dd-b574-4a4eb7d0c1f1: !Template
+    answer_choices: negative ||| positive
+    id: 4d20a8bc-30a5-46dd-b574-4a4eb7d0c1f1
+    jinja: '"{{ sentence }}" Based on the given statement, what sentiment is it conveying?
+      {{ " or ".join(answer_choices) }}. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_87
+    reference: soheeyang
+  6c8e5a6b-a7a3-43a6-af9f-7c1b65fd6276: !Template
+    answer_choices: negative ||| positive
+    id: 6c8e5a6b-a7a3-43a6-af9f-7c1b65fd6276
+    jinja: 'Read the following sentence: "{{ sentence }}". Does the sentiment convey
+      a {{ " or ".join(answer_choices) }} vibe? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_88
+    reference: soheeyang
+  c5abcc3c-20e8-4c8f-9bd3-30469123ef78: !Template
+    answer_choices: negative ||| positive
+    id: c5abcc3c-20e8-4c8f-9bd3-30469123ef78
+    jinja: 'Determine if the sentiment expressed in the following statement is {{ "
+      or ".join(answer_choices) }}: "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_89
+    reference: soheeyang
+  7a99a492-f2da-46f1-ac3a-8164f7b8569d: !Template
+    answer_choices: negative ||| positive
+    id: 7a99a492-f2da-46f1-ac3a-8164f7b8569d
+    jinja: Please classify the sentiment of the following statement as either {{ " or
+      ".join(answer_choices) }}. "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_90
+    reference: soheeyang
+  e7371696-ba5e-4850-adc9-6df5aef7c590: !Template
+    answer_choices: negative ||| positive
+    id: e7371696-ba5e-4850-adc9-6df5aef7c590
+    jinja: What do you think is the sentiment of the following sentence? "{{ sentence
+      }}" - Is it {{ " or ".join(answer_choices) }}? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_91
+    reference: soheeyang
+  414b8f5f-7bf9-4b60-af6e-071908a62543: !Template
+    answer_choices: negative ||| positive
+    id: 414b8f5f-7bf9-4b60-af6e-071908a62543
+    jinja: What is the sentiment expressed in the following sentence? It's either {{
+      " or ".join(answer_choices) }}. "{{ sentence }}" ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_92
+    reference: soheeyang
+  3fbc07e5-4783-4f0a-b740-d6cc5bb3fce8: !Template
+    answer_choices: negative ||| positive
+    id: 3fbc07e5-4783-4f0a-b740-d6cc5bb3fce8
+    jinja: The given statement is {{ " or ".join(answer_choices) }}. What do you think
+      is the sentiment conveyed in "{{ sentence }}"? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_93
+    reference: soheeyang
+  9ef562ea-e953-44a0-9cc2-e2b2139b56dd: !Template
+    answer_choices: negative ||| positive
+    id: 9ef562ea-e953-44a0-9cc2-e2b2139b56dd
+    jinja: The sentiment in the following is either {{ " or ".join(answer_choices) }}.
+      Can you tell which one it is? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_94
+    reference: soheeyang
+  df017f5f-09c3-40c3-9ddc-1c4219a6f46f: !Template
+    answer_choices: negative ||| positive
+    id: df017f5f-09c3-40c3-9ddc-1c4219a6f46f
+    jinja: What do you think is the sentiment of the following sentence? "{{ sentence
+      }}" Choose from {{ " or ".join(answer_choices) }}. ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_95
+    reference: soheeyang
+  758ca772-76a6-4bdb-8c76-b3048661de26: !Template
+    answer_choices: negative ||| positive
+    id: 758ca772-76a6-4bdb-8c76-b3048661de26
+    jinja: The sentiment of the following sentence is either {{ " or ".join(answer_choices)
+      }}. What do you think it is? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_96
+    reference: soheeyang
+  2670bd5b-2012-41b5-924b-607268f53e54: !Template
+    answer_choices: negative ||| positive
+    id: 2670bd5b-2012-41b5-924b-607268f53e54
+    jinja: The sentiment of the following statement is {{ " or ".join(answer_choices)
+      }}. Can you determine which one it is? "{{ sentence }}" ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_97
+    reference: soheeyang
+  6d5f8be4-53af-412e-bede-17255448a005: !Template
+    answer_choices: negative ||| positive
+    id: 6d5f8be4-53af-412e-bede-17255448a005
+    jinja: I just read the following statement, "{{ sentence }}". How would you describe
+      the sentiment? Answer in {{ " or ".join(answer_choices) }}. ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_98
+    reference: soheeyang
+  f374309c-a633-4410-9a6a-e443e3656ab7: !Template
+    answer_choices: negative ||| positive
+    id: f374309c-a633-4410-9a6a-e443e3656ab7
+    jinja: According to the following sentence, the sentiment is either {{ " or ".join(answer_choices)
+      }}. Can you tell which one it is? "{{ sentence }}" ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: prompt_99
+    reference: soheeyang
+  bcbfe520-4ef0-4474-99cf-4e81cb98dc98: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: bcbfe520-4ef0-4474-99cf-4e81cb98dc98
+    jinja: '{{ sentence }} The sentiment of this sentence is ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_00
+    reference: jonghyeonkim
+  386b67b1-712a-4c1d-9280-96d4d0051aca: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 386b67b1-712a-4c1d-9280-96d4d0051aca
+    jinja: '"{{ sentence }}" What tone does this message convey? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_01
+    reference: jonghyeonkim
+  c54ce220-7bab-4650-9503-092142ad810d: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: c54ce220-7bab-4650-9503-092142ad810d
+    jinja: This review says, "{{ sentence }}". The sentiment is ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_02
+    reference: jonghyeonkim
+  b694a339-bfcc-49e3-94e9-a756dbd60770: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: b694a339-bfcc-49e3-94e9-a756dbd60770
+    jinja: 'Read the sentence: "{{ sentence }}". The sentiment is ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_03
+    reference: jonghyeonkim
+  85b56c57-9cba-41a2-b2fc-84eca17d94a5: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 85b56c57-9cba-41a2-b2fc-84eca17d94a5
+    jinja: 'What''s your opinion on the following: "{{ sentence }}" ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_04
+    reference: jonghyeonkim
+  359aeb75-977c-40ae-8aa0-47f38290d83f: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 359aeb75-977c-40ae-8aa0-47f38290d83f
+    jinja: '"{{ sentence }}" The sentiment in the given message is: ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_05
+    reference: jonghyeonkim
+  6c4548e7-5024-4b1c-887f-ed19219c9528: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 6c4548e7-5024-4b1c-887f-ed19219c9528
+    jinja: '"{{ sentence }}" What is the sentiment of this message? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_06
+    reference: jonghyeonkim
+  8e4f741a-834f-44dc-bc00-8bd3cd19476d: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 8e4f741a-834f-44dc-bc00-8bd3cd19476d
+    jinja: 'What''s the sentiment of the following: "{{ sentence }}" ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_07
+    reference: jonghyeonkim
+  1aca6708-c70c-45ca-9384-3310f7c78b3a: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 1aca6708-c70c-45ca-9384-3310f7c78b3a
+    jinja: 'Write the sentiment of the following remark: {{ sentence }} ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_08
+    reference: jonghyeonkim
+  3492028f-e899-4ae7-9c36-8835aa8486b4: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 3492028f-e899-4ae7-9c36-8835aa8486b4
+    jinja: 'What''s your take on the following message: "{{ sentence }}" ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_09
+    reference: jonghyeonkim
+  e9fd4a8e-b2b8-47d9-a77f-f5c2b7ff2cd6: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: e9fd4a8e-b2b8-47d9-a77f-f5c2b7ff2cd6
+    jinja: 'What''s the tone of the following statement: "{{ sentence }}" ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_10
+    reference: jonghyeonkim
+  4b4ddcd8-8e38-4501-a72e-3b20271d3fd8: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 4b4ddcd8-8e38-4501-a72e-3b20271d3fd8
+    jinja: What sentiment does this statement express? "{{ sentence }}" ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_11
+    reference: jonghyeonkim
+  b3f50bcf-e85f-4a43-9419-bb016d88d248: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: b3f50bcf-e85f-4a43-9419-bb016d88d248
+    jinja: 'What do you think of the following statement: "{{ sentence }}" ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_12
+    reference: jonghyeonkim
+  91a88712-bee5-4445-ad1c-396bd6522ce2: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 91a88712-bee5-4445-ad1c-396bd6522ce2
+    jinja: What's the sentiment in the following sentence? {{ sentence }} ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_13
+    reference: jonghyeonkim
+  aa344038-837a-4858-a850-c458d7b237e5: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: aa344038-837a-4858-a850-c458d7b237e5
+    jinja: 'What''s your impression of the following message: "{{ sentence }}" ||| {{
+      answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_14
+    reference: jonghyeonkim
+  cee4b0af-4ad9-4fbf-a22c-26f11d64ef56: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: cee4b0af-4ad9-4fbf-a22c-26f11d64ef56
+    jinja: 'Indicate the sentiment in the following sentence: "{{ sentence }}" ||| {{
+      answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_15
+    reference: jonghyeonkim
+  3facf16c-e1ea-432b-98d8-1868a7bafabf: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 3facf16c-e1ea-432b-98d8-1868a7bafabf
+    jinja: What is the sentiment of the following statement? "{{ sentence }}" ||| {{
+      answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_16
+    reference: jonghyeonkim
+  916724fe-3ab1-4136-b7c8-20ab10857dd0: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 916724fe-3ab1-4136-b7c8-20ab10857dd0
+    jinja: 'Determine the sentiment of the following comment: "{{ sentence }}" ||| {{
+      answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_17
+    reference: jonghyeonkim
+  839ed400-5f77-4f3d-b484-4b4fc0641795: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 839ed400-5f77-4f3d-b484-4b4fc0641795
+    jinja: 'Evaluate the sentiment in the following statement: "{{ sentence }}" |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_18
+    reference: jonghyeonkim
+  eb02a552-4191-48bf-b5ac-07e3d24b0cd2: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: eb02a552-4191-48bf-b5ac-07e3d24b0cd2
+    jinja: '{{ sentence }} Is this statement {{ " or ".join(answer_choices) }}? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_19
+    reference: jonghyeonkim
+  75823edc-7103-4a25-8046-7e6cf573806e: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 75823edc-7103-4a25-8046-7e6cf573806e
+    jinja: '"{{ sentence }}" What kind of sentiment does this statement express? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_20
+    reference: jonghyeonkim
+  67a8012e-3a34-41a8-be1b-e3a46d0440de: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 67a8012e-3a34-41a8-be1b-e3a46d0440de
+    jinja: What do you think the sentiment of this sentence is? "{{ sentence }}" |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_21
+    reference: jonghyeonkim
+  5ab2eed7-f139-4f1d-8915-92e59434e329: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 5ab2eed7-f139-4f1d-8915-92e59434e329
+    jinja: '{{ sentence }} Is this a {{ " or ".join(answer_choices) }} sentiment? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_22
+    reference: jonghyeonkim
+  0d23b43d-f88f-4fbb-918a-95e63d38da10: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 0d23b43d-f88f-4fbb-918a-95e63d38da10
+    jinja: Is "{{ sentence }}" of a {{ " or ".join(answer_choices) }} sentiment? |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_23
+    reference: jonghyeonkim
+  c2e220a2-253a-4da0-87d8-90bf115921b5: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: c2e220a2-253a-4da0-87d8-90bf115921b5
+    jinja: '"{{ sentence }}" Is this statement {{ " or ".join(answer_choices) }}? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_24
+    reference: jonghyeonkim
+  87535951-2a17-42c2-9e43-17a9351e5aaa: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 87535951-2a17-42c2-9e43-17a9351e5aaa
+    jinja: Is this statement {{ " or ".join(answer_choices) }}? "{{ sentence }}" |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_25
+    reference: jonghyeonkim
+  1b89cd05-fc35-41d1-9463-42821df0aeb9: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 1b89cd05-fc35-41d1-9463-42821df0aeb9
+    jinja: 'Sentiment: {{ " or ".join(answer_choices) }}. Sentence: {{ sentence }} |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_26
+    reference: jonghyeonkim
+  2bb91761-631f-4bb4-8097-cc0dd2256a09: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 2bb91761-631f-4bb4-8097-cc0dd2256a09
+    jinja: 'What sentiment is conveyed in the following statement: "{{ sentence }}"
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_27
+    reference: jonghyeonkim
+  2066b20b-9cab-489f-aa7e-cf442ee2d0a9: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 2066b20b-9cab-489f-aa7e-cf442ee2d0a9
+    jinja: '"{{ sentence }}" How would you classify the sentiment of this statement?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_28
+    reference: jonghyeonkim
+  81625af8-639e-4ef2-af11-2a50f6198359: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 81625af8-639e-4ef2-af11-2a50f6198359
+    jinja: Is the following sentence {{ " or ".join(answer_choices) }}? {{ sentence
+      }} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_29
+    reference: jonghyeonkim
+  c4607b0e-4656-47ba-9881-e679228e04ac: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: c4607b0e-4656-47ba-9881-e679228e04ac
+    jinja: 'Classify the sentiment expressed in the following statement: "{{ sentence
+      }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_30
+    reference: jonghyeonkim
+  a43a8e67-d888-4140-aced-0502ed1e2dbb: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: a43a8e67-d888-4140-aced-0502ed1e2dbb
+    jinja: 'The following sentence is {{ " or ".join(answer_choices) }}: "{{ sentence
+      }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_31
+    reference: jonghyeonkim
+  037c6ae2-1059-493e-b68f-7a1df43b4c60: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 037c6ae2-1059-493e-b68f-7a1df43b4c60
+    jinja: 'Is the following statement {{ " or ".join(answer_choices) }}: "{{ sentence
+      }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_32
+    reference: jonghyeonkim
+  aa00dcbc-1a4b-4656-ad0f-87109e9cc748: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: aa00dcbc-1a4b-4656-ad0f-87109e9cc748
+    jinja: The sentiment of "{{ sentence }}" is {{ " or ".join(answer_choices) }}. Agree?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_33
+    reference: jonghyeonkim
+  58fa2479-431c-4976-9ac1-adadae05f217: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 58fa2479-431c-4976-9ac1-adadae05f217
+    jinja: Is the following statement {{ " or ".join(answer_choices) }}? "{{ sentence
+      }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_34
+    reference: jonghyeonkim
+  45ca009b-3c15-48e4-87bb-8bac14704c1b: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 45ca009b-3c15-48e4-87bb-8bac14704c1b
+    jinja: 'How do you interpret the sentiment in the following statement: "{{ sentence
+      }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_35
+    reference: jonghyeonkim
+  a76c1390-1e65-479a-a3b2-c4fa6e07a068: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: a76c1390-1e65-479a-a3b2-c4fa6e07a068
+    jinja: '{{ sentence }} Is the sentiment expressed here {{ " or ".join(answer_choices)
+      }}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_36
+    reference: jonghyeonkim
+  ebda293a-0cca-4248-b1d7-08164889cf12: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: ebda293a-0cca-4248-b1d7-08164889cf12
+    jinja: 'This sentence has a sentiment of {{ " or ".join(answer_choices) }}: {{ sentence
+      }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_37
+    reference: jonghyeonkim
+  bdd6d662-837b-4f26-ba0a-4f391469f973: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: bdd6d662-837b-4f26-ba0a-4f391469f973
+    jinja: '"{{ sentence }}" Do you think this has a {{ " or ".join(answer_choices)
+      }} sentiment? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_38
+    reference: jonghyeonkim
+  3644c2e5-1f82-4507-b42e-2214cbc80de7: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 3644c2e5-1f82-4507-b42e-2214cbc80de7
+    jinja: 'Do you find the following statement {{ " or ".join(answer_choices) }}: "{{
+      sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_39
+    reference: jonghyeonkim
+  fb5ac781-3f8a-49b2-b30a-4548b7a0111c: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: fb5ac781-3f8a-49b2-b30a-4548b7a0111c
+    jinja: 'Do you consider the following message {{ " or ".join(answer_choices) }}:
+      "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_40
+    reference: jonghyeonkim
+  652f724d-d885-45cd-86c3-f5352b63fae2: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 652f724d-d885-45cd-86c3-f5352b63fae2
+    jinja: The statement, "{{ sentence }}", is either {{ " or ".join(answer_choices)
+      }}. Which is it? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_41
+    reference: jonghyeonkim
+  8f843df7-d4d0-476d-afa3-a84283caa650: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 8f843df7-d4d0-476d-afa3-a84283caa650
+    jinja: The following text expresses a {{ " or ".join(answer_choices) }} sentiment.
+      {{ sentence }} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_42
+    reference: jonghyeonkim
+  b1476861-c9ab-4d15-8a36-26a89b563908: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: b1476861-c9ab-4d15-8a36-26a89b563908
+    jinja: Is the sentiment of the sentence below {{ " or ".join(answer_choices) }}?
+      "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_43
+    reference: jonghyeonkim
+  1220e998-d79b-47c7-a128-22db7eadb1f4: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 1220e998-d79b-47c7-a128-22db7eadb1f4
+    jinja: 'Determine if the following statement is {{ " or ".join(answer_choices) }}:
+      "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_44
+    reference: jonghyeonkim
+  f70e8069-bd42-411f-a98e-d02cb492d634: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: f70e8069-bd42-411f-a98e-d02cb492d634
+    jinja: The sentiment of this sentence is either {{ " or ".join(answer_choices) }}.
+      "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_45
+    reference: jonghyeonkim
+  67cadee8-0db1-44f8-8a91-969373758aed: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 67cadee8-0db1-44f8-8a91-969373758aed
+    jinja: Can you tell if the following sentence is {{ " or ".join(answer_choices)
+      }}? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_46
+    reference: jonghyeonkim
+  4ff89109-01f7-46cb-a60e-e826caaa8abf: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 4ff89109-01f7-46cb-a60e-e826caaa8abf
+    jinja: Is the sentiment in the following sentence {{ " or ".join(answer_choices)
+      }}? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_47
+    reference: jonghyeonkim
+  96efcf41-f532-4115-ab1a-6a231074f5a9: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 96efcf41-f532-4115-ab1a-6a231074f5a9
+    jinja: Is the sentiment of the following sentence {{ " or ".join(answer_choices)
+      }}? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_48
+    reference: jonghyeonkim
+  79fed6a7-2b4f-4df0-aeea-3f020c9258dd: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 79fed6a7-2b4f-4df0-aeea-3f020c9258dd
+    jinja: 'Classify the sentiment of this sentence as {{ " or ".join(answer_choices)
+      }}: "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_49
+    reference: jonghyeonkim
+  84394414-d8b9-4444-9f03-b0294932b340: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 84394414-d8b9-4444-9f03-b0294932b340
+    jinja: The following statement has a sentiment of {{ " or ".join(answer_choices)
+      }}. "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_50
+    reference: jonghyeonkim
+  f9e14cf0-6020-49c7-a4de-30660ca65ae3: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: f9e14cf0-6020-49c7-a4de-30660ca65ae3
+    jinja: Categorize the sentiment of the following as {{ " or ".join(answer_choices)
+      }}. {{ sentence }} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_51
+    reference: jonghyeonkim
+  3078ba82-26ef-41fa-aafb-c947ecab6989: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 3078ba82-26ef-41fa-aafb-c947ecab6989
+    jinja: Is the sentiment in the following statement {{ " or ".join(answer_choices)
+      }}? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_52
+    reference: jonghyeonkim
+  2c3ab9c9-c190-4f98-8c68-d5742e721b61: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 2c3ab9c9-c190-4f98-8c68-d5742e721b61
+    jinja: Is the sentiment of the following statement {{ " or ".join(answer_choices)
+      }}? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_53
+    reference: jonghyeonkim
+  84f719c5-086d-457b-9332-84a7b7e7f1e2: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 84f719c5-086d-457b-9332-84a7b7e7f1e2
+    jinja: 'The following message conveys a sentiment of {{ " or ".join(answer_choices)
+      }}: "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_54
+    reference: jonghyeonkim
+  8ae0d7da-0f7d-469c-8ebc-297f020f0ed3: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 8ae0d7da-0f7d-469c-8ebc-297f020f0ed3
+    jinja: Do you think the sentiment of the following is {{ " or ".join(answer_choices)
+      }}? {{ sentence }} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_55
+    reference: jonghyeonkim
+  6b9719fb-2f15-44cb-b26a-01edd56bd411: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 6b9719fb-2f15-44cb-b26a-01edd56bd411
+    jinja: Determine if the sentiment of the following is {{ " or ".join(answer_choices)
+      }}. {{ sentence }} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_56
+    reference: jonghyeonkim
+  002c21c2-c5f0-4fa4-8eb6-fb6759f62961: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 002c21c2-c5f0-4fa4-8eb6-fb6759f62961
+    jinja: Can you classify the sentiment of the text as {{ " or ".join(answer_choices)
+      }}? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_57
+    reference: jonghyeonkim
+  8f719c58-dc0a-4322-b824-63fc97bdf929: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 8f719c58-dc0a-4322-b824-63fc97bdf929
+    jinja: The sentiment of the following text is either {{ " or ".join(answer_choices)
+      }}. "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_58
+    reference: jonghyeonkim
+  d811f8d9-16cd-473c-86de-4c51f8da49de: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: d811f8d9-16cd-473c-86de-4c51f8da49de
+    jinja: 'Do you think the sentiment of this message is {{ " or ".join(answer_choices)
+      }}: "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_59
+    reference: jonghyeonkim
+  9eb9b4e3-8d9d-4704-8608-d02912ea6dc2: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 9eb9b4e3-8d9d-4704-8608-d02912ea6dc2
+    jinja: Does the following statement express a {{ " or ".join(answer_choices) }}
+      sentiment? {{ sentence }} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_60
+    reference: jonghyeonkim
+  8890d144-0310-4f68-a843-a31f0615f025: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 8890d144-0310-4f68-a843-a31f0615f025
+    jinja: Do you believe the sentiment in the sentence is {{ " or ".join(answer_choices)
+      }}? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_61
+    reference: jonghyeonkim
+  ef176e77-1748-40ab-ac67-0b8003a0d412: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: ef176e77-1748-40ab-ac67-0b8003a0d412
+    jinja: 'Which of the following sentiments does "{{ sentence }}" express: {{ " or
+      ".join(answer_choices) }}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_62
+    reference: jonghyeonkim
+  54e1dfa0-2b30-4df8-b7a6-336a62f4de8f: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 54e1dfa0-2b30-4df8-b7a6-336a62f4de8f
+    jinja: 'Determine the sentiment of the sentence: "{{ sentence }}" - Is it {{ " or
+      ".join(answer_choices) }}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_63
+    reference: jonghyeonkim
+  83930295-0d86-4c04-9d96-878aeed01e6f: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 83930295-0d86-4c04-9d96-878aeed01e6f
+    jinja: Is the following sentence expressing a {{ " or ".join(answer_choices) }}
+      sentiment? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_64
+    reference: jonghyeonkim
+  9efe6381-b209-4f68-a169-fb3703a25a79: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 9efe6381-b209-4f68-a169-fb3703a25a79
+    jinja: Do you believe the sentiment of this sentence is {{ " or ".join(answer_choices)
+      }}? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_65
+    reference: jonghyeonkim
+  1d9b42d3-c846-4c4d-87f7-6d2eaa70ef20: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 1d9b42d3-c846-4c4d-87f7-6d2eaa70ef20
+    jinja: 'Please classify the sentiment of this sentence as {{ " or ".join(answer_choices)
+      }}: "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_66
+    reference: jonghyeonkim
+  3629b8db-c73a-4b51-a35d-6e7bd97686b3: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 3629b8db-c73a-4b51-a35d-6e7bd97686b3
+    jinja: Based on the following sentence, is the sentiment {{ " or ".join(answer_choices)
+      }}? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_67
+    reference: jonghyeonkim
+  3d7380a8-9c0a-4cde-a2f5-5e5f39a6aaa7: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 3d7380a8-9c0a-4cde-a2f5-5e5f39a6aaa7
+    jinja: What do you think the sentiment of the sentence "{{ sentence }}" is? {{ "
+      or ".join(answer_choices) }} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_68
+    reference: jonghyeonkim
+  1292b712-ea40-4d80-916c-34f9d6e34644: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 1292b712-ea40-4d80-916c-34f9d6e34644
+    jinja: Classify the sentiment of the following statement as {{ " or ".join(answer_choices)
+      }}. {{ sentence }} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_69
+    reference: jonghyeonkim
+  552b9249-5b4b-4712-a082-d69b714437e3: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 552b9249-5b4b-4712-a082-d69b714437e3
+    jinja: Do you think the following sentence has a {{ " or ".join(answer_choices)
+      }} sentiment? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_70
+    reference: jonghyeonkim
+  24e03cde-eb70-41a0-96e1-ad887b3109b5: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 24e03cde-eb70-41a0-96e1-ad887b3109b5
+    jinja: 'Please tell me if you think the following sentence is {{ " or ".join(answer_choices)
+      }}: {{ sentence }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_71
+    reference: jonghyeonkim
+  af25fc33-7456-475f-b9b1-655cd4f3ad4b: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: af25fc33-7456-475f-b9b1-655cd4f3ad4b
+    jinja: 'Classify the sentiment of the following sentence as {{ " or ".join(answer_choices)
+      }}: "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_72
+    reference: jonghyeonkim
+  0f7a473b-3c6c-4cf0-88cb-7cfb836e2e81: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 0f7a473b-3c6c-4cf0-88cb-7cfb836e2e81
+    jinja: The following statement is {{ " or ".join(answer_choices) }}. What do you
+      think it is? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_73
+    reference: jonghyeonkim
+  ebc5f431-8049-4f2e-9b2b-2d0fb49a1f58: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: ebc5f431-8049-4f2e-9b2b-2d0fb49a1f58
+    jinja: Can you identify if the sentiment of the sentence "{{ sentence }}" is {{
+      " or ".join(answer_choices) }}? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_74
+    reference: jonghyeonkim
+  0be1f5a3-d599-4cc1-b25c-9e4b118e81a9: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 0be1f5a3-d599-4cc1-b25c-9e4b118e81a9
+    jinja: What is the sentiment of this sentence? "{{ sentence }}" It is either {{
+      " or ".join(answer_choices) }}. ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_75
+    reference: jonghyeonkim
+  180af1aa-96b6-4072-af2d-dacdbffc256d: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 180af1aa-96b6-4072-af2d-dacdbffc256d
+    jinja: Determine if the following text expresses a {{ " or ".join(answer_choices)
+      }} sentiment. "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_76
+    reference: jonghyeonkim
+  367d4cd0-3223-4b3d-8011-90677f10806e: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 367d4cd0-3223-4b3d-8011-90677f10806e
+    jinja: 'Put the following statement in either of the categories: {{ " or ".join(answer_choices)
+      }}. "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_77
+    reference: jonghyeonkim
+  b2484eb6-1c73-487d-8d28-7a3733d1424d: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: b2484eb6-1c73-487d-8d28-7a3733d1424d
+    jinja: 'Please classify the sentiment in the following statement: {{ " or ".join(answer_choices)
+      }}. "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_78
+    reference: jonghyeonkim
+  1bde5677-6504-4b35-bcde-3003d5c56d14: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 1bde5677-6504-4b35-bcde-3003d5c56d14
+    jinja: '{{ sentence }} The sentiment of this statement is {{ " or ".join(answer_choices)
+      }}. What do you think it is? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_79
+    reference: jonghyeonkim
+  0c5610b3-7c9a-4c59-8906-0d42dfcc5638: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 0c5610b3-7c9a-4c59-8906-0d42dfcc5638
+    jinja: The following statement's sentiment is {{ " or ".join(answer_choices) }}.
+      What do you think? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_80
+    reference: jonghyeonkim
+  ecd24b5b-3b81-40a9-b939-335a217c4942: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: ecd24b5b-3b81-40a9-b939-335a217c4942
+    jinja: Do you think the following statement expresses a {{ " or ".join(answer_choices)
+      }} sentiment? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_81
+    reference: jonghyeonkim
+  d610bf7d-b258-4315-b803-70d03af5f281: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: d610bf7d-b258-4315-b803-70d03af5f281
+    jinja: 'Please classify the sentiment in the following statement as {{ " or ".join(answer_choices)
+      }}: "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_82
+    reference: jonghyeonkim
+  2786f098-ea95-4550-9582-3924989f0f38: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 2786f098-ea95-4550-9582-3924989f0f38
+    jinja: What is the sentiment expressed in the following statement? {{ " or ".join(answer_choices)
+      }}. "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_83
+    reference: jonghyeonkim
+  2a901b42-923e-457b-b036-6e534c602ada: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 2a901b42-923e-457b-b036-6e534c602ada
+    jinja: 'Put the sentiment of the following into one of the categories: {{ " or ".join(answer_choices)
+      }}. {{ sentence }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_84
+    reference: jonghyeonkim
+  2c5edbb8-b3cc-400e-a0d4-f49fa6651aee: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 2c5edbb8-b3cc-400e-a0d4-f49fa6651aee
+    jinja: The sentiment of the statement is either {{ " or ".join(answer_choices) }}.
+      Can you classify it? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_85
+    reference: jonghyeonkim
+  f502299b-56cf-444d-8fb7-3b4106d74ba8: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: f502299b-56cf-444d-8fb7-3b4106d74ba8
+    jinja: Please categorize the sentiment of the following statement as {{ " or ".join(answer_choices)
+      }}. "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_86
+    reference: jonghyeonkim
+  31d192be-7036-4ad8-a06d-6f8a580a99c6: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 31d192be-7036-4ad8-a06d-6f8a580a99c6
+    jinja: '"{{ sentence }}" Based on the given statement, what sentiment is it conveying?
+      {{ " or ".join(answer_choices) }}. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_87
+    reference: jonghyeonkim
+  37eeb7c8-9db2-48ca-a49d-10c47cde36ce: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 37eeb7c8-9db2-48ca-a49d-10c47cde36ce
+    jinja: 'Read the following sentence: "{{ sentence }}". Does the sentiment convey
+      a {{ " or ".join(answer_choices) }} vibe? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_88
+    reference: jonghyeonkim
+  8e4a63d2-c056-4291-a621-77b68e9ab60c: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 8e4a63d2-c056-4291-a621-77b68e9ab60c
+    jinja: 'Determine if the sentiment expressed in the following statement is {{ "
+      or ".join(answer_choices) }}: "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_89
+    reference: jonghyeonkim
+  e88a5b4a-a6d4-4695-9477-61d02dbd7581: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: e88a5b4a-a6d4-4695-9477-61d02dbd7581
+    jinja: Please classify the sentiment of the following statement as either {{ " or
+      ".join(answer_choices) }}. "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_90
+    reference: jonghyeonkim
+  e5eb9c43-560d-4030-8931-4048df7a2a8c: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: e5eb9c43-560d-4030-8931-4048df7a2a8c
+    jinja: What do you think is the sentiment of the following sentence? "{{ sentence
+      }}" - Is it {{ " or ".join(answer_choices) }}? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_91
+    reference: jonghyeonkim
+  eacf8cf5-2548-45bf-9805-ccf87ba4790b: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: eacf8cf5-2548-45bf-9805-ccf87ba4790b
+    jinja: What is the sentiment expressed in the following sentence? It's either {{
+      " or ".join(answer_choices) }}. "{{ sentence }}" ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_92
+    reference: jonghyeonkim
+  b9069496-8605-4d92-b5f7-6c7ce2614138: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: b9069496-8605-4d92-b5f7-6c7ce2614138
+    jinja: The given statement is {{ " or ".join(answer_choices) }}. What do you think
+      is the sentiment conveyed in "{{ sentence }}"? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_93
+    reference: jonghyeonkim
+  c37a233a-9ea8-423e-8e94-19ff1a3ffdd9: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: c37a233a-9ea8-423e-8e94-19ff1a3ffdd9
+    jinja: The sentiment in the following is either {{ " or ".join(answer_choices) }}.
+      Can you tell which one it is? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_94
+    reference: jonghyeonkim
+  25864714-f8e6-48d2-946c-5929cabf3a6f: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 25864714-f8e6-48d2-946c-5929cabf3a6f
+    jinja: What do you think is the sentiment of the following sentence? "{{ sentence
+      }}" Choose from {{ " or ".join(answer_choices) }}. ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_95
+    reference: jonghyeonkim
+  43c06d37-0dc5-4e18-a495-4dc7535b54d2: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 43c06d37-0dc5-4e18-a495-4dc7535b54d2
+    jinja: The sentiment of the following sentence is either {{ " or ".join(answer_choices)
+      }}. What do you think it is? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_96
+    reference: jonghyeonkim
+  bfe0b55f-8aee-41e2-ae71-7478bcab4d6b: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: bfe0b55f-8aee-41e2-ae71-7478bcab4d6b
+    jinja: The sentiment of the following statement is {{ " or ".join(answer_choices)
+      }}. Can you determine which one it is? "{{ sentence }}" ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_97
+    reference: jonghyeonkim
+  cfdc952d-8ed4-4b09-a6d6-cadeb872db21: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: cfdc952d-8ed4-4b09-a6d6-cadeb872db21
+    jinja: I just read the following statement, "{{ sentence }}". How would you describe
+      the sentiment? Answer in {{ " or ".join(answer_choices) }}. ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_98
+    reference: jonghyeonkim
+  0c2251a9-3b20-49a2-b0ca-bc7c06cccab4: !Template
+    answer_choices: Unpleasant ||| Favorable
+    id: 0c2251a9-3b20-49a2-b0ca-bc7c06cccab4
+    jinja: According to the following sentence, the sentiment is either {{ " or ".join(answer_choices)
+      }}. Can you tell which one it is? "{{ sentence }}" ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer2_99
+    reference: jonghyeonkim
+  43d3d69a-7e3d-4e01-82ce-ee7acba9ea54: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 43d3d69a-7e3d-4e01-82ce-ee7acba9ea54
+    jinja: '{{ sentence }} The sentiment of this sentence is ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_00
+    reference: jonghyeonkim
+  843b1b07-4033-45d5-bb5d-5553b66967f0: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 843b1b07-4033-45d5-bb5d-5553b66967f0
+    jinja: '"{{ sentence }}" What tone does this message convey? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_01
+    reference: jonghyeonkim
+  2f769188-1006-4f5b-909a-485683c6f149: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 2f769188-1006-4f5b-909a-485683c6f149
+    jinja: This review says, "{{ sentence }}". The sentiment is ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_02
+    reference: jonghyeonkim
+  d8c22f30-4054-4cd9-82b8-15cc492420f8: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: d8c22f30-4054-4cd9-82b8-15cc492420f8
+    jinja: 'Read the sentence: "{{ sentence }}". The sentiment is ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_03
+    reference: jonghyeonkim
+  73e31301-5aaf-42e6-90bf-34f7abeff2c2: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 73e31301-5aaf-42e6-90bf-34f7abeff2c2
+    jinja: 'What''s your opinion on the following: "{{ sentence }}" ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_04
+    reference: jonghyeonkim
+  be9c906a-1737-4227-80a1-632c83fac027: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: be9c906a-1737-4227-80a1-632c83fac027
+    jinja: '"{{ sentence }}" The sentiment in the given message is: ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_05
+    reference: jonghyeonkim
+  1e56781d-b400-4d00-89ef-39ff6e59dfb8: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 1e56781d-b400-4d00-89ef-39ff6e59dfb8
+    jinja: '"{{ sentence }}" What is the sentiment of this message? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_06
+    reference: jonghyeonkim
+  04358f36-f836-49e3-9803-8e39820f8f5d: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 04358f36-f836-49e3-9803-8e39820f8f5d
+    jinja: 'What''s the sentiment of the following: "{{ sentence }}" ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_07
+    reference: jonghyeonkim
+  94635525-6326-48f6-b47f-3b2fd436ad51: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 94635525-6326-48f6-b47f-3b2fd436ad51
+    jinja: 'Write the sentiment of the following remark: {{ sentence }} ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_08
+    reference: jonghyeonkim
+  c1df5e42-15d8-45dd-b498-f2867c784d45: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: c1df5e42-15d8-45dd-b498-f2867c784d45
+    jinja: 'What''s your take on the following message: "{{ sentence }}" ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_09
+    reference: jonghyeonkim
+  955f65c3-0406-4902-a76f-458d78fc3747: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 955f65c3-0406-4902-a76f-458d78fc3747
+    jinja: 'What''s the tone of the following statement: "{{ sentence }}" ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_10
+    reference: jonghyeonkim
+  f65012b4-8b7c-43dd-bef6-cc630ef6b4f2: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: f65012b4-8b7c-43dd-bef6-cc630ef6b4f2
+    jinja: What sentiment does this statement express? "{{ sentence }}" ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_11
+    reference: jonghyeonkim
+  121fd8ea-df5d-4458-8a0b-eeba8cb02e14: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 121fd8ea-df5d-4458-8a0b-eeba8cb02e14
+    jinja: 'What do you think of the following statement: "{{ sentence }}" ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_12
+    reference: jonghyeonkim
+  72b083ab-a774-42e1-94a4-6d4a5b5ce3c5: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 72b083ab-a774-42e1-94a4-6d4a5b5ce3c5
+    jinja: What's the sentiment in the following sentence? {{ sentence }} ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_13
+    reference: jonghyeonkim
+  0d633610-1eeb-4a1b-a34a-72eb485a0eaa: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 0d633610-1eeb-4a1b-a34a-72eb485a0eaa
+    jinja: 'What''s your impression of the following message: "{{ sentence }}" ||| {{
+      answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_14
+    reference: jonghyeonkim
+  62eff155-21a3-4885-a3cf-584eade1c821: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 62eff155-21a3-4885-a3cf-584eade1c821
+    jinja: 'Indicate the sentiment in the following sentence: "{{ sentence }}" ||| {{
+      answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_15
+    reference: jonghyeonkim
+  25417168-0766-49c2-b73d-5eb9f0169557: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 25417168-0766-49c2-b73d-5eb9f0169557
+    jinja: What is the sentiment of the following statement? "{{ sentence }}" ||| {{
+      answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_16
+    reference: jonghyeonkim
+  90652532-8ff0-4d71-9610-9bf7e21218eb: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 90652532-8ff0-4d71-9610-9bf7e21218eb
+    jinja: 'Determine the sentiment of the following comment: "{{ sentence }}" ||| {{
+      answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_17
+    reference: jonghyeonkim
+  b0954aec-5531-4ec7-815b-6984cc6ad082: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: b0954aec-5531-4ec7-815b-6984cc6ad082
+    jinja: 'Evaluate the sentiment in the following statement: "{{ sentence }}" |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_18
+    reference: jonghyeonkim
+  0fb6ad36-880c-4e96-8ab0-dd29be89d02b: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 0fb6ad36-880c-4e96-8ab0-dd29be89d02b
+    jinja: '{{ sentence }} Is this statement {{ " or ".join(answer_choices) }}? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_19
+    reference: jonghyeonkim
+  766f17c7-b498-436d-b029-d5adb3ff40b3: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 766f17c7-b498-436d-b029-d5adb3ff40b3
+    jinja: '"{{ sentence }}" What kind of sentiment does this statement express? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_20
+    reference: jonghyeonkim
+  ad46f7b3-0f8a-4906-a91a-86a3be320025: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: ad46f7b3-0f8a-4906-a91a-86a3be320025
+    jinja: What do you think the sentiment of this sentence is? "{{ sentence }}" |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_21
+    reference: jonghyeonkim
+  c70badd4-3f64-45c6-8dd8-9ee8f0ba76c0: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: c70badd4-3f64-45c6-8dd8-9ee8f0ba76c0
+    jinja: '{{ sentence }} Is this a {{ " or ".join(answer_choices) }} sentiment? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_22
+    reference: jonghyeonkim
+  621ca1e4-4356-4124-802b-c1ce2b0afd0e: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 621ca1e4-4356-4124-802b-c1ce2b0afd0e
+    jinja: Is "{{ sentence }}" of a {{ " or ".join(answer_choices) }} sentiment? |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_23
+    reference: jonghyeonkim
+  4f4e433c-fb31-4660-a54c-b28fdcbb3bc6: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 4f4e433c-fb31-4660-a54c-b28fdcbb3bc6
+    jinja: '"{{ sentence }}" Is this statement {{ " or ".join(answer_choices) }}? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_24
+    reference: jonghyeonkim
+  50f03b14-adb5-44a0-9812-3e5df914f2c8: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 50f03b14-adb5-44a0-9812-3e5df914f2c8
+    jinja: Is this statement {{ " or ".join(answer_choices) }}? "{{ sentence }}" |||
+      {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_25
+    reference: jonghyeonkim
+  93041a31-d69d-40dd-b5ac-65f09d4e5e5d: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 93041a31-d69d-40dd-b5ac-65f09d4e5e5d
+    jinja: 'Sentiment: {{ " or ".join(answer_choices) }}. Sentence: {{ sentence }} |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_26
+    reference: jonghyeonkim
+  33700302-27a1-4895-8806-3238f655758a: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 33700302-27a1-4895-8806-3238f655758a
+    jinja: 'What sentiment is conveyed in the following statement: "{{ sentence }}"
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_27
+    reference: jonghyeonkim
+  96be2961-3496-4b38-8bff-f2e6081eb61c: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 96be2961-3496-4b38-8bff-f2e6081eb61c
+    jinja: '"{{ sentence }}" How would you classify the sentiment of this statement?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_28
+    reference: jonghyeonkim
+  de620dcd-840e-497d-95f9-c1607c78b307: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: de620dcd-840e-497d-95f9-c1607c78b307
+    jinja: Is the following sentence {{ " or ".join(answer_choices) }}? {{ sentence
+      }} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_29
+    reference: jonghyeonkim
+  06d8a3fa-3e45-4ed7-b939-53cefc60e0de: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 06d8a3fa-3e45-4ed7-b939-53cefc60e0de
+    jinja: 'Classify the sentiment expressed in the following statement: "{{ sentence
+      }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_30
+    reference: jonghyeonkim
+  8b36d32c-6dbf-4ccf-935d-c334cb896573: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 8b36d32c-6dbf-4ccf-935d-c334cb896573
+    jinja: 'The following sentence is {{ " or ".join(answer_choices) }}: "{{ sentence
+      }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_31
+    reference: jonghyeonkim
+  fb2b9a09-ef34-4328-9f6f-8d832ee1f722: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: fb2b9a09-ef34-4328-9f6f-8d832ee1f722
+    jinja: 'Is the following statement {{ " or ".join(answer_choices) }}: "{{ sentence
+      }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_32
+    reference: jonghyeonkim
+  f993a176-66d1-4d09-9b64-6287f78a5d10: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: f993a176-66d1-4d09-9b64-6287f78a5d10
+    jinja: The sentiment of "{{ sentence }}" is {{ " or ".join(answer_choices) }}. Agree?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_33
+    reference: jonghyeonkim
+  aa84dc4a-5ea6-486e-a394-2b2b04a0b763: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: aa84dc4a-5ea6-486e-a394-2b2b04a0b763
+    jinja: Is the following statement {{ " or ".join(answer_choices) }}? "{{ sentence
+      }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_34
+    reference: jonghyeonkim
+  4b7c6091-0700-44c8-a316-843d630f8e3b: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 4b7c6091-0700-44c8-a316-843d630f8e3b
+    jinja: 'How do you interpret the sentiment in the following statement: "{{ sentence
+      }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_35
+    reference: jonghyeonkim
+  d689ba87-4147-4692-88b0-5290e4627cce: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: d689ba87-4147-4692-88b0-5290e4627cce
+    jinja: '{{ sentence }} Is the sentiment expressed here {{ " or ".join(answer_choices)
+      }}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_36
+    reference: jonghyeonkim
+  e1ab3326-68dd-41d0-8101-6058a3d71dde: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: e1ab3326-68dd-41d0-8101-6058a3d71dde
+    jinja: 'This sentence has a sentiment of {{ " or ".join(answer_choices) }}: {{ sentence
+      }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_37
+    reference: jonghyeonkim
+  39c3899a-e1ce-46b4-940d-52fdf44ac2ab: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 39c3899a-e1ce-46b4-940d-52fdf44ac2ab
+    jinja: '"{{ sentence }}" Do you think this has a {{ " or ".join(answer_choices)
+      }} sentiment? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_38
+    reference: jonghyeonkim
+  ff914ea1-ca07-4959-b479-2c162a6c2807: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: ff914ea1-ca07-4959-b479-2c162a6c2807
+    jinja: 'Do you find the following statement {{ " or ".join(answer_choices) }}: "{{
+      sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_39
+    reference: jonghyeonkim
+  5b21f285-fcdf-4e28-bd96-fe33cced20a9: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 5b21f285-fcdf-4e28-bd96-fe33cced20a9
+    jinja: 'Do you consider the following message {{ " or ".join(answer_choices) }}:
+      "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_40
+    reference: jonghyeonkim
+  f287dbf0-b533-41f2-a501-6985489ac165: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: f287dbf0-b533-41f2-a501-6985489ac165
+    jinja: The statement, "{{ sentence }}", is either {{ " or ".join(answer_choices)
+      }}. Which is it? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_41
+    reference: jonghyeonkim
+  ed458c88-7e45-4503-b5d8-bf8ba841c01d: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: ed458c88-7e45-4503-b5d8-bf8ba841c01d
+    jinja: The following text expresses a {{ " or ".join(answer_choices) }} sentiment.
+      {{ sentence }} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_42
+    reference: jonghyeonkim
+  58cdb9ca-e3d3-45b0-b365-1c67f3301e83: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 58cdb9ca-e3d3-45b0-b365-1c67f3301e83
+    jinja: Is the sentiment of the sentence below {{ " or ".join(answer_choices) }}?
+      "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_43
+    reference: jonghyeonkim
+  b649167d-5d6f-4c55-b264-5903cc3f10ae: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: b649167d-5d6f-4c55-b264-5903cc3f10ae
+    jinja: 'Determine if the following statement is {{ " or ".join(answer_choices) }}:
+      "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_44
+    reference: jonghyeonkim
+  526428c1-21e2-4885-8110-ead94d0249ac: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 526428c1-21e2-4885-8110-ead94d0249ac
+    jinja: The sentiment of this sentence is either {{ " or ".join(answer_choices) }}.
+      "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_45
+    reference: jonghyeonkim
+  d34fff31-0580-41c2-b67b-263c235367b3: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: d34fff31-0580-41c2-b67b-263c235367b3
+    jinja: Can you tell if the following sentence is {{ " or ".join(answer_choices)
+      }}? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_46
+    reference: jonghyeonkim
+  cd044d97-9f5f-4ee0-a270-44d83192543b: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: cd044d97-9f5f-4ee0-a270-44d83192543b
+    jinja: Is the sentiment in the following sentence {{ " or ".join(answer_choices)
+      }}? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_47
+    reference: jonghyeonkim
+  251a36a8-7296-4bf3-bcca-99a53f005317: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 251a36a8-7296-4bf3-bcca-99a53f005317
+    jinja: Is the sentiment of the following sentence {{ " or ".join(answer_choices)
+      }}? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_48
+    reference: jonghyeonkim
+  d8e79c95-8e55-4a99-9d86-af1c7d6b670f: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: d8e79c95-8e55-4a99-9d86-af1c7d6b670f
+    jinja: 'Classify the sentiment of this sentence as {{ " or ".join(answer_choices)
+      }}: "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_49
+    reference: jonghyeonkim
+  de163fc4-4b17-49f8-8289-2e6417ba8d20: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: de163fc4-4b17-49f8-8289-2e6417ba8d20
+    jinja: The following statement has a sentiment of {{ " or ".join(answer_choices)
+      }}. "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_50
+    reference: jonghyeonkim
+  4eee6a2a-2658-460a-a496-5d440178496a: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 4eee6a2a-2658-460a-a496-5d440178496a
+    jinja: Categorize the sentiment of the following as {{ " or ".join(answer_choices)
+      }}. {{ sentence }} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_51
+    reference: jonghyeonkim
+  b09ebb7f-089b-4ede-8764-1e4a5ebe3240: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: b09ebb7f-089b-4ede-8764-1e4a5ebe3240
+    jinja: Is the sentiment in the following statement {{ " or ".join(answer_choices)
+      }}? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_52
+    reference: jonghyeonkim
+  1efe6522-b2a7-4e93-8e41-ade8dcc6b1b2: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 1efe6522-b2a7-4e93-8e41-ade8dcc6b1b2
+    jinja: Is the sentiment of the following statement {{ " or ".join(answer_choices)
+      }}? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_53
+    reference: jonghyeonkim
+  93273a9e-e785-4619-9214-5b2803ea960a: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 93273a9e-e785-4619-9214-5b2803ea960a
+    jinja: 'The following message conveys a sentiment of {{ " or ".join(answer_choices)
+      }}: "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_54
+    reference: jonghyeonkim
+  c02f048c-c0c4-4a26-9ae3-b7b2eede851c: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: c02f048c-c0c4-4a26-9ae3-b7b2eede851c
+    jinja: Do you think the sentiment of the following is {{ " or ".join(answer_choices)
+      }}? {{ sentence }} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_55
+    reference: jonghyeonkim
+  6e9ec4da-4ab2-48bc-9c37-7f5b9ca7fc00: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 6e9ec4da-4ab2-48bc-9c37-7f5b9ca7fc00
+    jinja: Determine if the sentiment of the following is {{ " or ".join(answer_choices)
+      }}. {{ sentence }} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_56
+    reference: jonghyeonkim
+  fe54b234-4de9-41cd-aa76-049155acf6df: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: fe54b234-4de9-41cd-aa76-049155acf6df
+    jinja: Can you classify the sentiment of the text as {{ " or ".join(answer_choices)
+      }}? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_57
+    reference: jonghyeonkim
+  a3a1bea4-1041-45e5-bd26-1945ea223bac: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: a3a1bea4-1041-45e5-bd26-1945ea223bac
+    jinja: The sentiment of the following text is either {{ " or ".join(answer_choices)
+      }}. "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_58
+    reference: jonghyeonkim
+  871f0f1f-0465-4bfb-9bba-f131b38ba46a: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 871f0f1f-0465-4bfb-9bba-f131b38ba46a
+    jinja: 'Do you think the sentiment of this message is {{ " or ".join(answer_choices)
+      }}: "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_59
+    reference: jonghyeonkim
+  5caa4cce-fc40-48f8-8e18-c8e7f3295735: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 5caa4cce-fc40-48f8-8e18-c8e7f3295735
+    jinja: Does the following statement express a {{ " or ".join(answer_choices) }}
+      sentiment? {{ sentence }} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_60
+    reference: jonghyeonkim
+  ab4b2b45-71f9-4f28-8073-a136b7e19c79: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: ab4b2b45-71f9-4f28-8073-a136b7e19c79
+    jinja: Do you believe the sentiment in the sentence is {{ " or ".join(answer_choices)
+      }}? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_61
+    reference: jonghyeonkim
+  a2a45041-94ce-4ae2-8ea0-2cbf80773214: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: a2a45041-94ce-4ae2-8ea0-2cbf80773214
+    jinja: 'Which of the following sentiments does "{{ sentence }}" express: {{ " or
+      ".join(answer_choices) }}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_62
+    reference: jonghyeonkim
+  e3bbc01e-1bf3-4543-9753-e4436de458f1: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: e3bbc01e-1bf3-4543-9753-e4436de458f1
+    jinja: 'Determine the sentiment of the sentence: "{{ sentence }}" - Is it {{ " or
+      ".join(answer_choices) }}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_63
+    reference: jonghyeonkim
+  3bf7090f-87e1-4b7c-95d9-82fad1250d20: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 3bf7090f-87e1-4b7c-95d9-82fad1250d20
+    jinja: Is the following sentence expressing a {{ " or ".join(answer_choices) }}
+      sentiment? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_64
+    reference: jonghyeonkim
+  934e198f-789d-446c-afeb-237454c66147: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 934e198f-789d-446c-afeb-237454c66147
+    jinja: Do you believe the sentiment of this sentence is {{ " or ".join(answer_choices)
+      }}? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_65
+    reference: jonghyeonkim
+  63a64928-b3a6-4a47-babc-2764019e0ab3: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 63a64928-b3a6-4a47-babc-2764019e0ab3
+    jinja: 'Please classify the sentiment of this sentence as {{ " or ".join(answer_choices)
+      }}: "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_66
+    reference: jonghyeonkim
+  5fee47d1-9966-4b3c-b2c9-36567fd3bc1f: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 5fee47d1-9966-4b3c-b2c9-36567fd3bc1f
+    jinja: Based on the following sentence, is the sentiment {{ " or ".join(answer_choices)
+      }}? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_67
+    reference: jonghyeonkim
+  d73d88de-a3df-4b5b-82d8-bd8a7c2fd61a: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: d73d88de-a3df-4b5b-82d8-bd8a7c2fd61a
+    jinja: What do you think the sentiment of the sentence "{{ sentence }}" is? {{ "
+      or ".join(answer_choices) }} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_68
+    reference: jonghyeonkim
+  e679cad0-fc18-4f4f-ae9f-b919cfff1524: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: e679cad0-fc18-4f4f-ae9f-b919cfff1524
+    jinja: Classify the sentiment of the following statement as {{ " or ".join(answer_choices)
+      }}. {{ sentence }} ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_69
+    reference: jonghyeonkim
+  1eb9dc6c-a37c-4d9d-b714-ada0856fe70c: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 1eb9dc6c-a37c-4d9d-b714-ada0856fe70c
+    jinja: Do you think the following sentence has a {{ " or ".join(answer_choices)
+      }} sentiment? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_70
+    reference: jonghyeonkim
+  fdedef6b-3760-4a01-8070-6bca4fc2d870: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: fdedef6b-3760-4a01-8070-6bca4fc2d870
+    jinja: 'Please tell me if you think the following sentence is {{ " or ".join(answer_choices)
+      }}: {{ sentence }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_71
+    reference: jonghyeonkim
+  08cc8f67-afcc-47bd-ab89-f2316f3204ef: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 08cc8f67-afcc-47bd-ab89-f2316f3204ef
+    jinja: 'Classify the sentiment of the following sentence as {{ " or ".join(answer_choices)
+      }}: "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_72
+    reference: jonghyeonkim
+  ca336996-a8c2-44cc-b645-1ffc3dadfe32: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: ca336996-a8c2-44cc-b645-1ffc3dadfe32
+    jinja: The following statement is {{ " or ".join(answer_choices) }}. What do you
+      think it is? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_73
+    reference: jonghyeonkim
+  c77c9a5d-6313-4829-9b65-f3b4a0a5bcc9: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: c77c9a5d-6313-4829-9b65-f3b4a0a5bcc9
+    jinja: Can you identify if the sentiment of the sentence "{{ sentence }}" is {{
+      " or ".join(answer_choices) }}? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_74
+    reference: jonghyeonkim
+  6de64413-b0a4-4a3c-afad-c2e8fee85d89: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 6de64413-b0a4-4a3c-afad-c2e8fee85d89
+    jinja: What is the sentiment of this sentence? "{{ sentence }}" It is either {{
+      " or ".join(answer_choices) }}. ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_75
+    reference: jonghyeonkim
+  06668a09-9d52-44ee-9f58-13db00e73de7: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 06668a09-9d52-44ee-9f58-13db00e73de7
+    jinja: Determine if the following text expresses a {{ " or ".join(answer_choices)
+      }} sentiment. "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_76
+    reference: jonghyeonkim
+  9c0dcc88-5dee-4ec0-8b0d-aab0c130f89d: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 9c0dcc88-5dee-4ec0-8b0d-aab0c130f89d
+    jinja: 'Put the following statement in either of the categories: {{ " or ".join(answer_choices)
+      }}. "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_77
+    reference: jonghyeonkim
+  0ebea464-06e7-43cd-87b5-a9e77519e374: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 0ebea464-06e7-43cd-87b5-a9e77519e374
+    jinja: 'Please classify the sentiment in the following statement: {{ " or ".join(answer_choices)
+      }}. "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_78
+    reference: jonghyeonkim
+  273ff2d5-dfeb-4258-942e-57c03e9d51d3: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 273ff2d5-dfeb-4258-942e-57c03e9d51d3
+    jinja: '{{ sentence }} The sentiment of this statement is {{ " or ".join(answer_choices)
+      }}. What do you think it is? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_79
+    reference: jonghyeonkim
+  736091c1-67b1-4c57-b301-ddedd9496871: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 736091c1-67b1-4c57-b301-ddedd9496871
+    jinja: The following statement's sentiment is {{ " or ".join(answer_choices) }}.
+      What do you think? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_80
+    reference: jonghyeonkim
+  60e8dc0f-548e-4a57-84ce-f6a668cce0d5: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 60e8dc0f-548e-4a57-84ce-f6a668cce0d5
+    jinja: Do you think the following statement expresses a {{ " or ".join(answer_choices)
+      }} sentiment? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_81
+    reference: jonghyeonkim
+  555e7379-7186-4924-895f-f8a307761604: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 555e7379-7186-4924-895f-f8a307761604
+    jinja: 'Please classify the sentiment in the following statement as {{ " or ".join(answer_choices)
+      }}: "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_82
+    reference: jonghyeonkim
+  36982a5b-eb8b-469f-9b8a-1b34b135752c: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 36982a5b-eb8b-469f-9b8a-1b34b135752c
+    jinja: What is the sentiment expressed in the following statement? {{ " or ".join(answer_choices)
+      }}. "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_83
+    reference: jonghyeonkim
+  abc02dfe-1cf2-470f-a10d-6bd33d8ba158: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: abc02dfe-1cf2-470f-a10d-6bd33d8ba158
+    jinja: 'Put the sentiment of the following into one of the categories: {{ " or ".join(answer_choices)
+      }}. {{ sentence }} ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_84
+    reference: jonghyeonkim
+  be2124e8-7319-4107-b5c9-2caa1954a273: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: be2124e8-7319-4107-b5c9-2caa1954a273
+    jinja: The sentiment of the statement is either {{ " or ".join(answer_choices) }}.
+      Can you classify it? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_85
+    reference: jonghyeonkim
+  74c08d79-3ce5-4c89-83c2-eecfa1618d5e: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 74c08d79-3ce5-4c89-83c2-eecfa1618d5e
+    jinja: Please categorize the sentiment of the following statement as {{ " or ".join(answer_choices)
+      }}. "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_86
+    reference: jonghyeonkim
+  ebb42893-eeaa-4d47-92b9-2c1237a0fca6: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: ebb42893-eeaa-4d47-92b9-2c1237a0fca6
+    jinja: '"{{ sentence }}" Based on the given statement, what sentiment is it conveying?
+      {{ " or ".join(answer_choices) }}. ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_87
+    reference: jonghyeonkim
+  b80696f2-385a-4375-807f-2fecaa13e6f3: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: b80696f2-385a-4375-807f-2fecaa13e6f3
+    jinja: 'Read the following sentence: "{{ sentence }}". Does the sentiment convey
+      a {{ " or ".join(answer_choices) }} vibe? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_88
+    reference: jonghyeonkim
+  d899818f-4565-4d78-9b3f-b831f1e4abd3: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: d899818f-4565-4d78-9b3f-b831f1e4abd3
+    jinja: 'Determine if the sentiment expressed in the following statement is {{ "
+      or ".join(answer_choices) }}: "{{ sentence }}" ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_89
+    reference: jonghyeonkim
+  4e8d6797-5067-4c07-9859-4a43eb3fb730: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 4e8d6797-5067-4c07-9859-4a43eb3fb730
+    jinja: Please classify the sentiment of the following statement as either {{ " or
+      ".join(answer_choices) }}. "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_90
+    reference: jonghyeonkim
+  63edaad4-e76e-4a8d-b7bd-df376954b9a3: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 63edaad4-e76e-4a8d-b7bd-df376954b9a3
+    jinja: What do you think is the sentiment of the following sentence? "{{ sentence
+      }}" - Is it {{ " or ".join(answer_choices) }}? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_91
+    reference: jonghyeonkim
+  e297c239-ea6a-4243-ad56-fd2ec6704203: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: e297c239-ea6a-4243-ad56-fd2ec6704203
+    jinja: What is the sentiment expressed in the following sentence? It's either {{
+      " or ".join(answer_choices) }}. "{{ sentence }}" ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_92
+    reference: jonghyeonkim
+  6d48c311-9950-485b-b8d8-162c83d90039: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 6d48c311-9950-485b-b8d8-162c83d90039
+    jinja: The given statement is {{ " or ".join(answer_choices) }}. What do you think
+      is the sentiment conveyed in "{{ sentence }}"? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_93
+    reference: jonghyeonkim
+  965c0d94-0a22-4c31-bbd3-b4e56b527b02: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 965c0d94-0a22-4c31-bbd3-b4e56b527b02
+    jinja: The sentiment in the following is either {{ " or ".join(answer_choices) }}.
+      Can you tell which one it is? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_94
+    reference: jonghyeonkim
+  d0f51494-19e2-4171-ae69-89ae60c5d0a8: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: d0f51494-19e2-4171-ae69-89ae60c5d0a8
+    jinja: What do you think is the sentiment of the following sentence? "{{ sentence
+      }}" Choose from {{ " or ".join(answer_choices) }}. ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_95
+    reference: jonghyeonkim
+  2dc32621-c005-402a-919f-eb59f8c76564: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 2dc32621-c005-402a-919f-eb59f8c76564
+    jinja: The sentiment of the following sentence is either {{ " or ".join(answer_choices)
+      }}. What do you think it is? "{{ sentence }}" ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_96
+    reference: jonghyeonkim
+  84efe002-fb76-4cf4-b418-3ee5d6902fb0: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 84efe002-fb76-4cf4-b418-3ee5d6902fb0
+    jinja: The sentiment of the following statement is {{ " or ".join(answer_choices)
+      }}. Can you determine which one it is? "{{ sentence }}" ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_97
+    reference: jonghyeonkim
+  9da2abd6-a007-485b-be03-d18c3bfb1adf: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 9da2abd6-a007-485b-be03-d18c3bfb1adf
+    jinja: I just read the following statement, "{{ sentence }}". How would you describe
+      the sentiment? Answer in {{ " or ".join(answer_choices) }}. ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_98
+    reference: jonghyeonkim
+  649dec25-65f4-4cb8-889a-4c9366579740: !Template
+    answer_choices: Unpleasant ||| Positive
+    id: 649dec25-65f4-4cb8-889a-4c9366579740
+    jinja: According to the following sentence, the sentiment is either {{ " or ".join(answer_choices)
+      }}. Can you tell which one it is? "{{ sentence }}" ||| {{ answer_choices[label]
+      }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      metrics: ["Accuracy"]
+      original_task: true
+    name: verbalizer12_99
+    reference: jonghyeonkim
