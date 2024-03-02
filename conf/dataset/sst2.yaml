@@ -18,7 +18,7 @@ DATASET_KWARGS:
 # Arguments for proper data preprocessing
 DATASET_INFO: 
   # Number of classes
-  num_classes: 4
+  num_classes: 2
   # For dynamic task, specify column names for candidate answers
   choices: null
   # Correct Answer Label Column Name
