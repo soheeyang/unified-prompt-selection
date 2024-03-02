@@ -1,5 +1,7 @@
 # Improving Probability-based Prompt Selection Through Unified Evaluation and Analysis
 
+[![Colab UPS README](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/soheeyang/unified-prompt-selection/blob/main/unified_prompt_selection.ipynb)
+
 Official code for the paper [Improving Probability-based Prompt Selection Through Unified Evaluation and Analysis](https://arxiv.org/abs/2305.14877) accepted at TACL 2024.
 
 You can read the summary of our paper in [this Twitter Thread](https://twitter.com/soheeyang_/status/1661339578240737287).
@@ -43,6 +45,22 @@ Python version 3.9+ is required.
 <center><img src="images/Overview.png" width="100%" height="100%"></center>
 
 LLMs predict the essential $p(y|x,t)$ through inference with given prompt candidates and datasets to calculate prompt selection scores. In the subsequent prompt selection process, the extracted $p(y|x,t)$ is loaded to calculate prompt selection scores. Based on these scores, a prompt is chosen, and the selection result is returned. OTR(One-Token Response) Converter is used when calculating $p(y|x,t)$ by utilizing only the first token logits.
+
+## Quick Start
+
+You can quickly explore the core functionalities by referring to the following notebook files.
+
+- **Prompt Selection**
+
+    [![Colab PS](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/soheeyang/unified-prompt-selection/blob/main/notebooks/prompt_selection.ipynb)
+
+- **Adding Custom Prompt Selection Method**
+
+    [![Colab PS](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/soheeyang/unified-prompt-selection/blob/main/notebooks/add_custom_prompt_selection_method.ipynb)
+
+- **Adding Custom Prompt**
+
+    [![Colab PS](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/soheeyang/unified-prompt-selection/blob/main/notebooks/add_custom_prompt.ipynb)
 
 ## LLM Inference & Prompt Selection
 
@@ -314,9 +332,9 @@ If you want to add a new prompt selection method, refer to the [./method/methods
 |:---------:|:-------:|:------------:|
 |Input Variable|`template_prob`|`tensor_dict_prob`|
 |Input Variable Type|torch.Tensor|torch.Tensor|
-|Input Variable Dimension|[X, Y]|[T, X, Y]|
+|Input Variable Size|[X, Y]|[T, X, Y]|
 |Output Value Type|torch.Tensor|Tuple[List[float], List[int]]|
-|Output Value Dimension|[1]|([X], [X])|
+|Output Value Size|[]\(Scalar\)|([X], [X])|
 
 - **T** : The number of prompts
 - **X** : The number of instances
@@ -542,7 +560,7 @@ By entering the [name](./extraction/promptsource/templates/story_cloze/2016/temp
 
 If you want to add new prompts, refer to [Custom Prompt Addition](#custom-prompt-addition).
 
-## Custom Prompt Addition
+## Adding Custom Prompt
 
 To manage and utilize prompts, we rely on [promptsource](https://github.com/bigscience-workshop/promptsource). For more information on adding prompts, refer to promptsource.
 
