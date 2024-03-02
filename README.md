@@ -44,7 +44,7 @@ Python version 3.9+ is required.
 
 LLMs predict the essential $p(y|x,t)$ through inference with given prompt candidates and datasets to calculate prompt selection scores. In the subsequent prompt selection process, the extracted $p(y|x,t)$ is loaded to calculate prompt selection scores. Based on these scores, a prompt is chosen, and the selection result is returned. OTR(One-Token Response) Converter is used when calculating $p(y|x,t)$ by utilizing only the first token logits.
 
-## LLM inference & Prompt Selection
+## LLM Inference & Prompt Selection
 
 By running `run_prompt_selection.py`, you can extract $p(y|x,t)$ and select a prompt.
 
