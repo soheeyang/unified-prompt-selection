@@ -18,6 +18,7 @@ from method.prompt_filter import (
 )
 from method.methods import (
     get_le,
+    get_mdl_m,
     get_ge,
     get_ge_m,
     get_mi,
@@ -90,7 +91,7 @@ def get_task_wise_ps_result(
         'MI': get_mi_g if one_hot else get_mi,
         'GE': get_ge if one_hot else get_ge_m,
         'LE': get_le,
-        'MDL': get_le,
+        'MDL': get_mdl_m,
         'PPL': get_ppl,
         'ZLP': get_zlp,
         'ZPM': get_zpm,
