@@ -16,6 +16,9 @@ template_prob: [X, Y]
 def get_le(template_prob: Tensor) -> Tensor:
     return get_entropy(template_prob, sum_axis=-1).mean()
 
+def get_mdl_m(template_prob: Tensor) -> Tensor:
+    return - get_entropy(template_prob, sum_axis=-1).mean()
+
 def get_ge_m(template_prob: Tensor, X_axis: int = 0, Y_axis: int = -1, keepdims: bool = False) -> Tensor:
     d_prob = template_prob.mean(axis=X_axis, keepdims=keepdims)
     return get_entropy(d_prob, sum_axis=Y_axis, keepdims=keepdims)
@@ -48,13 +51,13 @@ def get_zmv(template_prob: Tensor, tensor_dict_prob: Tensor, Y_axis: int = -1) -
 
 def get_mi(template_prob: Tensor) -> Tensor:
     ge_m = get_ge_m(template_prob)
-    mdl_m = get_le(template_prob)
-    return (ge_m - mdl_m)
+    mdl_m = get_mdl_m(template_prob)
+    return (ge_m + mdl_m)
 
 def get_mi_g(template_prob: Tensor) -> Tensor:
     ge = get_ge(template_prob)
-    mdl_m = get_le(template_prob)
-    return (ge - mdl_m)
+    mdl_m = get_mdl_m(template_prob)
+    return (ge + mdl_m)
 
 def get_ppl(template_ppl: Tensor) -> Tensor:
     return template_ppl.mean()
@@ -67,8 +70,8 @@ def get_mi_gl(tensor_dict_prob: Tensor) -> Tuple[List[float], List[int]]:
     mi_agls, selected_prompt_indices = [], []
     for i in range(X):
         instance_prob = tensor_dict_prob[i]  # [T, Y]
-        mdl = get_entropy(instance_prob, -1)
-        mi_agl = ge - mdl
+        mdl = -get_entropy(instance_prob, -1)
+        mi_agl = ge + mdl
         mi_agls.append(mi_agl.max().item())
         selected_prompt_indices.append(mi_agl.argmax().item())
     return mi_agls, selected_prompt_indices
@@ -81,8 +84,8 @@ def get_mi_l(tensor_dict_prob: Tensor) -> Tuple[List[float], List[int]]:
     mi_als, selected_prompt_indices = [], []
     for i in range(X):
         instance_prob = tensor_dict_prob[i]  # [T, Y]
-        mdl = get_entropy(instance_prob, -1)
-        mi_al = ge_m - mdl
+        mdl = -get_entropy(instance_prob, -1)
+        mi_al = ge_m + mdl
         mi_als.append(mi_al.max().item())
         selected_prompt_indices.append(mi_al.argmax().item())
     return mi_als, selected_prompt_indices
@@ -94,9 +97,9 @@ def get_mdl(tensor_dict_prob: Tensor) -> Tuple[List[float], List[int]]:
     mdls, selected_prompt_indices = [], []
     for i in range(X):
         instance_prob = tensor_dict_prob[i]  # [T, Y]
-        mdl = get_entropy(instance_prob, -1)
-        mdls.append(mdl.min().item())
-        selected_prompt_indices.append(mdl.argmin().item())
+        mdl = -get_entropy(instance_prob, -1)
+        mdls.append(mdl.max().item())
+        selected_prompt_indices.append(mdl.argmax().item())
     return mdls, selected_prompt_indices
 
 def get_i_ppl(tensor_dict_perplexity: Tensor) -> Tuple[List[float], List[int]]:
